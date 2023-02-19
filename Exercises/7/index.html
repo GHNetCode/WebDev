@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 7 Challenge Starter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Notice how we have used "semantic HTML" here -->
+    <!-- Re-read the lesson if you don't understand what that means -->
+    <!-- https://www.zachgollwitzer.com/posts/2021/fullstack-developer-series/7-html-crash-course   -->
+    <main>
+      <section class="content">
+        <!-- Your HTML code goes here -->
+        <h2 class="h2C">Action results</h2>
+        <h3>Some memes:</h3>
+        <div id="showMemeH">
+        </div>
+        <h3>Funny jokes:</h3>
+        <div id="showJokeH">
+        </div>
+        <h3>A quote or 2:</h3>
+        <div id="showQuoteH">
+        </div>
+        <h3>How about a riddle?</h3>
+        <div id="showRiddleH">
+        </div>
+        <h3 id="revealAnsH">Riddle answers.:</h3>
+        <div></div>
+      </section>
+
+      <!-- No need to change anything in this section --> 
+      <section class="sidebar">
+        <h2>Actions</h2>
+        <button id="showMemeB"onclick="showMeme()">Show a Meme</button>
+        <button id="showJokeB"onclick="showJoke()">Tell Me a Joke</button>
+        <button id="showQuoteB"onclick="showQuote()">Random Quote</button>
+        <button id="showRiddleB"onclick="showRiddle()">Riddle me</button>
+        <!--<button id="revealAnsB"class="reveal-btn" onclick="revealAnswers()">Reveal Riddle Answer</button>-->
+        <button id="revealAnsB" onclick="revealAnswers()">Reveal Riddle</button>
+        <p class="attribution">
+          Code challenge by
+          <a href="https://www.twitter.com/zg_dev" target="_top">@zg_dev</a>
+          Completed by Mark
+        </p>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
