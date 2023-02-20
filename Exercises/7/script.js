@@ -183,10 +183,10 @@ function HideRevealAnswer(){
       //Ask to reveal or hide the riddle!
       if (HiddenStat !== null){
         //alert('Riddle has been hidden...');
-        let answer = confirm ('Would you like to unhide the answer..?');
+        let answer = window.confirm ('Would you like to unhide the answer..?');
         if(answer){pDivC5.hidden=false;}
       }else{
-        let answer = confirm ('Would you like to hide the answer..?');
+        let answer = window.confirm ('Would you like to hide the answer..?');
         if(answer){pDivC5.hidden=true;}
       }
   }else{
