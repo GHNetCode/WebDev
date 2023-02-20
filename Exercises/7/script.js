@@ -158,7 +158,7 @@ if (document.querySelector('p.DivC5')&&document.querySelector('p.DivC4')){//Ridd
           let pEa = document.createElement("p"); 
           pEa.className = 'DivC5';
           pEa.textContent = el.answer;
-          pEa.hidden = true;
+          pEa.hidden = false;
           document.getElementById('revealAnsH').appendChild(pEa);//answer
         }
       }
