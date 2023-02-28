@@ -1,0 +1,136 @@
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
+.body{
+    font-family: 'Karla', sans-serif;
+    margin: 110px auto 50px auto; 
+    display: flex;
+    justify-content: center; 
+    /* align-items: center; */
+    background-color: hsl(204, 43%, 93%);/*Light Gray: hsl(204, 43%, 93%) */
+}
+
+.container{
+    background-color:hsl(160, 0%, 240%); /*rgba(243, 243, 243, 0.913); hsl 16,0,240*/
+    box-shadow: 9px 15px 20px 20px rgba(77, 100, 113, 0.07); /* https://cssgenerator.org/box-shadow-css-generator.html */
+    width:640px;
+    height:480px;
+    border-radius:8px;
+    
+}
+.Margin1{
+    margin-left:42px;
+}
+
+.box1{
+    /* background-color:rgba(243, 243, 243, 0.822); */
+    /* padding-top:7px; */
+    margin-top:58px;
+    margin-bottom:30px;
+    height:155px;
+    /* width:648px; */
+    width:100%; /*setting this width to 100% sorted the right margin out so text is not being wrapped!!*/
+    font-size:1.2rem;
+}
+.bh1{
+    color: hsl(179, 62%, 43%);
+}
+.p1-1{
+    color:hsl(71, 73%, 54%);
+    font-weight:600;
+    font-size:18px; 
+}
+.p1-2{
+    /* color:lightgray; */
+    color:rgb(194, 200, 207);
+    font-size:15px;
+    font-weight:600;/*default */
+    line-height: 1.77;
+    margin-left: 42px;
+}
+
+.contboxab{
+    float:left;
+    height:260px;
+    width:320px;
+
+}
+
+.boxa{
+width:50%;
+background-color: rgb(43, 179, 177);
+border-bottom-left-radius:8px;
+color:white;
+font-size:17px;
+letter-spacing:1px;
+}
+.pa-1{
+   margin-left:42px;
+   margin-top:40px;
+   
+    /* padding-top:40px; */
+}
+
+#price{
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    display:inline-block;
+
+}
+#price-frequency{
+    display:inline-block;
+    position: relative;
+    top: -3px;
+    font-size: 1rem;
+    opacity: .5;
+    margin-left: 5px;
+}
+
+#p2{
+    font-size: .87rem;
+    font-weight:400;
+    opacity: .9;
+    margin-top: 9px;
+
+}
+
+button{
+    color: white;
+    background:hsl(71, 73%, 54%);
+    font-size: 1.1rem;
+    border:0;
+    padding: 9px;
+    width:85%;
+    border-radius:5px;
+    height:50px;
+    position: relative;
+    top: 10px;
+}
+
+.hState:hover {
+    color: black;
+    background: rgb(228, 206, 13);
+    transition: background-color 1s;
+}
+
+.boxb{
+width:50%;
+background-color: rgb(74, 190, 189);
+border-bottom-right-radius:8px;
+color:white;
+font-size:17px;
+letter-spacing: 1px;
+}
+.pb-1{
+    margin-left: 42px;
+    margin-top: 40px; 
+}
+#ulist{
+    list-style-type: none;
+    font-size: .8rem;
+    line-height: 1.6;
+    opacity: .7;
+}
+
