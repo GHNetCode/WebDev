@@ -105,19 +105,17 @@ button{
     position: relative;
     top: 10px;
 }
-
-
-/*  .hState:hover {
+/* 
+ .hState:hover {
     color: white;
     background: hsl(71, 73%, 54%);
     
-} 
- */
+}  */
 
 @media (hover: hover) {
     /* when hover is supported */
-    .hState:hover {
-      color: rgb(28, 25, 25);
+    #idhState:hover {
+      color: rgb(38, 19, 147);
       background: rgb(228, 206, 13);
     }}
 
@@ -156,11 +154,10 @@ letter-spacing: 1px;
     }
 
     @media screen and (max-width: 510px) {
-        
-         /*#resizeInnerW:hover {
+         #resizeInnerW:hover {
             color: red;
             transition-duration: 1s;
-        } */
+        }
 
         
         
@@ -206,7 +203,7 @@ letter-spacing: 1px;
                 top: 10px;
             }
             
-             /*.hState:hover {
+            /* .hState:hover {
                 color: white;
                 background: hsl(71, 73%, 54%);
                 
@@ -214,8 +211,8 @@ letter-spacing: 1px;
             
             @media (hover: hover) {
                 /* when hover is supported */
-                .hState:hover {
-                  color: rgb(28, 25, 25);
+                #idhState:hover {
+                  color: rgb(38, 19, 147);
                   background: rgb(228, 206, 13);
                 }}
     
