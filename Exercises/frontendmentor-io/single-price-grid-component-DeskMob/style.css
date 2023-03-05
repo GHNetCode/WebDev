@@ -164,7 +164,7 @@ letter-spacing: 1px;
             height:100%;
             border-radius:8px;
         }
-        .box1{height: 185px;margin-right:190px;}
+        .box1{height: 185px;margin-right:190px;margin-top:40px;}
 
         .p1-2{
             margin-right: 42px;
@@ -206,8 +206,7 @@ letter-spacing: 1px;
             z-index:-1; 
             margin-top:580px; 
             margin-left:13%;
-            margin-bottom:50px;
-
+            margin-bottom:50px; 
             /* justify-content: center; */
             padding-bottom: 10px;
 
