@@ -201,10 +201,11 @@ letter-spacing: 1px;
 
      
         .attribution {
-            position:absolute;  /* button now works if absolute is set to -1 */
+            position:absolute;  
             z-index:-1; 
             margin-top:580px ; 
-            margin-left:55px;
+         /* margin-left:55px; */
+            margin-left:14%;
             margin-bottom:50px; 
             padding-bottom: 10px;
             } 
