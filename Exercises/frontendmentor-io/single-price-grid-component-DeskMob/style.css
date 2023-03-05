@@ -106,11 +106,13 @@ button{
     top: 10px;
 }
 
- .hState:hover {
+
+/*  .hState:hover {
     color: white;
     background: hsl(71, 73%, 54%);
     
 } 
+ */
 
 @media (hover: hover) {
     /* when hover is supported */
