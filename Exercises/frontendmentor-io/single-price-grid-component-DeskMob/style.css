@@ -156,10 +156,11 @@ letter-spacing: 1px;
     }
 
     @media screen and (max-width: 510px) {
-         #resizeInnerW:hover {
+        
+         /*#resizeInnerW:hover {
             color: red;
             transition-duration: 1s;
-        }
+        } */
 
         
         
@@ -205,11 +206,11 @@ letter-spacing: 1px;
                 top: 10px;
             }
             
-            .hState:hover {
+             /*.hState:hover {
                 color: white;
                 background: hsl(71, 73%, 54%);
                 
-            } 
+            }  */
             
             @media (hover: hover) {
                 /* when hover is supported */
