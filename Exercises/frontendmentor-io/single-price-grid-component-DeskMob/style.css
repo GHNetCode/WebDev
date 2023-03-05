@@ -107,10 +107,17 @@ button{
 }
 
  .hState:hover {
-    color: black;
-    background: rgb(228, 206, 13);
+    color: white;
+    background: hsl(71, 73%, 54%);
     
 } 
+
+@media (hover: hover) {
+    /* when hover is supported */
+    .hState:hover {
+      color: rgb(28, 25, 25);
+      background: rgb(228, 206, 13);
+    }}
 
 .boxb{
 width:50%;
@@ -151,7 +158,6 @@ letter-spacing: 1px;
             color: red;
             transition-duration: 1s;
         }
-
 
         
         
@@ -196,6 +202,19 @@ letter-spacing: 1px;
                 position: relative;
                 top: 10px;
             }
+            
+            .hState:hover {
+                color: white;
+                background: hsl(71, 73%, 54%);
+                
+            } 
+            
+            @media (hover: hover) {
+                /* when hover is supported */
+                .hState:hover {
+                  color: rgb(28, 25, 25);
+                  background: rgb(228, 206, 13);
+                }}
     
          .boxb{
              width:100%;
@@ -216,12 +235,3 @@ letter-spacing: 1px;
 
             } 
      }
-
-@media not all and (hover: hover) {
-    #idhState::after {
-        color: white;
-         background:hsl(71, 73%, 54%);
-    }
-}
-
-
