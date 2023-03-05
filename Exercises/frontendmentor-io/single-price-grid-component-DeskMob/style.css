@@ -201,12 +201,11 @@ letter-spacing: 1px;
 
      
         .attribution {
-            /* position:absolute;   button now works if absolute is set to -1 */
-            /* z-index:-1; */
-            /* padding-top: 860px;
-            padding-right: 120px; */
-            /* margin-top:870px ; */
-            
-            
+            position:absolute;  /* button now works if absolute is set to -1 */
+            z-index:-1; 
+            margin-top:580px ; 
+            margin-left:70px;
+            margin-bottom:50px; 
+            padding-bottom: 10px;
             } 
     }
