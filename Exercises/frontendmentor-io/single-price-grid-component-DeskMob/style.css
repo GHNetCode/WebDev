@@ -150,7 +150,11 @@ letter-spacing: 1px;
          #resizeInnerW:hover {
             color: red;
             transition-duration: 1s;
-        } 
+        }
+
+
+        
+        
         .body{
             margin: auto auto auto auto; 
             display: flex;
@@ -211,4 +215,13 @@ letter-spacing: 1px;
             padding-bottom: 10px;
 
             } 
+     }
+
+@media not all and (hover: hover) {
+    #idhState::after {
+        color: white;
+         background:hsl(71, 73%, 54%);
     }
+}
+
+
