@@ -11,7 +11,7 @@
 const btnC = document.getElementById("idhState");
 btnC.addEventListener('touchstart', () => btnC.style.background = 'rgb(160, 194, 23)')
 //btnC.addEventListener('touchmove', () => btnC.style.background = 'red')
-btnC.addEventListener('touchend', () => btnC.style.background = 'rgb(160, 194, 23)')
+btnC.addEventListener('touchend', () => btnC.style.background = 'hsl(71, 73%, 54%)')
 
 //hsl(71, 73%, 54%)
 
