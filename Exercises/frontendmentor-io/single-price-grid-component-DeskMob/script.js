@@ -4,9 +4,9 @@
 // }
 
 const btnC = document.getElementById("#idhState");
-btnC.addEventListener('touchstart', () => btnC.style.background = 'red')
-btnC.addEventListener('touchmove', () => btnC.style.background = 'blue')
-btnC.addEventListener('touchend', () => btnC.style.background = 'red')
+btnC.addEventListener('touchstart', () => btnC.style.background = 'blue')
+btnC.addEventListener('touchmove', () => btnC.style.background = 'red')
+btnC.addEventListener('touchend', () => btnC.style.background = 'green')
 
 
 // function myFunkyB(){
