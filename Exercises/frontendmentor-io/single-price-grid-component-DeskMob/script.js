@@ -3,9 +3,9 @@
 // document.querySelector('#resizeInnerW').textContent=window.innerWidth;
 // }
 
-function myFunkyB(){
-alert("You have clicked the Button!");
-}
+// function myFunkyB(){
+// alert("You have clicked the Button!");
+// }
 
 
 function changeBackground(color) {
