@@ -11,8 +11,20 @@ alert("You have clicked the Button!");
 // btnC.addEventListener('touchmove', () => btnC.style.background = 'red')
 // btnC.addEventListener('touchend', () => btnC.style.background = 'green')
 
-const btnC = document.getElementById("idhState");
-btnC.addEventListener('touchstart', () => btnC.style.background = 'rgb(160, 194, 23)')
-//btnC.addEventListener('touchmove', () => btnC.style.background = 'red')
-btnC.addEventListener('touchend', () => btnC.style.background = 'hsl(71, 73%, 54%)')
+// const btnC = document.getElementById("idhState");
+// btnC.addEventListener('touchstart', () => btnC.style.background = 'rgb(160, 194, 23)')
+// //btnC.addEventListener('touchmove', () => btnC.style.background = 'red')
+// btnC.addEventListener('touchend', () => btnC.style.background = 'hsl(71, 73%, 54%)')
 
+const btnC = document.getElementById("idhState");
+    btnC.addEventListener('touchstart', () => {
+        btnC.style.background = 'rgb(160, 194, 23)';
+        btnC.style.color = 'rgb(38, 19, 147)';
+    })
+
+    //btnC.addEventListener('touchmove', () => btnC.style.background = 'red')
+
+    btnC.addEventListener('touchend', () => {
+        btnC.style.background = 'hsl(71, 73%, 54%)'
+        btnC.style.color = 'white';
+    })
