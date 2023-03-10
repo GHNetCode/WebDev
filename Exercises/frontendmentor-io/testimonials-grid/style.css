@@ -20,7 +20,7 @@ body{background-color: rgb(236, 242, 248);
     margin-bottom: 20px;    /*Put a border round each card\testimony.*/
     padding: 30px;          /*Space between the text and edge of the border for card\testimony */
     border-radius: 7px;   /*make the corners rounded*/
-    box-shadow: 18px 90px 29px 5px rgba(77, 100, 113, 0.121); /* https://cssgenerator.org/box-shadow-css-generator.html */
+    box-shadow: 18px 90px 29px 1px rgba(77, 100, 113, 0.121); /* https://cssgenerator.org/box-shadow-css-generator.html */
 } 
     
 .TCards h3{font-size: 18px;}
