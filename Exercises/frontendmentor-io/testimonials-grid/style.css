@@ -144,12 +144,13 @@ body{background-color: rgb(236, 242, 248);
           .attribution {flex-shrink:0; margin-bottom: -1800px; margin-left: 40%; position: absolute;} 
         /*  margin-bottom: -850px; position: absolute; */
     }
+ 
+
+    @media(min-width: 1000px){ 
+        .attribution{margin-bottom: -900px;}} 
 
 
 .attribution {flex-shrink: 0; font-size: 11px; text-align:center;}
 .attribution a {color: hsl(228, 45%, 44%);}
 
-
-            /* .attribution {flex-shrink: 0; margin-bottom: 0px; }*/
-            
-        /*  https://dev.to/domysee/keeping-the-footer-at-the-bottom-with-css-flexbox-5h5f   */
+ 
