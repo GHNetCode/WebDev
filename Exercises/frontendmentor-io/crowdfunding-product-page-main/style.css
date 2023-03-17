@@ -1,0 +1,163 @@
+
+
+/*Reset all inherited values to 0.*/
+*{box-sizing: border-box; margin:0;padding:0;}
+
+body{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-family: 'Commissioner', sans-serif;
+    font-family: 'Karla', sans-serif;
+
+    margin:0px;
+    margin-bottom:0px;}
+
+  #mainContent{
+    /* margin:0px; */
+    display:flex;
+    align-items: center;
+    justify-content:center; 
+    flex-direction: column; }
+
+/*REMOVE ME START-: Width in pixels..*/
+  #resizeInnerW{
+     position: absolute;
+     top:0; 
+     z-index: 2; 
+    color: rgb(239, 6, 6);}
+  /*REMOVE ME END*/
+
+/* NavBar including the image -:START */
+#mobNavB{ /*includes .imgBckgrndMob, .mobNavB h1,.icon-hamburger */
+  display:flex;  
+  justify-content:center;  
+  align-items: center; 
+  position: relative;
+  z-index:0;
+  /* min-width:379px; */
+  min-width:100%;
+  margin:0;}
+      #imgBckgrndMob{
+        position: relative; /*relative to mobNavB*/
+        /* z-index:0;  */
+        /* width:375px; */
+          /* min-width:379px; */
+        max-width:100%;
+        /* max-height:100%; */
+      background-image: url("./images/image-hero-mobile.jpg");}
+      #mobNavB h1{ /*crowdfund header..*/
+        position: absolute;
+        max-width:100%;
+        top:29px; 
+        left:21px;
+        font-size: 36px;
+        transform: scale(0.9, 1.0);  
+        /*adjust font further (width, height)*/
+        letter-spacing: -1px;   
+        color: white;}
+      
+      #icon-hamburger{
+        position: absolute;
+        top:40px; 
+        left:89.2%;
+        width: 4.4%;
+        background-color: rgba(0, 41, 222, 0.089);}
+/* NavBar including the image -:END */
+
+
+/* boxContainer contains ALL boxes and overlaps navbar -:Start */
+#boxContainer{
+    position:relative;  /*relative to id mobNavB*/
+    top: -68px; /*Overlap NavBar..*/
+    display:flex;
+    flex-direction: column;
+    /* justify-content:center;  /*changes height to 50%*/
+    align-items: center;
+     /* min-width:320px;  */
+    width:87%; /*stretch using percentages..*/
+    height:2919px;
+    border:red solid 2px;
+    border-radius: 20px;}
+  #boxContainerP {display: none;}
+
+      #box1{
+        display:flex;
+        flex-direction: column;
+        position:relative; /*relative to id boxContainer*/
+
+        /* margin: 0; */
+        border:green solid 1px;
+        width:100%;
+        height: 280px;
+        border-radius: 10px;
+        background-color: white;}
+        #logo-mastercraft{
+          /* display: flex;
+          flex-direction: column; */
+                  position:absolute;
+                  margin-top:-32.5px;
+                  margin-left:42%;
+                  width:16%;
+                }
+        
+        #box1H3a{
+          margin-top: 60px;
+          font-family: 'Commissioner';
+          font-weight: bolder;
+          font-size: 24px;
+          display:flex;          
+          justify-content:center;
+          text-align: center;
+          margin-left: 10%;
+          margin-right: 10%;
+          transform: scale(1, 1);}
+
+          #box1p1{
+            position: absolute;
+            /* display:flex;          
+            justify-content:center;
+            align-items: center; */
+            top:139px;
+            text-align: center;
+            font-weight: bolder;
+            margin-left:7.4%;
+            margin-right:7.4%;            
+            font-size: 18px;
+            opacity: 60%;
+
+          }
+
+      #box2{
+        border:red solid 1px;}
+
+      #box3Container{
+        border:red solid 1px;}
+        #box3ConBox1{
+          border:red solid 1px;}
+        #box3ConBox2{
+          border:red solid 1px;}
+        #box3ConBox3{
+          border:red solid 1px;}
+/* boxContainer contains all boxes below NavBar -:End */
+
+
+
+#imgBckgrndDsk{display: none;}/* Hide the desktop image..*/
+
+@media(min-width: 550px){ /*min-width - takes effect after,  375px for desktops*/
+  #mobNavB{display:none;}
+  /* .imgBckgrndMob{display:none;} */
+    #imgBckgrndDsk{
+        display:unset; /*redisplay the background-image..*/
+        max-width: 100%;
+        background-image: url("./images/image-hero-desktop.jpg");
+      
+}
+
+
+
+
+}
+
+#attribution { font-size: 11px; text-align: center; position: relative /*Was absolute before giving height to boxContainer..*/;z-index: -1; bottom:1%; width:100%; margin: auto;}
+#attribution a { color: hsl(228, 45%, 44%); }
+
