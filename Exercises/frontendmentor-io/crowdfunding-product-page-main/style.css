@@ -1,4 +1,5 @@
 
+/* 375px = 143% */
 
 /*Reset all inherited values to 0.*/
 *{box-sizing: border-box; margin:0;padding:0;}
@@ -20,7 +21,7 @@ body{
 
 /*REMOVE ME START-: Width in pixels..*/
   #resizeInnerW{
-     position: absolute;
+     position: fixed;
      top:0; 
      z-index: 2; 
     color: rgb(239, 6, 6);}
@@ -73,10 +74,12 @@ body{
     /* justify-content:center;  /*changes height to 50%*/
     align-items: center;
     max-width: 375px;
+    padding: 0;
     height:2919px;
-    border:red solid 2px;
+    /* border:rgb(109, 108, 108) solid 1px; */
     border-radius: 20px;}
-  #boxContainerP {display: none;}
+  /* #boxContainerP {
+    display: none;} */
 
       #box1{
         display:flex;
@@ -84,10 +87,11 @@ body{
         position:relative; /*relative to id boxContainer*/
 
         /* margin: 0; */
-        border:green solid 1px;
+        border:rgb(0, 0, 0) solid 1px;
+        /* width:313px; */
         width:100%;
-        height: 280px;
-        border-radius: 10px;
+        height: 274px;
+        border-radius: 5px;
         background-color: white;}
         #logo-mastercraft{
           /* display: flex;
@@ -116,7 +120,7 @@ body{
             /* display:flex;          
             justify-content:center;
             align-items: center; */
-            top:117px;
+            top:116px;
             line-height: 150%;
             text-align: center;
             font-weight: bolder;
@@ -128,12 +132,12 @@ body{
           #box1Btn1{
             /* display:flex; */
             position:relative;
-            top: 30%;
+            top: 30.9%;
             background-color: rgb(60, 180, 171);
-            width:67.5%;
-            height: 19%;
+            width:66.5%;
+            height: 19.8%;
             /* margin-top: %;  */
-            margin-left: 6%;
+            margin-left: 6.8%;
             padding: 3.4%;
             border: red solid 1px;
             border-radius: 30px;
@@ -148,15 +152,96 @@ body{
           }
           #icon-bookmark{
            position:absolute;
-           width:18%;
-           margin-left: 77%;
-           top: 64.5%;
+           width:17.5%;
+           margin-left: 76%;
+           top: 66.0%;
            justify-content:center;
            align-items: center;
           }
 
+      .dollar:before{font-family:Commissioner /*Calibri*/; content:'$';}
       #box2{
+        display: flex;
+        flex-direction: column;
+        /* justify-content:center; */
+           align-items: center;
+
+        margin-top: 7.0%;
+        width:100%;
+        height: 392px;
+        border-radius: 10px;
         border:red solid 1px;}
+        #currentSum{
+        font-family: 'Commissioner';
+          margin-top:9.2%;
+          font-weight:900;
+          letter-spacing:-0.9px;
+        }
+      #backedSum:before{font-family: Calibri; content: 'of $'; }
+      #backedSum:after{font-family: Calibri; content: ' backed'; }
+      #backedSum{
+        /* font-family: 'Commissioner'; */
+        font-weight:900;
+        margin-top:1.6%;
+        letter-spacing: -0.5px;
+        opacity: 50%;
+      }
+      #lineDiv1{
+        border-top: 1px solid black ;
+        margin-top: 7.3% ;
+        width: 25%
+      }
+      .fontstyle{font-family: 'Commissioner'}
+      #totalBacknum{
+        margin-top: 7.0%;
+        font-weight:900;
+        font-size:31px ;
+        
+        /* letter-spacing: 2.5px; */
+      }
+      #totalBacktxt{
+        font-family: Calibri;
+        opacity: 50%;
+        margin-top:2.5%;
+        margin-left: -0.5%;
+        /* letter-spacing: -0.8px; */
+        font-weight:900;
+      }
+      
+      #lineDiv2{
+        border-top: 1px solid black ;
+        margin-top: 7.5% ;
+        width: 25%;
+      }
+      /* NEXT STEP is Below.. :) */
+      /* 375px = 143% */
+      #daysLeftnum{
+        margin-top: 7.7%;
+        
+      }
+      #daysLefttxt{
+        font-family: Calibri;
+        opacity: 50%;
+        margin-top:1.5%;
+        margin-left: -0.5%;
+        /* letter-spacing: -0.8px; */
+        font-weight:900;
+      }
+      #progressBar{
+        background-color: rgb(192, 192, 192);
+        width: 80%;
+        border-radius: 15px;
+      }
+      #progress{
+        background-color: rgb(116, 194, 92);
+        color: white;
+        padding: 1%;
+        text-align: right;
+        font-size: 20px;
+        border-radius: 15px;
+        width: 70%;
+      }
+
 
       #box3Container{
         border:red solid 1px;}
