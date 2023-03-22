@@ -52,19 +52,20 @@ body{
         /* height:100%; */
       background-image: url("./images/image-hero-mobile.jpg");}
       #mobNavB h1{ /* "crowdfund" Header..*/
+        font-family: 'Commissioner';
         position: absolute;
         max-width:100%;
-        top:24px; 
-        left:21px;
-        font-size: 28px;
+        top:7px; 
+        left:23.0px;
+        font-size: 26px;
         /* transform: scale(1, 1.0);   */
         /*adjust font further (width, height)*/
-        letter-spacing: -1px;   
+        /* letter-spacing: -1.09px;    */
         color: white;}
       
       #icon-hamburger{
         position: absolute;
-        top:34px; 
+        top:15px; 
         left:89.9%;
         width: 4%;
         /* background-color: rgba(0, 41, 222, 0.089); */
@@ -76,12 +77,12 @@ body{
 #boxContainer{
   /* background-color: rgb(250, 250, 250); */
     position:relative;  /*relative to id mobNavB*/
-    top:215px; /*Overlap NavBar..*/
+    top:225px; /*Overlap NavBar..*/
     display:flex;
     flex-direction: column;
     /* justify-content:center;  /*changes height to 50%*/
     align-items: center;
-    max-width: 313px; /*375*/
+    max-width: 330px; /*375*/
     padding: 0;
     /* height:2919px; */
     /* border:rgb(109, 108, 108) solid 1px; */
@@ -95,11 +96,11 @@ body{
         position:relative; /*relative to id boxContainer*/
 
         /* margin: 0; */
-        border:rgb(0, 0, 0) solid 1px;
+        border:rgb(243, 243, 243) solid 1px;
         /* width:313px; */
         width:100%;
-        height: 274px;
-        border-radius: 5px;
+        height: 284px;
+        border-radius: 6px;
         background-color: white;}
         #logo-mastercraft{
           /* display: flex;
@@ -111,25 +112,26 @@ body{
                 }
         
         #box1H3a{
-          margin-top: 50px;
+          margin-top: 51.9px;
           font-family: 'Commissioner';
           font-weight: bolder;
           font-size: 19px;
           display:flex;          
           justify-content:center;
           text-align: center;
-          margin-left: 10%;
-          margin-right: 10%;
-          /* transform: scale(1, 1); */
+          margin-left: 10.7%;
+          margin-right: 10.7%;
+          transform: scale(1.06, 1);
         }
 
           #box1p1{
+            font-family: 'Commissioner';
             position: absolute;
             /* display:flex;          
             justify-content:center;
             align-items: center; */
-            top:116px;
-            line-height: 150%;
+            top:118px;
+            line-height: 170%;
             text-align: center;
             font-weight: bolder;
             margin-left:7.4%;
@@ -140,14 +142,14 @@ body{
           #box1Btn1{
             /* display:flex; */
             position:relative;
-            top: 30.9%;
+            top: 32%;
             background-color: rgb(60, 180, 171);
             /* border: red solid 1px; */
             border: 0;
-            width:66.5%;
+            width:66%;
             height: 19.8%;
             /* margin-top: %;  */
-            margin-left: 6.8%;
+            margin-left: 7.0%;
             /* padding: 3.4%; */
             border-radius: 30px;
             /* padding-top:19px;
@@ -161,9 +163,9 @@ body{
           }
           #icon-bookmark{
            position:absolute;
-           width:17.5%;
+           width:16.9%;
            margin-left: 76%;
-           top: 66.0%;
+           top: 66.7%;
            justify-content:center;
            align-items: center;
           }
@@ -177,44 +179,43 @@ body{
            align-items: center;
         margin-top: 7.0%;
         width:100%;
-        height: 392px;
-        border-radius: 10px;
-        border:red solid 1px;}
+        height: 410px;
+        border-radius: 8px;/* 6 */
+        border:rgb(243, 243, 243) solid 1px;}
         #currentSum{
         font-family: 'Commissioner';
           margin-top:9.2%;
           font-weight:900;
-          letter-spacing:-0.9px;
+          /* letter-spacing:-0px; */
         }
       #backedSum:before{font-family: Calibri; content: 'of $'; }
       #backedSum:after{font-family: Calibri; content: ' backed'; }
       #backedSum{
         /* font-family: 'Commissioner'; */
         font-weight:900;
-        margin-top:1.6%;
-        letter-spacing: -0.5px;
+        margin-top:3%;
+        letter-spacing: -0.2px;
         opacity: 50%;
       }
       #lineDiv1{
         border-top: 1px solid black ;
-        margin-top: 7.3% ;
+        margin-top: 7% ;
         width: 25%;
         opacity: 50%;
       }
       .fontstyle{font-family: 'Commissioner'}
       #totalBacknum{
-        margin-top: 7.0%;
+        margin-top: 7.4%;
         font-weight:900;
         font-size:31px ;
-        
-        /* letter-spacing: 2.5px; */
+        letter-spacing: 1.2px;
       }
       #totalBacktxt{
         font-family: Commissioner;
         opacity: 50%;
-        margin-top:2.8%;
+        margin-top:3.5%;
         margin-left: -0.5%;
-        letter-spacing: -0.3px;
+        /* letter-spacing: -0.3px; */
         font-weight:500;
         font-size: 14px;
       }
@@ -228,63 +229,157 @@ body{
       /* NEXT STEP is Below.. :) */
       /* 375px = 143% */
       #daysLeftnum{
-        margin-top: 7.7%;}
+        margin-top: 7.0%;}
       #daysLefttxt{
         font-family: Commissioner;
         /* font-family: Calibri; */
         font-size: 14px;
         opacity: 50%;
-        margin-top:1.9%;
+        margin-top:3%;
         margin-left: -0.5%;
         /* letter-spacing: -0.8px; */
         font-weight:500;
       }
 
       #progressBar{
-        background-color: rgb(192, 192, 192);
+        background-color: rgb(244, 244, 244);
         margin-top: 10%;
-        width: 86%;
+        width: 87.1%;
         border-radius: 15px;
       }
       #progress{
         background-color: rgb(60, 180, 172);
         color: white;
-        padding-top: 5%;
+        padding-top: 4.1%;
         text-align: right;
         /* font-size: 10px; */
         /* padding-top: 10px; */
-        border-radius: 15px;
-        width: 80%;
+        border-radius: 16px;
+        width: 79%;
+        margin-left: 0.3%;
+        /* border: solid red 1px; */
       }
 
 
       #box3Container{
         font-family: Commissioner;
         background-color: white;
-        border:red solid 1px;
-        margin-top: 9%;
-        padding: 5%;
+        /* border:red solid 1px; */
+        border:rgb(243, 243, 243) solid 1px;
+        border-radius: 8px; /*6*/
+        margin-top: 6.9%;
+        padding: 6.8%;
+        padding-top: 13%;
         width: 100%;
         height: 90%;
+        /* letter-spacing: -0.5px; */
       }
+          #box3Conh4{font-size: 109%;margin-top: -0.9% ;letter-spacing: 0.3px;}              
+          
+          #box3ConBox1h,#box3ConBox2h,#box3ConBox3h{
+            margin-top: 3.5%;margin-left: 4%;
+            font-size: 14px;
+            font-weight: 900;
+             /* font-weight: 900; */
+             /* transform:scale(0.999,1); */
+            }
+
+
+
+          #box3Conp1,#box3Conp2{
+            margin-top: 9%; margin-right:1% ;
+            font-size: 87.9%;font-weight:500; 
+            line-height: 170.9%;opacity: 60%;
+            letter-spacing: -0.04px;
+          }
+          #box3ConBox1p1,#box3ConBox2p1,#box3ConBox3p1{
+            margin-top: 3%;
+            margin-left: 3.9%;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgb(60, 180, 172);
+          }
+          
+          #box3ConBox1p2,#box3ConBox2p2,#box3ConBox3p2{
+            margin-top:10.5%;margin-left: 3.6%;
+            margin-right: 1%;
+            font-size: 89.0%;font-weight:600; 
+            line-height: 170%;opacity: 60%;
+            letter-spacing: -0.13px;
+          }
+
+          #box3ConBox1p3,#box3ConBox2p3,#box3ConBox3p3{
+            margin-left: 3.5%;
+            margin-top: 9%;
+            font-size: 33px;
+            font-weight: 900;
+          }
+          #box3ConBox1p3a,#box3ConBox2p3a,#box3ConBox3p3a{
+            margin-top: -11%;
+            margin-left: 27.5%;
+            font-weight: 600;
+            font-size: 90%;
+          }
+          #box3ConBox1Btn,#box3ConBox2Btn,#box3ConBox3Btn{
+            /* margin-top: 19.6%;
+            margin-left: 17%;
+            background-color: rgb(60, 180, 172);
+            padding: 10%; */
+            background-color: rgb(60, 180, 171);
+            border: 0;
+            width:63%; /*66*/
+            height: 14.3%;
+            margin-top: 14%; /*14%*/
+            margin-left: 3.5%;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bolder;
+            color: white;
+            letter-spacing: 0.2px;
+          }
+
+
+            /* #box3Conp2{margin-top:9%}  */
+            /*overide above settings..*/
+
         #box3ConBox1{
           background-color: white;
-          border:red solid 1px;
-          margin-top: 9%;
+          border:rgb(218, 218, 218) solid 2px;
+          border-radius: 8px;
+          margin-top: 12.5%;
+          margin-right: 0.6%;
           padding: 5%;
+          height:373px;          
         }
+
+
         #box3ConBox2{
           background-color: white;
-          border:red solid 1px;
+          border:rgb(218, 218, 218) solid 2px;
+          border-radius: 8px;
           margin-top: 9%;
+          margin-right: 0.6%;
           padding: 5%;
+          height:373.2px;
         }
+        /* Override above for tweaking general params..*/
+          #box3ConBox2p2{margin-right: 3%;}
+          #box3ConBox2p3a{    margin-left: 23.0%;}
+          
+
         #box3ConBox3{
           background-color: white;
-          border:red solid 1px;
+          border:rgb(218, 218, 218) solid 2px;
+          border-radius: 8px;
           margin-top: 9%;
           padding: 5%;
-        
+          height:373.2px;
+          opacity: 26%;
+        }
+        /* Override above for tweaking general params..*/
+        #box3ConBox3p3a{    margin-left: 16.0%;}
+        #box3ConBox3Btn{
+          background-color: rgba(50, 49, 49, 0.546);
         }
 /* boxContainer contains all boxes below NavBar -:End */
 
