@@ -137,16 +137,17 @@ body{
 
       #menu a:hover {
         text-decoration: underline;
+      
       }
 
 
   #menuToggle input:checked ~#menu{ /*Show the menu when checked!!*/
     /* transform: translateX(-150px);
     transition: transform 0.3s ease;    */
-
+  
     transform: scale(1.1) translate(0%, 0%);
     transition: transform 0.2s ease;
-
+   
   }
  
 
@@ -221,20 +222,21 @@ body{
       transform: rotate(0deg) scale(0.2, 0.2); /* applies a rotation of 0 degrees and a scale of 0.2 to the element, making it very small and invisible.*/
     }
     /*Lets darken the rest of the screen once checked.*/
-    #menuToggle input:checked ~ #page-mask {
+    #menuToggle input:checked ~ .page-mask {
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
     background: rgba(0,0,0,0.6);
-    z-index: 2;
-    margin: 0; height: 100vh; overflow: hidden
+    min-height: 2950px;
+    z-index: 0;
   }
-  #menuToggle input:checked ~ .bodyFaded{
+
+  /* #menuToggle input:checked ~ .bodyFaded{
     margin: 0; height: 100%; overflow: hidden
   }
- 
+  */
 
 
 
