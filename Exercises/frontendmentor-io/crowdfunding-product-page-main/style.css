@@ -221,6 +221,9 @@ body{
     }
 
     /*Lets darken the rest of the screen once checked.*/
+    #menuToggle input:checked ~ .bodyFaded{
+      overflow:hidden;
+    }
     #menuToggle input:checked ~ #page-mask {
     position: fixed;
     left: 0;
@@ -229,7 +232,11 @@ body{
     top: 0;
     background-color: rgba(0,0,0,0.6);
     z-index: 2;
+    overflow:hidden;
   }
+
+ 
+
 
 
 /* boxContainer contains ALL boxes and overlaps navbar -:Start */
