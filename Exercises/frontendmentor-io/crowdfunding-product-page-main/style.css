@@ -108,8 +108,7 @@ body{
   transform: scale(0.0) translate(-100%, -100%);
   
  
-}     
-
+}
 
       #menu a{
         display:flex;  
@@ -158,13 +157,13 @@ body{
     flex-direction:column;
     margin-top: 46.0px;
     margin-left: 84vw;
-    /* opacity: 100%; */
+    opacity: 1;
     z-index: 3;
     /* border: solid lightgreen 1px; */
   }
     #menuToggle input {
-      /* margin-top: -9%; */
-      /* margin-left: 75%; */
+      margin-top: -9%;
+      margin-left: 11%;
       position: absolute;
       cursor:pointer;
       opacity: 0; /*hide the checkbox..*/
@@ -183,6 +182,7 @@ body{
          width:4vw;
          /* margin-top: -2px;
          margin-left: -2px; */
+
     }
    
     #menuToggle span {/*For the span elements!!*/
@@ -200,6 +200,10 @@ body{
       z-index: 2; /* ensure that the span element is under the checkbox */
     }
 
+    #menuToggle input:checked{
+      top: -5px;
+      opacity: 0;
+    }
     /*lets transform the burger to a close button..*/
     #menuToggle span:first-child {
       transform-origin: 0% 0%; /*sets the origin of the transform property to the top left corner of the element.*/
@@ -229,14 +233,11 @@ body{
     bottom: 0;
     top: 0;
     background: rgba(0,0,0,0.6);
-    min-height: 2950px;
+    min-height: 2950px;/*make the mask the full length of the page otherwise there is tearing on the bottom of the page when scrolling..*/
     z-index: 0;
   }
 
-  /* #menuToggle input:checked ~ .bodyFaded{
-    margin: 0; height: 100%; overflow: hidden
-  }
-  */
+  
 
 
 
