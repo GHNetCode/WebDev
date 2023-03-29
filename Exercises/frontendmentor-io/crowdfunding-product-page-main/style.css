@@ -24,7 +24,7 @@ body{
 
 /*Width in pixels..*/
   #resizeInnerW{/*disable after finished..*/
-    display: none;
+    display:inherit; /* none\inherit */
     position: fixed;
     top:0; 
     z-index: 2; 
@@ -159,6 +159,7 @@ body{
     margin-left: 84vw;
     opacity: 1;
     z-index: 3;
+    
     /* border: solid lightgreen 1px; */
   }
     #menuToggle input {
@@ -167,7 +168,7 @@ body{
       position: absolute;
       cursor:pointer;
       opacity: 0; /*hide the checkbox..*/
-
+      
       /* color: yellow;
       border:yellow solid 2px ; */
       z-index: 3; /* in order to place the checkbox over the hamburger */
@@ -180,10 +181,6 @@ body{
          /* height:27%; */
          height:100%;/* 2vh 7vh */
          width:100%;/* 4vw */
-      
-        
-         
-
     }
    
     #menuToggle span {/*For the span elements!!*/
@@ -200,16 +197,11 @@ body{
       border-radius: 2px;
       z-index: 2; /* ensure that the span element is under the checkbox */
     }
-
     #menuToggle input:checked{/*----------------------------*/
-      
       /* height:27%; */
       height:100%;/* 2vh 7vh */
       width:100%;/* 4vw */
-   
-      
     }
-
 
     /*lets transform the burger to a close button..*/
     #menuToggle span:first-child {
@@ -232,6 +224,7 @@ body{
       opacity: 0; /* sets the opacity of the element to 0, making it invisible. */
       transform: rotate(0deg) scale(0.2, 0.2); /* applies a rotation of 0 degrees and a scale of 0.2 to the element, making it very small and invisible.*/
     }
+
     /*Lets darken the rest of the screen once checked.*/
     #menuToggle input:checked ~ .page-mask {
     position: fixed;
@@ -239,10 +232,13 @@ body{
     right: 0;
     bottom: 0;
     top: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.3);
     min-height: 2950px;/*make the mask the full length of the page otherwise there is tearing on the bottom of the page when scrolling..*/
     z-index: 0;
   }
+  
+ 
+
   
   
 
@@ -279,7 +275,7 @@ body{
                   width:17.0%;
                 }
 
-        #box1H3a{
+        #box1H3a{ /*Mastercraft Bamboo Monitor Riser*/
           margin-top: 51.9px;
           font-family: 'Commissioner';
           font-weight: bolder;
@@ -292,7 +288,7 @@ body{
           transform: scale(1.06, 1);
         }
 
-          #box1p1{
+          #box1p1{ /*A beautifully handcrafted...*/
             font-family: 'Commissioner';
             position: absolute;
             top:118px;
@@ -304,7 +300,7 @@ body{
             font-size: 14px;
             opacity: 30%;}
 
-          #box1Btn1{
+          #box1Btn1{/*Back this project*/
             position:relative;
             top: 32%;
             background-color: rgb(60, 180, 171);
@@ -394,8 +390,7 @@ body{
         width: 25%;
         opacity: 50%;
       }
-      /* NEXT STEP is Below.. :) */
-      /* 375px = 143% */
+
       #daysLeftnum{
         margin-top: 7.0%;}
       #daysLefttxt{
@@ -489,10 +484,6 @@ body{
             font-size: 90%;
           }
           #box3ConBox1Btn,#box3ConBox2Btn,#box3ConBox3Btn{
-            /* margin-top: 19.6%;
-            margin-left: 17%;
-            background-color: rgb(60, 180, 172);
-            padding: 10%; */
             background-color: rgb(60, 180, 171);
             border: 0;
             width:63%; /*66*/
@@ -555,6 +546,230 @@ body{
         }
 /* boxContainer contains all boxes below NavBar -:End */
 
+      /*Modals Start*/
+      .modalMask{/* The Modal MASK (background) similar to page-mask..*/
+        display:flex; /* flex/none -- Hidden by default */
+        justify-content:center; /*Centers children width..*/
+        /* align-items: center; */ /*Centers children height..*/
+        position:absolute; /* Stay in place */
+        z-index: 4; /* Sit on top */
+        padding-top: 0; /* Location of the box */
+        /* border-radius: 10px; */
+        left: 0;
+        top: -1vh;        /* -43vh */
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */  /* Enable scroll if needed */
+        min-height: 2950px;/*Full height to stop page tearing..*/ 
+        /* overflow: auto;  */ /*No need to extra scroll bars..*/
+        /* background: white; */
+          /* Fallback color */
+        background-color: rgb(0,0,0); 
+        /* Black w/ opacity */
+        background-color: rgba(0, 0, 0, 0.486);
+        /* background-color: white; */
+      }
+          
+        /* modalContainers */
+        .modalContainers{ /*Back this project*/
+          font-family: Commissioner;
+          display:flex;
+          flex-direction:column;
+          position:relative;
+          padding: 23px;
+          border: 1px solid #888;
+          border-radius: 7px;
+          top:123px;
+          width: 332px; /*91.5%*/
+          height: 50%;
+          z-index: 5;
+          /* background-color: rgb(0,0,0);  */
+          /* Black w/ opacity */
+          /* background-color: rgba(0, 0, 0, 0.486); */
+          background-color: rgb(240, 240, 240);
+        }
+        .modalContainers h3{
+          font-size: 18.5px;
+          margin-top: 8px;
+          margin-left: 2px;
+          font-weight: 900;
+          letter-spacing: -0.1px;
+        }
+        
+          /* The Close Button */
+          .close {
+            display:flex;
+            position: absolute;
+            margin-left: 268px;
+            color: #aaaaaa;
+            /* float: right; */
+            /* text-align: right; */
+            font-size: 33px;
+            font-weight: bold;
+            /* top: -10px; */
+            margin-top: -2px;
+          }
+              .close:hover,
+              .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+              }
+        .modalContainers p{
+          font-size: 14px;
+          margin-top: 25px;
+          margin-left: 2px;
+          margin-bottom: -12.5px; /*bring the first box\container down a bit..*/
+          font-weight: 500;
+          line-height: 24px;
+          }
+          
+        #mdl-Cont1{
+          background-color: white;
+          border:rgb(218, 218, 218) solid 2px;
+          border-radius: 8px;
+          margin-top: 12.5%;
+          margin-right: 0.6%;
+          padding: 5%;
+          height:244px;
+
+        }
+        #mdl-Cont2,#mdl-Cont3,#mdl-Cont4{
+          background-color: white;
+          border:rgb(218, 218, 218) solid 2px;
+          border-radius: 8px;
+          margin-top: 8.2%;
+          margin-right: 0.6%;
+          padding: 5%;
+          height:290px;
+        }
+
+ 
+        /*Style the Radio button..START*/
+        input:where([type="radio"].btnStyler){
+          /* -webkit-appearance : none; */
+          appearance         : none;
+          width              : 22px;
+          height             : 22px;
+          margin             : calc(0.75em - 11px) 0.25rem 0 0;
+          vertical-align     : top;
+          border             : 2px solid #ddd;
+          border-radius      : 4px;
+          background         : #fff no-repeat center center;
+        }
+        
+        input[type="radio"].btnStyler{
+          border-radius : 50%;
+        }
+        
+        input:where([type="radio"].btnStyler):where(:active:not(:disabled), :focus){
+          border-color : #696;
+          outline      : none;
+          /* accent-color:rgb(60, 180, 171); */
+          background-color: rgb(60, 180, 171);
+
+        }
+        
+        input:where([type="radio"].btnStyler):disabled{
+          background : #eee;
+        }
+        
+        input[type="checkbox"].btnStyler:checked{
+          background-image : url('checkbox.svg');
+        }
+        
+        input[type="radio"].btnStyler:checked{
+          background-image : url('radio.svg');
+        }
+        /*Style the Radio button..END*/
+
+        
+          #mdl-Cont1Rbtn{
+            display: flex;
+            position: absolute;
+            width: 25px;
+            height: 25px;/*resize radio button..*/
+            margin-left: -39px;
+            /* accent-color:rgb(60, 180, 171);  */  /*NOTE: This is only achieved via the Label' for="mdl-Cont1Rbtn" ' .. */
+          } 
+
+          #mdl-Cont1h{ /*Note, This element also positions above #mdl-Cont1Rbtn  */
+            display:flex;
+            align-items: center; 
+            margin-top: 20.5px;
+            margin-left: 50px ;
+            font-weight: 900;
+            letter-spacing: 0.45px;
+            /* margin-top: 10px; */
+            /* position: absolute; */
+            /* justify-content:center;   */
+            /* Centers children width.. */
+            /* Centers children height.. */
+         }
+
+
+        #mdl-Cont1p1{
+          margin-top: 39px;
+          margin-left: 10px;
+          margin-right: 10px;
+          letter-spacing: 0.05px;
+        }
+      
+        /*remember to undo line 551!!*/
+        #mdl-Cont2h{
+          display: flex;
+          position: relative;
+          top: 18px;
+          margin-left: 10px;
+          
+        }
+        #mdl-Cont2Rbtn{
+          width:  25px; /*resize radio button..*/
+          height: 25px;/*resize radio button..*/
+        }
+
+          #Cont2hBl{
+            display: flex;
+            position: relative;
+            /* align-items: center;
+            justify-content:center;  */
+            flex-direction: column;
+            top: -38px;
+            margin-left: 10px;
+          }
+          #Cont2hBl p{
+            font-weight: 900;
+          }
+          #Cont2hBlp2{
+            position: relative;
+            top:-10px;
+            color: rgb(64, 201, 187);
+          }
+          #mdl-Cont2p1{ /*You get an ergonomic stand..*/
+            position: relative;
+            top: -22px;
+            margin-left: 10px;
+            margin-right: 5px;
+          }
+          #mdl-Cont2ha{
+            position: absolute;
+            margin-top: 12px;
+            margin-left:10px;
+          }
+          #mdl-Cont2p2{
+            position: relative;
+            top:-13px;
+            margin-left:47px;
+          }
+          
+
+
+
+
+
+
+
+
+    /*Modals Finish*/
 
 
 #imgBckgrndDsk{display: none;}/* Hide the desktop image..*/
