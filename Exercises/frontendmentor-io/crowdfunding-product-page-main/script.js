@@ -55,12 +55,10 @@ spanCloseE.onclick = function() {
 
 
 
-window.ontouch
-
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
-          document.addEventListener("touchstart", () => { /*...*/ 
           evt.preventDefault();
+          document.addEventListener("touchstart", () => { /*...*/ 
               //  modal.style.display = "none";
               //  rinputs.checked = false; //lets also uncheck/clear any selected radio buttons when the close button is used..
               //  window.alert('touchstart');
