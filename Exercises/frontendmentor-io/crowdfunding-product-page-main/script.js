@@ -35,8 +35,9 @@ spanCloseE.onclick = function() {
   
 // When the user clicks anywhere except on the links 
   // inside of the menu toggle, close it..
+  let checkBinputs = document.getElementById('checkB');
         function uncheck() {
-          let checkBinputs = document.getElementById('checkB');
+          
          // let menu = document.getElementById('menu');
          // menu.style.transform= "scale(0.0) translate(-100%, -100%)";
           checkBinputs.checked = false;
@@ -69,7 +70,9 @@ spanCloseE.onclick = function() {
               btnClsE.addEventListener('touchstart'), () => {
                 modal.style.display = "flex";
               }
-
+              checkBinputs.addEventListener('touchstart'), () => {
+                checkBinputs.checked = false;
+              }
               //  modal.style.display = "none";
               //  rinputs.checked = false; //lets also uncheck/clear any selected radio buttons when the close button is used..
               //  window.alert('touchstart');
