@@ -14,7 +14,7 @@ let btnClsV = false;
 for (let i = 0; i < btnClsE.length; i++){
   btnClsE[i].onclick = function() { /* For mouse clicks*/
               //modal.style.display = "flex";
-              window.alert('btnClsE');
+              //window.alert('btnClsE');
         btnClsV = true;
      };
     }
@@ -71,7 +71,7 @@ spanCloseE.onclick = function() {
 
             //Lets open the modal(dialogue)..
             if (btnClsV){//Check if this event is for element(boxConBtnCls)..
-                window.alert('btnClsV');
+                //window.alert('btnClsV');
                 modal.style.display = "flex";
                 btnClsV = false; //reset for next time round..
            }
@@ -96,7 +96,7 @@ spanCloseE.onclick = function() {
 
          //Lets open the modal(dialogue)..
          if (btnClsV){//Check if this event is for element(boxConBtnCls)..
-             window.alert('btnClsV');
+             //window.alert('btnClsV');
              modal.style.display = "flex";
              btnClsV = false; //reset for next time round..
         }
@@ -105,7 +105,7 @@ spanCloseE.onclick = function() {
          if (event.target == modal) {
            modal.style.display = "none";
        }
-       
+
         //When the user clicks anywhere except on the links  inside of the menu toggle, close it.. 
         if (event.target == menu) {
           uncheck();
