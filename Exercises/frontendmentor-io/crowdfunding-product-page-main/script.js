@@ -66,14 +66,26 @@ spanCloseE.onclick = function() {
   if ('ontouchstart' in window) {
          document.addEventListener("touchstart", (event) => {  
           
+      //       // implement the touch events for mobile phones..:
+      //       const btnC = document.getElementById("idhState");
+      //       btnC.addEventListener('touchstart', () => {
+      //       btnC.style.background = 'rgb(160, 194, 23)';
+      //       btnC.style.color = 'rgb(38, 19, 147)';
+      //       })
+             //Lets Close the modal(dialogue)..
+             modal.addEventListener('touchstart', () => {
+              modal.style.display = "none";
+             })
               //Lets open the modal(dialogue)..
          //    btnClsE.addEventListener('touchstart'), () => {
          //      modal.style.display = "flex";
          //    }
-              if (event.target == spanCloseE){
-              spanCloseE.addEventListener('touchstart'), () => {
-                modal.style.display = "none";
-              }}
+         
+
+            //  if (event.target == spanCloseE){
+            //  spanCloseE.addEventListener('touchstart'), () => {
+            //    modal.style.display = "none";
+            //  }}
 
               //  modal.style.display = "none";
               //  rinputs.checked = false; //lets also uncheck/clear any selected radio buttons when the close button is used..
