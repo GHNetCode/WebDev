@@ -11,14 +11,14 @@ let btnClsE = document.getElementsByClassName('boxConBtnCls');
 
 
 //If one of buttons for class 'boxConBtnCls' 
-//are pressed set var btnClsV to true to be handled below..
-//for (let i = 0; i < btnClsE.length; i++){
-//  btnClsE[i].onclick = function() { /* For mouse clicks*/
-//              //modal.style.display = "flex";
-//              //window.alert('btnClsE '+[i]);
-//        btnClsV = true;
-//     };
-//    }
+//are Clicked set var btnClsV to true to be handled below..
+ for (let i = 0; i < btnClsE.length; i++){
+   btnClsE[i].onclick = function() { /* For mouse clicks*/
+               //modal.style.display = "flex";
+               //window.alert('btnClsE '+[i]);
+         btnClsV = true;
+      };
+     }
 
 //   uncheck the radio button.. 
 // let rinputs = document.getElementById('mdl-Cont1Rbtn');
@@ -63,9 +63,13 @@ spanCloseE.onclick = function() {
 
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
-          //evt.preventDefault();
          document.addEventListener("touchstart", (event) => {  
-          window.alert('touchstart: '+ event.target);
+          
+              //Lets open the modal(dialogue)..
+              btnClsE.addEventListener('touchstart'), () => {
+                modal.style.display = "flex";
+              }
+
               //  modal.style.display = "none";
               //  rinputs.checked = false; //lets also uncheck/clear any selected radio buttons when the close button is used..
               //  window.alert('touchstart');
@@ -75,6 +79,8 @@ spanCloseE.onclick = function() {
                  spanCloseV = false;//reset for next time round..
             }
 
+             
+              //Below is INVALID for touchscreens.. need touch..
         //    //Lets open the modal(dialogue)..
         //    if (btnClsV){//Check if this event is for element(boxConBtnCls)..
         //        //window.alert('btnClsV');
@@ -82,20 +88,22 @@ spanCloseE.onclick = function() {
         //        btnClsV = false; //reset for next time round..
         //   }
 
-            //Lets open the modal(dialogue)..
-           if (event.target == btnClsE) {
-            modal.style.display = "flex";
-        }
+        
+
+        //Lets open the modal(dialogue)..
+        //  if (event.target == btnClsE) {
+        // modal.style.display = "flex";
+        // }
 
            //Lets close the modal(dialogue) if user clicks outside of the modal window..
-            if (event.target == modal) {
-              modal.style.display = "none";
-          }
+        //   if (event.target == modal) {
+        //     modal.style.display = "none";
+        // }
 
           //When the user clicks anywhere except on the links  inside of the menu toggle, close it.. 
-          if (event.target == menu) {
-            uncheck();
-          }
+      //   if (event.target == menu) {
+      //     uncheck();
+      //   }
 
             });
       } else {
@@ -105,22 +113,22 @@ spanCloseE.onclick = function() {
               spanCloseV = false;//reset for next time round..
          }
 
+        //When the user clicks anywhere except on the links  inside of the menu toggle, close it.. 
+        if (event.target == menu) {
+          uncheck();
+        }
+
          //Lets open the modal(dialogue)..
          if (btnClsV){//Check if this event is for element(boxConBtnCls)..
              //window.alert('btnClsV');
              modal.style.display = "flex";
              btnClsV = false; //reset for next time round..
         }
-
+        
         //Lets close the modal(dialogue) if user clicks outside of the modal window..
          if (event.target == modal) {
            modal.style.display = "none";
        }
-
-        //When the user clicks anywhere except on the links  inside of the menu toggle, close it.. 
-        if (event.target == menu) {
-          uncheck();
-        }
 
       });
    }
