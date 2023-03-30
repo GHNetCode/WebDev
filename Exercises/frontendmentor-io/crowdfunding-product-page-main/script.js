@@ -7,17 +7,18 @@ let modal = document.getElementById("myModal"); //not in css..
 
 // Get all the buttons for class boxConBtnCls to open the modal
 let btnClsE = document.getElementsByClassName('boxConBtnCls');
-let btnClsV = false;
+//let btnClsV = false;
+
 
 //If one of buttons for class 'boxConBtnCls' 
 //are pressed set var btnClsV to true to be handled below..
-for (let i = 0; i < btnClsE.length; i++){
-  btnClsE[i].onclick = function() { /* For mouse clicks*/
-              //modal.style.display = "flex";
-              //window.alert('btnClsE');
-        btnClsV = true;
-     };
-    }
+//for (let i = 0; i < btnClsE.length; i++){
+//  btnClsE[i].onclick = function() { /* For mouse clicks*/
+//              //modal.style.display = "flex";
+//              //window.alert('btnClsE '+[i]);
+//        btnClsV = true;
+//     };
+//    }
 
 //   uncheck the radio button.. 
 // let rinputs = document.getElementById('mdl-Cont1Rbtn');
@@ -40,6 +41,11 @@ spanCloseE.onclick = function() {
          // menu.style.transform= "scale(0.0) translate(-100%, -100%)";
           checkBinputs.checked = false;
          }
+
+
+
+
+
         // window.onclick = function(event) {
         // if (event.target == menu) {
         //   uncheck();
@@ -58,7 +64,8 @@ spanCloseE.onclick = function() {
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
           //evt.preventDefault();
-         document.addEventListener("touchstart", () => {  
+         document.addEventListener("touchstart", (event) => {  
+          window.alert('touchstart: '+ event);
               //  modal.style.display = "none";
               //  rinputs.checked = false; //lets also uncheck/clear any selected radio buttons when the close button is used..
               //  window.alert('touchstart');
@@ -68,12 +75,17 @@ spanCloseE.onclick = function() {
                  spanCloseV = false;//reset for next time round..
             }
 
+        //    //Lets open the modal(dialogue)..
+        //    if (btnClsV){//Check if this event is for element(boxConBtnCls)..
+        //        //window.alert('btnClsV');
+        //        modal.style.display = "flex";
+        //        btnClsV = false; //reset for next time round..
+        //   }
+
             //Lets open the modal(dialogue)..
-            if (btnClsV){//Check if this event is for element(boxConBtnCls)..
-                //window.alert('btnClsV');
-                modal.style.display = "flex";
-                btnClsV = false; //reset for next time round..
-           }
+           if (event.target == btnClsE) {
+            modal.style.display = "flex";
+        }
 
            //Lets close the modal(dialogue) if user clicks outside of the modal window..
             if (event.target == modal) {
@@ -87,7 +99,7 @@ spanCloseE.onclick = function() {
 
             });
       } else {
-         document.addEventListener("click", () => { 
+         document.addEventListener("click", (event) => { 
             if (spanCloseV){//Check if this event is for element(spanCloseE x button)..
               modal.style.display = "none";
               spanCloseV = false;//reset for next time round..
@@ -137,3 +149,16 @@ spanCloseE.onclick = function() {
 
 
 
+
+          /**
+           * document.addEventListener("keydown", function()
+{
+     console.log(event); 
+});
+The warning got solved using the below code
+
+document.addEventListener("keydown", function(event)
+{
+     console.log(event); 
+});
+           */
