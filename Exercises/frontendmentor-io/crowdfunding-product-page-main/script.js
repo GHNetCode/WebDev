@@ -57,8 +57,8 @@ spanCloseE.onclick = function() {
 
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
-          evt.preventDefault();
-          document.addEventListener("touchstart", () => { /*...*/ 
+          //evt.preventDefault();
+         document.addEventListener("touchstart", () => {  
               //  modal.style.display = "none";
               //  rinputs.checked = false; //lets also uncheck/clear any selected radio buttons when the close button is used..
               //  window.alert('touchstart');
@@ -87,7 +87,7 @@ spanCloseE.onclick = function() {
 
             });
       } else {
-          document.addEventListener("click", () => { 
+         document.addEventListener("click", () => { 
             if (spanCloseV){//Check if this event is for element(spanCloseE x button)..
               modal.style.display = "none";
               spanCloseV = false;//reset for next time round..
@@ -110,7 +110,7 @@ spanCloseE.onclick = function() {
           uncheck();
         }
 
-       });
+      });
    }
 
 
