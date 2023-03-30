@@ -40,7 +40,7 @@ spanCloseE.onclick = function() {
          // menu.style.transform= "scale(0.0) translate(-100%, -100%)";
           checkBinputs.checked = false;
          }
-         window.onclick = function(event) {
+        // window.onclick = function(event) {
         // if (event.target == menu) {
         //   uncheck();
         // }
@@ -48,7 +48,7 @@ spanCloseE.onclick = function() {
           //  modal.style.display = "none";
           //  rinputs.checked = false;
           //}
-        }
+       // }
 
 
 
