@@ -67,20 +67,22 @@ spanCloseE.onclick = function() {
          document.addEventListener("touchstart", (event) => {  
           
               //Lets open the modal(dialogue)..
-              btnClsE.addEventListener('touchstart'), () => {
-                modal.style.display = "flex";
-              }
-              checkBinputs.addEventListener('touchstart'), () => {
-                checkBinputs.checked = false;
-              }
+         //    btnClsE.addEventListener('touchstart'), () => {
+         //      modal.style.display = "flex";
+         //    }
+              if (event.target == spanCloseE){
+              spanCloseE.addEventListener('touchstart'), () => {
+                modal.style.display = "none";
+              }}
+
               //  modal.style.display = "none";
               //  rinputs.checked = false; //lets also uncheck/clear any selected radio buttons when the close button is used..
               //  window.alert('touchstart');
               //  
-              if (spanCloseV){//Check if this event is for element(spanCloseE x button)..
-                 modal.style.display = "none";
-                 spanCloseV = false;//reset for next time round..
-            }
+             //  if (spanCloseV){//Check if this event is for element(spanCloseE x button)..
+             //     modal.style.display = "none";
+             //     spanCloseV = false;//reset for next time round..
+             //   }
 
              
               //Below is INVALID for touchscreens.. need touch..
