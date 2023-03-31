@@ -14,7 +14,7 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 //Timer function for touchstart events..
 let timedTouchFunc; 
 let timer;
-let touchduration = 100; //length of time button is 'touched' before we do something..
+let touchduration = 150; //length of time button is 'touched' before we do something..
     timedTouchFunc = function() { //do something 
       modal.style.display = "flex";
       };
@@ -60,14 +60,18 @@ let touchduration = 100; //length of time button is 'touched' before we do somet
         let elementCls = event.target.classList;
 
         if (elementCls == 'boxConBtnCls') {
+          if (timer){clearTimeout(timer);}// clearTimeout, not cleartimeout..
           //  modal.style.display = "flex";
             boxConBtnCls.style.background = 'rgb(60, 180, 171)';
             boxConBtnCls.style.color = 'white';
-            }
-        //stops short touches from firing the event
-        if (timer)
-        clearTimeout(timer); // clearTimeout, not cleartimeout..
 
+            
+             
+
+            }
+            
+        //stops short touches from firing the event
+        
              });
 
       } else {
