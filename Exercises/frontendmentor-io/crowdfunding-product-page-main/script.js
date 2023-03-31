@@ -45,9 +45,11 @@ let modal = document.getElementById("myModal"); //not in css..
                 modal.style.display = "none";
                 }
                 //Lets close the modal(dialogue) if user touches outside of the modal window..
-                if (elementId == 'myModal') {
-                 modal.style.display = "none";
-                }
+                //Note: Disabling for touchscreens..
+              //  if (elementId == 'myModal') {
+              //   modal.style.display = "none";
+              //  }
+
                 //Lets open the modal(dialogue)..
                 if (elementCls == 'boxConBtnCls') {
                 modal.style.display = "flex";
