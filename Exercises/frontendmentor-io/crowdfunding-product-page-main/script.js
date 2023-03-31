@@ -35,7 +35,7 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
                 if (elementCls == 'boxConBtnCls') {
                       boxConBtnCls.style.background = 'rgb(76, 201, 193)';
                       boxConBtnCls.style.color = 'white';
-                //      modal.style.display = "flex";
+                      modal.style.display = "flex";
                 }
 
             });
@@ -44,7 +44,7 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
         let elementCls = event.target.classList;
 
             if (elementCls == 'boxConBtnCls') {
-                modal.style.display = "flex";
+               // modal.style.display = "flex";
                 boxConBtnCls.style.background = 'rgb(60, 180, 171)';
                 boxConBtnCls.style.color = 'white';
                 }

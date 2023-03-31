@@ -548,7 +548,7 @@ body{
 
       /*Modals Start*/
       .modalMask{/* The Modal MASK (background) similar to page-mask..*/
-        display:flex; /* flex/none -- Hidden by default */
+        display:none; /* flex/none -- Hidden by default */
         justify-content:center; /*Centers children width..*/
         /* align-items: center; */ /*Centers children height..*/
         position:absolute; /* Stay in place */
