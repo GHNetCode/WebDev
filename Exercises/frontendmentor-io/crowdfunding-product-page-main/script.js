@@ -14,7 +14,7 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 //Timer function for touchstart events..
 let timedTouchFunc; 
 let timer;
-let touchduration = 500; //length of time we want the user to touch before we do something
+let touchduration = 250; //length of time button is 'touched' before we do something..
     timedTouchFunc = function() { //do something 
 
       modal.style.display = "flex";
@@ -26,8 +26,8 @@ let touchduration = 500; //length of time we want the user to touch before we do
          document.addEventListener("touchstart", (event) => { //For touch screens only.. 
                 let elementId = event.target.id;
                 let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-                  console.log("all elementId's :"+ elementId);
-                  console.log("all elementCls's :"+ elementCls);
+              //    console.log("all elementId's :"+ elementId);
+              //    console.log("all elementCls's :"+ elementCls);
 
           //For the Menu (hamburger). -:         
                 //When the user touches anywhere except on the links  
@@ -43,12 +43,12 @@ let touchduration = 500; //length of time we want the user to touch before we do
                 }
                 //Lets give color to the buttons and open the modal(dialogue)..
                 if (elementCls == 'boxConBtnCls') {
-                    //Give a bit of time between changing the color 'to active' of the button
-                    //and firing the modal\dialogue..
-                    timer = setTimeout(timedTouchFunc, touchduration); 
-                    //  modal.style.display = "flex";  
                     boxConBtnCls.style.background = 'rgb(76, 201, 193)';
-                    boxConBtnCls.style.color = 'white';                    
+                    boxConBtnCls.style.color = 'white';   
+
+                    //Give a bit of time between changing the color 'active color' of the button
+                    //and firing the modal\dialogue..
+                    timer = setTimeout(timedTouchFunc, touchduration);
                 }
 
             });
@@ -61,11 +61,9 @@ let touchduration = 500; //length of time we want the user to touch before we do
             boxConBtnCls.style.background = 'rgb(60, 180, 171)';
             boxConBtnCls.style.color = 'white';
             }
-
         //stops short touches from firing the event
         if (timer)
         clearTimeout(timer); // clearTimeout, not cleartimeout..
-
 
              });
 
