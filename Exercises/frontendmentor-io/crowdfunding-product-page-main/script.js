@@ -14,9 +14,8 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 //Timer function for touchstart events..
 let timedTouchFunc; 
 let timer;
-let touchduration = 250; //length of time button is 'touched' before we do something..
+let touchduration = 100; //length of time button is 'touched' before we do something..
     timedTouchFunc = function() { //do something 
-
       modal.style.display = "flex";
       };
 
@@ -24,11 +23,11 @@ let touchduration = 250; //length of time button is 'touched' before we do somet
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
          document.addEventListener("touchstart", (event) => { //For touch screens only.. 
+                
+                //get id and class events from '(event)' for Variables above..
                 let elementId = event.target.id;
                 let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-              //    console.log("all elementId's :"+ elementId);
-              //    console.log("all elementCls's :"+ elementCls);
-
+  
           //For the Menu (hamburger). -:         
                 //When the user touches anywhere except on the links  
                 //inside of the menu (hamburger) toggle then close it.. 
@@ -36,12 +35,14 @@ let touchduration = 250; //length of time button is 'touched' before we do somet
                 //  console.log('for checkB : '+ elementId);
                 checkBinput.checked = false;
                 }
+
           //For the modal/dialogue. -:
                 //Lets close the modal(dialogue) if user touches on the 'x' button.
                 if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
                 modal.style.display = "none";
                 }
-                //Lets give color to the buttons and open the modal(dialogue)..
+
+                //Change color of the buttons and open the modal(dialogue)..
                 if (elementCls == 'boxConBtnCls') {
                     boxConBtnCls.style.background = 'rgb(76, 201, 193)';
                     boxConBtnCls.style.color = 'white';   
