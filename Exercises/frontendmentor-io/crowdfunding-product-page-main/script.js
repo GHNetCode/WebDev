@@ -14,7 +14,7 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 //Timer function for touchstart events..
 let timedTouchFunc; 
 let timer;
-let touchduration = 100; //length of time button is 'touched' before we do something..
+let touchduration = 150; //length of time button is 'touched' before we do something..
     timedTouchFunc = function() { //do something 
       modal.style.display = "flex";
       };
