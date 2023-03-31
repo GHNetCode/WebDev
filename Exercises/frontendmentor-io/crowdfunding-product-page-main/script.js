@@ -39,8 +39,8 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
                 }
 
             });
-      } else if ('ontouchend' in window){
-        document.addEventListener("touchend", (event) => {
+      } else if ('ontouchmove' in window){
+        document.addEventListener("touchmove", (event) => {
         let elementCls = event.target.classList;
 
             if (elementCls == 'boxConBtnCls') {
