@@ -14,7 +14,7 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 //Timer function for touchstart events..
 let timedTouchFunc; 
 let timer;
-let touchduration = 200; //length of time button is 'touched' before we do something..
+let touchduration = 100; //length of time button is 'touched' before we do something..
     timedTouchFunc = function() { //do something 
       modal.style.display = "flex";
       };
@@ -44,12 +44,14 @@ let touchduration = 200; //length of time button is 'touched' before we do somet
 
                 //Change color of the buttons and open the modal(dialogue)..
                 if (elementCls == 'boxConBtnCls') {
-                    boxConBtnCls.style.background = 'rgb(76, 201, 193)';
-                    boxConBtnCls.style.color = 'white';   
-
                     //Give a bit of time between changing the color 'active color' of the button
                     //and firing the modal\dialogue..
                     timer = setTimeout(timedTouchFunc, touchduration);
+
+                    boxConBtnCls.style.background = 'rgb(76, 201, 193)';
+                    boxConBtnCls.style.color = 'white';   
+
+
                 }
 
             });
