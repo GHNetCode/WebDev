@@ -33,20 +33,21 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
                 }
                 //Lets give color to the buttons and open the modal(dialogue)..
                 if (elementCls == 'boxConBtnCls') {
+                      modal.style.display = "flex";
                       boxConBtnCls.style.background = 'rgb(76, 201, 193)';
                       boxConBtnCls.style.color = 'white';
-                      //modal.style.display = "flex";
+                      
                 }
 
             });
-      } else if ('ontouchmove' in window){
-        document.addEventListener("touchmove", (event) => {
+      } else if ('ontouchend' in window){
+        document.addEventListener("touchend", (event) => {
         let elementCls = event.target.classList;
 
             if (elementCls == 'boxConBtnCls') {
-                modal.style.display = "flex";
-              //  boxConBtnCls.style.background = 'rgb(60, 180, 171)';
-              //  boxConBtnCls.style.color = 'white';
+              //  modal.style.display = "flex";
+                boxConBtnCls.style.background = 'rgb(60, 180, 171)';
+                boxConBtnCls.style.color = 'white';
                 }
 
              });
