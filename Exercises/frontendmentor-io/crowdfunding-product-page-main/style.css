@@ -27,7 +27,7 @@ body{
     display:inherit; /* none\inherit */
     position: fixed;
     top:0; 
-    z-index: 2; 
+    z-index: 9; 
     color: rgb(239, 6, 6);
   }
   
@@ -548,7 +548,7 @@ body{
 
       /*Modals Start*/
       .modalMask{/* The Modal MASK (background) similar to page-mask..*/
-        display:none; /* flex/none -- Hidden by default */
+        display:flex; /* flex/none -- Hidden by default */
         justify-content:center; /*Centers children width..*/
         /* align-items: center; */ /*Centers children height..*/
         position:absolute; /* Stay in place */
@@ -644,53 +644,32 @@ body{
         }
 
  
-        /*Style the Radio button..START*/
-        input:where([type="radio"].btnStyler){
-          /* -webkit-appearance : none; */
-          appearance         : none;
-          width              : 22px;
-          height             : 22px;
-          margin             : calc(0.75em - 11px) 0.25rem 0 0;
-          vertical-align     : top;
-          border             : 2px solid #ddd;
-          border-radius      : 4px;
-          background         : #fff no-repeat center center;
+        /* Style the Radio button.. */ 
+        .inpBtnStyler{
+              appearance: none;
+              /* -webkit-appearance: none; */
+              position:absolute;
+              /* background: rgba(0, 0, 0, 0.0);needs to be transparent */
+              margin-left: -40.9px;
+              z-index: 0;
+              width: 24px;
+              height: 24px;
+              border-radius: 15px;
+              cursor: pointer; /*show hand cursor*/
+              border-radius: 50%;
+              /* background: #e8e8e8; */
+              border: 5px solid #FFF;
+              outline: 1px solid rgb(218, 218, 218); /*border..*/
+              /* background: white; */
         }
-        
-        input[type="radio"].btnStyler{
-          border-radius : 50%;
-        }
-        
-        input:where([type="radio"].btnStyler):where(:active:not(:disabled), :focus){
-          border-color : #696;
-          outline      : none;
-          /* accent-color:rgb(60, 180, 171); */
-          background-color: rgb(60, 180, 171);
-
-        }
-        
-        input:where([type="radio"].btnStyler):disabled{
-          background : #eee;
-        }
-        
-        input[type="checkbox"].btnStyler:checked{
-          background-image : url('checkbox.svg');
-        }
-        
-        input[type="radio"].btnStyler:checked{
-          background-image : url('radio.svg');
-        }
-        /*Style the Radio button..END*/
 
         
-          #mdl-Cont1Rbtn{
-            display: flex;
-            position: absolute;
-            width: 25px;
-            height: 25px;/*resize radio button..*/
-            margin-left: -39px;
-            /* accent-color:rgb(60, 180, 171);  */  /*NOTE: This is only achieved via the Label' for="mdl-Cont1Rbtn" ' .. */
-          } 
+        .inpBtnStyler[type=radio]:checked{
+          background: rgb(60, 180, 172);
+          border: 6px solid #FFF;
+        } 
+
+
 
           #mdl-Cont1h{ /*Note, This element also positions above #mdl-Cont1Rbtn  */
             display:flex;
@@ -719,12 +698,15 @@ body{
           display: flex;
           position: relative;
           top: 18px;
-          margin-left: 10px;
+          margin-left: 36px;
+          font-weight: 900;
+          letter-spacing: 0.2px;
           
         }
         #mdl-Cont2Rbtn{
           width:  25px; /*resize radio button..*/
           height: 25px;/*resize radio button..*/
+          margin-left: -28px ;
         }
 
           #Cont2hBl{
@@ -750,26 +732,90 @@ body{
             margin-left: 10px;
             margin-right: 5px;
           }
-          #mdl-Cont2ha{
+          #mdl-Cont2ha,#mdl-Cont3ha,#mdl-Cont4ha{
             position: absolute;
             margin-top: 12px;
             margin-left:10px;
           }
-          #mdl-Cont2p2{
+          #mdl-Cont2p2, #mdl-Cont3p2,#mdl-Cont4p2{
             position: relative;
             top:-13px;
             margin-left:47px;
           }
-          
+
+           /* Selected pledge start */
+              #mdl-Cont2Pld1{display: none;}
+              #mdl-Cont2Pld1p1{} /* ">Enter your pledge</p> */
+              #mdl-Cont2Pld1h1{} /* ">$25</h5> */
+              #mdl-Cont2Pld1h2{} /* ">Continue</h5> */
+           /* Selected pledge stop */
+           #mdl-Cont3h,#mdl-Cont4h{
+            display: flex;
+            position: relative;
+            /* top: 1px; */
+            margin-left: -3px;
+            font-weight: 900;
+            /* letter-spacing: 0.2px; */
+            
+          }
+          #mdl-Cont3Rbtn,#mdl-Cont4Rbtn{
+            position: absolute;
+            width:  25px; /*resize radio button..*/
+            height: 25px;/*resize radio button..*/
+            margin-left: 12px;
+            top:17px
+            /* top :500px; */
+          }
+           #Cont3hBl,#Cont4hBl{
+            display: flex;
+            position: relative;
+            /* align-items: center;
+            justify-content:center;  */
+            flex-direction: column;
+            top: -20px;
+            margin-left: 50px;
+           }
+           #Cont3hBl,#Cont4hBl p{
+            font-weight: 900;
+          }
+           #Cont3hBlp2,#Cont4hBlp2{
+            position: relative;
+            top:-10px;
+            color: rgb(64, 201, 187);
+          }
+          #mdl-Cont3p1,#mdl-Cont4p1{  /*You get a Black Special Edition..*/
+              position: relative;
+              top: -22px;
+              margin-left: 9px;
+              margin-right: 8px;
+            } 
+            #mdl-Cont3p2{
+              margin-left: 40px;
+            }
+            #mdl-Cont4p2{
+              margin-left: 30px;
+            }
+
+    /* Selected pledge start */
+    #mdl-Cont3Pld1{display: none;}
+    #mdl-Cont2Pld1p1{} /* ">Enter your pledge</p> */
+    #mdl-Cont2Pld1h1{} /* ">$...</h5> */
+    #mdl-Cont2Pld1h2{} /* ">Continue</h5> */
+ /* Selected pledge stop */
 
 
 
 
 
 
+     /* Selected pledge start */
+     #mdl-Cont4Pld1{display: none;}
+     #mdl-Cont2Pld1p1{} /* ">Enter your pledge</p> */
+     #mdl-Cont2Pld1h1{} /* ">$...</h5> */
+     #mdl-Cont2Pld1h2{} /* ">Continue</h5> */
+  /* Selected pledge stop */
 
-
-    /*Modals Finish*/
+    /*Modal Finish*/
 
 
 #imgBckgrndDsk{display: none;}/* Hide the desktop image..*/

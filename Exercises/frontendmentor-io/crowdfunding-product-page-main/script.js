@@ -14,7 +14,7 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 //Timer function for touchstart events..
 let timedTouchFunc; 
 let timer;
-let touchduration = 150; //length of time button is 'touched' before we do something..
+let touchduration = 150; //length of time ..
     timedTouchFunc = function() { //do something 
       modal.style.display = "flex";
       };
@@ -37,20 +37,20 @@ let touchduration = 150; //length of time button is 'touched' before we do somet
                 }
 
           //For the modal/dialogue. -:
-                //Lets close the modal(dialogue) if user touches on the 'x' button.
+                //Close the modal(dialogue) if user touches on the 'x' button.
                 if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
                 modal.style.display = "none";
                 }
 
-                //Change color of the buttons and open the modal(dialogue)..
+                //open the modal(dialogue) via timer function and Change color of the buttons  ..
                 if (elementCls == 'boxConBtnCls') {
+
                     //Give a bit of time between changing the color 'active color' of the button
                     //and firing the modal\dialogue..
                     timer = setTimeout(timedTouchFunc, touchduration);
 
                     boxConBtnCls.style.background = 'rgb(76, 201, 193)';
-                    boxConBtnCls.style.color = 'white';   
-
+                    boxConBtnCls.style.color = 'white';
 
                 }
 
@@ -60,17 +60,17 @@ let touchduration = 150; //length of time button is 'touched' before we do somet
         let elementCls = event.target.classList;
 
         if (elementCls == 'boxConBtnCls') {
-          if (timer){clearTimeout(timer);}// clearTimeout, not cleartimeout..
-          //  modal.style.display = "flex";
-            boxConBtnCls.style.background = 'rgb(60, 180, 171)';
-            boxConBtnCls.style.color = 'white';
+
+              // clearTimeout, not cleartimeout..
+              if (timer){clearTimeout(timer);}
+                boxConBtnCls.style.background = 'rgb(60, 180, 171)';
+                boxConBtnCls.style.color = 'white';
 
             
              
 
             }
-            
-        //stops short touches from firing the event
+        
         
              });
 
