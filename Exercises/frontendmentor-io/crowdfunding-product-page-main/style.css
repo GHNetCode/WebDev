@@ -11,6 +11,7 @@ body{
     margin:0px;
     margin-bottom:0px;
     background-color: rgb(250, 250, 250);
+  
   }
 
   #mainContent{
@@ -107,7 +108,6 @@ body{
   /*Hide the menu when unchecked!!*/
   transform: scale(0.0) translate(-100%, -100%);
   
- 
 }
 
       #menu a{
@@ -145,7 +145,7 @@ body{
     transition: transform 0.3s ease;    */
   
     transform: scale(1.1) translate(0%, 0%);
-    transition: transform 0.2s ease;
+    transition: transform 0.4s ease;
    
   }
  
@@ -298,7 +298,7 @@ body{
             margin-left:7.4%;
             margin-right:7.4%;            
             font-size: 14px;
-            opacity: 30%;}
+            opacity: 40%;}
 
           #box1Btn1{/*Back this project*/
             position:relative;
@@ -452,7 +452,7 @@ body{
           #box3Conp1,#box3Conp2{
             margin-top: 9%; margin-right:1% ;
             font-size: 87.9%;font-weight:500; 
-            line-height: 170.9%;opacity: 60%;
+            line-height: 170.9%;opacity: 55%;
             letter-spacing: -0.04px;
           }
           #box3ConBox1p1,#box3ConBox2p1,#box3ConBox3p1{
@@ -467,7 +467,7 @@ body{
             margin-top:10.5%;margin-left: 3.6%;
             margin-right: 1%;
             font-size: 89.0%;font-weight:600; 
-            line-height: 170%;opacity: 60%;
+            line-height: 170%;opacity: 45%;
             letter-spacing: -0.13px;
           }
 
@@ -500,7 +500,11 @@ body{
 @media (hover: hover){
   #box3ConBox1Btn:hover {color: white; background-color: rgb(76, 201, 193);}
   #box3ConBox2Btn:hover {color: white; background-color: rgb(76, 201, 193);}
-    }
+  .inpBtnStyler:hover{ color: rgb(43, 202, 189); 
+                       border: 5px ;
+                       box-shadow: inset 0 0 0 6px;
+                            }
+                      }
 
             /* #box3Conp2{margin-top:9%}  */
             /*overide above settings..*/
@@ -527,17 +531,17 @@ body{
         }
         /* Override above for tweaking general params..*/
           #box3ConBox2p2{margin-right: 3%;}
-          #box3ConBox2p3a{    margin-left: 23.0%;}
+          #box3ConBox2p3a{margin-left: 23.0%;}
           
 
-        #box3ConBox3{
+        #box3ConBox3{/*Mahogany Special Edition..*/
           background-color: white;
           border:rgb(218, 218, 218) solid 2px;
           border-radius: 8px;
           margin-top: 9%;
           padding: 5%;
           height:373.2px;
-          opacity: 26%;
+          opacity: 26%; 
         }
         /* Override above for tweaking general params..*/
         #box3ConBox3p3a{    margin-left: 16.0%;}
@@ -560,39 +564,49 @@ body{
         width: 100%; /* Full width */
         height: 100%; /* Full height */  /* Enable scroll if needed */
         min-height: 2950px;/*Full height to stop page tearing..*/ 
-        /* overflow: auto;  */ /*No need to extra scroll bars..*/
-        /* background: white; */
-          /* Fallback color */
         background-color: rgb(0,0,0); 
         /* Black w/ opacity */
         background-color: rgba(0, 0, 0, 0.486);
         /* background-color: white; */
-      }
+
+ 
+      } 
           
         /* modalContainers */
         .modalContainers{ /*Back this project*/
           font-family: Commissioner;
           display:flex;
           flex-direction:column;
-          position:relative;
+          position:absolute; /*Make this absolute to auto adjust height etc..*/
           padding: 23px;
           border: 1px solid #888;
           border-radius: 7px;
           top:123px;
           width: 332px; /*91.5%*/
-          height: 50%;
+          max-height:55%; /*50% , 2850px*/
           z-index: 5;
           /* background-color: rgb(0,0,0);  */
           /* Black w/ opacity */
           /* background-color: rgba(0, 0, 0, 0.486); */
-          background-color: rgb(240, 240, 240);
+          background-color: white; 
+          transition: background-color 0.3s ease-out;
         }
+        
+      .modalContainers:hover {
+        background-color: rgb(233, 233, 233);
+        /* cursor: pointer; */
+      }
+     
+
         .modalContainers h3{
           font-size: 18.5px;
           margin-top: 8px;
           margin-left: 2px;
           font-weight: 900;
           letter-spacing: -0.1px;
+        }
+        .pFader{
+          opacity: 50%;
         }
         
           /* The Close Button */
@@ -661,14 +675,17 @@ body{
               border: 5px solid #FFF;
               outline: 1px solid rgb(218, 218, 218); /*border..*/
               /* background: white; */
+              transition: 0.2s; /*For the hover effect..*/
         }
 
-        
+  
         .inpBtnStyler[type=radio]:checked{
           background: rgb(60, 180, 172);
           border: 6px solid #FFF;
+          pointer-events: none; /*disable hover effect..*/
         } 
-
+     
+        
 
 
           #mdl-Cont1h{ /*Note, This element also positions above #mdl-Cont1Rbtn  */
@@ -692,6 +709,9 @@ body{
           margin-right: 10px;
           letter-spacing: 0.05px;
         }
+
+
+
       
         /*remember to undo line 551!!*/
         #mdl-Cont2h{
@@ -707,6 +727,7 @@ body{
           width:  25px; /*resize radio button..*/
           height: 25px;/*resize radio button..*/
           margin-left: -28px ;
+
         }
 
           #Cont2hBl{
@@ -741,66 +762,102 @@ body{
             position: relative;
             top:-13px;
             margin-left:47px;
+            font-size: 15px;
           }
 
-           /* Selected pledge start */
-              #mdl-Cont2Pld1{display: none;}
-              #mdl-Cont2Pld1p1{} /* ">Enter your pledge</p> */
-              #mdl-Cont2Pld1h1{} /* ">$25</h5> */
-              #mdl-Cont2Pld1h2{} /* ">Continue</h5> */
-           /* Selected pledge stop */
+          
+        /* Selected pledge start */
+              /*Hide when unchecked*/
+              #mdl-Cont2Pld1{ display: none;/*none/flex*/
+                flex-direction: column;
+                position: absolute;
+              } 
+              #lineDiv2{
+                display: flex;
+                position: absolute; 
+                border-top: rgb(218, 218, 218) solid 2px ;
+                margin-top: 23px ;
+                margin-left:-14.5px;
+                margin-right:0px;
+                width: 279px;
+                opacity: 50%;
+              }
+              #mdl-Cont2Pld1p1{/* ">Enter your pledge</p> */
+                position: relative;                
+                margin-left: 68px;
+                top: 26px;
+                /* font-weight: 600; */
+                
+
+              } 
+              #mdl-Cont2Pld1h1{/* ">$25</h5> */
+                position: relative;
+                margin-top: 50px ;
+              } 
+              #mdl-Cont2Pld1h2{/* ">Continue</h5> */
+                position: relative;
+                margin-top: 50px ;
+              } 
+        /* Selected pledge stop */
+
+
            #mdl-Cont3h,#mdl-Cont4h{
             display: flex;
             position: relative;
             /* top: 1px; */
             margin-left: -3px;
-            font-weight: 900;
+            /* font-weight: 900; */
             /* letter-spacing: 0.2px; */
             
           }
           #mdl-Cont3Rbtn,#mdl-Cont4Rbtn{
             position: absolute;
-            width:  25px; /*resize radio button..*/
-            height: 25px;/*resize radio button..*/
+            width:  25px;  
+            height: 25px; 
             margin-left: 12px;
-            top:17px
-            /* top :500px; */
+            top:17px;
+             
           }
+
            #Cont3hBl,#Cont4hBl{
             display: flex;
             position: relative;
-            /* align-items: center;
-            justify-content:center;  */
             flex-direction: column;
             top: -20px;
             margin-left: 50px;
            }
-           #Cont3hBl,#Cont4hBl p{
+
+           #Cont3hBlp1,#Cont3hBlp2,#Cont4hBlp1,#Cont4hBlp2{
             font-weight: 900;
-          }
+           }
+          
+
            #Cont3hBlp2,#Cont4hBlp2{
             position: relative;
             top:-10px;
             color: rgb(64, 201, 187);
           }
+
           #mdl-Cont3p1,#mdl-Cont4p1{  /*You get a Black Special Edition..*/
               position: relative;
               top: -22px;
               margin-left: 9px;
               margin-right: 8px;
-            } 
+            }
+
             #mdl-Cont3p2{
               margin-left: 40px;
             }
+
             #mdl-Cont4p2{
               margin-left: 30px;
             }
 
     /* Selected pledge start */
     #mdl-Cont3Pld1{display: none;}
-    #mdl-Cont2Pld1p1{} /* ">Enter your pledge</p> */
-    #mdl-Cont2Pld1h1{} /* ">$...</h5> */
-    #mdl-Cont2Pld1h2{} /* ">Continue</h5> */
+    #mdl-Cont3Pld1p1{} /* ">Enter your pledge</p> */
+    #mdl-Cont3Pld1h1{} /* ">$...</h5> */
+    #mdl-Cont3Pld1h2{} /* ">Continue</h5> */
  /* Selected pledge stop */
 
 
@@ -810,30 +867,36 @@ body{
 
      /* Selected pledge start */
      #mdl-Cont4Pld1{display: none;}
-     #mdl-Cont2Pld1p1{} /* ">Enter your pledge</p> */
-     #mdl-Cont2Pld1h1{} /* ">$...</h5> */
-     #mdl-Cont2Pld1h2{} /* ">Continue</h5> */
+     #mdl-Cont4Pld1p1{} /* ">Enter your pledge</p> */
+     #mdl-Cont4Pld1h1{} /* ">$...</h5> */
+     #mdl-Cont4Pld1h2{} /* ">Continue</h5> */
   /* Selected pledge stop */
 
     /*Modal Finish*/
 
 
-#imgBckgrndDsk{display: none;}/* Hide the desktop image..*/
+    /* Hide the desktop image..*/
+    #imgBckgrndDsk{display: none;}
 
-@media(min-width: 550px){ /*min-width - takes effect after,  375px for desktops*/
-  #mobNavB{display:none;}
-  /* .imgBckgrndMob{display:none;} */
-    #imgBckgrndDsk{
-        display:unset; /*redisplay the background-image..*/
-        max-width: 100%;
-        background-image: url("./images/image-hero-desktop.jpg");
-      
-}
+/*Currently DISABLING THE BELOW FOR DESKTOP mode...*/
+/*min-width - takes effect after,  375px for desktops*/
+/* @media(min-width: 550px){ */
+  /* #mobNavB, #boxContainer{display:none;} */
 
+    /* #imgBckgrndDsk{ */
+      /*redisplay the background-image..*/
+        /* display:unset;  */
+        /* max-width: 100%; */
+        /* background-image: url("./images/image-hero-desktop.jpg"); */
+        /* } */
+    
+    /* #DeskH1{ */
+      /* top:200px; */
+      /* position:absolute; */
+      /* display:flex; */
 
-
-
-}
+    /* } */
+/* } */
 
 #attribution { font-size: 11px; text-align: center; position: relative /*Was absolute before giving height to boxContainer..*/;/*z-index: -1;*/ bottom:-300px; width:100%; margin: auto;}
 #attribution a { color: hsl(228, 45%, 44%); }

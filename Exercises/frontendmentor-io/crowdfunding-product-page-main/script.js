@@ -10,8 +10,18 @@ let checkBinput = document.getElementById('checkB');
 
 let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 
+//modulas radio buttons to handle the boxes and pledge sums..
+let inpBtnStyler = document.getElementsByClassName('inpBtnStyler');
+let mdlCont2 = document.getElementById('mdl-Cont2');
+let mdlCont2Pld1 = document.getElementById('mdl-Cont2Pld1');
+let mdlCont3 = document.getElementById('mdl-Cont3');
+let mdlCont3Pld1 = document.getElementById('mdl-Cont3Pld1');
+let mdlCont4 = document.getElementById('mdl-Cont4');
+let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
-//Timer function for touchstart events..
+ 
+
+//Timer function for 'touchstart' events when using mobile..
 let timedTouchFunc; 
 let timer;
 let touchduration = 150; //length of time ..
@@ -44,15 +54,13 @@ let touchduration = 150; //length of time ..
 
                 //open the modal(dialogue) via timer function and Change color of the buttons  ..
                 if (elementCls == 'boxConBtnCls') {
-
                     //Give a bit of time between changing the color 'active color' of the button
                     //and firing the modal\dialogue..
                     timer = setTimeout(timedTouchFunc, touchduration);
-
                     boxConBtnCls.style.background = 'rgb(76, 201, 193)';
                     boxConBtnCls.style.color = 'white';
-
                 }
+                
 
             });
       } else if ('ontouchend' in window){
@@ -61,39 +69,32 @@ let touchduration = 150; //length of time ..
 
         if (elementCls == 'boxConBtnCls') {
 
-              // clearTimeout, not cleartimeout..
+              // clearTimeout..
               if (timer){clearTimeout(timer);}
                 boxConBtnCls.style.background = 'rgb(60, 180, 171)';
                 boxConBtnCls.style.color = 'white';
-
-            
-             
-
-            }
-        
-        
-             });
-
-      } else {
+            }        
+        });
+    } else {
          document.addEventListener("click", (event) => { // For mouse clicks only..
           let elementId = event.target.id;
           let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-          console.log("all elementId's :"+ elementId);
-          console.log("all elementCls's :"+ elementCls);
+        //  console.log("all elementId's :"+ elementId);
+        //  console.log("all elementCls's :"+ elementCls);
           
 
-    //For the Menu (hamburger). -:         
+       //For the Menu (hamburger). -:         
         //When the user clicks anywhere except on the links  
         //inside of the menu (hamburger) toggle, close it.. 
         if (elementId == 'menu') {// 
           console.log('for checkB : '+ elementId);
           checkBinput.checked = false;
-        }
-    //For the modal/dialogue. -:
+         }
+       //For the modal/dialogue. -:
         //Lets close the modal(dialogue) if user clicks on the 'x' button.
         if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
           modal.style.display = "none";
-     }
+         }
          //Lets close the modal(dialogue) if user clicks outside of the modal window..
          if (elementId == 'myModal') {
            modal.style.display = "none";
@@ -103,8 +104,85 @@ let touchduration = 150; //length of time ..
          if (elementCls == 'boxConBtnCls') {
           modal.style.display = "flex";
          }
+
+         //remember to put this in for mobile after testing!!
+         if (elementCls == 'inpBtnStyler') {
+          //Give a bit of time between changing the color 'active color' of the button
+          //and firing the modal\dialogue..
+          // timer = setTimeout(timedTouchFunc, touchduration);
+         
+        
+          for (let i = 0; i < inpBtnStyler.length; i++) {
+              //  let rBtn = inpBtnStyler[i];
+              //console.log('button outside forloop..'+inpBtnStyler[i].id)
+              if (inpBtnStyler[i].checked){
+               //console.log('button selected'+inpBtnStyler[i].id)
+
+              //Handle the events for pledges when radio button is pushed..
+
+                  // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
+                  if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn'){ 
+                    // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                    
+                    mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+                    mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
+                    mdlCont2Pld1.style.display='flex';
+                  } else {
+                    mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
+                    mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+                    mdlCont2Pld1.style.display='none';
+                   }
+
+                  // Grab button id for This box\div.. mdl-Cont3 -- Black Edition Stand
+                  if (inpBtnStyler[i].id ==='mdl-Cont3Rbtn'){ 
+                    // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                    
+                    
+                    mdlCont3.style.height='350px'; //make the window longer to accommodate for the buttons etc..  
+                    mdlCont3Pld1.style.display='flex';
+                  } else {
+                    mdlCont3.style.height='unset';
+                    mdlCont3Pld1.style.display='none'; 
+                   }
+
+                   // Grab button id for This box\div.. mdl-Cont4 -- Mahogany Special Edition
+                  if (inpBtnStyler[i].id ==='mdl-Cont4Rbtn'){
+                    // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                    
+                    mdlCont4.style.height='350px'; //make the window longer to accommodate for the buttons etc..  
+                    mdlCont4Pld1.style.display='flex';
+                  } else {
+                    mdlCont4.style.height='unset';
+                    mdlCont4Pld1.style.display='none';
+                   }
+
+
+                }
+             }
+         }
+
       });
    }
+
+
+   //https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/
+   
+   
+
+//   const btn = document.querySelector('#btn');        
+//   const radioButtons = document.querySelectorAll('input[name="size"]');
+//   btn.addEventListener("click", () => {
+//       let selectedSize;
+//       for (const radioButton of radioButtons) {
+//           if (radioButton.checked) {
+//               selectedSize = radioButton.value;
+//               break;
+//           }
+//       }
+//       // show the output:
+//       output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+//   });
+
 
 
   
