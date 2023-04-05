@@ -60,6 +60,66 @@ let touchduration = 150; //length of time ..
                     boxConBtnCls.style.background = 'rgb(76, 201, 193)';
                     boxConBtnCls.style.color = 'white';
                 }
+
+                         //remember to put this in for mobile after testing!!
+                         if (elementCls == 'inpBtnStyler') {
+                          //Give a bit of time between changing the color 'active color' of the button
+                          //and firing the modal\dialogue..
+                          // timer = setTimeout(timedTouchFunc, touchduration);
+                         
+                        
+                          for (let i = 0; i < inpBtnStyler.length; i++) {
+                              //  let rBtn = inpBtnStyler[i];
+                              //console.log('button outside forloop..'+inpBtnStyler[i].id)
+                              if (inpBtnStyler[i].checked){
+                               //console.log('button selected'+inpBtnStyler[i].id)
+                
+                              //Handle the events for pledges when radio button is pushed..
+                
+                                  // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
+                                  if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn'){ 
+                                    // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                                    
+                                    mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+                                    mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
+                                    mdlCont2Pld1.style.display='flex';
+                                  } else {
+                                    mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
+                                    mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+                                    mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
+                                   }
+                
+                                  // Grab button id for This box\div.. mdl-Cont3 -- Black Edition Stand
+                                  if (inpBtnStyler[i].id ==='mdl-Cont3Rbtn'){ 
+                                    // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                                    mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+                                    mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
+                                    mdlCont3Pld1.style.display='flex';
+                
+                                  } else {
+                                    mdlCont3.style.height='unset';
+                                    mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
+                                    mdlCont3Pld1.style.display='none'; // Set back to none / Flex!
+                                   }
+                
+                                   // Grab button id for This box\div.. mdl-Cont4 -- Mahogany Special Edition
+                                  if (inpBtnStyler[i].id ==='mdl-Cont4Rbtn'){
+                                    // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                                    
+                                    mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+                                    mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
+                                    mdlCont4Pld1.style.display='flex';
+                
+                                  } else {
+                                    mdlCont4.style.height='unset';
+                                    mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
+                                    mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
+                                    }
+                
+                
+                                }
+                             }
+                         }
                 
 
             });
@@ -75,66 +135,6 @@ let touchduration = 150; //length of time ..
                 boxConBtnCls.style.color = 'white';
             }
         
-            
-                 //remember to put this in for mobile after testing!!
-                 if (elementCls == 'inpBtnStyler') {
-                  //Give a bit of time between changing the color 'active color' of the button
-                  //and firing the modal\dialogue..
-                  // timer = setTimeout(timedTouchFunc, touchduration);
-                 
-                
-                  for (let i = 0; i < inpBtnStyler.length; i++) {
-                      //  let rBtn = inpBtnStyler[i];
-                      //console.log('button outside forloop..'+inpBtnStyler[i].id)
-                      if (inpBtnStyler[i].checked){
-                       //console.log('button selected'+inpBtnStyler[i].id)
-        
-                      //Handle the events for pledges when radio button is pushed..
-        
-                          // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
-                          if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn'){ 
-                            // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
-                            
-                            mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-                            mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
-                            mdlCont2Pld1.style.display='flex';
-                          } else {
-                            mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
-                            mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-                            mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
-                           }
-        
-                          // Grab button id for This box\div.. mdl-Cont3 -- Black Edition Stand
-                          if (inpBtnStyler[i].id ==='mdl-Cont3Rbtn'){ 
-                            // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
-                            mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-                            mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
-                            mdlCont3Pld1.style.display='flex';
-        
-                          } else {
-                            mdlCont3.style.height='unset';
-                            mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
-                            mdlCont3Pld1.style.display='none'; // Set back to none / Flex!
-                           }
-        
-                           // Grab button id for This box\div.. mdl-Cont4 -- Mahogany Special Edition
-                          if (inpBtnStyler[i].id ==='mdl-Cont4Rbtn'){
-                            // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
-                            
-                            mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-                            mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
-                            mdlCont4Pld1.style.display='flex';
-        
-                          } else {
-                            mdlCont4.style.height='unset';
-                            mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
-                            mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
-                            }
-        
-        
-                        }
-                     }
-                 }
         });
     } else {
          document.addEventListener("click", (event) => { // For mouse clicks only..
