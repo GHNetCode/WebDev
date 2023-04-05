@@ -583,7 +583,7 @@ body{
           border-radius: 7px;
           top:123px;
           width: 332px; /*91.5%*/
-          max-height:55%; /*50% , 2850px*/
+          /* max-height:80%;   */
           z-index: 5;
           /* background-color: rgb(0,0,0);  */
           /* Black w/ opacity */
@@ -765,14 +765,21 @@ body{
             font-size: 15px;
           }
 
-          
+
         /* Selected pledge start */
-              /*Hide when unchecked*/
-              #mdl-Cont2Pld1{ display: none;/*none/flex*/
+
+      /*overide mdl-Cont2 , remove after!!*/
+        /* #mdl-Cont2{
+        height: 422px;
+        border :rgb(59, 180, 171) solid 2px;
+        } */
+
+              /*Hide when Radio btn Unchecked*/
+              #mdl-Cont2Pld1{ display: none;/* set back to none/flex*/
                 flex-direction: column;
                 position: absolute;
               } 
-              #lineDiv2{
+              #lineDiv3{
                 display: flex;
                 position: absolute; 
                 border-top: rgb(218, 218, 218) solid 2px ;
@@ -782,22 +789,45 @@ body{
                 width: 279px;
                 opacity: 50%;
               }
+              
               #mdl-Cont2Pld1p1{/* ">Enter your pledge</p> */
                 position: relative;                
                 margin-left: 68px;
                 top: 26px;
-                /* font-weight: 600; */
-                
+                /* font-weight: 600; */  
+              } 
 
-              } 
-              #mdl-Cont2Pld1h1{/* ">$25</h5> */
+              #mdl-Cont2Pld1Btn1:before{font-family: Commissioner; word-spacing: 6px; content: '$ '; color:#888;}
+              /* #backedSum:after{font-family: Calibri; content: ' backed'; } */
+                .mdl-ContPldBtnCls{
                 position: relative;
-                margin-top: 50px ;
-              } 
-              #mdl-Cont2Pld1h2{/* ">Continue</h5> */
-                position: relative;
-                margin-top: 50px ;
-              } 
+                top: 56px;
+                width: 99px;
+                height: 49px;
+                border-radius: 30px;
+                font-family: 'Commissioner';
+                font-size: 14px;
+              }
+              #mdl-Cont2Pld1Btn1{ /*$ 25*/
+                margin-left: 8px;
+                padding-right: 21px;
+                background-color: white;
+                color: black;
+                border: 2px solid #aaaaaa;
+                font-weight: 900;
+              }
+              #mdl-Cont2Pld1Btn2{     /* Continue */
+                position: absolute;
+                top: 93px;
+                margin-left: 125px;
+                padding-right: 5px;
+                width: 115px;
+                background-color: rgb(59, 180, 171);
+                color: white;
+                border: 0;
+                font-weight: 600;
+              }
+
         /* Selected pledge stop */
 
 
@@ -854,10 +884,65 @@ body{
             }
 
     /* Selected pledge start */
-    #mdl-Cont3Pld1{display: none;}
-    #mdl-Cont3Pld1p1{} /* ">Enter your pledge</p> */
-    #mdl-Cont3Pld1h1{} /* ">$...</h5> */
-    #mdl-Cont3Pld1h2{} /* ">Continue</h5> */
+     /*overide mdl-Cont2 , remove after!!*/
+        /* #mdl-Cont3{
+        height: 422px;
+        border :rgb(59, 180, 171) solid 2px;
+        } */
+
+              /*Hide when Radio btn Unchecked*/
+              #mdl-Cont3Pld1{ display: none;/* set back to none/flex*/
+                flex-direction: column;
+                position: relative;
+              } 
+              #lineDiv3{
+                display: flex;
+                position: absolute; 
+                border-top: rgb(218, 218, 218) solid 2px ;
+                margin-top: 23px ;
+                margin-left:-14.5px;
+                margin-right:0px;
+                width: 279px;
+                opacity: 50%;
+              }
+              
+              #mdl-Cont3Pld1p1{/* ">Enter your pledge</p> */
+                position: relative;                
+                margin-left: 68px;
+                top: 26px;
+                /* font-weight: 600; */  
+              } 
+
+              #mdl-Cont3Pld1Btn1:before{font-family: Commissioner; word-spacing: 6px; content: '$ '; color:#888;}
+              /* #backedSum:after{font-family: Calibri; content: ' backed'; } */
+                .mdl-ContPldBtnCls{
+                position: relative;
+                top: 56px;
+                width: 99px;
+                height: 49px;
+                border-radius: 30px;
+                font-family: 'Commissioner';
+                font-size: 14px;
+              }
+              #mdl-Cont3Pld1Btn1{ /*$ 25*/
+                margin-left: 8px;
+                padding-right: 21px;
+                background-color: white;
+                color: black;
+                border: 2px solid #aaaaaa;
+                font-weight: 900;
+              }
+              #mdl-Cont3Pld1Btn2{     /* Continue */
+                position: absolute;
+                top: 93px;
+                margin-left: 125px;
+                padding-right: 5px;
+                width: 115px;
+                background-color: rgb(59, 180, 171);
+                color: white;
+                border: 0;
+                font-weight: 600;
+              }
  /* Selected pledge stop */
 
 
@@ -866,11 +951,75 @@ body{
 
 
      /* Selected pledge start */
-     #mdl-Cont4Pld1{display: none;}
-     #mdl-Cont4Pld1p1{} /* ">Enter your pledge</p> */
-     #mdl-Cont4Pld1h1{} /* ">$...</h5> */
-     #mdl-Cont4Pld1h2{} /* ">Continue</h5> */
+        /*overide mdl-Cont2 , remove after!!*/
+        /* #mdl-Cont4{
+        height: 422px;
+        border :rgb(59, 180, 171) solid 2px;
+        } */
+
+              /*Hide when Radio btn Unchecked*/
+              #mdl-Cont4Pld1{ display: none;/* set back to none/flex*/
+                flex-direction: column;
+                position: absolute;
+                /* top:-101; */
+              } 
+              #lineDiv3{
+                display: flex;
+                position: absolute; 
+                border-top: rgb(218, 218, 218) solid 2px ;
+                margin-top: 23px ;
+                margin-left:-14.5px;
+                margin-right:0px;
+                width: 279px;
+                opacity: 50%;
+              }
+              
+              #mdl-Cont4Pld1p1{/* ">Enter your pledge</p> */
+                position: relative;                
+                margin-left: 68px;
+                top: 26px;
+                /* font-weight: 600; */  
+              } 
+
+              #mdl-Cont4Pld1Btn1:before{font-family: Commissioner; word-spacing: 6px; content: '$ '; color:#888;}
+              /* #backedSum:after{font-family: Calibri; content: ' backed'; } */
+                .mdl-ContPldBtnCls{
+                position: relative;
+                top: 56px;
+                width: 99px;
+                height: 49px;
+                border-radius: 30px;
+                font-family: 'Commissioner';
+                font-size: 14px;
+              }
+              #mdl-Cont4Pld1Btn1{ /*$ 200*/
+                margin-left: 8px;
+                padding-right: 21px;
+                background-color: white;
+                color: black;
+                border: 2px solid #aaaaaa;
+                font-weight: 900;
+              }
+              #mdl-Cont4Pld1Btn2{     /* Continue */
+                position: absolute;
+                top: 93px;
+                margin-left: 125px;
+                padding-right: 5px;
+                width: 115px;
+                background-color: rgb(59, 180, 171);
+                color: white;
+                border: 0;
+                font-weight: 600;
+              }
   /* Selected pledge stop */
+
+
+  /* TO DO: Center text in buttons! and show hover effect.. */
+  /*        put a continue button at the top.
+            Make sure Mobile ontouch is updated!!
+  */
+
+
 
     /*Modal Finish*/
 
