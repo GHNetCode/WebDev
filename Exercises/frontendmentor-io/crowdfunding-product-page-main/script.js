@@ -72,7 +72,7 @@ let touchduration = 150; //length of time ..
                               //  let rBtn = inpBtnStyler[i];
                               //console.log('button outside forloop..'+inpBtnStyler[i].id)
                               if (inpBtnStyler[i].checked){
-                               //console.log('button selected'+inpBtnStyler[i].id)
+                               console.log('button selected'+inpBtnStyler[i].id)
                 
                               //Handle the events for pledges when radio button is pushed..
                 
