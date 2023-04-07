@@ -52,14 +52,14 @@ let touchduration = 150; //length of time ..
                 modal.style.display = "none";
                 }
 
-                //open the modal(dialogue) via timer function and Change color of the buttons  ..
-                if (elementCls == 'boxConBtnCls') {
+                //open the modal(dialogue) via timer function and Change color (hover effect) of the buttons  ..
+        //        if (elementCls == 'boxConBtnCls') {
                     //Give a bit of time between changing the color 'active color' of the button
                     //and firing the modal\dialogue..
-                    timer = setTimeout(timedTouchFunc, touchduration);
-                    boxConBtnCls.style.background = 'rgb(76, 201, 193)';
-                    boxConBtnCls.style.color = 'white';
-                }
+         //           timer = setTimeout(timedTouchFunc, touchduration);
+         //           boxConBtnCls.style.background = 'rgb(76, 201, 193)';
+         //           boxConBtnCls.style.color = 'white';
+         //       }
 
                          //remember to put this in for mobile after testing!!
                          if (elementCls == 'inpBtnStyler') {
