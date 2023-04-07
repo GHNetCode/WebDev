@@ -78,7 +78,7 @@ let touchduration = 150; //length of time ..
                 
                                   // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
                                   if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn'){ 
-                                    // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                                     console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                                     
                                     mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
                                     mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
@@ -91,7 +91,7 @@ let touchduration = 150; //length of time ..
                 
                                   // Grab button id for This box\div.. mdl-Cont3 -- Black Edition Stand
                                   if (inpBtnStyler[i].id ==='mdl-Cont3Rbtn'){ 
-                                    // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                                     console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                                     mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
                                     mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
                                     mdlCont3Pld1.style.display='flex';
@@ -104,7 +104,7 @@ let touchduration = 150; //length of time ..
                 
                                    // Grab button id for This box\div.. mdl-Cont4 -- Mahogany Special Edition
                                   if (inpBtnStyler[i].id ==='mdl-Cont4Rbtn'){
-                                    // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                                     console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                                     
                                     mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
                                     mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
