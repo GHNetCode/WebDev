@@ -77,7 +77,7 @@ let touchduration = 150; //length of time ..
                               //Handle the events for pledges when radio button is pushed..
                 
                                   // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
-                                  if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn'){ 
+                                  if (inpBtnStyler[i].id =='mdl-Cont2Rbtn'){ 
                                      console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                                     
                                     mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
@@ -90,7 +90,7 @@ let touchduration = 150; //length of time ..
                                    }
                 
                                   // Grab button id for This box\div.. mdl-Cont3 -- Black Edition Stand
-                                  if (inpBtnStyler[i].id ==='mdl-Cont3Rbtn'){ 
+                                  if (inpBtnStyler[i].id =='mdl-Cont3Rbtn'){ 
                                      console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                                     mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
                                     mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
@@ -103,7 +103,7 @@ let touchduration = 150; //length of time ..
                                    }
                 
                                    // Grab button id for This box\div.. mdl-Cont4 -- Mahogany Special Edition
-                                  if (inpBtnStyler[i].id ==='mdl-Cont4Rbtn'){
+                                  if (inpBtnStyler[i].id =='mdl-Cont4Rbtn'){
                                      console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                                     
                                     mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
