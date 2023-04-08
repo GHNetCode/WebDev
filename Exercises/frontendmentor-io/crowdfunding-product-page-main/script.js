@@ -74,7 +74,7 @@ let touchduration = 150; //length of time ..
         
           for (let i = 0; i < inpBtnStyler.length; i++) {
               //  let rBtn = inpBtnStyler[i];
-              //console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
+              console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
               // i += 1;
               if (inpBtnStyler[i].checked){
                 console.log('inpBtnStyler[i].value --:'+inpBtnStyler[i].value+ ' !')
@@ -84,7 +84,7 @@ let touchduration = 150; //length of time ..
                // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
                //..
 
-               
+
              }
              }
          }
@@ -102,6 +102,11 @@ let touchduration = 150; //length of time ..
                 boxConBtnCls.style.background = 'rgb(60, 180, 171)';
                 boxConBtnCls.style.color = 'white';
             }
+
+
+
+
+
         
         });
     } else {
