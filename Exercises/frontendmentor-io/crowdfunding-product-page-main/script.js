@@ -12,6 +12,7 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 
 //modulas radio buttons to handle the boxes and pledge sums..
 let inpBtnStyler = document.getElementsByClassName('inpBtnStyler');
+let mdlCont1Rbtn = document.getElementById('mdl-Cont1Rbtn');
 let mdlCont1 = document.getElementById('mdl-Cont1');
 let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
 let mdlCont2 = document.getElementById('mdl-Cont2');
@@ -39,7 +40,7 @@ let touchduration = 150; //length of time ..
                 //get id and class events from '(event)' for Variables above..
                 let elementId = event.target.id;
                 let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-                console.log('all  elementCls :'+ elementCls)
+                //console.log('all  elementCls :'+ elementCls)
 
           //For the Menu (hamburger). -:         
                 //When the user touches anywhere except on the links  
@@ -82,9 +83,9 @@ let touchduration = 150; //length of time ..
 
                // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
                //if (inpBtnStyler[i].id ==='mdl-Cont1Rbtn')
-               if (inpBtnStyler[i].selected =='1')
+               if (mdlCont1Rbtn.id.checked)
                { 
-                // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                 console.log('button mdlCont1Rbtn'+inpBtnStyler[i].id)
                 
                 mdlCont1.style.height='350px'; //make the window longer to accommodate for the buttons etc..  
                 mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
