@@ -82,7 +82,7 @@ let touchduration = 150; //length of time ..
 
                // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
                //if (inpBtnStyler[i].id ==='mdl-Cont1Rbtn')
-               if (inpBtnStyler[i].selected =='1')
+               if (inpBtnStyler[i].selected ==='1')
                { 
                 // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                 
@@ -97,7 +97,7 @@ let touchduration = 150; //length of time ..
 
                   // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
                   //if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn')
-                  if (inpBtnStyler[i].selected =='2')
+                  if (inpBtnStyler[i].selected ==='2')
                   { 
                     // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                     
