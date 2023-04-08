@@ -76,12 +76,14 @@ let touchduration = 150; //length of time ..
               //console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
               i += 1;
               if (inpBtnStyler[i].checked){
-               console.log('button checked'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length)
+              // console.log('button checked'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length)
 
               //Handle the events for pledges when radio button is pushed..
 
                // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
-               if (inpBtnStyler[i].id ==='mdl-Cont1Rbtn'){ 
+               //if (inpBtnStyler[i].id ==='mdl-Cont1Rbtn')
+               if (inpBtnStyler[i].selected =='1')
+               { 
                 // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                 
                 mdlCont1.style.height='350px'; //make the window longer to accommodate for the buttons etc..  
@@ -94,7 +96,9 @@ let touchduration = 150; //length of time ..
                }
 
                   // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
-                  if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn'){ 
+                  //if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn')
+                  if (inpBtnStyler[i].selected =='2')
+                  { 
                     // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                     
                     mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
