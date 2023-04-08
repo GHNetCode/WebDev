@@ -39,7 +39,7 @@ let touchduration = 150; //length of time ..
                 //get id and class events from '(event)' for Variables above..
                 let elementId = event.target.id;
                 let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-  
+                console.log('all  elementCls :'+ elementCls)
 
           //For the Menu (hamburger). -:         
                 //When the user touches anywhere except on the links  
@@ -73,7 +73,7 @@ let touchduration = 150; //length of time ..
         
           for (let i = 0; i < inpBtnStyler.length; i++) {
               //  let rBtn = inpBtnStyler[i];
-              //console.log('button outside forloop..'+inpBtnStyler[i].id)
+              console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
               if (inpBtnStyler[i].checked){
                //console.log('button selected'+inpBtnStyler[i].id)
 
