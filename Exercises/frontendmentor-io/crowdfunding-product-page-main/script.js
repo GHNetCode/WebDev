@@ -74,7 +74,7 @@ let touchduration = 150; //length of time ..
           for (let i = 0; i < inpBtnStyler.length; i++) {
               //  let rBtn = inpBtnStyler[i];
               //console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
-              i += 1;
+              // i += 1;
               if (inpBtnStyler[i].checked){
               // console.log('button checked'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length)
 
