@@ -12,7 +12,7 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 
 //modulas radio buttons to handle the boxes and pledge sums..
 let inpBtnStyler = document.getElementsByClassName('inpBtnStyler');
-let mdlCont1Rbtn = document.getElementById('mdl-Cont1Rbtn');
+//let mdlCont1Rbtn = document.getElementById('mdl-Cont1Rbtn');
 let mdlCont1 = document.getElementById('mdl-Cont1');
 let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
 let mdlCont2 = document.getElementById('mdl-Cont2');
@@ -76,16 +76,16 @@ let touchduration = 150; //length of time ..
               //  let rBtn = inpBtnStyler[i];
               //console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
               // i += 1;
-              if (inpBtnStyler[i].checked){
-               console.log('This Radio Button is checked?? --:'+inpBtnStyler[i].id + ' !')
-
+              if (inpBtnStyler[i].onchange){
+               //console.log('This Radio Button is checked?? --:'+inpBtnStyler[i].id + ' !')
+               console.log('onchange this.value..:'+this.value);
               //Handle the events for pledges when radio button is pushed..
 
                // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
                //if (inpBtnStyler[i].id ==='mdl-Cont1Rbtn')
                if (mdlCont1Rbtn.checked)
                { 
-                 console.log('button mdlCont1Rbtn.checked..')
+                 console.log('button mdlCont1Rbtn.checked..');
                 
                 mdlCont1.style.height='350px'; //make the window longer to accommodate for the buttons etc..  
                 mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
