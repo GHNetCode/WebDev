@@ -83,9 +83,9 @@ let touchduration = 150; //length of time ..
 
                // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
                //if (inpBtnStyler[i].id ==='mdl-Cont1Rbtn')
-               if (mdlCont1Rbtn.id.checked)
+               if (mdlCont1Rbtn.checked)
                { 
-                 console.log('button mdlCont1Rbtn'+inpBtnStyler[i].id)
+                 console.log('button mdlCont1Rbtn.checked..')
                 
                 mdlCont1.style.height='350px'; //make the window longer to accommodate for the buttons etc..  
                 mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
@@ -98,7 +98,7 @@ let touchduration = 150; //length of time ..
 
                   // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
                   //if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn')
-                  if (inpBtnStyler[i].selected =='2')
+                  if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn')
                   { 
                     // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                     
