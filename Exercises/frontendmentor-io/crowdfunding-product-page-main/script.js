@@ -38,6 +38,7 @@ let touchduration = 150; //length of time ..
                 let elementId = event.target.id;
                 let elementCls = event.target.classList; //event.target.classList.contains("my-class")
   
+
           //For the Menu (hamburger). -:         
                 //When the user touches anywhere except on the links  
                 //inside of the menu (hamburger) toggle then close it.. 
@@ -53,13 +54,13 @@ let touchduration = 150; //length of time ..
                 }
 
                 //open the modal(dialogue) via timer function and Change color (hover effect) of the buttons  ..
-        //        if (elementCls == 'boxConBtnCls') {
+                if (elementCls == 'boxConBtnCls') {
                     //Give a bit of time between changing the color 'active color' of the button
                     //and firing the modal\dialogue..
-         //           timer = setTimeout(timedTouchFunc, touchduration);
-         //           boxConBtnCls.style.background = 'rgb(76, 201, 193)';
-         //           boxConBtnCls.style.color = 'white';
-         //       }
+                    timer = setTimeout(timedTouchFunc, touchduration);
+                    boxConBtnCls.style.background = 'rgb(76, 201, 193)';
+                    boxConBtnCls.style.color = 'white';
+                }
 
                          //remember to put this in for mobile after testing!!
                          if (elementCls == 'inpBtnStyler') {
@@ -70,15 +71,18 @@ let touchduration = 150; //length of time ..
                         
                           for (let i = 0; i < inpBtnStyler.length; i++) {
                               //  let rBtn = inpBtnStyler[i];
-                              console.log('button outside forloop..'+inpBtnStyler[i].id)
+                              //console.log('button inside forloop..'+inpBtnStyler[i].id)
+
+
+    //per below 'checked' is Valid 'checked' in for loop and 'ontouch' correspond ok...!!!!!!!!!!
                               if (inpBtnStyler[i].checked){
-                               console.log('button selected'+inpBtnStyler[i].id)
+                               //console.log('button selected'+inpBtnStyler[i].id)
                 
                               //Handle the events for pledges when radio button is pushed..
-                
+                                  //DIVS ARE NOT being picked up correctly for each button..
                                   // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
-                                  if (inpBtnStyler[i].id =='mdl-Cont2Rbtn'){ 
-                                     console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                                  if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn'){ 
+                                    // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                                     
                                     mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
                                     mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
@@ -90,8 +94,8 @@ let touchduration = 150; //length of time ..
                                    }
                 
                                   // Grab button id for This box\div.. mdl-Cont3 -- Black Edition Stand
-                                  if (inpBtnStyler[i].id =='mdl-Cont3Rbtn'){ 
-                                     console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                                  if (inpBtnStyler[i].id ==='mdl-Cont3Rbtn'){ 
+                                   //  console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                                     mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
                                     mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
                                     mdlCont3Pld1.style.display='flex';
@@ -103,8 +107,8 @@ let touchduration = 150; //length of time ..
                                    }
                 
                                    // Grab button id for This box\div.. mdl-Cont4 -- Mahogany Special Edition
-                                  if (inpBtnStyler[i].id =='mdl-Cont4Rbtn'){
-                                     console.log('button selected-ifstatement'+inpBtnStyler[i].id)
+                                  if (inpBtnStyler[i].id ==='mdl-Cont4Rbtn'){
+                                   //  console.log('button selected-ifstatement'+inpBtnStyler[i].id)
                                     
                                     mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
                                     mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
