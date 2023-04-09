@@ -22,7 +22,13 @@ let mdlCont3Pld1 = document.getElementById('mdl-Cont3Pld1');
 let mdlCont4 = document.getElementById('mdl-Cont4');
 let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
- 
+let btnVal;
+for (let i = 0; i < inpBtnStyler.length; i++) {
+  console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
+  if (inpBtnStyler[i].checked){
+    console.log('inpBtnStyler[i].value --:'+inpBtnStyler[i].value+ ' !')
+     btnVal = inpBtnStyler[i].value
+ }
 
 //Timer function for 'touchstart' events when using mobile..
 let timedTouchFunc; 
@@ -70,24 +76,12 @@ let touchduration = 150; //length of time ..
           //Give a bit of time between changing the color 'active color' of the button
           //and firing the modal\dialogue..
           // timer = setTimeout(timedTouchFunc, touchduration);
+             if (inpBtnStyler[i].value === btnVal){
+                  console.log('btnVal :'+btnVal);
+                }
+          
+             }
          
-        
-          for (let i = 0; i < inpBtnStyler.length; i++) {
-              //  let rBtn = inpBtnStyler[i];
-              console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
-              // i += 1;
-              if (inpBtnStyler[i].checked){
-                console.log('inpBtnStyler[i].value --:'+inpBtnStyler[i].value+ ' !')
-               //console.log('onchange this.value..:'+this.value);
-              //Handle the events for pledges when radio button is pushed..
-
-               // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
-               //..
-
-
-             }
-             }
-         }
                 
 
             });
