@@ -85,7 +85,7 @@ let touchduration = 150; //length of time ..
                 console.log('btnVal 2 :'+btnVal);
               }else{
 
-              }
+              }}
          
                 
 
