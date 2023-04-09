@@ -79,9 +79,9 @@ let touchduration = 150; //length of time ..
           // timer = setTimeout(timedTouchFunc, touchduration);
           console.log('inpBtnStyler :'+inpBtnStyler);
 
-             if (btnVal==='1'){
+             if (btnVal===1){
                   console.log('btnVal 1 :'+btnVal);
-                }else if(btnVal==='2'){
+                }else if(btnVal===2){
                 console.log('btnVal 2 :'+btnVal);
               } else {
                 console.log('btnVal');
