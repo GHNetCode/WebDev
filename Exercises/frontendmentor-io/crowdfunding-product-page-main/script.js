@@ -14,6 +14,7 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 let inpBtnStyler = document.getElementsByClassName('inpBtnStyler');
 
 let mdlCont1Rbtn = document.getElementById('mdl-Cont1Rbtn');
+let mdlCont2Rbtn = document.getElementById('mdl-Cont2Rbtn');
 
 let mdlCont1 = document.getElementById('mdl-Cont1');
 let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
@@ -68,14 +69,13 @@ let touchduration = 150; //length of time ..
                     boxConBtnCls.style.color = 'white';
                 }
 
-                if (elementId ==='mdl-Cont1Rbtn'){ 
-                  
+                if (elementId =='mdl-Cont1Rbtn'){ 
                   if (elementId.checked){
-
                     console.log('1 This elementId Cont1Rbtn is checked..:'+elementId);
                   }
                 }
-                if (elementId ==='mdl-Cont2Rbtn'){ 
+
+                if (elementId =='mdl-Cont2Rbtn'){ 
                   if (elementId.checked){
                     console.log('2 This elementId Cont2Rbtn is checked..:'+elementId);
                   }
