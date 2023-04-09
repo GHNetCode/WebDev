@@ -1,5 +1,5 @@
 
-/* 375px = 143% */
+ 
 
 /*Reset all inherited values to 0.*/
 *{box-sizing: border-box; margin:0;padding:0;}
@@ -11,16 +11,26 @@ body{
     margin:0px;
     margin-bottom:0px;
     background-color: rgb(250, 250, 250);
-  
+
+  }
+
+  body{
+    display:flex;
+    /* position: absolute; */
+    align-items: center;
+    justify-content:center; 
+    flex-direction: column;
   }
 
   #mainContent{
     /* margin:0px; */
     /* background-color: rgb(250, 250, 250); */
     display:flex;
+    position: relative;
     align-items: center;
     justify-content:center; 
     flex-direction: column;
+    max-width: 600px;
   }
 
 /*Width in pixels..*/
@@ -59,9 +69,10 @@ body{
       #mobNavB h1{ /* "crowdfund" Header..*/
         font-family: 'Commissioner';
         position: absolute;
-        max-width:100%;
+        /* max-width:100%; */
         top:7px; 
-        left:23.0px;
+        /* left:23.0px; */
+        margin-left: -45vw;
         font-size: 26px;
         /* transform: scale(1, 1.0);   */
         /*adjust font further (width, height)*/
@@ -79,7 +90,7 @@ body{
       }
       #icon-hamburger{/* As we have an hamburger icon lets hide it for now so we can have a nice effect for the menu styling the span elements. :) */
         display: none;
-        opacity: 100%; 
+        opacity: 1; 
         background-color: red;
       }
       /* NavBar including the image -:END */
@@ -97,7 +108,7 @@ body{
 
   margin-top: 86px; 
   margin-left: -81.5vw;
-  width: 84vw; 
+  width: 84vw;
   max-width: 89vw;
   height: 180px;
   margin-bottom: 100px;
@@ -156,15 +167,16 @@ body{
     display: flex;
     flex-direction:column;
     margin-top: 46.0px;
-    margin-left: 84vw;
+    margin-left: 80vw;
+    /* margin-left: 320px; */
     opacity: 1;
     z-index: 3;
     
     /* border: solid lightgreen 1px; */
   }
     #menuToggle input {
-      margin-top: -9%;
-      margin-left: 11%;
+      /* margin-top: -9%; */
+      /* margin-left: 11%; */
       position: absolute;
       cursor:pointer;
       opacity: 0; /*hide the checkbox..*/
@@ -509,12 +521,12 @@ body{
    #mdl-Cont1Pld1Btn2:hover,#mdl-Cont2Pld1Btn2:hover,
    #mdl-Cont3Pld1Btn2:hover,#mdl-Cont4Pld1Btn2:hover{
      background-color: rgb(43, 202, 189); 
-     border: 2px dashed rgb(21, 121, 113) ; }
+     border: 2px solid rgb(73, 234, 220) ; }
    #mdl-Cont1Pld1Btn1:hover,#mdl-Cont2Pld1Btn1:hover,
    #mdl-Cont3Pld1Btn1:hover,#mdl-Cont4Pld1Btn1:hover{
       background-color: #cbcbcb;
       color: black;
-      border: 2px dashed rgb(0, 0, 0);}
+      border: 2px solid #e8e8e8;}
   
 
 
@@ -566,18 +578,20 @@ body{
 
       /*Modals Start*/
       .modalMask{/* The Modal MASK (background) similar to page-mask..*/
-        display:flex; /* flex/none -- Hidden by default */
+        display:none; /* flex/none -- Hidden by default */
         justify-content:center; /*Centers children width..*/
-        /* align-items: center; */ /*Centers children height..*/
+        align-items: center; /*Centers children height..*/
         position:absolute; /* Stay in place */
         z-index: 4; /* Sit on top */
         padding-top: 0; /* Location of the box */
         /* border-radius: 10px; */
-        left: 0;
-        top: -1vh;        /* -43vh */
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */  /* Enable scroll if needed */
-        min-height: 2950px;/*Full height to stop page tearing..*/ 
+        /* left: -50%; */
+        top: 0;   /* -427vh  -1vh    -43vh */
+        /* margin-left: 10vw; */
+        width: 810px; /* Full width */
+        height: 120%; /* Full height */  /* Enable scroll if needed */
+        min-height: 100%;/* 2950px  Full height to stop page tearing..*/ 
+        /*min-width: 100vw; 800px */
         background-color: rgb(0,0,0); 
         /* Black w/ opacity */
         background-color: rgba(0, 0, 0, 0.486);
@@ -1120,12 +1134,11 @@ body{
         /* background-image: url("./images/image-hero-desktop.jpg"); */
         /* } */
     
-    /* #DeskH1{ */
-      /* top:200px; */
-      /* position:absolute; */
-      /* display:flex; */
-
-    /* } */
+    #DeskH1{
+      display:none; /*flex / none*/
+      top:200px;
+      position:absolute;
+    }
 /* } */
 
 #attribution { font-size: 11px; text-align: center; position: relative /*Was absolute before giving height to boxContainer..*/;/*z-index: -1;*/ bottom:-300px; width:100%; margin: auto;}
