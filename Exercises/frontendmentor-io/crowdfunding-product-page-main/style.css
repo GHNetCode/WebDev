@@ -500,10 +500,24 @@ body{
 @media (hover: hover){
   #box3ConBox1Btn:hover {color: white; background-color: rgb(76, 201, 193);}
   #box3ConBox2Btn:hover {color: white; background-color: rgb(76, 201, 193);}
+  
+  /*dialogue/modal hover effects..*/
   .inpBtnStyler:hover{ color: rgb(43, 202, 189); 
                        border: 5px ;
                        box-shadow: inset 0 0 0 6px;
                             }
+   #mdl-Cont1Pld1Btn2:hover,#mdl-Cont2Pld1Btn2:hover,
+   #mdl-Cont3Pld1Btn2:hover,#mdl-Cont4Pld1Btn2:hover{
+     background-color: rgb(43, 202, 189); 
+     border: 2px dashed rgb(21, 121, 113) ; }
+   #mdl-Cont1Pld1Btn1:hover,#mdl-Cont2Pld1Btn1:hover,
+   #mdl-Cont3Pld1Btn1:hover,#mdl-Cont4Pld1Btn1:hover{
+      background-color: #cbcbcb;
+      color: black;
+      border: 2px dashed rgb(0, 0, 0);}
+  
+
+
                       }
 
             /* #box3Conp2{margin-top:9%}  */
@@ -684,6 +698,9 @@ body{
           border: 6px solid #FFF;
           pointer-events: none; /*disable hover effect..*/
         } 
+
+
+        
      
         
 

@@ -26,14 +26,11 @@ let mdlCont3Pld1 = document.getElementById('mdl-Cont3Pld1');
 let mdlCont4 = document.getElementById('mdl-Cont4');
 let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
-
-
-
 for(const radioBtn of inpBtnStyler){
-  radioBtn.addEventListener('change', showSelected);
+  radioBtn.addEventListener('change', showChecked);
 }        
 
-function showSelected(e) {
+function showChecked(e) {
   //console.log(e);
   if (this.checked) {
     //mdlCont1Rbtn.checked
@@ -161,9 +158,6 @@ let touchduration = 150; //length of time ..
                 boxConBtnCls.style.background = 'rgb(60, 180, 171)';
                 boxConBtnCls.style.color = 'white';
             }
-
-          
-
         
         });
     } else {
@@ -178,7 +172,7 @@ let touchduration = 150; //length of time ..
         //When the user clicks anywhere except on the links  
         //inside of the menu (hamburger) toggle, close it.. 
         if (elementId == 'menu') {// 
-          console.log('for checkB : '+ elementId);
+          //console.log('for checkB : '+ elementId);
           checkBinput.checked = false;
          }
        //For the modal/dialogue. -:
@@ -197,101 +191,10 @@ let touchduration = 150; //length of time ..
          }
 
 
-         //remember to put this in for mobile after testing!!
-// if (elementCls == 'inpBtnStyler') {
-        //  //Give a bit of time between changing the color 'active color' of the button
-        //  //and firing the modal\dialogue..
-        //  // timer = setTimeout(timedTouchFunc, touchduration);
-        // 
-        //
-        //  for (let i = 0; i < inpBtnStyler.length; i++) {
-        //      //  let rBtn = inpBtnStyler[i];
-        //      //console.log('button outside forloop..'+inpBtnStyler[i].id)
-        //      if (inpBtnStyler[i].checked){
-        //       //console.log('button selected'+inpBtnStyler[i].id)
-//
-        //      //Handle the events for pledges when radio button is pushed..
-//
-        //       // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
-        //       if (inpBtnStyler[i].id ==='mdl-Cont1Rbtn'){ 
-        //        // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
-        //        
-        //        mdlCont1.style.height='320px'; //make the window longer to accommodate for the buttons etc..  
-        //        mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
-        //        mdlCont1Pld1.style.display='flex';
-        //      } else {
-        //        mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
-        //        mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-        //        mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
-        //       }
-//
-        //          // Grab button id for This box\div.. mdl-Cont2 -- Bamboo Stand
-        //          if (inpBtnStyler[i].id ==='mdl-Cont2Rbtn'){ 
-        //            // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
-        //            
-        //            mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-        //            mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
-        //            mdlCont2Pld1.style.display='flex';
-        //          } else {
-        //            mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
-        //            mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-        //            mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
-        //           }
-//
-        //          // Grab button id for This box\div.. mdl-Cont3 -- Black Edition Stand
-        //          if (inpBtnStyler[i].id ==='mdl-Cont3Rbtn'){ 
-        //            // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
-        //            mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-        //            mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
-        //            mdlCont3Pld1.style.display='flex';
-//
-        //          } else {
-        //            mdlCont3.style.height='unset';
-        //            mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
-        //            mdlCont3Pld1.style.display='none'; // Set back to none / Flex!
-        //           }
-//
-        //           // Grab button id for This box\div.. mdl-Cont4 -- Mahogany Special Edition
-        //          if (inpBtnStyler[i].id ==='mdl-Cont4Rbtn'){
-        //            // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
-        //            
-        //            mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-        //            mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
-        //            mdlCont4Pld1.style.display='flex';
-//
-        //          } else {
-        //            mdlCont4.style.height='unset';
-        //            mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
-        //            mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
-        //            }
-//
-//
-        //        }
-        //     }
-// }
-
       });
    }
 
    
-
-   //https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/
-   
-   
-
-//   const btn = document.querySelector('#btn');        
-//   const radioButtons = document.querySelectorAll('input[name="size"]');
-//   btn.addEventListener("click", () => {
-//       let selectedSize;
-//       for (const radioButton of radioButtons) {
-//           if (radioButton.checked) {
-//               selectedSize = radioButton.value;
-//               break;
-//           }
-//       }
-//       // show the output:
-//       output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
-//   });
 
 
 
