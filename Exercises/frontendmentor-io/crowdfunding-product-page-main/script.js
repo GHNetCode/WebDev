@@ -84,7 +84,7 @@ let touchduration = 150; //length of time ..
                 }else if(btnVal===2){
                 console.log('btnVal 2 :'+btnVal);
               } else {
-                console.log('btnVal');
+                console.log('btnVal --: '+btnVal);
               }
             }
                 
