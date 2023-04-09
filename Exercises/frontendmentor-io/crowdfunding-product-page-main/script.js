@@ -79,15 +79,15 @@ let touchduration = 150; //length of time ..
                 }
 
                   if (elementId =='mdl-Cont1Rbtn'){ 
-                    console.log('1 This elementId Cont1Rbtn');
-                    if (elementId.checked == true){
+                    console.log('1 This elementId mdlCont1Rbtn.checked:'+mdlCont1Rbtn.checked);
+                    if (mdlCont1Rbtn.checked ){
                       console.log('1 This elementId Cont1Rbtn is checked..:'+elementId);
                     }
                   }
           
                   if (elementId =='mdl-Cont2Rbtn'){ 
-                    console.log('2 This elementId Cont2Rbtn');
-                    if (elementId.checked == true){
+                    console.log('2 This elementId mdlCont2Rbtn.checked:'+mdlCont2Rbtn.checked);
+                    if (mdlCont2Rbtn.checked == true){
                       console.log('2 This elementId Cont2Rbtn is checked..:'+elementId);
                     }
                   }
