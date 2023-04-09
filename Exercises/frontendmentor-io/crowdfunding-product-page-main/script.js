@@ -105,7 +105,7 @@ function showChecked(e) {
 //Timer function for 'touchstart' events when using mobile..
 let timedTouchFunc; 
 let timer;
-let touchduration = 150; //length of time ..
+let touchduration = 250; //length of time ..
     timedTouchFunc = function() { //do something 
       modal.style.display = "flex";
       };
