@@ -26,8 +26,8 @@ let btnVal;
 for (let i = 0; i < inpBtnStyler.length; i++) {
   //console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
   if (inpBtnStyler[i].checked){
-    console.log('inpBtnStyler[i].value --:'+inpBtnStyler[i].value+ ' !')
-     btnVal = inpBtnStyler[i].value
+    console.log('inpBtnStyler[i].value --:'+inpBtnStyler[i].value+ ' !');
+     btnVal = inpBtnStyler[i].value;
  }
 }
 
@@ -102,7 +102,13 @@ let touchduration = 150; //length of time ..
                 boxConBtnCls.style.color = 'white';
             }
 
-
+            for (let i = 0; i < inpBtnStyler.length; i++) {
+              //console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
+              if (inpBtnStyler[i].checked){
+                console.log('ontouchend ---: '+inpBtnStyler[i].value+ ' !');
+                // btnVal = inpBtnStyler[i].value;
+             }
+            }
 
 
 
