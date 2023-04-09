@@ -53,7 +53,7 @@ let touchduration = 150; //length of time ..
                 let elementId = event.target.id;
                 let elementCls = event.target.classList; //event.target.classList.contains("my-class")
                 //console.log('all  elementCls :'+ elementCls)
-                console.log('all  elementId :'+ elementId);
+                //console.log('all  elementId :'+ elementId);
 
           //For the Menu (hamburger). -:         
                 //When the user touches anywhere except on the links  
@@ -78,19 +78,19 @@ let touchduration = 150; //length of time ..
                     boxConBtnCls.style.color = 'white';
                 }
 
-        //        if (elementId =='mdl-Cont1Rbtn'){ 
-        //          console.log('1 This elementId Cont1Rbtn');
-        //          if (elementId.checked){
-        //            console.log('1 This elementId Cont1Rbtn is checked..:'+elementId);
-        //          }
-        //        }
-//
-        //        if (elementId =='mdl-Cont2Rbtn'){ 
-        //          console.log('2 This elementId Cont2Rbtn');
-        //          if (elementId.checked){
-        //            console.log('2 This elementId Cont2Rbtn is checked..:'+elementId);
-        //          }
-        //        }
+                  if (elementId =='mdl-Cont1Rbtn'){ 
+                    console.log('1 This elementId Cont1Rbtn');
+                    if (elementId.checked){
+                      console.log('1 This elementId Cont1Rbtn is checked..:'+elementId);
+                    }
+                  }
+          
+                  if (elementId =='mdl-Cont2Rbtn'){ 
+                    console.log('2 This elementId Cont2Rbtn');
+                    if (elementId.checked){
+                      console.log('2 This elementId Cont2Rbtn is checked..:'+elementId);
+                    }
+                  }
                   
       
 
