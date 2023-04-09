@@ -22,14 +22,7 @@ let mdlCont3Pld1 = document.getElementById('mdl-Cont3Pld1');
 let mdlCont4 = document.getElementById('mdl-Cont4');
 let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
-// let btnVal;
-for (let i = 0; i < inpBtnStyler.length; i++) {
-//  console.log('forloop inpBtnStyler.length..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
-  if (inpBtnStyler[i].checked){
-    console.log('inpBtnStyler[i].checked --:'+inpBtnStyler[i].value+ ' !');
-   //  btnVal = inpBtnStyler[i].value;
- }
-}
+
 
 
 //Timer function for 'touchstart' events when using mobile..
@@ -88,10 +81,13 @@ let touchduration = 150; //length of time ..
             //    console.log('btnVal --: '+btnVal);
             //  }
 
-            if (inpBtnStyler[i].checked){
-              console.log('inpBtnStyler[i].checked --:'+inpBtnStyler[i].value+ ' !');
-             //  btnVal = inpBtnStyler[i].value;
-           }
+            for (let i = 0; i < inpBtnStyler.length; i++) {
+                console.log('forloop inpBtnStyler id value.. id:'+inpBtnStyler[i].id + 'value:' + inpBtnStyler[i].value+' length:'+inpBtnStyler.length );
+                if (inpBtnStyler[i].checked){
+                  console.log('inpBtnStyler[i].checked!!! --:'+inpBtnStyler[i].value+ ' !');
+                 //  btnVal = inpBtnStyler[i].value;
+               }
+              }
 
 
             }
