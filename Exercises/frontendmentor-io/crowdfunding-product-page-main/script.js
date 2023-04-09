@@ -26,7 +26,7 @@ let mdlCont4 = document.getElementById('mdl-Cont4');
 let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
 
-var radios = document.getElementsByTagName('input');
+var radios = document.querySelector('.inpBtnStyler');
 var value;
 for (var i = 0; i < radios.length; i++) {
     if (radios[i].type === 'radio' && radios[i].checked) {
