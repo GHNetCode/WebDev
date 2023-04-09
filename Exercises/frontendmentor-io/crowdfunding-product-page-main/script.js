@@ -13,9 +13,18 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 
 //modulas radio buttons to handle the boxes and pledge sums..
 let inpBtnStyler = document.getElementsByClassName('inpBtnStyler');
-
-let mdlCont1Rbtn = document.getElementById('mdl-Cont1Rbtn');
+//let mdlCont1Rbtn = document.getElementById('mdl-Cont1Rbtn');
 let mdlCont2Rbtn = document.getElementById('mdl-Cont2Rbtn');
+let mdlCont3Rbtn = document.getElementById('mdl-Cont3Rbtn');
+let mdlCont4Rbtn = document.getElementById('mdl-Cont4Rbtn');
+let mdlCont1 = document.getElementById('mdl-Cont1');
+let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
+let mdlCont2 = document.getElementById('mdl-Cont2');
+let mdlCont2Pld1 = document.getElementById('mdl-Cont2Pld1');
+let mdlCont3 = document.getElementById('mdl-Cont3');
+let mdlCont3Pld1 = document.getElementById('mdl-Cont3Pld1');
+let mdlCont4 = document.getElementById('mdl-Cont4');
+let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
 
 
@@ -32,7 +41,48 @@ function showSelected(e) {
       console.log('this.checked :'+ e+'  this.checked:'+this.checked+'  this.id:'+this.id);
     
       if(this.id==='mdl-Cont1Rbtn'){
-        console.log('Lets set the relevant properties for Cont1Rbtn..')
+        console.log('Lets set the relevant properties for Cont1Rbtn..');
+      
+        mdlCont1.style.height='320px'; //make the window longer to accommodate for the buttons etc..  
+        mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
+        mdlCont1Pld1.style.display='flex';
+      } else {
+        mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
+        mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+        mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
+      }
+      if(this.id==='mdl-Cont2Rbtn'){
+        console.log('Lets set the relevant properties for Cont2Rbtn..');
+      
+        mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+        mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
+        mdlCont2Pld1.style.display='flex';
+      } else {
+        mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
+        mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+        mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
+      }
+      if(this.id==='mdl-Cont3Rbtn'){
+        console.log('Lets set the relevant properties for Cont3Rbtn..');
+      
+       mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+       mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
+       mdlCont3Pld1.style.display='flex';
+     } else {
+       mdlCont3.style.height='unset';
+       mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
+       mdlCont3Pld1.style.display='none'; // Set back to none / Flex!
+      }
+      if(this.id==='mdl-Cont4Rbtn'){
+        console.log('Lets set the relevant properties for Cont4Rbtn..');
+      
+       mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+       mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
+       mdlCont4Pld1.style.display='flex';
+     } else {
+       mdlCont4.style.height='unset';
+       mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
+       mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
       }
     }
 
@@ -51,14 +101,6 @@ function showSelected(e) {
 
 
 
-let mdlCont1 = document.getElementById('mdl-Cont1');
-let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
-let mdlCont2 = document.getElementById('mdl-Cont2');
-let mdlCont2Pld1 = document.getElementById('mdl-Cont2Pld1');
-let mdlCont3 = document.getElementById('mdl-Cont3');
-let mdlCont3Pld1 = document.getElementById('mdl-Cont3Pld1');
-let mdlCont4 = document.getElementById('mdl-Cont4');
-let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
 
 
@@ -105,50 +147,7 @@ let touchduration = 150; //length of time ..
                     boxConBtnCls.style.color = 'white';
                 }
 
-                  if (elementId =='mdl-Cont1Rbtn'){ 
-                    console.log('1 This elementId mdlCont1Rbtn.checked:'+mdlCont1Rbtn.checked);
-                    if (mdlCont1Rbtn.checked ){
-                      console.log('1 This elementId Cont1Rbtn is checked..:'+elementId);
-                    }
-                  }
-          
-                  if (elementId =='mdl-Cont2Rbtn'){ 
-                    console.log('2 This elementId mdlCont2Rbtn.checked:'+mdlCont2Rbtn.checked);
-                    if (mdlCont2Rbtn.checked == true){
-                      console.log('2 This elementId Cont2Rbtn is checked..:'+elementId);
-                    }
-                  }
-                  
       
-
-         //remember to put this in for mobile after testing!!
-         if (elementCls == 'inpBtnStyler') {
-          //Give a bit of time between changing the color 'active color' of the button
-          //and firing the modal\dialogue..
-          // timer = setTimeout(timedTouchFunc, touchduration);
-      //    console.log('inpBtnStyler class found!:'+inpBtnStyler);
-
-            // if (btnVal===1){
-            //      console.log('btnVal 1 :'+btnVal);
-            //    }else if(btnVal===2){
-            //    console.log('btnVal 2 :'+btnVal);
-            //  } else {
-            //    console.log('btnVal --: '+btnVal);
-            //  } 
-
-        //    for (let i = 0; i < inpBtnStyler.length; i++) {
-        //        console.log('forloop inpBtnStyler id value.. id:'+inpBtnStyler[i].id + 'value:' + inpBtnStyler[i].value+' length:'+inpBtnStyler.length );
-        //        if (inpBtnStyler[i].checked){
-        //          console.log('inpBtnStyler[i].checked!!! --:'+inpBtnStyler[i].value+ ' !');
-        //         //  btnVal = inpBtnStyler[i].value;
-        //       }
-        //      }
-
-
-
-
-            }
-                
 
             });
       } else if ('ontouchend' in window){
