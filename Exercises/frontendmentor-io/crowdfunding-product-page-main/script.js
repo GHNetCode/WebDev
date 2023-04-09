@@ -12,7 +12,9 @@ let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 
 //modulas radio buttons to handle the boxes and pledge sums..
 let inpBtnStyler = document.getElementsByClassName('inpBtnStyler');
-//let mdlCont1Rbtn = document.getElementById('mdl-Cont1Rbtn');
+
+let mdlCont1Rbtn = document.getElementById('mdl-Cont1Rbtn');
+
 let mdlCont1 = document.getElementById('mdl-Cont1');
 let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
 let mdlCont2 = document.getElementById('mdl-Cont2');
@@ -66,6 +68,21 @@ let touchduration = 150; //length of time ..
                     boxConBtnCls.style.color = 'white';
                 }
 
+                if (elementId ==='mdl-Cont1Rbtn'){ 
+                  
+                  if (elementId.checked){
+
+                    console.log('1 This elementId Cont1Rbtn is checked..:'+elementId);
+                  }
+                }
+                if (elementId ==='mdl-Cont2Rbtn'){ 
+                  if (elementId.checked){
+                    console.log('2 This elementId Cont2Rbtn is checked..:'+elementId);
+                  }
+                }
+                  
+      
+
          //remember to put this in for mobile after testing!!
          if (elementCls == 'inpBtnStyler') {
           //Give a bit of time between changing the color 'active color' of the button
@@ -79,7 +96,7 @@ let touchduration = 150; //length of time ..
             //    console.log('btnVal 2 :'+btnVal);
             //  } else {
             //    console.log('btnVal --: '+btnVal);
-            //  }
+            //  } 
 
             for (let i = 0; i < inpBtnStyler.length; i++) {
                 console.log('forloop inpBtnStyler id value.. id:'+inpBtnStyler[i].id + 'value:' + inpBtnStyler[i].value+' length:'+inpBtnStyler.length );
@@ -88,6 +105,8 @@ let touchduration = 150; //length of time ..
                  //  btnVal = inpBtnStyler[i].value;
                }
               }
+
+
 
 
             }
@@ -106,13 +125,7 @@ let touchduration = 150; //length of time ..
                 boxConBtnCls.style.color = 'white';
             }
 
-            for (let i = 0; i < inpBtnStyler.length; i++) {
-              console.log('touchend forloop inpBtnStyler id value.. id:'+inpBtnStyler[i].id + 'value:' + inpBtnStyler[i].value+' length:'+inpBtnStyler.length );
-              if (inpBtnStyler[i].checked){
-                console.log('touchend inpBtnStyler[i].checked!!! --:'+inpBtnStyler[i].value+ ' !');
-               //  btnVal = inpBtnStyler[i].value;
-             }
-            }
+          
 
         
         });
