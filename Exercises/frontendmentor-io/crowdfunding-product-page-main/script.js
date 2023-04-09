@@ -102,6 +102,7 @@ let touchduration = 150; //length of time ..
                 boxConBtnCls.style.color = 'white';
             }
 
+            if (elementCls == 'inpBtnStyler'){
             for (let i = 0; i < inpBtnStyler.length; i++) {
               //console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
               if (inpBtnStyler[i].checked){
@@ -109,7 +110,7 @@ let touchduration = 150; //length of time ..
                 // btnVal = inpBtnStyler[i].value;
              }
             }
-
+            }
 
 
         
