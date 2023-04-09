@@ -71,7 +71,7 @@ let touchduration = 150; //length of time ..
           //Give a bit of time between changing the color 'active color' of the button
           //and firing the modal\dialogue..
           // timer = setTimeout(timedTouchFunc, touchduration);
-          console.log('inpBtnStyler class found!:'+inpBtnStyler);
+          console.log('inpBtnStyler class found!:'+inpBtnStyler); 
 
             // if (btnVal===1){
             //      console.log('btnVal 1 :'+btnVal);
