@@ -24,9 +24,9 @@ let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
 let btnVal;
 for (let i = 0; i < inpBtnStyler.length; i++) {
-  console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
+  //console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
   if (inpBtnStyler[i].checked){
-    console.log('inpBtnStyler[i].value --:'+inpBtnStyler[i].value+ ' !')
+   // console.log('inpBtnStyler[i].value --:'+inpBtnStyler[i].value+ ' !')
      btnVal = inpBtnStyler[i].value
  }
 
@@ -76,6 +76,8 @@ let touchduration = 150; //length of time ..
           //Give a bit of time between changing the color 'active color' of the button
           //and firing the modal\dialogue..
           // timer = setTimeout(timedTouchFunc, touchduration);
+          console.log('inpBtnStyler :'+inpBtnStyler);
+
              if (inpBtnStyler[i].value === btnVal){
                   console.log('btnVal :'+btnVal);
                 }
