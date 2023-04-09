@@ -71,7 +71,7 @@ let touchduration = 150; //length of time ..
           //Give a bit of time between changing the color 'active color' of the button
           //and firing the modal\dialogue..
           // timer = setTimeout(timedTouchFunc, touchduration);
-          console.log('inpBtnStyler class found!:'+inpBtnStyler); 
+          console.log('inpBtnStyler class found!:'+inpBtnStyler);
 
             // if (btnVal===1){
             //      console.log('btnVal 1 :'+btnVal);
@@ -106,7 +106,13 @@ let touchduration = 150; //length of time ..
                 boxConBtnCls.style.color = 'white';
             }
 
-
+            for (let i = 0; i < inpBtnStyler.length; i++) {
+              console.log('touchend forloop inpBtnStyler id value.. id:'+inpBtnStyler[i].id + 'value:' + inpBtnStyler[i].value+' length:'+inpBtnStyler.length );
+              if (inpBtnStyler[i].checked){
+                console.log('touchend inpBtnStyler[i].checked!!! --:'+inpBtnStyler[i].value+ ' !');
+               //  btnVal = inpBtnStyler[i].value;
+             }
+            }
 
         
         });
