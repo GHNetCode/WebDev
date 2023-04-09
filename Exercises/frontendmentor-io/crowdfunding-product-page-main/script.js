@@ -26,7 +26,15 @@ let mdlCont4 = document.getElementById('mdl-Cont4');
 let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
 
-
+var radios = document.getElementsByTagName('input');
+var value;
+for (var i = 0; i < radios.length; i++) {
+    if (radios[i].type === 'radio' && radios[i].checked) {
+        // get value, set checked flag or do whatever you need to
+        value = radios[i].value;
+        console.log('radios value-:'+value);       
+    }
+}
 
 //Timer function for 'touchstart' events when using mobile..
 let timedTouchFunc; 
@@ -46,7 +54,7 @@ let touchduration = 150; //length of time ..
                 let elementCls = event.target.classList; //event.target.classList.contains("my-class")
                 //console.log('all  elementCls :'+ elementCls)
                 console.log('all  elementId :'+ elementId);
-                
+
           //For the Menu (hamburger). -:         
                 //When the user touches anywhere except on the links  
                 //inside of the menu (hamburger) toggle then close it.. 
@@ -70,19 +78,19 @@ let touchduration = 150; //length of time ..
                     boxConBtnCls.style.color = 'white';
                 }
 
-                if (elementId =='mdl-Cont1Rbtn'){ 
-                  console.log('1 This elementId Cont1Rbtn');
-                  if (elementId.checked){
-                    console.log('1 This elementId Cont1Rbtn is checked..:'+elementId);
-                  }
-                }
-
-                if (elementId =='mdl-Cont2Rbtn'){ 
-                  console.log('2 This elementId Cont2Rbtn');
-                  if (elementId.checked){
-                    console.log('2 This elementId Cont2Rbtn is checked..:'+elementId);
-                  }
-                }
+        //        if (elementId =='mdl-Cont1Rbtn'){ 
+        //          console.log('1 This elementId Cont1Rbtn');
+        //          if (elementId.checked){
+        //            console.log('1 This elementId Cont1Rbtn is checked..:'+elementId);
+        //          }
+        //        }
+//
+        //        if (elementId =='mdl-Cont2Rbtn'){ 
+        //          console.log('2 This elementId Cont2Rbtn');
+        //          if (elementId.checked){
+        //            console.log('2 This elementId Cont2Rbtn is checked..:'+elementId);
+        //          }
+        //        }
                   
       
 
@@ -91,7 +99,7 @@ let touchduration = 150; //length of time ..
           //Give a bit of time between changing the color 'active color' of the button
           //and firing the modal\dialogue..
           // timer = setTimeout(timedTouchFunc, touchduration);
-          console.log('inpBtnStyler class found!:'+inpBtnStyler);
+      //    console.log('inpBtnStyler class found!:'+inpBtnStyler);
 
             // if (btnVal===1){
             //      console.log('btnVal 1 :'+btnVal);
@@ -101,13 +109,13 @@ let touchduration = 150; //length of time ..
             //    console.log('btnVal --: '+btnVal);
             //  } 
 
-            for (let i = 0; i < inpBtnStyler.length; i++) {
-                console.log('forloop inpBtnStyler id value.. id:'+inpBtnStyler[i].id + 'value:' + inpBtnStyler[i].value+' length:'+inpBtnStyler.length );
-                if (inpBtnStyler[i].checked){
-                  console.log('inpBtnStyler[i].checked!!! --:'+inpBtnStyler[i].value+ ' !');
-                 //  btnVal = inpBtnStyler[i].value;
-               }
-              }
+        //    for (let i = 0; i < inpBtnStyler.length; i++) {
+        //        console.log('forloop inpBtnStyler id value.. id:'+inpBtnStyler[i].id + 'value:' + inpBtnStyler[i].value+' length:'+inpBtnStyler.length );
+        //        if (inpBtnStyler[i].checked){
+        //          console.log('inpBtnStyler[i].checked!!! --:'+inpBtnStyler[i].value+ ' !');
+        //         //  btnVal = inpBtnStyler[i].value;
+        //       }
+        //      }
 
 
 
