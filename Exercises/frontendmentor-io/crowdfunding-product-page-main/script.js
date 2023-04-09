@@ -26,10 +26,10 @@ let btnVal;
 for (let i = 0; i < inpBtnStyler.length; i++) {
   //console.log('button inside forloop..'+inpBtnStyler[i].id + ' i:' + [i]+' length:'+inpBtnStyler.length )
   if (inpBtnStyler[i].checked){
-   // console.log('inpBtnStyler[i].value --:'+inpBtnStyler[i].value+ ' !')
+    console.log('inpBtnStyler[i].value --:'+inpBtnStyler[i].value+ ' !')
      btnVal = inpBtnStyler[i].value
  }
-
+}
 //Timer function for 'touchstart' events when using mobile..
 let timedTouchFunc; 
 let timer;
