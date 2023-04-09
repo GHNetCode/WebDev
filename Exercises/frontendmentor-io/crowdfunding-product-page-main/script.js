@@ -30,6 +30,7 @@ for (let i = 0; i < inpBtnStyler.length; i++) {
      btnVal = inpBtnStyler[i].value
  }
 }
+
 //Timer function for 'touchstart' events when using mobile..
 let timedTouchFunc; 
 let timer;
@@ -78,11 +79,13 @@ let touchduration = 150; //length of time ..
           // timer = setTimeout(timedTouchFunc, touchduration);
           console.log('inpBtnStyler :'+inpBtnStyler);
 
-             if (inpBtnStyler[i].value === btnVal){
-                  console.log('btnVal :'+btnVal);
-                }
-          
-             }
+             if (btnVal==='1'){
+                  console.log('btnVal 1 :'+btnVal);
+                }else if(btnVal==='2'){
+                console.log('btnVal 2 :'+btnVal);
+              }else{
+
+              }
          
                 
 
