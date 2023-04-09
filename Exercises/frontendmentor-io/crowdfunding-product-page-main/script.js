@@ -45,7 +45,8 @@ let touchduration = 150; //length of time ..
                 let elementId = event.target.id;
                 let elementCls = event.target.classList; //event.target.classList.contains("my-class")
                 //console.log('all  elementCls :'+ elementCls)
-
+                console.log('all  elementId :'+ elementId);
+                
           //For the Menu (hamburger). -:         
                 //When the user touches anywhere except on the links  
                 //inside of the menu (hamburger) toggle then close it.. 
