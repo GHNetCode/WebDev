@@ -11,12 +11,11 @@ let checkBinput = document.getElementById('checkB');
 let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 
 
+
+
+
 //modulas radio buttons to handle the boxes and pledge sums..
 let inpBtnStyler = document.getElementsByClassName('inpBtnStyler');
-//let mdlCont1Rbtn = document.getElementById('mdl-Cont1Rbtn');
-let mdlCont2Rbtn = document.getElementById('mdl-Cont2Rbtn');
-let mdlCont3Rbtn = document.getElementById('mdl-Cont3Rbtn');
-let mdlCont4Rbtn = document.getElementById('mdl-Cont4Rbtn');
 let mdlCont1 = document.getElementById('mdl-Cont1');
 let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
 let mdlCont2 = document.getElementById('mdl-Cont2');
@@ -83,17 +82,7 @@ function showChecked(e) {
       }
     }
 
-   // if (inpBtnStyler[i].id ==='mdl-Cont1Rbtn'){ 
-      //        // console.log('button selected-ifstatement'+inpBtnStyler[i].id)
-      //        
-      //        mdlCont1.style.height='320px'; //make the window longer to accommodate for the buttons etc..  
-      //        mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
-      //        mdlCont1Pld1.style.display='flex';
-      //      } else {
-      //        mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
-      //        mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-      //        mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
-      //       }
+  
 }
 
 
@@ -140,8 +129,8 @@ let touchduration = 250; //length of time ..
                     //Give a bit of time between changing the color 'active color' of the button
                     //and firing the modal\dialogue..
                     timer = setTimeout(timedTouchFunc, touchduration);
-                    boxConBtnCls.style.background = 'rgb(76, 201, 193)';
-                    boxConBtnCls.style.color = 'white';
+                  //  boxConBtnCls.style.background = 'rgb(76, 201, 193)';
+                  //  boxConBtnCls.style.color = 'white';
                 }
 
       
@@ -155,8 +144,8 @@ let touchduration = 250; //length of time ..
 
               // clearTimeout..
               if (timer){clearTimeout(timer);}
-                boxConBtnCls.style.background = 'rgb(60, 180, 171)';
-                boxConBtnCls.style.color = 'white';
+              //  boxConBtnCls.style.background = 'rgb(60, 180, 171)';
+              //  boxConBtnCls.style.color = 'white';
             }
         
         });
@@ -194,8 +183,31 @@ let touchduration = 250; //length of time ..
       });
    }
 
-   
-
-
-
-  
+   //Call: <a onclick="AddToFavorites()">Add to favorites</a>
+   function AddToFavorites(a) {
+    pageTitle=document.title;
+    pageURL=document.location;
+    try {
+      // Internet Explorer solution
+      eval("window.external.AddFavorite(pageURL, pageTitle)".replace(/-/g,''));
+    }
+    catch (e) {
+      try {
+        // Mozilla Firefox solution
+        window.sidebar.addPanel(pageTitle, pageURL, "");
+      }
+      catch (e) {
+        // Opera solution
+        if (typeof(opera)=="object") {
+          a.rel="sidebar";
+          a.title=pageTitle;
+          a.url=pageURL;
+          return true;
+        } else {
+       //   The rest browsers (i.e Chrome, Safari)
+          alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + '+D to bookmark this page.');
+        }
+      }
+    }
+    return false;
+  }
