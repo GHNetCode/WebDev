@@ -129,8 +129,10 @@ let timedTouchFunc = function() { //do something
                     //Give a bit of time between changing the color 'active color' of the button
                     //and firing the modal\dialogue..
                     timer = setTimeout(timedTouchFunc, touchduration);
+                    
                     boxConBtnCls.style.background = 'rgb(76, 201, 193)';
                     boxConBtnCls.style.color = 'white';
+                    
                 }
 
       
@@ -194,15 +196,23 @@ let timedTouchFunc = function() { //do something
   let docTitleChk = false; 
   let urlChk = false;
   const iconBmark = document.getElementById("icon-bookmark");
-  let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));//get current bookmarks in localStorage..
-  function iconBmarkF() {
   
-      if (document.getElementById('icon-bookmarked')) { //Delete the bookmark(already Saved 'green colour') !
+      let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));//get current bookmarks in localStorage..
+      //As bookmarks local storage might be null lets keep everyone happy creating a blank array
+        if (bookmarks===null){
+            bookmarks = [];
+            console.log('bookmarks[]'+bookmarks)
+          }
+
+      // bookmark id's-:
+      //  'icon-bookmark'   == Unsaved
+      //  'icon-bookmarked' == Saved
+      function iconBmarkF() {
+        if (document.getElementById('icon-bookmarked')) { //Delete the bookmark(already Saved 'green colour') !
           
            //update button from 'Deleted' to 'Save' status for next time round.
-            document.getElementById('icon-bookmarked').id = 'icon-bookmark'; 
+            document.getElementById('icon-bookmarked').id = 'icon-bookmark';
 
-              
               //Need to check and verify Before popping\splicing so we do not remove other bookmarks!!
               for (let i=0; i <= bookmarks.length; i++){
                 //console.log('If delete button pushed- bookmarks[i]..: ' + bookmarks[i]+' i:'+i);
@@ -212,14 +222,11 @@ let timedTouchFunc = function() { //do something
                        //console.log("Remaining elements :" + bookmarks);
                   }
              }
-          
               //bookmarks updated, now update localStorage...
               localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
               //console.log(bookmarks);
               //console.log(bookmarks.length);
               console.log("deleted");
-
-
     } else {//code below runs when "grey colour 'Save'" button is clicked.
       document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button from 'Save' to 'Delete'..
               //check if localStorage already has this site bookmarked\saved, if Not found then add it..
@@ -252,10 +259,10 @@ let timedTouchFunc = function() { //do something
               // set updated array into localStorage "bookmarks"
                 localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
                 //console.log(bookmarks);
-                //console.log("saved");
-                alert("Now bookmarked to localStorage, please use Ctrl + D to save permanently to your bookmarks folder");
+                console.log("saved");
+                alert("Now bookmarked to localStorage, please use Ctrl + D to save this bookmark permanently.");
             }
-}   
+}
 iconBmark.addEventListener("click", iconBmarkF);
 
 // Initialize data first time when page is loaded and update 
@@ -278,13 +285,13 @@ console.log('Init: url :'+url)
         console.log('Bookmark already exists, update the icon!');
        // iconBmark.innerHTML = "Delete";
         document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button to 'Delete'..
-      }else { 
-       //  iconBmark.innerHTML = "Save"; 
-      document.getElementById('icon-bookmarked').id = 'icon-bookmark'; //update button to 'Save' ..
-      }
+      } //else {
+        //  iconBmark.innerHTML = "Save"; 
+        //document.getElementById('icon-bookmarked').id = 'icon-bookmark'; //update button to 'Save' ..
+         //}
   
 
 
 
-      
+
  
