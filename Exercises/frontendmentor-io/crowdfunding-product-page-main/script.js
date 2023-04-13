@@ -38,12 +38,14 @@ let timedTouchFunc = function() { //do something
                 if (elementId == 'menu') {// 
                 //  console.log('for checkB : '+ elementId);
                 checkBinput.checked = false;
+                timer = setTimeout(timedTouchFunc, touchduration);
                 }
 
           //For the modal/dialogue. -:
                 //Close the modal(dialogue) if user touches on the 'x' button.
                 if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
                 modal.style.display = "none";
+                timer = setTimeout(timedTouchFunc, touchduration);
                 }
 
                 //open the modal(dialogue) via timer function..
@@ -60,11 +62,17 @@ let timedTouchFunc = function() { //do something
         let elementCls = event.target.classList;
 
         if (elementCls == 'boxConBtnCls') {
-              boxConBtnCls.classList.remove('touch-hover-effect');
                // clearTimeout..
               if (timer){clearTimeout(timer);}
               
             }
+
+           if('myModalCloseBtn'||'menu') {
+              // clearTimeout..
+             if (timer){clearTimeout(timer);}
+             
+           }
+
         
         });
     } else {
