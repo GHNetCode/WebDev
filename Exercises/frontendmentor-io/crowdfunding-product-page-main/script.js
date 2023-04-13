@@ -9,18 +9,6 @@ let modal = document.getElementById("myModal"); //not in css..
 let checkBinput = document.getElementById('checkB');
 
 const boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
-//const elements = document.querySelectorAll('.hover-effect');
-boxConBtnCls.forEach((element) => {
-     // Add touchstart event listener
-     element.addEventListener('touchstart', () => {
-       element.classList.add('touch-hover-effect');
-     });
-   
-     element.addEventListener('touchend', () => {
-       // Remove touch effect
-       element.classList.remove('touch-hover-effect');
-     });
-   });
 
 
 
@@ -62,6 +50,7 @@ let timedTouchFunc = function() { //do something
                 if (elementCls == 'boxConBtnCls') {
                     //Give a bit of time when launching the modal\dialogue..
                     timer = setTimeout(timedTouchFunc, touchduration);
+                    
                 }
 
             });
@@ -71,7 +60,8 @@ let timedTouchFunc = function() { //do something
         let elementCls = event.target.classList;
 
         if (elementCls == 'boxConBtnCls') {
-              // clearTimeout..
+              boxConBtnCls.classList.remove('touch-hover-effect');
+               // clearTimeout..
               if (timer){clearTimeout(timer);}
               
             }
