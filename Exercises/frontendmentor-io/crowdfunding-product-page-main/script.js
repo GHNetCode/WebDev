@@ -8,9 +8,111 @@ let modal = document.getElementById("myModal"); //not in css..
 // 'X'\check Button for menu toggle
 let checkBinput = document.getElementById('checkB');
 
-let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
+const boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
+//const elements = document.querySelectorAll('.hover-effect');
+boxConBtnCls.forEach((element) => {
+     // Add touchstart event listener
+     element.addEventListener('touchstart', () => {
+       element.classList.add('touch-hover-effect');
+     });
+   
+     element.addEventListener('touchend', () => {
+       // Remove touch effect
+       element.classList.remove('touch-hover-effect');
+     });
+   });
 
 
+
+//Timer function for 'touchstart' events when using mobile..
+//let timedTouchFunc; 
+let timer;
+let touchduration = 200; //length of time ..
+let timedTouchFunc = function() { //do something 
+      modal.style.display = "flex"; //display the modulas!
+      };
+
+
+//check all events for "click" and "touchstart" and handle accordingly..
+  if ('ontouchstart' in window) {
+         document.addEventListener("touchstart", (event) => { //For touch screens only.. 
+                
+                //get id and class events from '(event)' for Variables above..
+                let elementId = event.target.id;
+                let elementCls = event.target.classList; //event.target.classList.contains("my-class")
+                //console.log('all  elementCls :'+ elementCls)
+                //console.log('all  elementId :'+ elementId);
+                
+
+          //For the Menu (hamburger). -:         
+                //When the user touches anywhere except on the links  
+                //inside of the menu (hamburger) toggle then close it.. 
+                if (elementId == 'menu') {// 
+                //  console.log('for checkB : '+ elementId);
+                checkBinput.checked = false;
+                }
+
+          //For the modal/dialogue. -:
+                //Close the modal(dialogue) if user touches on the 'x' button.
+                if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
+                modal.style.display = "none";
+                }
+
+                //open the modal(dialogue) via timer function..
+                if (elementCls == 'boxConBtnCls') {
+                    //Give a bit of time when launching the modal\dialogue..
+                    timer = setTimeout(timedTouchFunc, touchduration);
+                }
+
+            });
+
+      } else if ('ontouchend' in window){
+        document.addEventListener("touchend", (event) => {
+        let elementCls = event.target.classList;
+
+        if (elementCls == 'boxConBtnCls') {
+              // clearTimeout..
+              if (timer){clearTimeout(timer);}
+              
+            }
+        
+        });
+    } else {
+         document.addEventListener("click", (event) => { // For mouse clicks only..
+          let elementId = event.target.id;
+          let elementCls = event.target.classList; //event.target.classList.contains("my-class")
+        //  console.log("all elementId's :"+ elementId);
+        //  console.log("all elementCls's :"+ elementCls);
+          
+
+       //For the Menu (hamburger). -:         
+        //When the user clicks anywhere except on the links  
+        //inside of the menu (hamburger) toggle, close it.. 
+        if (elementId == 'menu') {// 
+          //console.log('for checkB : '+ elementId);
+          checkBinput.checked = false;
+         }
+       //For the modal/dialogue. -:
+        //Lets close the modal(dialogue) if user clicks on the 'x' button.
+        if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
+          modal.style.display = "none";
+         }
+         //Lets close the modal(dialogue) if user clicks outside of the modal window..
+         if (elementId == 'myModal') {
+           modal.style.display = "none";
+          }
+
+         //Lets open the modal(dialogue)..
+         if (elementCls == 'boxConBtnCls') {
+          modal.style.display = "flex";
+         }
+
+
+      });
+   }
+
+   
+   
 
 
 
@@ -85,104 +187,6 @@ function showChecked(e) {
   
 }
 
-
-
-
-
-
-
-//Timer function for 'touchstart' events when using mobile..
-//let timedTouchFunc; 
-let timer;
-let touchduration = 200; //length of time ..
-let timedTouchFunc = function() { //do something 
-      modal.style.display = "flex";
-      };
-
-
-//check all events for "click" and "touchstart" and handle accordingly..
-  if ('ontouchstart' in window) {
-         document.addEventListener("touchstart", (event) => { //For touch screens only.. 
-                
-                //get id and class events from '(event)' for Variables above..
-                let elementId = event.target.id;
-                let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-                //console.log('all  elementCls :'+ elementCls)
-                //console.log('all  elementId :'+ elementId);
-
-          //For the Menu (hamburger). -:         
-                //When the user touches anywhere except on the links  
-                //inside of the menu (hamburger) toggle then close it.. 
-                if (elementId == 'menu') {// 
-                //  console.log('for checkB : '+ elementId);
-                checkBinput.checked = false;
-                }
-
-          //For the modal/dialogue. -:
-                //Close the modal(dialogue) if user touches on the 'x' button.
-                if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
-                modal.style.display = "none";
-                }
-
-                //open the modal(dialogue) via timer function and Change color (hover effect) of the buttons  ..
-                if (elementCls == 'boxConBtnCls') {
-                    //Give a bit of time when launching the modal\dialogue..
-                    timer = setTimeout(timedTouchFunc, touchduration);
-
-                    
-                }
-
-      
-
-            });
-
-      } else if ('ontouchend' in window){
-        document.addEventListener("touchend", (event) => {
-        let elementCls = event.target.classList;
-
-        if (elementCls == 'boxConBtnCls') {
-
-              // clearTimeout..
-              if (timer){clearTimeout(timer);}
-              
-            }
-        
-        });
-    } else {
-         document.addEventListener("click", (event) => { // For mouse clicks only..
-          let elementId = event.target.id;
-          let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-        //  console.log("all elementId's :"+ elementId);
-        //  console.log("all elementCls's :"+ elementCls);
-          
-
-       //For the Menu (hamburger). -:         
-        //When the user clicks anywhere except on the links  
-        //inside of the menu (hamburger) toggle, close it.. 
-        if (elementId == 'menu') {// 
-          //console.log('for checkB : '+ elementId);
-          checkBinput.checked = false;
-         }
-       //For the modal/dialogue. -:
-        //Lets close the modal(dialogue) if user clicks on the 'x' button.
-        if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
-          modal.style.display = "none";
-         }
-         //Lets close the modal(dialogue) if user clicks outside of the modal window..
-         if (elementId == 'myModal') {
-           modal.style.display = "none";
-          }
-
-         //Lets open the modal(dialogue)..
-         if (elementCls == 'boxConBtnCls') {
-          modal.style.display = "flex";
-         }
-
-
-      });
-   }
-
-   //Call: <a onclick="AddToFavorites()">Add to favorites</a>
 
 
 
