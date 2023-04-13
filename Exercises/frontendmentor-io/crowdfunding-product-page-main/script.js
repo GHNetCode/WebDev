@@ -94,7 +94,7 @@ function showChecked(e) {
 //Timer function for 'touchstart' events when using mobile..
 //let timedTouchFunc; 
 let timer;
-let touchduration = 250; //length of time ..
+let touchduration = 200; //length of time ..
 let timedTouchFunc = function() { //do something 
       modal.style.display = "flex";
       };
@@ -126,18 +126,16 @@ let timedTouchFunc = function() { //do something
 
                 //open the modal(dialogue) via timer function and Change color (hover effect) of the buttons  ..
                 if (elementCls == 'boxConBtnCls') {
-                    //Give a bit of time between changing the color 'active color' of the button
-                    //and firing the modal\dialogue..
+                    //Give a bit of time when launching the modal\dialogue..
                     timer = setTimeout(timedTouchFunc, touchduration);
-                    
-                    boxConBtnCls.style.background = 'rgb(76, 201, 193)';
-                    boxConBtnCls.style.color = 'white';
+
                     
                 }
 
       
 
             });
+
       } else if ('ontouchend' in window){
         document.addEventListener("touchend", (event) => {
         let elementCls = event.target.classList;
@@ -146,8 +144,7 @@ let timedTouchFunc = function() { //do something
 
               // clearTimeout..
               if (timer){clearTimeout(timer);}
-              //  boxConBtnCls.style.background = 'rgb(60, 180, 171)';
-              //  boxConBtnCls.style.color = 'white';
+              
             }
         
         });
@@ -260,7 +257,7 @@ let timedTouchFunc = function() { //do something
                 localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
                 //console.log(bookmarks);
                 console.log("saved");
-                alert("Now bookmarked to localStorage, please use Ctrl + D to save this bookmark permanently.");
+                alert("Now bookmarked to localStorage, please use the browser`s bookmark button to save this bookmark permanently.");
             }
 }
 iconBmark.addEventListener("click", iconBmarkF);
