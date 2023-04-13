@@ -92,10 +92,10 @@ function showChecked(e) {
 
 
 //Timer function for 'touchstart' events when using mobile..
-let timedTouchFunc; 
+//let timedTouchFunc; 
 let timer;
 let touchduration = 250; //length of time ..
-    timedTouchFunc = function() { //do something 
+let timedTouchFunc = function() { //do something 
       modal.style.display = "flex";
       };
 
@@ -129,8 +129,8 @@ let touchduration = 250; //length of time ..
                     //Give a bit of time between changing the color 'active color' of the button
                     //and firing the modal\dialogue..
                     timer = setTimeout(timedTouchFunc, touchduration);
-                  //  boxConBtnCls.style.background = 'rgb(76, 201, 193)';
-                  //  boxConBtnCls.style.color = 'white';
+                    boxConBtnCls.style.background = 'rgb(76, 201, 193)';
+                    boxConBtnCls.style.color = 'white';
                 }
 
       
@@ -184,30 +184,107 @@ let touchduration = 250; //length of time ..
    }
 
    //Call: <a onclick="AddToFavorites()">Add to favorites</a>
-   function AddToFavorites(a) {
-    pageTitle=document.title;
-    pageURL=document.location;
-    try {
-      // Internet Explorer solution
-      eval("window.external.AddFavorite(pageURL, pageTitle)".replace(/-/g,''));
-    }
-    catch (e) {
-      try {
-        // Mozilla Firefox solution
-        window.sidebar.addPanel(pageTitle, pageURL, "");
+
+
+
+//icon Bookmark function...
+  let docTitle = document.title
+//Get the url up to pathname../index.html...  (not  window.location.href)
+  let url = window.location.protocol + "//" + window.location.host + window.location.pathname //get string length!!
+  let docTitleChk = false; 
+  let urlChk = false;
+  const iconBmark = document.getElementById("icon-bookmark");
+  let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));//get current bookmarks in localStorage..
+  function iconBmarkF() {
+  
+      if (document.getElementById('icon-bookmarked')) { //Delete the bookmark(already Saved 'green colour') !
+          
+           //update button from 'Deleted' to 'Save' status for next time round.
+            document.getElementById('icon-bookmarked').id = 'icon-bookmark'; 
+
+              
+              //Need to check and verify Before popping\splicing so we do not remove other bookmarks!!
+              for (let i=0; i <= bookmarks.length; i++){
+                //console.log('If delete button pushed- bookmarks[i]..: ' + bookmarks[i]+' i:'+i);
+                  if (bookmarks[i]==docTitle || bookmarks[i]==url){
+                       //console.log("element Being removed :" + bookmarks[i]+' i:'+i);
+                       bookmarks = bookmarks.splice(i, 1);
+                       //console.log("Remaining elements :" + bookmarks);
+                  }
+             }
+          
+              //bookmarks updated, now update localStorage...
+              localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+              //console.log(bookmarks);
+              //console.log(bookmarks.length);
+              console.log("deleted");
+
+
+    } else {//code below runs when "grey colour 'Save'" button is clicked.
+      document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button from 'Save' to 'Delete'..
+              //check if localStorage already has this site bookmarked\saved, if Not found then add it..
+              //If match is found set Chk to true and abort a push onto the array.
+                docTitleChk = false;
+                urlChk = false;
+                for (let i=0; i <= bookmarks.length; i++){
+                  if (bookmarks[i]==docTitle){
+                     //console.log('docTitle: We have a Match, halt push bookmarks[i]:'+bookmarks[i]+' [i]:'+[i]);
+                       docTitleChk = true;
+                 }else if(bookmarks[i]==url){
+                     //console.log('url: We have a Match, halt push bookmarks[i]:'+bookmarks[i]+' [i]:'+[i]);
+                       urlChk = true;
+                  }
+                } 
+
+                 if (docTitleChk==false){
+                   bookmarks.push(docTitle)//No match found, push element..
+                  // console.log('docTitle - pushed onto the array!')
+                 } else {
+                  // console.log ('docTitle already bookmarked:'+docTitle);
+                 }
+                 if (urlChk==false){
+                   bookmarks.push(url)//No match found, push element..
+                  // console.log('url - pushed onto the array!')
+                 } else {
+                  // console.log ('URL already bookmarked:'+url)
+                 }
+
+              // set updated array into localStorage "bookmarks"
+                localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+                //console.log(bookmarks);
+                //console.log("saved");
+                alert("Now bookmarked to localStorage, please use Ctrl + D to save permanently to your bookmarks folder");
+            }
+}   
+iconBmark.addEventListener("click", iconBmarkF);
+
+// Initialize data first time when page is loaded and update 
+// the bookmarked button color to saved\unsaved to reflect current
+// state in localStorage..
+console.log('Init: docTitle :'+docTitle)   
+console.log('Init: url :'+url)
+  for (let i=0;  i <= bookmarks.length; i++){
+    console.log('bookmarks[i]:'+bookmarks[i]+' [i]:'+[i]);
+        if (bookmarks[i]==docTitle){
+            //console.log('docTitle: We have a Match. (1 of 2)');
+            docTitleChk = true; 
+          }
+        if (bookmarks[i]==url){
+            //console.log('url: We have a Match. (1 of 2)');
+            urlChk = true;
+          }
       }
-      catch (e) {
-        // Opera solution
-        if (typeof(opera)=="object") {
-          a.rel="sidebar";
-          a.title=pageTitle;
-          a.url=pageURL;
-          return true;
-        } else {
-       //   The rest browsers (i.e Chrome, Safari)
-          alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + '+D to bookmark this page.');
-        }
+    if (urlChk && docTitleChk==true){
+        console.log('Bookmark already exists, update the icon!');
+       // iconBmark.innerHTML = "Delete";
+        document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button to 'Delete'..
+      }else { 
+       //  iconBmark.innerHTML = "Save"; 
+      document.getElementById('icon-bookmarked').id = 'icon-bookmark'; //update button to 'Save' ..
       }
-    }
-    return false;
-  }
+  
+
+
+
+      
+ 

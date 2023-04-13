@@ -172,7 +172,7 @@ body{
     /* margin-right: 20%; */
     opacity: 1;
     z-index: 3;
-    
+
     /* border: solid lightgreen 1px; */
   }
     #menuToggle input {
@@ -333,7 +333,7 @@ body{
 
 /* when hover is supported for the buttons\icons.. */
 @media (hover: hover) {
-  #box1Btn1:hover,#icon-bookmark:hover {
+  #box1Btn1:hover{
     color: white;
     background-color: rgb(76, 201, 193); /*rgb(76, 201, 193) = #4CC9C1*/
       }
