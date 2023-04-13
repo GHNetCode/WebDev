@@ -16,10 +16,9 @@ const boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 //let timedTouchFunc; 
 let timer;
 let touchduration = 200; //length of time ..
-let timedTouchFunc = function() { //do something 
-      modal.style.display = "flex"; //display the modulas!
-      };
-
+let timedTFmenu = function() {checkBinput.checked = false;}
+let timedTFmyModal = function() {modal.style.display = "none";}
+let timedTFbox = function() {modal.style.display = "flex";}
 
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
@@ -37,43 +36,33 @@ let timedTouchFunc = function() { //do something
                 //inside of the menu (hamburger) toggle then close it.. 
                 if (elementId == 'menu') {// 
                 //  console.log('for checkB : '+ elementId);
-                checkBinput.checked = false;
-                timer = setTimeout(timedTouchFunc, touchduration);
+                //checkBinput.checked = false;
+                timer = setTimeout(timedTFmenu, touchduration);
                 }
 
           //For the modal/dialogue. -:
                 //Close the modal(dialogue) if user touches on the 'x' button.
                 if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
-                modal.style.display = "none";
-                timer = setTimeout(timedTouchFunc, touchduration);
+                //modal.style.display = "none";
+                timer = setTimeout(timedTFmyModal, touchduration);
                 }
-
                 //open the modal(dialogue) via timer function..
                 if (elementCls == 'boxConBtnCls') {
                     //Give a bit of time when launching the modal\dialogue..
-                    timer = setTimeout(timedTouchFunc, touchduration);
-                    
+                    timer = setTimeout(timedTFbox, touchduration);
                 }
-
             });
-
       } else if ('ontouchend' in window){
         document.addEventListener("touchend", (event) => {
+        let elementId = event.target.id;
         let elementCls = event.target.classList;
 
         if (elementCls == 'boxConBtnCls') {
-               // clearTimeout..
-              if (timer){clearTimeout(timer);}
-              
+               if (timer){clearTimeout(timer);}// clearTimeout..
             }
-
-           if('myModalCloseBtn'||'menu') {
-              // clearTimeout..
-             if (timer){clearTimeout(timer);}
-             
+           if(elementId == 'myModalCloseBtn'||'menu') {
+              if (timer){clearTimeout(timer);}// clearTimeout..
            }
-
-        
         });
     } else {
          document.addEventListener("click", (event) => { // For mouse clicks only..
