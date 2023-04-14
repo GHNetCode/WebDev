@@ -18,7 +18,7 @@ let timer;
 let touchduration = 200; //length of time ..
 let timedTFmenu = function() {checkBinput.checked = false;}
 let timedTFmyModal = function() {modal.style.display = "none";}
-let timedTFbox = function() {modal.style.display = "flex";}
+let timedTFbox = function() {modal.style.display = "flex";}//Display modal
 
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
@@ -50,6 +50,7 @@ let timedTFbox = function() {modal.style.display = "flex";}
                 if (elementCls == 'boxConBtnCls') {
                     //Give a bit of time when launching the modal\dialogue..
                     timer = setTimeout(timedTFbox, touchduration);
+                    window.scroll(0,0);
                 }
             });
       } else if ('ontouchend' in window){
@@ -92,6 +93,7 @@ let timedTFbox = function() {modal.style.display = "flex";}
          //Lets open the modal(dialogue)..
          if (elementCls == 'boxConBtnCls') {
           modal.style.display = "flex";
+          window.scroll(0,0);
          }
 
 
@@ -177,108 +179,107 @@ function showChecked(e) {
 
 
 
-//icon Bookmark function...
-  let docTitle = document.title
-//Get the url up to pathname../index.html...  (not  window.location.href)
-  let url = window.location.protocol + "//" + window.location.host + window.location.pathname //get string length!!
-  let docTitleChk = false; 
-  let urlChk = false;
-  const iconBmark = document.getElementById("icon-bookmark");
-  
-      let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));//get current bookmarks in localStorage..
-      //As bookmarks local storage might be null lets keep everyone happy creating a blank array
-        if (bookmarks===null){
-            bookmarks = [];
-            console.log('bookmarks[]'+bookmarks)
-          }
+//icon Bookmark function to handle localStorage with prompt..
+      let docTitle = document.title
+    //Get the url up to pathname../index.html...  (not  window.location.href)
+      let url = window.location.protocol + "//" + window.location.host + window.location.pathname //get string length!!
+      let docTitleChk = false; 
+      let urlChk = false;
+      const iconBmark = document.getElementById("icon-bookmark");
 
-      // bookmark id's-:
-      //  'icon-bookmark'   == Unsaved
-      //  'icon-bookmarked' == Saved
-      function iconBmarkF() {
-        if (document.getElementById('icon-bookmarked')) { //Delete the bookmark(already Saved 'green colour') !
-          
-           //update button from 'Deleted' to 'Save' status for next time round.
-            document.getElementById('icon-bookmarked').id = 'icon-bookmark';
+          let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));//get current bookmarks in localStorage..
+          //As bookmarks local storage might be null lets keep everyone happy creating a blank array
+            if (bookmarks===null){
+                bookmarks = [];
+                console.log('bookmarks[]'+bookmarks)
+              }
+            
+          // bookmark id's-:
+          //  'icon-bookmark'   == Unsaved "Grey"
+          //  'icon-bookmarked' == Saved  "Teal\Green"
+          function iconBmarkF() {
+            if (document.getElementById('icon-bookmarked')) { //Delete the bookmark(already Saved 'green colour') !
 
-              //Need to check and verify Before popping\splicing so we do not remove other bookmarks!!
-              for (let i=0; i <= bookmarks.length; i++){
-                //console.log('If delete button pushed- bookmarks[i]..: ' + bookmarks[i]+' i:'+i);
-                  if (bookmarks[i]==docTitle || bookmarks[i]==url){
-                       //console.log("element Being removed :" + bookmarks[i]+' i:'+i);
-                       bookmarks = bookmarks.splice(i, 1);
-                       //console.log("Remaining elements :" + bookmarks);
-                  }
-             }
-              //bookmarks updated, now update localStorage...
-              localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-              //console.log(bookmarks);
-              //console.log(bookmarks.length);
-              console.log("deleted");
-    } else {//code below runs when "grey colour 'Save'" button is clicked.
-      document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button from 'Save' to 'Delete'..
-              //check if localStorage already has this site bookmarked\saved, if Not found then add it..
-              //If match is found set Chk to true and abort a push onto the array.
-                docTitleChk = false;
-                urlChk = false;
-                for (let i=0; i <= bookmarks.length; i++){
-                  if (bookmarks[i]==docTitle){
-                     //console.log('docTitle: We have a Match, halt push bookmarks[i]:'+bookmarks[i]+' [i]:'+[i]);
-                       docTitleChk = true;
-                 }else if(bookmarks[i]==url){
-                     //console.log('url: We have a Match, halt push bookmarks[i]:'+bookmarks[i]+' [i]:'+[i]);
-                       urlChk = true;
-                  }
-                } 
-
-                 if (docTitleChk==false){
-                   bookmarks.push(docTitle)//No match found, push element..
-                  // console.log('docTitle - pushed onto the array!')
-                 } else {
-                  // console.log ('docTitle already bookmarked:'+docTitle);
+               //update button from '"Teal\Green"' to 'Grey' status for next time round.
+                document.getElementById('icon-bookmarked').id = 'icon-bookmark';
+            
+                  //Need to check and verify Before popping\splicing so we do not remove other bookmarks!!
+                  for (let i=0; i <= bookmarks.length; i++){
+                    //console.log('If delete button pushed- bookmarks[i]..: ' + bookmarks[i]+' i:'+i);
+                      if (bookmarks[i]==docTitle || bookmarks[i]==url){
+                           //console.log("element Being removed :" + bookmarks[i]+' i:'+i);
+                           bookmarks = bookmarks.splice(i, 1);
+                           //console.log("Remaining elements :" + bookmarks);
+                      }
                  }
-                 if (urlChk==false){
-                   bookmarks.push(url)//No match found, push element..
-                  // console.log('url - pushed onto the array!')
-                 } else {
-                  // console.log ('URL already bookmarked:'+url)
-                 }
+                  //bookmarks updated, now update localStorage...
+                  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+                  //console.log(bookmarks);
+                  //console.log(bookmarks.length);
+                  console.log("deleted");
+        } else {//code below runs when "Grey" button is clicked.
+          document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button from 'Save' to 'Delete'..
+                  //check if localStorage already has this site bookmarked\saved, if Not found then add it..
+                  //If match is found set 'Chk' to true and abort a push onto the array.
+                    docTitleChk = false;
+                    urlChk = false;
+                    for (let i=0; i <= bookmarks.length; i++){
+                      if (bookmarks[i]==docTitle){
+                         //console.log('docTitle: We have a Match, halt push bookmarks[i]:'+bookmarks[i]+' [i]:'+[i]);
+                           docTitleChk = true;
+                     }else if(bookmarks[i]==url){
+                         //console.log('url: We have a Match, halt push bookmarks[i]:'+bookmarks[i]+' [i]:'+[i]);
+                           urlChk = true;
+                      }
+                    } 
 
-              // set updated array into localStorage "bookmarks"
-                localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-                //console.log(bookmarks);
-                console.log("saved");
-                alert("Now bookmarked to localStorage, please use the browser`s bookmark button to save this bookmark permanently.");
-            }
-}
-iconBmark.addEventListener("click", iconBmarkF);
+                     if (docTitleChk==false){
+                       bookmarks.push(docTitle)//No match found, push element..
+                     } // console.log('docTitle - pushed onto the array!')
 
-// Initialize data first time when page is loaded and update 
-// the bookmarked button color to saved\unsaved to reflect current
-// state in localStorage..
-console.log('Init: docTitle :'+docTitle)   
-console.log('Init: url :'+url)
-  for (let i=0;  i <= bookmarks.length; i++){
-    console.log('bookmarks[i]:'+bookmarks[i]+' [i]:'+[i]);
-        if (bookmarks[i]==docTitle){
-            //console.log('docTitle: We have a Match. (1 of 2)');
-            docTitleChk = true; 
+                     if (urlChk==false){
+                       bookmarks.push(url)//No match found, push element..
+                     } // console.log('url - pushed onto the array!')
+
+                  // update localStorage with the updated bookmarks array..
+                    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+                    //console.log(bookmarks);
+                    console.log("saved");
+                    alert("Now bookmarked to localStorage, please use the browser`s bookmark button to save this bookmark permanently.");
+                }
+    }
+    iconBmark.addEventListener("click", iconBmarkF);
+
+    // Initialize data first time when page is loaded and update 
+    // the bookmarked button color to Grey\Teal to reflect current
+    // state in localStorage.
+    console.log('Init: docTitle :'+docTitle)   
+    console.log('Init: url :'+url)
+      for (let i=0;  i <= bookmarks.length; i++){
+        console.log('bookmarks[i]:'+bookmarks[i]+' [i]:'+[i]);
+            if (bookmarks[i]==docTitle){
+                //console.log('docTitle: We have a Match. (1 of 2)');
+                docTitleChk = true; 
+              }
+            if (bookmarks[i]==url){
+                //console.log('url: We have a Match. (1 of 2)');
+                urlChk = true;
+              }
           }
-        if (bookmarks[i]==url){
-            //console.log('url: We have a Match. (1 of 2)');
-            urlChk = true;
+        if (urlChk && docTitleChk==true){
+            console.log('Bookmark already exists, update the icon!');
+           
+            document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button to 'Delete'..
           }
-      }
-    if (urlChk && docTitleChk==true){
-        console.log('Bookmark already exists, update the icon!');
-       // iconBmark.innerHTML = "Delete";
-        document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button to 'Delete'..
-      } //else {
-        //  iconBmark.innerHTML = "Save"; 
-        //document.getElementById('icon-bookmarked').id = 'icon-bookmark'; //update button to 'Save' ..
-         //}
-  
 
+//Handle the Sums
+  //id currentSum    $ 89,914
+  //id totalBacknum  5,007 total backers
+
+  //id box3ConBox1p3 101 left (Bamboo Stand)
+    //Pledge-:
+     //<button id="mdl-Cont2Pld1Btn1" class="mdl-ContPldBtnCls">25</button>
+     //<button id="mdl-Cont2Pld1Btn2" class="mdl-ContPldBtnCls">Continue</button>
 
 
 
