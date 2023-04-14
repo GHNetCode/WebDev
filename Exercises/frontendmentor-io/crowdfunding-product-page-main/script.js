@@ -349,9 +349,9 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
 
   //id box3ConBox1p3 101 left (Bamboo Stand)
     //Pledge-:
-     //<button id="mdl-Cont2Pld1Btn1" class="mdl-ContPldBtnCls">25</button>
-     //<button id="mdl-Cont2Pld1Btn2" class="mdl-ContPldBtnCls">Continue</button>
-
+     //<button id mdl-Cont2Pld1Btn1"  $ 25 (this is just a price tag.. not a input field.. :) 
+     //<button id mdl-Cont2Pld1Btn2"  Continue 
+     // on pressing continue get price tag from 'Btn1' update currentSum and total backers..
 
 
  

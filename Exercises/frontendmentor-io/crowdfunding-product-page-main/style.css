@@ -440,6 +440,12 @@ body{
         font-weight:500;
       }
 
+      /* .progress-bar-container{
+        background-color: rgb(244, 244, 244);
+        margin-top: 10%;
+        width: 87.1%;
+        border-radius: 15px;
+      } */
       #progressBar{
         background-color: rgb(244, 244, 244);
         margin-top: 10%;
@@ -456,8 +462,17 @@ body{
         border-radius: 16px;
         width: 79%;
         margin-left: 0.3%;
+        animation: progress 2000ms ease-in 1;
         /* border: solid red 1px; */
+ 
       }
+
+      /* Animating the progress bar by
+        initially starting from 0*/
+        @keyframes progress {
+          from {
+              width: 0;
+          }}
 
 
       #box3Container{
