@@ -10,7 +10,87 @@ let checkBinput = document.getElementById('checkB');
 
 const boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
 
+//modulas radio buttons to handle the boxes and pledge sums..
+let inpRadBtn = document.getElementsByClassName('inpRadBtn');
+let mdlCont1 = document.getElementById('mdl-Cont1');
+let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
+let mdlCont2 = document.getElementById('mdl-Cont2');
+let mdlCont2Pld1 = document.getElementById('mdl-Cont2Pld1');
+let mdlCont3 = document.getElementById('mdl-Cont3');
+let mdlCont3Pld1 = document.getElementById('mdl-Cont3Pld1');
+let mdlCont4 = document.getElementById('mdl-Cont4');
+let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
+for(const radioBtn of inpRadBtn){
+  radioBtn.addEventListener('change', showChanged);
+}
+
+// var initial = gameDiv.innerHTML 
+//   Later...
+// gameDiv.innerHTML = initial
+//let modalCntId = document.getElementById('modalCntId');
+//let initial = modalCntId.innerHTML
+//modalCntId.innerHTML = initial;
+
+let rbtnIdChecked;
+function showChanged(e) {//Show Changed btn, checked or unchecked..
+  //console.log(e);
+  
+  if (this.checked) {
+    rbtnIdChecked = this.id; // be used for unchecking when modal\dialogue 'X'button is closed.
+  
+    
+    //mdlCont1Rbtn.checked
+      //console.log('this.checked :'+ e+'  this.checked:'+this.checked+'  this.id:'+this.id);
+    
+      if(this.id==='mdl-Cont1Rbtn'){
+        //console.log('Lets set the relevant properties for Cont1Rbtn..');
+      
+        mdlCont1.style.height='320px'; //make the window longer to accommodate for the buttons etc..  
+        mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
+        mdlCont1Pld1.style.display='flex';
+      } else {
+        mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
+        mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+        mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
+      }
+      if(this.id==='mdl-Cont2Rbtn'){
+        //console.log('Lets set the relevant properties for Cont2Rbtn..');
+      
+        mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+        mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
+        mdlCont2Pld1.style.display='flex';
+      } else {
+        mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
+        mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+        mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
+      }
+      if(this.id==='mdl-Cont3Rbtn'){
+        //console.log('Lets set the relevant properties for Cont3Rbtn..');
+      
+       mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+       mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
+       mdlCont3Pld1.style.display='flex';
+     } else {
+       mdlCont3.style.height='unset';
+       mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
+       mdlCont3Pld1.style.display='none'; // Set back to none / Flex!
+      }
+      if(this.id==='mdl-Cont4Rbtn'){
+        console.log('Lets set the relevant properties for Cont4Rbtn..');
+      
+       mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+       mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
+       mdlCont4Pld1.style.display='flex';
+     } else {
+       mdlCont4.style.height='unset';
+       mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
+       mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
+      }
+    }
+
+  
+}
 
 //Timer function for 'touchstart' events when using mobile..
 //let timedTouchFunc; 
@@ -45,6 +125,38 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
                 if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
                 //modal.style.display = "none";
                 timer = setTimeout(timedTFmyModal, touchduration);
+                              //uncheck the radio button using variable 'rbtnIdChecked' set above and reset pledges.. !
+              if(rbtnIdChecked==='mdl-Cont1Rbtn'){
+                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
+                rbtnIdEl.checked = false;
+                mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
+                mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+                mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
+              }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
+                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
+                rbtnIdEl.checked = false;
+                mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
+                mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+                mdlCont2Pld1.style.display='none'; // Set back to none / Flex!        
+              }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
+                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
+                rbtnIdEl.checked = false;
+                mdlCont3.style.height='unset';
+                mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
+                mdlCont3Pld1.style.display='none'; // Set back to none / Flex!         
+              }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
+                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
+                rbtnIdEl.checked = false;
+                mdlCont4.style.height='unset';
+                mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
+                mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
+              } 
+
+
                 }
                 //open the modal(dialogue) via timer function..
                 if (elementCls == 'boxConBtnCls') {
@@ -84,11 +196,46 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
         //Lets close the modal(dialogue) if user clicks on the 'x' button.
         if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
           modal.style.display = "none";
-         }
+              //uncheck the radio button using variable 'rbtnIdChecked' set above and reset pledges.. !
+              if(rbtnIdChecked==='mdl-Cont1Rbtn'){
+                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
+                rbtnIdEl.checked = false;
+                mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
+                mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+                mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
+              }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
+                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
+                rbtnIdEl.checked = false;
+                mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
+                mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+                mdlCont2Pld1.style.display='none'; // Set back to none / Flex!        
+              }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
+                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
+                rbtnIdEl.checked = false;
+                mdlCont3.style.height='unset';
+                mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
+                mdlCont3Pld1.style.display='none'; // Set back to none / Flex!         
+              }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
+                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
+                rbtnIdEl.checked = false;
+                mdlCont4.style.height='unset';
+                mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
+                mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
+              } 
+                  
+              }
+            
+              
+
          //Lets close the modal(dialogue) if user clicks outside of the modal window..
-         if (elementId == 'myModal') {
-           modal.style.display = "none";
-          }
+        //    if (elementId == 'myModal') {
+        //        modal.style.display = "none";
+//
+        //        }
 
          //Lets open the modal(dialogue)..
          if (elementCls == 'boxConBtnCls') {
@@ -101,82 +248,6 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
    }
 
    
-   
-
-
-
-//modulas radio buttons to handle the boxes and pledge sums..
-let inpBtnStyler = document.getElementsByClassName('inpBtnStyler');
-let mdlCont1 = document.getElementById('mdl-Cont1');
-let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
-let mdlCont2 = document.getElementById('mdl-Cont2');
-let mdlCont2Pld1 = document.getElementById('mdl-Cont2Pld1');
-let mdlCont3 = document.getElementById('mdl-Cont3');
-let mdlCont3Pld1 = document.getElementById('mdl-Cont3Pld1');
-let mdlCont4 = document.getElementById('mdl-Cont4');
-let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
-
-for(const radioBtn of inpBtnStyler){
-  radioBtn.addEventListener('change', showChecked);
-}        
-
-function showChecked(e) {
-  //console.log(e);
-  if (this.checked) {
-    //mdlCont1Rbtn.checked
-      //document.querySelector('#output').innerText = `You selected ${this.value}`;
-      console.log('this.checked :'+ e+'  this.checked:'+this.checked+'  this.id:'+this.id);
-    
-      if(this.id==='mdl-Cont1Rbtn'){
-        console.log('Lets set the relevant properties for Cont1Rbtn..');
-      
-        mdlCont1.style.height='320px'; //make the window longer to accommodate for the buttons etc..  
-        mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
-        mdlCont1Pld1.style.display='flex';
-      } else {
-        mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
-        mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-        mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
-      }
-      if(this.id==='mdl-Cont2Rbtn'){
-        console.log('Lets set the relevant properties for Cont2Rbtn..');
-      
-        mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-        mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
-        mdlCont2Pld1.style.display='flex';
-      } else {
-        mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
-        mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-        mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
-      }
-      if(this.id==='mdl-Cont3Rbtn'){
-        console.log('Lets set the relevant properties for Cont3Rbtn..');
-      
-       mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-       mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
-       mdlCont3Pld1.style.display='flex';
-     } else {
-       mdlCont3.style.height='unset';
-       mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
-       mdlCont3Pld1.style.display='none'; // Set back to none / Flex!
-      }
-      if(this.id==='mdl-Cont4Rbtn'){
-        console.log('Lets set the relevant properties for Cont4Rbtn..');
-      
-       mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-       mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
-       mdlCont4Pld1.style.display='flex';
-     } else {
-       mdlCont4.style.height='unset';
-       mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
-       mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
-      }
-    }
-
-  
-}
-
-
 
 
 //icon Bookmark function to handle localStorage with prompt..

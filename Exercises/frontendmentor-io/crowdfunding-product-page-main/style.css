@@ -538,7 +538,7 @@ body{
   #box3ConBox2Btn:hover {color: white; background-color: rgb(76, 201, 193);}
   
   /*dialogue/modal hover effects..*/
-  .inpBtnStyler:hover{ color: rgb(43, 202, 189); 
+  .inpRadBtn:hover{ color: rgb(43, 202, 189); 
                        border: 5px ;
                        box-shadow: inset 0 0 0 6px;
                             }
@@ -711,7 +711,7 @@ body{
 
  
         /* Style the Radio button.. */ 
-        .inpBtnStyler{
+        .inpRadBtn{
               appearance: none;
               /* -webkit-appearance: none; */
               position:absolute;
@@ -731,7 +731,7 @@ body{
         }
 
   
-        .inpBtnStyler[type=radio]:checked{
+        .inpRadBtn[type=radio]:checked{
           background: rgb(60, 180, 172);
           border: 6px solid #FFF;
           pointer-events: none; /*disable hover effect..*/
