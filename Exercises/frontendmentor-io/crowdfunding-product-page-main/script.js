@@ -18,7 +18,7 @@ let timer;
 let touchduration = 200; //length of time ..
 let timedTFmenu = function() {checkBinput.checked = false;}
 let timedTFmyModal = function() {modal.style.display = "none";}
-let timedTFbox = function() {modal.style.display = "flex";}//Display modal
+let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//Display modal
 
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
@@ -50,7 +50,7 @@ let timedTFbox = function() {modal.style.display = "flex";}//Display modal
                 if (elementCls == 'boxConBtnCls') {
                     //Give a bit of time when launching the modal\dialogue..
                     timer = setTimeout(timedTFbox, touchduration);
-                    window.scroll(0,0);
+                    
                 }
             });
       } else if ('ontouchend' in window){
