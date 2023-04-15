@@ -21,75 +21,74 @@ let mdlCont3Pld1 = document.getElementById('mdl-Cont3Pld1');
 let mdlCont4 = document.getElementById('mdl-Cont4');
 let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 
+  function mdlCont1F(init){
+  if(init){
+    mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
+    mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+    mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
+  }else{
+    mdlCont1.style.height='320px'; //make the window longer to accommodate for the buttons etc..  
+    mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
+    mdlCont1Pld1.style.display='flex';
+  }
+}
+  function mdlCont2F(init){
+  if(init){
+    mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
+    mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
+    mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
+  } else {
+    mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+    mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
+    mdlCont2Pld1.style.display='flex';
+  }
+}
+
+  function mdlCont3F(init){
+  if(init){
+    mdlCont3.style.height='unset';
+    mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
+    mdlCont3Pld1.style.display='none'; // Set back to none / Flex! 
+  } else {
+    mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+    mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
+    mdlCont3Pld1.style.display='flex';
+ }
+}
+  function mdlCont4F(init){
+  if(init){
+    mdlCont4.style.height='unset';
+    mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
+    mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
+  } else {
+    mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+    mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
+    mdlCont4Pld1.style.display='flex';
+  }
+}
+  
+
+
+
 for(const radioBtn of inpRadBtn){
   radioBtn.addEventListener('change', showChanged);
 }
-
-// var initial = gameDiv.innerHTML 
-//   Later...
-// gameDiv.innerHTML = initial
-//let modalCntId = document.getElementById('modalCntId');
-//let initial = modalCntId.innerHTML
-//modalCntId.innerHTML = initial;
 
 let rbtnIdChecked;
 function showChanged(e) {//Show Changed btn, checked or unchecked..
   //console.log(e);
   
-  if (this.checked) {
-    rbtnIdChecked = this.id; // be used for unchecking when modal\dialogue 'X'button is closed.
-  
-    
-    //mdlCont1Rbtn.checked
-      //console.log('this.checked :'+ e+'  this.checked:'+this.checked+'  this.id:'+this.id);
-    
+if (this.checked) {
+    rbtnIdChecked = this.id; // be used for below functions, unchecking when modal\dialogue 'X'button is closed.
       if(this.id==='mdl-Cont1Rbtn'){
-        //console.log('Lets set the relevant properties for Cont1Rbtn..');
-      
-        mdlCont1.style.height='320px'; //make the window longer to accommodate for the buttons etc..  
-        mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
-        mdlCont1Pld1.style.display='flex';
-      } else {
-        mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
-        mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-        mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
-      }
+        mdlCont1F();}else{mdlCont1F(true);}
       if(this.id==='mdl-Cont2Rbtn'){
-        //console.log('Lets set the relevant properties for Cont2Rbtn..');
-      
-        mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-        mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
-        mdlCont2Pld1.style.display='flex';
-      } else {
-        mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
-        mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-        mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
-      }
+        mdlCont2F();}else{ mdlCont2F(true); }
       if(this.id==='mdl-Cont3Rbtn'){
-        //console.log('Lets set the relevant properties for Cont3Rbtn..');
-      
-       mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-       mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
-       mdlCont3Pld1.style.display='flex';
-     } else {
-       mdlCont3.style.height='unset';
-       mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
-       mdlCont3Pld1.style.display='none'; // Set back to none / Flex!
-      }
+        mdlCont3F();}else{mdlCont3F(true); }
       if(this.id==='mdl-Cont4Rbtn'){
-        console.log('Lets set the relevant properties for Cont4Rbtn..');
-      
-       mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
-       mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
-       mdlCont4Pld1.style.display='flex';
-     } else {
-       mdlCont4.style.height='unset';
-       mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
-       mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
-      }
+        mdlCont4F();}else{mdlCont4F(true);}
     }
-
-  
 }
 
 //Timer function for 'touchstart' events when using mobile..
@@ -130,34 +129,25 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
                 rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
                // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
                 rbtnIdEl.checked = false;
-                mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
-                mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-                mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
-              }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
+                mdlCont1F(true);
+                }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
                 rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
                // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
                 rbtnIdEl.checked = false;
-                mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
-                mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-                mdlCont2Pld1.style.display='none'; // Set back to none / Flex!        
-              }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
+                mdlCont2F(true);
+                }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
                 rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
                // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
                 rbtnIdEl.checked = false;
-                mdlCont3.style.height='unset';
-                mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
-                mdlCont3Pld1.style.display='none'; // Set back to none / Flex!         
-              }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
+                mdlCont3F(true);
+                }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
                 rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
                // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
                 rbtnIdEl.checked = false;
-                mdlCont4.style.height='unset';
-                mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
-                mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
-              } 
-
-
+                mdlCont4F(true);
+                 } 
                 }
+
                 //open the modal(dialogue) via timer function..
                 if (elementCls == 'boxConBtnCls') {
                     //Give a bit of time when launching the modal\dialogue..
@@ -181,9 +171,7 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
          document.addEventListener("click", (event) => { // For mouse clicks only..
           let elementId = event.target.id;
           let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-        //  console.log("all elementId's :"+ elementId);
-        //  console.log("all elementCls's :"+ elementCls);
-          
+
 
        //For the Menu (hamburger). -:         
         //When the user clicks anywhere except on the links  
@@ -199,45 +187,32 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
               //uncheck the radio button using variable 'rbtnIdChecked' set above and reset pledges.. !
               if(rbtnIdChecked==='mdl-Cont1Rbtn'){
                 rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
-                rbtnIdEl.checked = false;
-                mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
-                mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-                mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
+                 rbtnIdEl.checked = false;
+                 mdlCont1F(true);
               }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
                 rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
                 rbtnIdEl.checked = false;
-                mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
-                mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
-                mdlCont2Pld1.style.display='none'; // Set back to none / Flex!        
-              }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
+                mdlCont2F(true);
+               }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
                 rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
                 rbtnIdEl.checked = false;
-                mdlCont3.style.height='unset';
-                mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
-                mdlCont3Pld1.style.display='none'; // Set back to none / Flex!         
-              }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
+                mdlCont3F(true);
+               }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
                 rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
                 rbtnIdEl.checked = false;
-                mdlCont4.style.height='unset';
-                mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
-                mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
-              } 
-                  
-              }
+                mdlCont4F(true);
+             } 
+          }
             
               
 
          //Lets close the modal(dialogue) if user clicks outside of the modal window..
         //    if (elementId == 'myModal') {
         //        modal.style.display = "none";
-//
+        //
         //        }
 
-         //Lets open the modal(dialogue)..
+         //Lets open the modal(dialogue) and scroll to the top..
          if (elementCls == 'boxConBtnCls') {
           modal.style.display = "flex";
           window.scroll(0,0);
@@ -285,9 +260,7 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
                  }
                   //bookmarks updated, now update localStorage...
                   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-                  //console.log(bookmarks);
-                  //console.log(bookmarks.length);
-                  console.log("deleted");
+                  //console.log("deleted");
         } else {//code below runs when "Grey" button is clicked.
           document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button from 'Save' to 'Delete'..
                   //check if localStorage already has this site bookmarked\saved, if Not found then add it..
@@ -343,6 +316,11 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
             document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button to 'Delete'..
           }
 
+
+
+          //TO DO.. 1: put above replicated code in their functions!!
+          //        2: get the numbers below adding up ok.. :)
+          // time for SHABBAT :)
 //Handle the Sums
   //id currentSum    $ 89,914
   //id totalBacknum  5,007 total backers

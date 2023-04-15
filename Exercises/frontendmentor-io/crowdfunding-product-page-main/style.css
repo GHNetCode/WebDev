@@ -462,13 +462,12 @@ body{
         border-radius: 16px;
         width: 79%;
         margin-left: 0.3%;
-        animation: progress 2000ms ease-in 1;
+        animation: progress 2500ms ease-in 1;
         /* border: solid red 1px; */
  
       }
-
       /* Animating the progress bar by
-        initially starting from 0*/
+       starting from 0*/
         @keyframes progress {
           from {
               width: 0;
