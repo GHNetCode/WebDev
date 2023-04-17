@@ -142,12 +142,13 @@ let timedTFbox = function() {
                 }
               //open the modal(dialogue) via timer function..
                 if (elementCls == 'boxConBtnCls') {
+                  console.log('class: boxConBtnCls found!');
                     //Give a bit of time when launching the modal\dialogue..
                     timer = setTimeout(timedTFbox, touchduration);
                 }
            //display the "Thanks for your support!" message after pressing Continue for a pledge..
             if (elementCls == 'mdl-ContPldBtnCls2'){ //mdl-ContPldBtnCls
-              //console.log('class: mdl-ContPldBtnCls2 found!');
+              console.log('class: mdl-ContPldBtnCls2 found!');
               modal.style.display = "flex"; //mask
               modalCntId.style.display = "none";//the modal Containers..
               pledgeTyou.style.display = 'flex';//and bring up the thank you box.
@@ -156,7 +157,7 @@ let timedTFbox = function() {
            //Close the "Thanks for your support!" message after 
            //pressing it`s "Got it!" button, and reset modal\dialogue radio buttons
             if (elementId === 'pledgeTyouB'){
-              //console.log('ID: pledgeTyouB found!')
+              console.log('ID: pledgeTyouB found!')
               pledgeTyou.style.display = 'none';
               modal.style.display = "none"; //mask
               rbtnUnchkF(); //reset the dialogue/modal boxes and radio buttons..
