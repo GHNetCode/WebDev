@@ -561,11 +561,11 @@ body{
    #mdl-Cont3Pld1Btn2:hover,#mdl-Cont4Pld1Btn2:hover{
      background-color: rgb(43, 202, 189); 
      border: 2px solid rgb(63, 203, 192) ; }
-   #mdl-Cont1Pld1Btn1:hover,#mdl-Cont2Pld1Btn1:hover,
+   /* #mdl-Cont1Pld1Btn1:hover,#mdl-Cont2Pld1Btn1:hover,
    #mdl-Cont3Pld1Btn1:hover,#mdl-Cont4Pld1Btn1:hover{
       background-color: #f1f1f1;
       color: black;
-      border: 1px solid rgb(154, 154, 154);}
+      border: 1px solid rgb(154, 154, 154);} */
   
 
 
