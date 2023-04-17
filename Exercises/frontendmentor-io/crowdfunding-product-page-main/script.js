@@ -12,6 +12,7 @@ let modalCntId = document.getElementById("modalCntId"); //
 // 'X'\check Button for menu toggle
 let checkBinput = document.getElementById('checkB');
 
+
 let mdlCont1 = document.getElementById('mdl-Cont1');
 let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
 let mdlCont2 = document.getElementById('mdl-Cont2');
@@ -59,9 +60,10 @@ let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
   }
 }
   
+
 //modulas radio buttons to handle the boxes and pledge sums..
 let inpRadBtn = document.getElementsByClassName('inpRadBtn');
-for(const radioBtn of inpRadBtn){
+for(let radioBtn of inpRadBtn){
   radioBtn.addEventListener('change', showChanged);
 }
 let rbtnIdChecked;
@@ -86,23 +88,77 @@ if (this.checked) {
                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
                 rbtnIdEl.checked = false;
                 mdlCont1F(true);
+                rbtnIdChecked = null;
              }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
                rbtnIdEl.checked = false;
                mdlCont2F(true);
+               rbtnIdChecked = null;
               }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
                rbtnIdEl.checked = false;
                mdlCont3F(true);
+               rbtnIdChecked = null;
               }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
                rbtnIdEl.checked = false;
                mdlCont4F(true);} 
+               rbtnIdChecked = null;
               }
 
 
+          //    let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
+          //    for (let boxConBtn of boxConBtnCls){
+          //         boxConBtn.addEventListener("click",thisBtn =()=>{
+          //          
+          //          console.log('boxConBtn.id'+boxConBtn.id);
+          //          
+          //          if ( boxConBtn.id ==='box1Btn1'){
+          //           //console.log('boxConBtn.id'+boxConBtn.id);
+          //           //document.getElementById('idbox1Btn1').checked = true;
+          //           //document.getElementById('mdl-Cont1Rbtn').checked = true;
+          //           mdlCont1F();
+          //          }
+          //          if ( boxConBtn.id ==='box3ConBox1Btn'){
+          //            //console.log('boxConBtn.id'+boxConBtn.id);
+          //            //document.getElementById('idbox1Btn1').checked = true;
+          //            //document.getElementById('mdl-Cont1Rbtn').checked = true;
+          //            mdlCont2F();
+          //           }
+          //           if ( boxConBtn.id ==='box3ConBox2Btn'){
+          //            //console.log('boxConBtn.id'+boxConBtn.id);
+          //            //document.getElementById('idbox1Btn1').checked = true;
+          //            //document.getElementById('mdl-Cont1Rbtn').checked = true;
+          //            mdlCont3F();
+          //           }
+//
+//
+          //          
+          //         }); }
+         
+             
+               //for (i=0; i<boxConBtnCls.length; i++){ 
+                   // boxConBtnCls[i].addEventListener("click",e=()=>{ 
+                   // },false);
+                   // console.log(boxConBtnCls[i]);
+                   //  }
+// Function to add event listener to table
+// const el = document.getElementById("outside");
+// el.addEventListener(
+//   "click",
+//   function () {
+//     modifyText("four");
+//   },
+//   false
+// );
 
 
+                  // console.log(event+' boxConBtnID:'+thisBtn.id);
+            
+               //addEventListener("click", (event) => {});
+            
+              //onclick = (event) => {};
+            
 
 //Timer function for 'touchstart' events when using mobile..
 //let timedTouchFunc; 
@@ -114,9 +170,15 @@ let timedMDbox = function() {modal.style.display = "flex";
   modalCntId.style.display = "flex";//the modal Containers..
   window.scroll(0,0);}//Display modal
 let timedPldMsg = function() {modal.style.display = "flex"; //modal mask
-  modalCntId.style.display = "none";//the modal Containers..
-  pledgeTyou.style.display = 'flex';//and bring up the thank you box.
-  window.scroll(0,0);}
+ // modalCntId.style.display = "none";//the modal Containers..
+ // pledgeTyou.style.display = 'flex';//and bring up the thank you box.
+ // window.scroll(0,0);}
+  if (rbtnIdChecked){//only when radio button is checked, display the thank you button..
+    modal.style.display = "flex"; //mask
+    modalCntId.style.display = "none";//close modal Containers..
+    pledgeTyou.style.display = 'flex';//and bring up the thank you box.
+    window.scroll(0,0);
+    }}
 let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
   modal.style.display = "none"; //mask
   rbtnUnchkF();} //reset the dialogue/modal boxes and radio buttons..
@@ -184,8 +246,8 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
          document.addEventListener("click", (event) => { // For mouse clicks only..
           let elementId = event.target.id;
           let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-          console.log('elementCls : '+ elementCls);
-
+         console.log('elementId : '+ elementId);
+         console.log('elementCls : '+ elementCls);
        //For the Menu (hamburger). -:         
         //When the user clicks anywhere except on the links  
         //inside of the menu (hamburger) toggle, close it.. 
@@ -193,6 +255,11 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
           //console.log('for checkB : '+ elementId);
           checkBinput.checked = false;
          }
+
+         //highlight the boxes with the button selected..
+         if ( elementId ==='box1Btn1'){ mdlCont1F();}
+         if ( elementId ==='box3ConBox1Btn'){ mdlCont2F();}
+         if ( elementId ==='box3ConBox2Btn'){ mdlCont3F();}
          
        //For the modal/dialogue. -:
         //Lets close the modal(dialogue) box if user clicks on the 'x' button.
@@ -205,22 +272,25 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
           //display the "Thanks for your support!" message after pressing Continue for a pledge..
              if (elementCls == 'mdl-ContPldBtnCls2'){ //mdl-ContPldBtnCls
               console.log('class: mdl-ContPldBtnCls2 found!');
+              console.log('rbtnIdChecked:'+rbtnIdChecked);
+              if (rbtnIdChecked){
               modal.style.display = "flex"; //mask
-              modalCntId.style.display = "none";//the modal Containers..
+              modalCntId.style.display = "none";//close modal Containers..
               pledgeTyou.style.display = 'flex';//and bring up the thank you box.
               window.scroll(0,0);
+              }
              }
 
            //Close the "Thanks for your support!" message after 
            //pressing it`s "Got it!" button, and reset radio buttons
             if (elementId === 'pledgeTyouB'){
-              console.log('ID: pledgeTyouB found!')
+              //console.log('ID: pledgeTyouB found!')
               pledgeTyou.style.display = 'none';
               modal.style.display = "none"; //mask
               rbtnUnchkF(); //reset the dialogue/modal boxes and radio buttons..
               }
            //Lets open the modal(dialogue) and scroll to the top..
-             if (elementCls == 'boxConBtnCls') {
+             if (elementCls == 'boxConBtnCls') {//boxConBtnCls (continue, select reward)
               modal.style.display = "flex"; //mask
               modalCntId.style.display = "flex";//the modal Containers..
               window.scroll(0,0);
@@ -228,7 +298,60 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
       });
    }
 
+
+
+
    
+
+          //TO DO.. 1: put above replicated code in their functions!!
+          //        2: get the numbers below adding up ok.. :)
+          // time for SHABBAT :)
+//Handle the Sums
+  //id currentSum    $ 89,914
+  //id totalBacknum  5,007 total backers
+
+  //id box3ConBox1p3 101 left (Bamboo Stand)
+    //Pledge-:
+     //<button id mdl-Cont2Pld1Btn1"  $ 25 (this is just a price tag.. not a input field! :) 
+     //<button id mdl-Cont2Pld1Btn2"  Continue 
+     // on pressing continue get price tag from 'Btn1' update currentSum and total backers..
+
+//class "mdl-ContPldBtnCls" contains the price tag for each pledge.
+//radio button can determine what price it is..
+//rbtnIdChecked will be updated with :
+//      mdl-Cont1Rbtn,mdl-Cont2Rbtn
+//      mdl-Cont3Rbtn,mdl-Cont4Rbtn
+// when the continue button (mdl-Cont2Pld1Btn2) is pushed
+// get relevant radio button
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //icon Bookmark function to handle localStorage with prompt..
@@ -322,20 +445,3 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
             document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button to 'Delete'..
           }
 
-
-
-          //TO DO.. 1: put above replicated code in their functions!!
-          //        2: get the numbers below adding up ok.. :)
-          // time for SHABBAT :)
-//Handle the Sums
-  //id currentSum    $ 89,914
-  //id totalBacknum  5,007 total backers
-
-  //id box3ConBox1p3 101 left (Bamboo Stand)
-    //Pledge-:
-     //<button id mdl-Cont2Pld1Btn1"  $ 25 (this is just a price tag.. not a input field! :) 
-     //<button id mdl-Cont2Pld1Btn2"  Continue 
-     // on pressing continue get price tag from 'Btn1' update currentSum and total backers..
-
-
- 
