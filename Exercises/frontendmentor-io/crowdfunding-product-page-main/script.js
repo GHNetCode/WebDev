@@ -26,6 +26,7 @@ let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
   if(init){mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
     mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
     mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
+    //rbtnIdChecked = null;
   }else{mdlCont1.style.height='320px'; //make the window longer to accommodate for the buttons etc..  
     mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
     mdlCont1Pld1.style.display='flex';
@@ -35,6 +36,7 @@ let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
   if(init){mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
     mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
     mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
+    //rbtnIdChecked = null;
   } else {mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
     mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
     mdlCont2Pld1.style.display='flex';
@@ -45,6 +47,7 @@ let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
   if(init){mdlCont3.style.height='unset';
     mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
     mdlCont3Pld1.style.display='none'; // Set back to none / Flex! 
+    //rbtnIdChecked = null;
   } else {mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
     mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
     mdlCont3Pld1.style.display='flex';
@@ -83,7 +86,10 @@ if (this.checked) {
 }
 
 //use function to Uncheck the radio button using variable 'rbtnIdChecked' set above and reset pledges.. !
+
   function rbtnUnchkF (){
+  //  console.log('rbtnUnchkF is running!! Check rbtnIdChecked:'+rbtnIdChecked);
+  //  console.log('clearBoxBorder:'+clearBoxBorder);
              if(rbtnIdChecked==='mdl-Cont1Rbtn'){
                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
                 rbtnIdEl.checked = false;
@@ -102,10 +108,21 @@ if (this.checked) {
               }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
                rbtnIdEl.checked = false;
-               mdlCont4F(true);} 
+               mdlCont4F(true);
                rbtnIdChecked = null;
+              } 
+               
               }
+            
 
+            let clearBoxBorder= null;
+            function clearBoxBdr(){
+              if(clearBoxBorder==='box1Btn1'){mdlCont1F(true);
+              }else if(clearBoxBorder==='box3ConBox1Btn') {mdlCont2F(true);
+              }else if(clearBoxBorder==='box3ConBox2Btn') {mdlCont3F(true);
+              }
+            }
+            
 
           //    let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
           //    for (let boxConBtn of boxConBtnCls){
@@ -165,10 +182,12 @@ if (this.checked) {
 let timer;
 let touchduration = 250; //length of time ..
 let timedTFmenu = function() {checkBinput.checked = false;}
-let timedTFmyModal = function() {modal.style.display = "none";rbtnUnchkF();}
+let timedTFmyModal = function() {modal.style.display = "none";
+    clearBoxBdr();rbtnUnchkF();}
 let timedMDbox = function() {modal.style.display = "flex";
-  modalCntId.style.display = "flex";//the modal Containers..
-  window.scroll(0,0);}//Display modal
+    rbtnIdChecked = null;//reset the radio button for continue button to work
+    modalCntId.style.display = "flex";//the modal Containers..
+    window.scroll(0,0);}//Display modal
 let timedPldMsg = function() {modal.style.display = "flex"; //modal mask
  // modalCntId.style.display = "none";//the modal Containers..
  // pledgeTyou.style.display = 'flex';//and bring up the thank you box.
@@ -181,6 +200,7 @@ let timedPldMsg = function() {modal.style.display = "flex"; //modal mask
     }}
 let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
   modal.style.display = "none"; //mask
+
   rbtnUnchkF();} //reset the dialogue/modal boxes and radio buttons..
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
@@ -189,8 +209,8 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
                 //get id and class events from '(event)' for Variables above..
                 let elementId = event.target.id;
                 let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-                //console.log('all  elementCls :'+ elementCls)
-                //console.log('all  elementId :'+ elementId);
+                console.log('all  elementCls :'+ elementCls)
+                console.log('all  elementId :'+ elementId);
                 
 
           //For the Menu (hamburger). -:         
@@ -202,10 +222,12 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
                 timer = setTimeout(timedTFmenu, touchduration);
                 }
                 
-          //highlight the boxes with the button selected..
-                 if ( elementId ==='box1Btn1'){ mdlCont1F();}
-                 if ( elementId ==='box3ConBox1Btn'){ mdlCont2F();}
-                 if ( elementId ==='box3ConBox2Btn'){ mdlCont3F();}
+          //highlight the appropriate box in the pledge..
+          //Track boxes being highlighted and clear them with a variable
+          // not just with the radio button.. if box1Btn1 then run
+                 if ( elementId ==='box1Btn1'){ mdlCont1F(); clearBoxBorder='box1Btn1';}
+                 if ( elementId ==='box3ConBox1Btn'){ mdlCont2F();clearBoxBorder='box3ConBox1Btn';}
+                 if ( elementId ==='box3ConBox2Btn'){ mdlCont3F();clearBoxBorder='box3ConBox2Btn';}
      
           //For the modal/dialogue. -:
               //Close the modal(dialogue) if user presses on the 'x' button.
@@ -262,16 +284,18 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
           checkBinput.checked = false;
          }
 
-         //highlight the boxes with the button selected..
-         if ( elementId ==='box1Btn1'){ mdlCont1F();}
-         if ( elementId ==='box3ConBox1Btn'){ mdlCont2F();}
-         if ( elementId ==='box3ConBox2Btn'){ mdlCont3F();}
+         //highlight the boxes with the button selected, keep track to clear box border when needed.
+         if ( elementId ==='box1Btn1'){ mdlCont1F(); clearBoxBorder='box1Btn1';}
+         if ( elementId ==='box3ConBox1Btn'){ mdlCont2F(); clearBoxBorder='box3ConBox1Btn';}
+         if ( elementId ==='box3ConBox2Btn'){ mdlCont3F(); clearBoxBorder='box3ConBox2Btn';}
          
        //For the modal/dialogue. -:
         //Lets close the modal(dialogue) box if user clicks on the 'x' button.
         //reset rbuttons for the ok(pledgeTyouB) and x buttons(myModalCloseBtn)
          if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
+          console.log('myModalCloseBtn:, check rbtnUnchkF works.. to clear the border..')
                modal.style.display = "none";
+               clearBoxBdr();
                rbtnUnchkF();
               }
             
@@ -295,8 +319,9 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
               modal.style.display = "none"; //mask
               rbtnUnchkF(); //reset the dialogue/modal boxes and radio buttons..
               }
-           //Lets open the modal(dialogue) and scroll to the top..
+           //Lets open the modal(dialogue) and scroll to the top
              if (elementCls == 'boxConBtnCls') {//boxConBtnCls (continue, select reward)
+              //rbtnIdChecked = null;//reset the radio button for continue button to work
               modal.style.display = "flex"; //mask
               modalCntId.style.display = "flex";//the modal Containers..
               window.scroll(0,0);
@@ -450,4 +475,3 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
            
             document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button to 'Delete'..
           }
-
