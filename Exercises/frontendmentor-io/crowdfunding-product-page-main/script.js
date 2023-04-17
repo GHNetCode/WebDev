@@ -110,11 +110,16 @@ let timer;
 let touchduration = 250; //length of time ..
 let timedTFmenu = function() {checkBinput.checked = false;}
 let timedTFmyModal = function() {modal.style.display = "none";rbtnUnchkF();}
-let timedTFbox = function() {
-  modal.style.display = "flex";
+let timedMDbox = function() {modal.style.display = "flex";
   modalCntId.style.display = "flex";//the modal Containers..
   window.scroll(0,0);}//Display modal
-
+let timedPldMsg = function() {modal.style.display = "flex"; //modal mask
+  modalCntId.style.display = "none";//the modal Containers..
+  pledgeTyou.style.display = 'flex';//and bring up the thank you box.
+  window.scroll(0,0);}
+let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
+  modal.style.display = "none"; //mask
+  rbtnUnchkF();} //reset the dialogue/modal boxes and radio buttons..
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
          document.addEventListener("touchstart", (event) => { //For touch screens only.. 
@@ -143,28 +148,24 @@ let timedTFbox = function() {
                 }
               //open the modal(dialogue) via timer function..
                 if (elementCls == 'boxConBtnCls') {
-                  console.log('class: boxConBtnCls found!');
+                  //console.log('class: boxConBtnCls found!');
                     //Give a bit of time when launching the modal\dialogue..
-                    timer = setTimeout(timedTFbox, touchduration);
+                    timer = setTimeout(timedMDbox, touchduration);
                   //  modal.style.display = "flex";
                   //  modalCntId.style.display = "flex";//the modal Containers..
                   //  window.scroll(0,0);
                 }
            //display the "Thanks for your support!" message after pressing Continue for a pledge..
             if (elementCls == 'mdl-ContPldBtnCls2'){ //mdl-ContPldBtnCls
-              console.log('class: mdl-ContPldBtnCls2 found!');
-              modal.style.display = "flex"; //mask
-              modalCntId.style.display = "none";//the modal Containers..
-              pledgeTyou.style.display = 'flex';//and bring up the thank you box.
-              window.scroll(0,0);
+              timer = setTimeout(timedPldMsg, touchduration);
+              //console.log('class: mdl-ContPldBtnCls2 found!');
+              
              }
            //Close the "Thanks for your support!" message after 
            //pressing it`s "Got it!" button, and reset modal\dialogue radio buttons
             if (elementId === 'pledgeTyouB'){
-              console.log('ID: pledgeTyouB found!')
-              pledgeTyou.style.display = 'none';
-              modal.style.display = "none"; //mask
-              rbtnUnchkF(); //reset the dialogue/modal boxes and radio buttons..
+              timer = setTimeout(timedPldMsgCls, touchduration);
+              //console.log('ID: pledgeTyouB found!')
               }
             });
       } else if ('ontouchend' in window){
