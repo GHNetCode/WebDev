@@ -109,7 +109,7 @@ if (this.checked) {
 let timer;
 let touchduration = 200; //length of time ..
 let timedTFmenu = function() {checkBinput.checked = false;}
-let timedTFmyModal = function() {modal.style.display = "none";rbtnUnchkF();}
+let timedTFmyModal = function() {modal.style.display = "none";}//rbtnUnchkF();}
 let timedTFbox = function() {
   modal.style.display = "flex";
   window.scroll(0,0);}//Display modal
