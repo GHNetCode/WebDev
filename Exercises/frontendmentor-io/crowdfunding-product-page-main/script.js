@@ -201,7 +201,12 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
                 //checkBinput.checked = false;
                 timer = setTimeout(timedTFmenu, touchduration);
                 }
-
+                
+          //highlight the boxes with the button selected..
+                 if ( elementId ==='box1Btn1'){ mdlCont1F();}
+                 if ( elementId ==='box3ConBox1Btn'){ mdlCont2F();}
+                 if ( elementId ==='box3ConBox2Btn'){ mdlCont3F();}
+     
           //For the modal/dialogue. -:
               //Close the modal(dialogue) if user presses on the 'x' button.
                 if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
@@ -217,6 +222,7 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
                   //  modalCntId.style.display = "flex";//the modal Containers..
                   //  window.scroll(0,0);
                 }
+
            //display the "Thanks for your support!" message after pressing Continue for a pledge..
             if (elementCls == 'mdl-ContPldBtnCls2'){ //mdl-ContPldBtnCls
               timer = setTimeout(timedPldMsg, touchduration);
