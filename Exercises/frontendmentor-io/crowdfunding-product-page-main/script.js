@@ -145,7 +145,10 @@ let timedTFbox = function() {
                 if (elementCls == 'boxConBtnCls') {
                   console.log('class: boxConBtnCls found!');
                     //Give a bit of time when launching the modal\dialogue..
-                    timer = setTimeout(timedTFbox, touchduration);
+                    //timer = setTimeout(timedTFbox, touchduration);
+                    modal.style.display = "flex";
+                    modalCntId.style.display = "flex";//the modal Containers..
+                    window.scroll(0,0);
                 }
            //display the "Thanks for your support!" message after pressing Continue for a pledge..
             if (elementCls == 'mdl-ContPldBtnCls2'){ //mdl-ContPldBtnCls
