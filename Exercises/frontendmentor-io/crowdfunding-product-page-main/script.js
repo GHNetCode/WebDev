@@ -2,16 +2,16 @@ window.onresize =() =>{
 document.querySelector('#resizeInnerW').textContent=window.innerWidth;
 }
 
-// Get the modal
-let modal = document.getElementById("myModal"); //not in css..
+
+// Modal Mask..
+let modal = document.getElementById("myModal"); //The Modal MASK!
+// Modal containers..
+let modalCntId = document.getElementById("modalCntId"); //
+
 
 // 'X'\check Button for menu toggle
 let checkBinput = document.getElementById('checkB');
 
-const boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
-
-//modulas radio buttons to handle the boxes and pledge sums..
-let inpRadBtn = document.getElementsByClassName('inpRadBtn');
 let mdlCont1 = document.getElementById('mdl-Cont1');
 let mdlCont1Pld1 = document.getElementById('mdl-Cont1Pld1');
 let mdlCont2 = document.getElementById('mdl-Cont2');
@@ -20,66 +20,55 @@ let mdlCont3 = document.getElementById('mdl-Cont3');
 let mdlCont3Pld1 = document.getElementById('mdl-Cont3Pld1');
 let mdlCont4 = document.getElementById('mdl-Cont4');
 let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
-
+//Save the initial "init" state of the window to reset when needed..
   function mdlCont1F(init){
-  if(init){
-    mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
+  if(init){mdlCont1.style.height='244px'; // window height to accommodate for the buttons etc..  
     mdlCont1.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
     mdlCont1Pld1.style.display='none'; // Set back to none / Flex!
-  }else{
-    mdlCont1.style.height='320px'; //make the window longer to accommodate for the buttons etc..  
+  }else{mdlCont1.style.height='320px'; //make the window longer to accommodate for the buttons etc..  
     mdlCont1.style.border= 'rgb(59, 180, 171) solid 2px';
     mdlCont1Pld1.style.display='flex';
   }
 }
   function mdlCont2F(init){
-  if(init){
-    mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
+  if(init){mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
     mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
     mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
-  } else {
-    mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+  } else {mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
     mdlCont2.style.border= 'rgb(59, 180, 171) solid 2px';
     mdlCont2Pld1.style.display='flex';
   }
 }
 
   function mdlCont3F(init){
-  if(init){
-    mdlCont3.style.height='unset';
+  if(init){mdlCont3.style.height='unset';
     mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
     mdlCont3Pld1.style.display='none'; // Set back to none / Flex! 
-  } else {
-    mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+  } else {mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
     mdlCont3.style.border= 'rgb(59, 180, 171) solid 2px'
     mdlCont3Pld1.style.display='flex';
  }
 }
   function mdlCont4F(init){
-  if(init){
-    mdlCont4.style.height='unset';
+  if(init){mdlCont4.style.height='unset';
     mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
     mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
-  } else {
-    mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
+  } else {mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
     mdlCont4.style.border= 'rgb(59, 180, 171) solid 2px'
     mdlCont4Pld1.style.display='flex';
   }
 }
   
-
-
-
+//modulas radio buttons to handle the boxes and pledge sums..
+let inpRadBtn = document.getElementsByClassName('inpRadBtn');
 for(const radioBtn of inpRadBtn){
   radioBtn.addEventListener('change', showChanged);
 }
-
 let rbtnIdChecked;
-function showChanged(e) {//Show Changed btn, checked or unchecked..
-  //console.log(e);
-  
+function showChanged(e) {//Show Changed radio btn, checked or unchecked..
 if (this.checked) {
-    rbtnIdChecked = this.id; // be used for below functions, unchecking when modal\dialogue 'X'button is closed.
+    //console.log('this.id :'+this.id)
+    rbtnIdChecked = this.id; //This is used for below functions, unchecking when modal\dialogue 'X'button is closed.
       if(this.id==='mdl-Cont1Rbtn'){
         mdlCont1F();}else{mdlCont1F(true);}
       if(this.id==='mdl-Cont2Rbtn'){
@@ -91,13 +80,39 @@ if (this.checked) {
     }
 }
 
+//use function to Uncheck the radio button using variable 'rbtnIdChecked' set above and reset pledges.. !
+  function rbtnUnchkF (){
+             if(rbtnIdChecked==='mdl-Cont1Rbtn'){
+               rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+                rbtnIdEl.checked = false;
+                mdlCont1F(true);
+             }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
+               rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               rbtnIdEl.checked = false;
+               mdlCont2F(true);
+              }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
+               rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               rbtnIdEl.checked = false;
+               mdlCont3F(true);
+              }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
+               rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+               rbtnIdEl.checked = false;
+               mdlCont4F(true);} 
+              }
+
+
+
+
+
 //Timer function for 'touchstart' events when using mobile..
 //let timedTouchFunc; 
 let timer;
 let touchduration = 200; //length of time ..
 let timedTFmenu = function() {checkBinput.checked = false;}
-let timedTFmyModal = function() {modal.style.display = "none";}
-let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//Display modal
+let timedTFmyModal = function() {modal.style.display = "none";rbtnUnchkF();}
+let timedTFbox = function() {
+  modal.style.display = "flex";
+  window.scroll(0,0);}//Display modal
 
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
@@ -120,40 +135,32 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
                 }
 
           //For the modal/dialogue. -:
-                //Close the modal(dialogue) if user touches on the 'x' button.
+              //Close the modal(dialogue) if user presses on the 'x' button.
                 if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
                 //modal.style.display = "none";
                 timer = setTimeout(timedTFmyModal, touchduration);
-                              //uncheck the radio button using variable 'rbtnIdChecked' set above and reset pledges.. !
-              if(rbtnIdChecked==='mdl-Cont1Rbtn'){
-                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
-                rbtnIdEl.checked = false;
-                mdlCont1F(true);
-                }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
-                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
-                rbtnIdEl.checked = false;
-                mdlCont2F(true);
-                }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
-                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
-                rbtnIdEl.checked = false;
-                mdlCont3F(true);
-                }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
-                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               // console.log('rbtnIdChecked.checked :'+rbtnIdChecked);
-                rbtnIdEl.checked = false;
-                mdlCont4F(true);
-                 } 
                 }
-
-                //open the modal(dialogue) via timer function..
+              //open the modal(dialogue) via timer function..
                 if (elementCls == 'boxConBtnCls') {
                     //Give a bit of time when launching the modal\dialogue..
                     timer = setTimeout(timedTFbox, touchduration);
-                    
                 }
+           //display the "Thanks for your support!" message after pressing Continue for a pledge..
+            if (elementCls == 'mdl-ContPldBtnCls2'){ //mdl-ContPldBtnCls
+              //console.log('class: mdl-ContPldBtnCls2 found!');
+              modal.style.display = "flex"; //mask
+              modalCntId.style.display = "none";//the modal Containers..
+              pledgeTyou.style.display = 'flex';//and bring up the thank you box.
+              window.scroll(0,0);
+             }
+           //Close the "Thanks for your support!" message after 
+           //pressing it`s "Got it!" button, and reset modal\dialogue radio buttons
+            if (elementId === 'pledgeTyouB'){
+              //console.log('ID: pledgeTyouB found!')
+              pledgeTyou.style.display = 'none';
+              modal.style.display = "none"; //mask
+              rbtnUnchkF(); //reset the dialogue/modal boxes and radio buttons..
+              }
             });
       } else if ('ontouchend' in window){
         document.addEventListener("touchend", (event) => {
@@ -171,7 +178,7 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
          document.addEventListener("click", (event) => { // For mouse clicks only..
           let elementId = event.target.id;
           let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-
+          console.log('elementCls : '+ elementCls);
 
        //For the Menu (hamburger). -:         
         //When the user clicks anywhere except on the links  
@@ -180,45 +187,38 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
           //console.log('for checkB : '+ elementId);
           checkBinput.checked = false;
          }
+         
        //For the modal/dialogue. -:
-        //Lets close the modal(dialogue) if user clicks on the 'x' button.
-        if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
-          modal.style.display = "none";
-              //uncheck the radio button using variable 'rbtnIdChecked' set above and reset pledges.. !
-              if(rbtnIdChecked==='mdl-Cont1Rbtn'){
-                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-                 rbtnIdEl.checked = false;
-                 mdlCont1F(true);
-              }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
-                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-                rbtnIdEl.checked = false;
-                mdlCont2F(true);
-               }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
-                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-                rbtnIdEl.checked = false;
-                mdlCont3F(true);
-               }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
-                rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-                rbtnIdEl.checked = false;
-                mdlCont4F(true);
-             } 
-          }
+        //Lets close the modal(dialogue) box if user clicks on the 'x' button.
+        //reset rbuttons for the ok(pledgeTyouB) and x buttons(myModalCloseBtn)
+         if (elementId == 'myModalCloseBtn'){ //for spanCloseEid
+               modal.style.display = "none";
+               rbtnUnchkF();
+              }
             
-              
+          //display the "Thanks for your support!" message after pressing Continue for a pledge..
+             if (elementCls == 'mdl-ContPldBtnCls2'){ //mdl-ContPldBtnCls
+              console.log('class: mdl-ContPldBtnCls2 found!');
+              modal.style.display = "flex"; //mask
+              modalCntId.style.display = "none";//the modal Containers..
+              pledgeTyou.style.display = 'flex';//and bring up the thank you box.
+              window.scroll(0,0);
+             }
 
-         //Lets close the modal(dialogue) if user clicks outside of the modal window..
-        //    if (elementId == 'myModal') {
-        //        modal.style.display = "none";
-        //
-        //        }
-
-         //Lets open the modal(dialogue) and scroll to the top..
-         if (elementCls == 'boxConBtnCls') {
-          modal.style.display = "flex";
-          window.scroll(0,0);
-         }
-
-
+           //Close the "Thanks for your support!" message after 
+           //pressing it`s "Got it!" button, and reset radio buttons
+            if (elementId === 'pledgeTyouB'){
+              console.log('ID: pledgeTyouB found!')
+              pledgeTyou.style.display = 'none';
+              modal.style.display = "none"; //mask
+              rbtnUnchkF(); //reset the dialogue/modal boxes and radio buttons..
+              }
+           //Lets open the modal(dialogue) and scroll to the top..
+             if (elementCls == 'boxConBtnCls') {
+              modal.style.display = "flex"; //mask
+              modalCntId.style.display = "flex";//the modal Containers..
+              window.scroll(0,0);
+             }
       });
    }
 
@@ -327,7 +327,7 @@ let timedTFbox = function() {modal.style.display = "flex";window.scroll(0,0);}//
 
   //id box3ConBox1p3 101 left (Bamboo Stand)
     //Pledge-:
-     //<button id mdl-Cont2Pld1Btn1"  $ 25 (this is just a price tag.. not a input field.. :) 
+     //<button id mdl-Cont2Pld1Btn1"  $ 25 (this is just a price tag.. not a input field! :) 
      //<button id mdl-Cont2Pld1Btn2"  Continue 
      // on pressing continue get price tag from 'Btn1' update currentSum and total backers..
 
