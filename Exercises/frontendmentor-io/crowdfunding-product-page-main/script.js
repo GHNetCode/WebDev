@@ -86,33 +86,31 @@ if (this.checked) {
 }
 
 //use function to Uncheck the radio button using variable 'rbtnIdChecked' set above and reset pledges.. !
-
   function rbtnUnchkF (){
   //  console.log('rbtnUnchkF is running!! Check rbtnIdChecked:'+rbtnIdChecked);
   //  console.log('clearBoxBorder:'+clearBoxBorder);
-             if(rbtnIdChecked==='mdl-Cont1Rbtn'){
-               rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-                rbtnIdEl.checked = false;
-                mdlCont1F(true);
-                rbtnIdChecked = null;
-             }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
-               rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               rbtnIdEl.checked = false;
-               mdlCont2F(true);
-               rbtnIdChecked = null;
-              }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
-               rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               rbtnIdEl.checked = false;
-               mdlCont3F(true);
-               rbtnIdChecked = null;
-              }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
-               rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
-               rbtnIdEl.checked = false;
-               mdlCont4F(true);
-               rbtnIdChecked = null;
-              } 
-               
-              }
+     if(rbtnIdChecked==='mdl-Cont1Rbtn'){
+       rbtnIdEl = document.getElementById(rbtnIdChecked);//Get the Element id to uncheck it..
+        rbtnIdEl.checked = false;
+        mdlCont1F(true);
+        rbtnIdChecked = null;
+     }else if(rbtnIdChecked==='mdl-Cont2Rbtn'){
+       rbtnIdEl = document.getElementById(rbtnIdChecked); 
+       rbtnIdEl.checked = false;
+       mdlCont2F(true);
+       rbtnIdChecked = null;
+      }else if(rbtnIdChecked==='mdl-Cont3Rbtn'){
+       rbtnIdEl = document.getElementById(rbtnIdChecked);
+       rbtnIdEl.checked = false;
+       mdlCont3F(true);
+       rbtnIdChecked = null;
+      }else if(rbtnIdChecked==='mdl-Cont4Rbtn'){
+       rbtnIdEl = document.getElementById(rbtnIdChecked);
+       rbtnIdEl.checked = false;
+       mdlCont4F(true);
+       rbtnIdChecked = null;
+      } 
+    }
             
 
             let clearBoxBorder= null;
@@ -122,59 +120,6 @@ if (this.checked) {
               }else if(clearBoxBorder==='box3ConBox2Btn') {mdlCont3F(true);
               }
             }
-            
-
-          //    let boxConBtnCls = document.getElementsByClassName('boxConBtnCls');
-          //    for (let boxConBtn of boxConBtnCls){
-          //         boxConBtn.addEventListener("click",thisBtn =()=>{
-          //          
-          //          console.log('boxConBtn.id'+boxConBtn.id);
-          //          
-          //          if ( boxConBtn.id ==='box1Btn1'){
-          //           //console.log('boxConBtn.id'+boxConBtn.id);
-          //           //document.getElementById('idbox1Btn1').checked = true;
-          //           //document.getElementById('mdl-Cont1Rbtn').checked = true;
-          //           mdlCont1F();
-          //          }
-          //          if ( boxConBtn.id ==='box3ConBox1Btn'){
-          //            //console.log('boxConBtn.id'+boxConBtn.id);
-          //            //document.getElementById('idbox1Btn1').checked = true;
-          //            //document.getElementById('mdl-Cont1Rbtn').checked = true;
-          //            mdlCont2F();
-          //           }
-          //           if ( boxConBtn.id ==='box3ConBox2Btn'){
-          //            //console.log('boxConBtn.id'+boxConBtn.id);
-          //            //document.getElementById('idbox1Btn1').checked = true;
-          //            //document.getElementById('mdl-Cont1Rbtn').checked = true;
-          //            mdlCont3F();
-          //           }
-//
-//
-          //          
-          //         }); }
-         
-             
-               //for (i=0; i<boxConBtnCls.length; i++){ 
-                   // boxConBtnCls[i].addEventListener("click",e=()=>{ 
-                   // },false);
-                   // console.log(boxConBtnCls[i]);
-                   //  }
-// Function to add event listener to table
-// const el = document.getElementById("outside");
-// el.addEventListener(
-//   "click",
-//   function () {
-//     modifyText("four");
-//   },
-//   false
-// );
-
-
-                  // console.log(event+' boxConBtnID:'+thisBtn.id);
-            
-               //addEventListener("click", (event) => {});
-            
-              //onclick = (event) => {};
             
 
 //Timer function for 'touchstart' events when using mobile..
@@ -188,20 +133,54 @@ let timedMDbox = function() {modal.style.display = "flex";
     rbtnIdChecked = null;//reset the radio button for continue button to work
     modalCntId.style.display = "flex";//the modal Containers..
     window.scroll(0,0);}//Display modal
-let timedPldMsg = function() {modal.style.display = "flex"; //modal mask
- // modalCntId.style.display = "none";//the modal Containers..
- // pledgeTyou.style.display = 'flex';//and bring up the thank you box.
- // window.scroll(0,0);}
-  if (rbtnIdChecked){//only when radio button is checked, display the thank you button..
-    modal.style.display = "flex"; //mask
-    modalCntId.style.display = "none";//close modal Containers..
-    pledgeTyou.style.display = 'flex';//and bring up the thank you box.
-    window.scroll(0,0);
-    }}
+let timedPldMsg = function() {
+    //modal.style.display = "flex"; //modal mask
+    //calculate the sums: number left-1, BtnSum+currentSum,Total-Backers..
+    if(rbtnIdChecked=='mdl-Cont2Rbtn'){
+      simpleSumFunc('sumClsLftBam','mdl-Cont2Pld1Btn1');}
+    if(rbtnIdChecked=='mdl-Cont3Rbtn'){
+      simpleSumFunc('sumClsLftBla','mdl-Cont3Pld1Btn1');}
+    if (rbtnIdChecked){//only when radio button is checked, display the thank you button..
+      modal.style.display = "flex"; //mask
+      modalCntId.style.display = "none";//close modal Containers..
+      pledgeTyou.style.display = 'flex';//and bring up the thank you box.
+      window.scroll(0,0);}}
 let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
   modal.style.display = "none"; //mask
-
   rbtnUnchkF();} //reset the dialogue/modal boxes and radio buttons..
+
+
+//get button, class and BtnSum$ for each radio button..
+//update via Pledge Continue Button..
+function simpleSumFunc(sumClsLft,BtnSumId){
+  //console.log('simpleSumFunc works! :)')
+  //update Number left in stock.. (both classes decrease by 1 so no need to determine which class\button.)
+    let sumLft = document.getElementsByClassName(sumClsLft); //class'sumClsLftBam'
+      for(i=0; i<sumLft.length; i++){
+        console.log('sumLft[i] :'+sumLft[i].innerHTML); 
+        sumLft[i].innerHTML = (parseInt(sumLft[i].innerHTML) - 1);
+      }
+
+  // add the BtnSum$ to the Total amount (currentSum $) raised..
+    let BtnSum = document.getElementById(BtnSumId).innerHTML;// get BtnSum$ value..  
+           
+    let eCurrSum = document.getElementById('currentSum'); 
+    let currentSum = document.getElementById('currentSum').innerHTML; 
+    let newSum = currentSum.replace(/,/g,'');//remove the "," to add the value..
+      newSum = (parseInt(newSum) +parseInt(BtnSum));
+      newSum = newSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");//add the "," back..
+      eCurrSum.innerHTML = newSum;
+
+  //add 1 to id totalBacknum ( total number of backers..)
+    let eTotalBknum = document.getElementById('totalBacknum'); 
+    let TotalBknum = document.getElementById('totalBacknum').innerHTML;
+    let newTSum = TotalBknum.replace(/,/g,'');//remove the "," to add the value..
+        newTSum = (parseInt(newTSum) +1);//cast / pass this as a int and add 1..
+        newTSum = newTSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");//add the "," back..
+       eTotalBknum.innerHTML = newTSum;
+}
+
+
 //check all events for "click" and "touchstart" and handle accordingly..
   if ('ontouchstart' in window) {
          document.addEventListener("touchstart", (event) => { //For touch screens only.. 
@@ -300,15 +279,23 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
               }
             
           //display the "Thanks for your support!" message after pressing Continue for a pledge..
-             if (elementCls == 'mdl-ContPldBtnCls2'){ //mdl-ContPldBtnCls
-              console.log('class: mdl-ContPldBtnCls2 found!');
-              console.log('rbtnIdChecked:'+rbtnIdChecked);
-              if (rbtnIdChecked){
-              modal.style.display = "flex"; //mask
-              modalCntId.style.display = "none";//close modal Containers..
-              pledgeTyou.style.display = 'flex';//and bring up the thank you box.
-              window.scroll(0,0);
-              }
+          //and add the sums depending on button pushed.
+          if (elementCls == 'mdl-ContPldBtnCls2'){ //mdl-ContPldBtnCls
+              
+              //calculate the sums: number left-1, BtnSum+currentSum,Total-Backers..
+               if(rbtnIdChecked=='mdl-Cont2Rbtn'){
+                  simpleSumFunc('sumClsLftBam','mdl-Cont2Pld1Btn1');}
+               if(rbtnIdChecked=='mdl-Cont3Rbtn'){
+                  simpleSumFunc('sumClsLftBla','mdl-Cont3Pld1Btn1');}
+
+              //open Thank You msg If Radio button in checked..
+                if (rbtnIdChecked){
+                modal.style.display = "flex"; //mask
+                modalCntId.style.display = "none";//close modal Containers..
+                pledgeTyou.style.display = 'flex';//and bring up the thank you box.
+                window.scroll(0,0);
+                }
+
              }
 
            //Close the "Thanks for your support!" message after 
@@ -328,11 +315,8 @@ let timedPldMsgCls = function() {pledgeTyou.style.display = 'none';
              }
       });
    }
+ 
 
-
-
-
-   
 
           //TO DO.. 1: put above replicated code in their functions!!
           //        2: get the numbers below adding up ok.. :)
