@@ -113,13 +113,13 @@ if (this.checked) {
     }
             
 
-            let clearBoxBorder= null;
-            function clearBoxBdr(){
-              if(clearBoxBorder==='box1Btn1'){mdlCont1F(true);
-              }else if(clearBoxBorder==='box3ConBox1Btn') {mdlCont2F(true);
-              }else if(clearBoxBorder==='box3ConBox2Btn') {mdlCont3F(true);
-              }
-            }
+let clearBoxBorder= null;
+function clearBoxBdr(){
+  if(clearBoxBorder==='box1Btn1'){mdlCont1F(true);
+  }else if(clearBoxBorder==='box3ConBox1Btn') {mdlCont2F(true);
+  }else if(clearBoxBorder==='box3ConBox2Btn') {mdlCont3F(true);
+  }
+}
             
 
 //Timer function for 'touchstart' events when using mobile..
@@ -134,7 +134,7 @@ let timedMDbox = function() {modal.style.display = "flex";
     modalCntId.style.display = "flex";//the modal Containers..
     window.scroll(0,0);}//Display modal
 let timedPldMsg = function() {
-    //modal.style.display = "flex"; //modal mask
+    modal.style.display = "flex"; //modal mask
     //calculate the sums: number left-1, BtnSum+currentSum,Total-Backers..
     if(rbtnIdChecked=='mdl-Cont2Rbtn'){
       simpleSumFunc('sumClsLftBam','mdl-Cont2Pld1Btn1');}
