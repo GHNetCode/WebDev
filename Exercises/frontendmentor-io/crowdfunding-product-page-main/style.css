@@ -8,31 +8,25 @@ body{
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-family: 'Commissioner', sans-serif;
     font-family: 'Karla', sans-serif;
-    /* margin:0px; */
     margin-bottom:0px;
     background-color: rgb(250, 250, 250);
-
-  }
+    }
 
   body{
     display:flex;
-    /* position: absolute; */
     align-items: center;
     justify-content:center; 
     flex-direction: column;
-    
-  }
+    }
 
   #mainContent{
-    /* margin:0px; */
-    /* background-color: rgb(250, 250, 250); */
     display:flex;
     position: relative;
     align-items: center;
     justify-content:center; 
     flex-direction: column;
     max-width: 600px;
-  }
+    }
 
 /*Width in pixels..*/
   #resizeInnerW{/*disable after finished..*/
@@ -41,7 +35,7 @@ body{
     top:0; 
     z-index: 9; 
     color: rgb(239, 6, 6);
-  }
+    }
   
   
   #imgBckgrndMob{
@@ -49,7 +43,8 @@ body{
     position: fixed; /*relative to mobNavB*/
     z-index:-2; 
     max-width:100%;
-    background-image: url("./images/image-hero-mobile.jpg");}
+    background-image: url("./images/image-hero-mobile.jpg");
+    }
 
 
 /* NavBar including the image -:START */
@@ -61,8 +56,9 @@ body{
   /* z-index:-1; */
   /* min-width:379px; */
   min-width:100%;
-  margin:0;}
-      
+  margin:0;
+  }
+  
       #mobNavB h1{ /* "crowdfund" Header..*/
         font-family: 'Commissioner';
         position: absolute;
@@ -75,8 +71,8 @@ body{
         /*adjust font further (width, height)*/
         /* letter-spacing: -1.09px;    */
         color: white;
-      z-index: 4;
-      }
+        z-index: 4;
+        }
       
       #icon-hamburger{
         position: absolute;
@@ -84,25 +80,22 @@ body{
         left:89.9%;
         width: 4%;
         /* background-color: rgba(0, 41, 222, 0.089); */
-      }
+        }
       #icon-hamburger{/* As we have an hamburger icon lets hide it for now so we can have a nice effect for the menu styling the span elements. :) */
         display: none;
         opacity: 1; 
         background-color: red;
-      }
+        }
       /* NavBar including the image -:END */
 
-     /*Lets use just html and css for the menu.. https://medium.com/@mateus2050/hamburguer-menu-html-and-css-only-c06364fa9bfd*/
-
- 
-#menu{
+     
+#menu{ /*Lets use just html and css for the menu.. https://medium.com/@mateus2050/hamburguer-menu-html-and-css-only-c06364fa9bfd*/
   display:flex;  
   flex-direction:column;
   justify-content:center;  
   align-items:start; 
   position:absolute;
   list-style-type:none; /*get rid of those bullet points..*/
-
   margin-top: 86px; 
   /* margin-left: -81.5vw; */
   margin-left: -1590%;
@@ -113,11 +106,9 @@ body{
   border-radius: 8px;
   z-index: 2;
   background-color: white;
-
   /*Hide the menu when unchecked!!*/
   transform: scale(0.0) translate(-100%, -100%);
-  
-}
+  }
 
       #menu a{
         display:flex;  
@@ -132,7 +123,7 @@ body{
         font-size: 70%;
         text-decoration: none;
         color: black;
-      }
+        }
 
       .hr{
         background-color: rgb(20, 13, 13);
@@ -140,99 +131,72 @@ body{
         width: 100%;
         color: black;
         border-top: 0.001vh solid rgb(255, 255, 255);
-      }
+        }
 
-      #menu a:hover {
-        text-decoration: underline;
-      
-      }
+      #menu a:hover {text-decoration: underline; }
+
   #menuToggle input:checked ~#menu{ /*Show the menu when checked!!*/
-    /* transform: translateX(-150px);
-    transition: transform 0.3s ease;    */
-  
     transform: scale(1.1) translate(0%, 0%);
     transition: transform 0.4s ease;
-   
-  }
+    }
  
-
-
   #menuToggle {
     position:absolute;
     display:inline-block;
     flex-direction:column;
     margin-top: 46.0px;
-    /* margin-left: 80vw; */
     margin-left: 320px;
-    /* margin-left: 90%; */
-    /* margin-right: 20%; */
     opacity: 1;
     z-index: 3;
-
-    /* border: solid lightgreen 1px; */
-  }
+    }
     #menuToggle input {
-      /* margin-top: -9%; */
-      /* margin-left: 11%; */
       position: absolute;
       cursor:pointer;
       opacity: 0; /*hide the checkbox..*/
-      
-      /* color: yellow;
-      border:yellow solid 2px ; */
       z-index: 3; /* in order to place the checkbox over the hamburger */
       -webkit-touch-callout: none;
-    }
+      }
        #checkB{/*resize check box*/
-         /* margin:0;
-         padding:0; */
          top:2px;/* 5px */
-         /* height:27%; */
          height:100%;/* 2vh 7vh */
          width:100%;/* 4vw */
-    }
+         }
    
     #menuToggle span {/*For the span elements!!*/
       display: block; /* to ensure that each span element occupies its own line. */
       top:0.35vh;
-      /* margin-left: 80%; */
       width: 19px; /*16px Resizing causes the cross to skew!*/
       height: 4px; /*Resizing causes the cross to skew!*/
-      /* margin-top: 1vh; */
-      /* margin-top: 16%; */
       margin-bottom:10%; /* create some spacing between the span elements. */
       position: relative; /* allow for positioning changes in relation to the parent div.*/
       background:white;
       border-radius: 2px;
       z-index: 2; /* ensure that the span element is under the checkbox */
-    }
-    #menuToggle input:checked{/*----------------------------*/
-      /* height:27%; */
+      }
+    #menuToggle input:checked{
       height:100%;/* 2vh 7vh */
-      width:100%;/* 4vw */
-    }
-
+      width:100%;}/* 4vw */ 
     /*lets transform the burger to a close button..*/
     #menuToggle span:first-child {
       transform-origin: 0% 0%; /*sets the origin of the transform property to the top left corner of the element.*/
-    }
+      }
     #menuToggle span:nth-last-child(2) {
       transform-origin: 0% 100%; /*sets the origin of the transform property to the bottom left corner of the element.*/
-    }
+      }
     #menuToggle input:checked ~ span {/* selects all span elements that come after an input element that is checked inside the #menuToggle element. */
       transform: rotate(45deg) translate(0px, 0px);
       background: #cdcdcd;
       transition: transform 0.2s ease;
-    }
+      }
     #menuToggle input:checked ~ span:nth-last-child(3) {
       transform: rotate(-45deg) translate(0px, 0px);
       margin-bottom: -10px;
       transition: transform 0.2s ease;
-    }
+      }
     #menuToggle input:checked ~ span:nth-last-child(2) { /* selects the third span element from the end that comes after an input element that is checked inside the #menuToggle element. */
       opacity: 0; /* sets the opacity of the element to 0, making it invisible. */
       transform: rotate(0deg) scale(0.2, 0.2); /* applies a rotation of 0 degrees and a scale of 0.2 to the element, making it very small and invisible.*/
-    }
+      }
 
     /*Lets darken the rest of the screen once checked.*/
     #menuToggle input:checked ~ .page-mask {
@@ -244,14 +208,8 @@ body{
     background: rgba(0,0,0,0.3);
     min-height: 2950px;/*make the mask the full length of the page otherwise there is tearing on the bottom of the page when scrolling..*/
     z-index: 0;
-  }
-  
- 
-
-  
-  
-
-
+    }
+   
 
 /* boxContainer contains ALL boxes and overlaps navbar -:Start */
 #boxContainer{
@@ -264,9 +222,8 @@ body{
     max-width: 330px; /*375*/
     padding: 0;
     max-height:2850px;
-    border-radius: 20px;}
-  /* #boxContainerP {
-    display: none;} */
+    border-radius: 20px;
+    }
 
       #box1{
         display:flex;
@@ -276,13 +233,14 @@ body{
         width:100%;
         height: 284px;
         border-radius: 6px;
-        background-color: white;}
+        background-color: white;
+        }
         #logo-mastercraft{
-                  position:absolute;
-                  margin-top:-27.0px;
-                  margin-left:41.5%;
-                  width:17.0%;
-                }
+         position:absolute;
+         margin-top:-27.0px;
+         margin-left:41.5%;
+         width:17.0%;
+         }
 
         #box1H3a{ /*Mastercraft Bamboo Monitor Riser*/
           margin-top: 51.9px;
@@ -295,7 +253,7 @@ body{
           margin-left: 10.7%;
           margin-right: 10.7%;
           transform: scale(1.06, 1);
-        }
+          }
 
           #box1p1{ /*A beautifully handcrafted...*/
             font-family: 'Commissioner';
@@ -324,9 +282,6 @@ body{
             letter-spacing: 0.2px;
           }
 
-
-
-
 /* when hover is supported for the buttons\icons.. */
 @media (hover: hover) {
   #box1Btn1:hover,#pledgeTyouB:hover{
@@ -351,9 +306,7 @@ body{
            margin-left: 76%;
            top: 66.7%;
            justify-content:center;
-           align-items: center;
-          }
-
+           align-items: center; }
           #icon-bookmarked{
             position:absolute;
             width:16.9%;
@@ -372,19 +325,18 @@ body{
         background-color: white;
         display: flex;
         flex-direction: column;
-        /* justify-content:center; */
-           align-items: center;
+        align-items: center;
         margin-top: 7.0%;
         width:100%;
         height: 410px;
         border-radius: 8px;/* 6 */
-        border:rgb(243, 243, 243) solid 1px;}
+        border:rgb(243, 243, 243) solid 1px;
+        }
         #currentSum{
         font-family: 'Commissioner';
           margin-top:9.2%;
           font-weight:900;
-          /* letter-spacing:-0px; */
-        }
+          }
       #backedSum:before{font-family: Calibri; content: 'of $'; }
       #backedSum:after{font-family: Calibri; content: ' backed'; }
       #backedSum{
@@ -393,20 +345,20 @@ body{
         margin-top:3%;
         letter-spacing: -0.2px;
         opacity: 50%;
-      }
+        }
       #lineDiv1{
         border-top: 1px solid black ;
         margin-top: 7% ;
         width: 25%;
         opacity: 50%;
-      }
+        }
       .fontstyle{font-family: 'Commissioner'}
       #totalBacknum{
         margin-top: 7.4%;
         font-weight:900;
         font-size:31px ;
         letter-spacing: 1.2px;
-      }
+        }
       #totalBacktxt{
         font-family: Commissioner;
         opacity: 50%;
@@ -415,17 +367,18 @@ body{
         /* letter-spacing: -0.3px; */
         font-weight:500;
         font-size: 14px;
-      }
+        }
       
       #lineDiv2{
         border-top: 1px solid black ;
         margin-top: 7.6% ;
         width: 25%;
         opacity: 50%;
-      }
+        }
 
       #daysLeftnum{
-        margin-top: 7.0%;}
+        margin-top: 7.0%;
+        }
       #daysLefttxt{
         font-family: Commissioner;
         /* font-family: Calibri; */
@@ -435,20 +388,15 @@ body{
         margin-left: -0.5%;
         /* letter-spacing: -0.8px; */
         font-weight:500;
-      }
+        }
 
-      /* .progress-bar-container{
-        background-color: rgb(244, 244, 244);
-        margin-top: 10%;
-        width: 87.1%;
-        border-radius: 15px;
-      } */
+     
       #progressBar{
         background-color: rgb(244, 244, 244);
         margin-top: 10%;
         width: 87.1%;
         border-radius: 15px;
-      }
+        }
       #progress{
         background-color: rgb(60, 180, 172);
         color: white;
@@ -460,9 +408,7 @@ body{
         width: 79%;
         margin-left: 0.3%;
         animation: progress 2500ms ease-in 1;
-        /* border: solid red 1px; */
- 
-      }
+        }
       /* Animating the progress bar by
        starting from 0*/
         @keyframes progress {
@@ -482,20 +428,15 @@ body{
         padding-top: 13%;
         width: 100%;
         height: 90%;
-        /* letter-spacing: -0.5px; */
-      }
+        }
           #box3Conh4{font-size: 109%;margin-top: -0.9% ;letter-spacing: 0.3px;}              
           
           #box3ConBox1h,#box3ConBox2h,#box3ConBox3h{
             margin-top: 3.5%;margin-left: 4%;
             font-size: 14px;
             font-weight: 900;
-             /* font-weight: 900; */
-             /* transform:scale(0.999,1); */
             }
-
-
-
+            
           #box3Conp1,#box3Conp2{
             margin-top: 9%; margin-right:1% ;
             font-size: 87.9%;font-weight:500; 
@@ -508,28 +449,26 @@ body{
             font-size: 14px;
             font-weight: 600;
             color: rgb(60, 180, 172);
-          }
-          
+            }
           #box3ConBox1p2,#box3ConBox2p2,#box3ConBox3p2{
             margin-top:10.5%;margin-left: 3.6%;
             margin-right: 1%;
             font-size: 89.0%;font-weight:600; 
             line-height: 170%;opacity: 45%;
             letter-spacing: -0.13px;
-          }
-
+            }
           #box3ConBox1p3,#box3ConBox2p3,#box3ConBox3p3{
             margin-left: 3.5%;
             margin-top: 9%;
             font-size: 33px;
             font-weight: 900;
-          }
+            }
           #box3ConBox1p3a,#box3ConBox2p3a,#box3ConBox3p3a{
             margin-top: -11%;
             margin-left: 27.5%;
             font-weight: 600;
             font-size: 90%;
-          }
+            }
           #box3ConBox1Btn,#box3ConBox2Btn,#box3ConBox3Btn{
             background-color: rgb(60, 180, 171);
             border: 0;
@@ -542,7 +481,7 @@ body{
             font-weight: bolder;
             color: white;
             letter-spacing: 0.2px;
-          }
+            }
 /*When hover is supported...*/
 @media (hover: hover){
   #box3ConBox1Btn:hover {color: white; background-color: rgb(76, 201, 193);}
@@ -550,22 +489,15 @@ body{
   
   /*dialogue/modal hover effects..*/
   .inpRadBtn:hover{ color: rgb(43, 202, 189); 
-                       border: 5px ;
-                       box-shadow: inset 0 0 0 6px;
-                            }
+                    border: 5px ;
+                    box-shadow: inset 0 0 0 6px;
+                    }
    #mdl-Cont1Pld1Btn2:hover,#mdl-Cont2Pld1Btn2:hover,
    #mdl-Cont3Pld1Btn2:hover,#mdl-Cont4Pld1Btn2:hover{
-     background-color: rgb(43, 202, 189); 
-     border: 2px solid rgb(63, 203, 192) ; }
-   /* #mdl-Cont1Pld1Btn1:hover,#mdl-Cont2Pld1Btn1:hover,
-   #mdl-Cont3Pld1Btn1:hover,#mdl-Cont4Pld1Btn1:hover{
-      background-color: #f1f1f1;
-      color: black;
-      border: 1px solid rgb(154, 154, 154);} */
-  
-
-
-                      }
+      background-color: rgb(43, 202, 189); 
+      border: 2px solid rgb(63, 203, 192) ; 
+      }
+    }
 
             /* #box3Conp2{margin-top:9%}  */
             /*overide above settings..*/
@@ -578,9 +510,7 @@ body{
           margin-right: 0.6%;
           padding: 5%;
           height:373px;          
-        }
-
-
+          }
         #box3ConBox2{
           background-color: white;
           border:rgb(218, 218, 218) solid 2px;
@@ -589,7 +519,7 @@ body{
           margin-right: 0.6%;
           padding: 5%;
           height:373.2px;
-        }
+          }
         /* Override above for tweaking general params..*/
           #box3ConBox2p2{margin-right: 3%;}
           #box3ConBox2p3a{margin-left: 23.0%;}
@@ -603,12 +533,12 @@ body{
           padding: 5%;
           height:373.2px;
           opacity: 26%; 
-        }
+          }
         /* Override above for tweaking general params..*/
         #box3ConBox3p3a{    margin-left: 16.0%;}
         #box3ConBox3Btn{
           background-color: rgba(50, 49, 49, 0.546);
-        }
+          }
 /* boxContainer contains all boxes below NavBar -:End */
 
       /*Modals Start*/
@@ -625,40 +555,31 @@ body{
         /* margin-left: 10vw; */
         width: 810px; /* Full width */
         height: 120%; /* Full height */  /* Enable scroll if needed */
-        min-height: 100%;/* 2950px  Full height to stop page tearing..*/ 
-        /*min-width: 100vw; 800px */
+        min-height: 100%;/* 2950px  Full height stops page tearing..*/ 
         background-color: rgb(0,0,0); 
         /* Black w/ opacity */
         background-color: rgba(0, 0, 0, 0.486);
-        /* background-color: white; */
-
- 
-      } 
+        } 
           
         /* .modalContainers */
         #modalCntId{ /*Back this project*/
           font-family: Commissioner;
           display:none;
           flex-direction:column;
-          position:absolute; /*Make this absolute to auto adjust height etc..*/
+          position:absolute; 
           padding: 23px;
           border: 1px solid #888;
           border-radius: 7px;
           top:123px;
-          width: 332px; /*91.5%*/
-          /* max-height:80%;   */
+          width: 332px; /*91.5%*/ /* max-height:80%;   */
           z-index: 5;
-          /* background-color: rgb(0,0,0);  */
-          /* Black w/ opacity */
-          /* background-color: rgba(0, 0, 0, 0.486); */
           background-color: white; 
           transition: background-color 0.3s ease-out;
-        }
+          }
         
       .modalContainers:hover {
         background-color: rgb(233, 233, 233);
-        /* cursor: pointer; */
-      }
+        }
      
 
         .modalContainers h3{
@@ -667,10 +588,8 @@ body{
           margin-left: 2px;
           font-weight: 900;
           letter-spacing: -0.1px;
-        }
-        .pFader{
-          opacity: 50%;
-        }
+          }
+        .pFader{opacity: 50%;}
         
           /* The Close Button */
           .close {
@@ -678,19 +597,16 @@ body{
             position: absolute;
             margin-left: 268px;
             color: #aaaaaa;
-            /* float: right; */
-            /* text-align: right; */
             font-size: 33px;
             font-weight: bold;
-            /* top: -10px; */
             margin-top: -2px;
-          }
+            }
               .close:hover,
               .close:focus {
                 color: #000;
                 text-decoration: none;
                 cursor: pointer;
-              }
+                }
         .modalContainers p{
           font-size: 14px;
           margin-top: 25px;
@@ -699,7 +615,6 @@ body{
           font-weight: 500;
           line-height: 24px;
           }
-          
         #mdl-Cont1{
           background-color: white;
           border:rgb(218, 218, 218) solid 2px;
@@ -708,8 +623,7 @@ body{
           margin-right: 0.6%;
           padding: 5%;
           height:244px;
-
-        }
+         }
         #mdl-Cont2,#mdl-Cont3,#mdl-Cont4{
           background-color: white;
           border:rgb(218, 218, 218) solid 2px;
@@ -718,10 +632,8 @@ body{
           margin-right: 0.6%;
           padding: 5%;
           height:290px;
-        }
-        #mdl-Cont4{opacity: 30%;
-
-        }
+          }
+        #mdl-Cont4{opacity: 30%;}
  
         /* Style the Radio button.. */ 
         .inpRadBtn{
@@ -741,14 +653,13 @@ body{
               outline: 1px solid rgb(218, 218, 218); /*border..*/
               /* background: white; */
               transition: 0.2s; /*For the hover effect..*/
-        }
+              }
 
-  
         .inpRadBtn[type=radio]:checked{
           background: rgb(60, 180, 172);
           border: 6px solid #FFF;
           pointer-events: none; /*disable hover effect..*/
-        } 
+          } 
 
           #mdl-Cont1h{ /*Note, This element also positions above #mdl-Cont1Rbtn  */
             display:flex;
@@ -757,19 +668,15 @@ body{
             margin-left: 50px ;
             font-weight: 900;
             letter-spacing: 0.45px;
-         }
-
+            }
 
         #mdl-Cont1p1{
           margin-top: 39px;
           margin-left: 10px;
           margin-right: 10px;
           letter-spacing: 0.05px;
-        }
-
-
-
-      
+          }
+        
         #mdl-Cont2h{
           display: flex;
           position: relative;
@@ -777,49 +684,44 @@ body{
           margin-left: 36px;
           font-weight: 900;
           letter-spacing: 0.2px;
-          
-        }
+          }
         #mdl-Cont2Rbtn{
           width:  25px; /*resize radio button..*/
-          height: 25px;/*resize radio button..*/
-          margin-left: -28px ;
-
-        }
-
+          height: 25px;
+          margin-left: -28px;
+          }
           #Cont2hBl{
             display: flex;
             position: relative;
-            /* align-items: center;
-            justify-content:center;  */
             flex-direction: column;
             top: -38px;
             margin-left: 10px;
-          }
+            }
           #Cont2hBl p{
             font-weight: 900;
-          }
+            }
           #Cont2hBlp2{
             position: relative;
             top:-10px;
             color: rgb(64, 201, 187);
-          }
+            }
           #mdl-Cont2p1{ /*You get an ergonomic stand..*/
             position: relative;
             top: -22px;
             margin-left: 10px;
             margin-right: 5px;
-          }
+            }
           #mdl-Cont2ha,#mdl-Cont3ha,#mdl-Cont4ha{
             position: absolute;
             margin-top: 12px;
             margin-left:10px;
-          }
+            }
           #mdl-Cont2p2, #mdl-Cont3p2,#mdl-Cont4p2{
             position: relative;
             top:-13px;
             margin-left:47px;
             font-size: 15px;
-          }
+            }
 
         /* Selected pledge start */
 
@@ -833,7 +735,7 @@ body{
               #mdl-Cont1Pld1{ display: none;/* set back to none/flex*/
                 flex-direction: column;
                 position: absolute;
-              } 
+                } 
               #lineDiv3{
                 display: flex;
                 position: absolute; 
@@ -843,7 +745,7 @@ body{
                 margin-right:0px;
                 width: 279px;
                 opacity: 50%;
-              }
+                }
               
               /* #mdl-Cont1Pld1p1{
                 position: relative;                
@@ -853,8 +755,8 @@ body{
               }  */
 
               #mdl-Cont1Pld1Btn1:before{font-family: Commissioner; word-spacing: 6px; content: '$ '; color:#888;}
-              /* #backedSum:after{font-family: Calibri; content: ' backed'; } */
-                .mdl-ContPldBtnCls{
+             
+              .mdl-ContPldBtnCls{
                 position: relative;
                 top: 56px;
                 width: 99px;
@@ -862,15 +764,8 @@ body{
                 border-radius: 30px;
                 font-family: 'Commissioner';
                 font-size: 14px;
-              }
-              /* #mdl-Cont1Pld1Btn1{ /*$ ..*/
-              /*  margin-left: 8px;
-                padding-right: 21px;
-                background-color: white;
-                color: black;
-                border: 2px solid #aaaaaa;
-                font-weight: 900;
-              } */
+                }
+              
               #mdl-Cont1Pld1Btn2{     /* Continue */
                 position: absolute;
                 top: 47px;
@@ -881,7 +776,7 @@ body{
                 color: white;
                 border: 0;
                 font-weight: 600;
-              }
+                }
 
         /* Selected pledge stop */
 
@@ -913,13 +808,12 @@ body{
               #mdl-Cont2Pld1p1{/* ">Enter your pledge</p> */
                 position: relative;                
                 margin-left: 68px;
-                top: 26px;
-                /* font-weight: 600; */  
-              } 
+                top: 26px; 
+                } 
 
               #mdl-Cont2Pld1Btn1:before{font-family: Commissioner; word-spacing: 6px; content: '$ '; color:#888;}
-              /* #backedSum:after{font-family: Calibri; content: ' backed'; } */
-                .mdl-ContPldBtnCls{
+             
+              .mdl-ContPldBtnCls{
                 position: relative;
                 top: 56px;
                 width: 99px;
@@ -927,7 +821,7 @@ body{
                 border-radius: 30px;
                 font-family: 'Commissioner';
                 font-size: 14px;
-              }
+                }
               #mdl-Cont2Pld1Btn1{ /*$ 25*/
                 margin-left: 8px;
                 padding-right: 10px;
@@ -940,13 +834,12 @@ body{
                 position: absolute;
                 top: 93px;
                 margin-left: 125px;
-                /* padding-right: 5px; */
                 width: 115px;
                 background-color: rgb(59, 180, 171);
                 color: white;
                 border: 0;
                 font-weight: 600;
-              }
+                }
 
         /* Selected pledge stop */
 
@@ -956,18 +849,15 @@ body{
             position: relative;
             /* top: 1px; */
             margin-left: -3px;
-            /* font-weight: 900; */
-            /* letter-spacing: 0.2px; */
-            
-          }
+            }
+
           #mdl-Cont3Rbtn,#mdl-Cont4Rbtn{
             position: absolute;
             width:  25px;  
             height: 25px; 
             margin-left: 12px;
             top:17px;
-             
-          }
+            }
 
            #Cont3hBl,#Cont4hBl{
             display: flex;
@@ -975,33 +865,27 @@ body{
             flex-direction: column;
             top: -20px;
             margin-left: 50px;
-           }
+            }
 
            #Cont3hBlp1,#Cont3hBlp2,#Cont4hBlp1,#Cont4hBlp2{
             font-weight: 900;
-           }
-          
+            }
 
            #Cont3hBlp2,#Cont4hBlp2{
             position: relative;
             top:-10px;
             color: rgb(64, 201, 187);
-          }
+            }
 
-          #mdl-Cont3p1,#mdl-Cont4p1{  /*You get a Black Special Edition..*/
+          #mdl-Cont3p1,#mdl-Cont4p1{ /*You get a Black Special Edition..*/
               position: relative;
               top: -22px;
               margin-left: 9px;
               margin-right: 8px;
-            }
+              }
 
-            #mdl-Cont3p2{
-              margin-left: 40px;
-            }
-
-            #mdl-Cont4p2{
-              margin-left: 30px;
-            }
+            #mdl-Cont3p2{margin-left: 40px;}
+            #mdl-Cont4p2{margin-left: 30px;}
 
     /* Selected pledge start */
      /*overide mdl-Cont2 , remove after!!*/
@@ -1014,7 +898,8 @@ body{
               #mdl-Cont3Pld1{ display: none;/* set back to none/flex*/
                 flex-direction: column;
                 position: relative;
-              } 
+                } 
+
               #lineDiv3{
                 display: flex;
                 position: absolute; 
@@ -1024,18 +909,17 @@ body{
                 margin-right:0px;
                 width: 279px;
                 opacity: 50%;
-              }
+                }
               
               #mdl-Cont3Pld1p1{/* ">Enter your pledge</p> */
                 position: relative;                
                 margin-left: 68px;
                 top: 26px;
-                /* font-weight: 600; */  
-              } 
+                } 
 
               #mdl-Cont3Pld1Btn1:before{font-family: Commissioner; word-spacing: 6px; content: '$ '; color:#888;}
-              /* #backedSum:after{font-family: Calibri; content: ' backed'; } */
-                .mdl-ContPldBtnCls,.mdl-ContPldBtnCls2{
+              
+              .mdl-ContPldBtnCls,.mdl-ContPldBtnCls2{
                 position: relative;
                 top: 56px;
                 width: 99px;
@@ -1043,7 +927,8 @@ body{
                 border-radius: 30px;
                 font-family: 'Commissioner';
                 font-size: 14px;
-              }
+                }
+
               #mdl-Cont3Pld1Btn1{ /*$ 25*/
                 margin-left: 8px;
                 padding-right: 10px;
@@ -1051,12 +936,12 @@ body{
                 color: black;
                 border: 2px solid #aaaaaa;
                 font-weight: 900;
-              }
+                }
+
               #mdl-Cont3Pld1Btn2{     /* Continue */
                 position: absolute;
                 top: 93px;
                 margin-left: 125px;
-                /* padding-right: 5px; */
                 width: 115px;
                 background-color: rgb(59, 180, 171);
                 color: white;
@@ -1064,11 +949,6 @@ body{
                 font-weight: 600;
               }
  /* Selected pledge stop */
-
-
-
-
-
 
      /* Selected pledge start */
         /*overide mdl-Cont2 , remove after!!*/
@@ -1081,8 +961,8 @@ body{
               #mdl-Cont4Pld1{ display: none;/* set back to none/flex*/
                 flex-direction: column;
                 position: absolute;
-                /* top:-101; */
-              } 
+                } 
+
               #lineDiv3{
                 display: flex;
                 position: absolute; 
@@ -1092,18 +972,17 @@ body{
                 margin-right:0px;
                 width: 279px;
                 opacity: 50%;
-              }
+                }
               
               #mdl-Cont4Pld1p1{/* ">Enter your pledge</p> */
                 position: relative;                
                 margin-left: 68px;
                 top: 26px;
-                /* font-weight: 600; */  
-              } 
+                } 
 
               #mdl-Cont4Pld1Btn1:before{font-family: Commissioner; word-spacing: 6px; content: '$ '; color:#888;}
               /* #backedSum:after{font-family: Calibri; content: ' backed'; } */
-                .mdl-ContPldBtnCls{
+              .mdl-ContPldBtnCls{
                 position: relative;
                 top: 56px;
                 width: 99px;
@@ -1111,7 +990,8 @@ body{
                 border-radius: 30px;
                 font-family: 'Commissioner';
                 font-size: 14px;
-              }
+                }
+
               #mdl-Cont4Pld1Btn1{ /*$ 200*/
                 margin-left: 8px;
                 padding-right: 10px;
@@ -1119,27 +999,26 @@ body{
                 color: black;
                 border: 2px solid #aaaaaa;
                 font-weight: 900;
-              }
+                }
+
               #mdl-Cont4Pld1Btn2{     /* Continue */
                 position: absolute;
                 top: 93px;
                 margin-left: 125px;
-                /* padding-right: 5px; */
                 width: 115px;
                 background-color: rgb(59, 180, 171);
                 color: white;
                 border: 0;
                 font-weight: 600;
-              }
-  /* Selected pledge stop */
+                }
+          /* Selected pledge stop */
  
           #pledgeTyou{
           display:none;
           font-family: Commissioner;
           flex-direction:column;
           align-items: center;
-          /* justify-content:center;  */
-          position:absolute; /*Make this absolute to auto adjust height etc..*/
+          position:absolute;
           padding: 23px;
           border: 1px solid #888;
           border-radius: 7px;
@@ -1148,18 +1027,14 @@ body{
           height: 406px;
           background-color: white; 
           z-index: 5;
-              }
+          }
 
-               #tickIcon{
+              #tickIcon{
                 display: flex;
                 position: relative;
                 top:2.4%;
                 width: 23%; 
                 height: 19%;
-                /* margin-left: 38%; */
-                /* background-color: rgb(59, 180, 171);
-                border: 2px solid rgb(60, 153, 147); */
-                /* border-radius: 55%; */
               }  
               #pledgeTyouH{
                 display: flex;
@@ -1177,7 +1052,6 @@ body{
                 line-height: 165%;
                 font-weight: 600;
               }
-
               #pledgeTyouB{     /* Got it! */
                 display: flex;
                 position: relative;
@@ -1203,25 +1077,13 @@ body{
 
     /* Hide the desktop image..*/
     #imgBckgrndDsk{display: none;}
-
-/*Currently DISABLING THE BELOW FOR DESKTOP mode...*/
-/*min-width - takes effect after,  375px for desktops*/
-/* @media(min-width: 550px){ */
-  /* #mobNavB, #boxContainer{display:none;} */
-
-    /* #imgBckgrndDsk{ */
-      /*redisplay the background-image..*/
-        /* display:unset;  */
-        /* max-width: 100%; */
-        /* background-image: url("./images/image-hero-desktop.jpg"); */
-        /* } */
+ 
     
     #DeskH1{
       display:none; /*flex / none*/
       top:200px;
       position:absolute;
     }
-/* } */
 
 #attribution { font-size: 11px; text-align: center; position: relative /*Was absolute before giving height to boxContainer..*/;/*z-index: -1;*/ bottom:-300px; width:100%; margin: auto;}
 #attribution a { color: hsl(228, 45%, 44%); }

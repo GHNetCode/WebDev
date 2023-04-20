@@ -375,3 +375,18 @@ function simpleSumFunc(sumClsLft,BtnSumId){
             //console.log('Bookmark already exists, update the icon!');
             document.getElementById('icon-bookmark').id = 'icon-bookmarked'; //update button to 'Delete'(Teal\Green colour)..
           }
+
+
+
+ 
+          
+
+
+
+
+
+
+
+
+
+          
