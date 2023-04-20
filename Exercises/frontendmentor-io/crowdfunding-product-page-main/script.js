@@ -32,7 +32,7 @@ let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
   }
 }
   function mdlCont2F(init){
-  if(init){mdlCont2.style.height='unset'; //make the window longer to accommodate for the buttons etc..  
+  if(init){mdlCont2.style.height='290px'; //make the window longer to accommodate for the buttons etc..  
     mdlCont2.style.border= 'rgb(218, 218, 218) solid 2px'; //'unset' no worky.. :(
     mdlCont2Pld1.style.display='none'; // Set back to none / Flex!
   } else {mdlCont2.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
@@ -42,7 +42,7 @@ let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
 }
 
   function mdlCont3F(init){
-  if(init){mdlCont3.style.height='unset';
+  if(init){mdlCont3.style.height='290px';
     mdlCont3.style.border= 'rgb(218, 218, 218) solid 2px';
     mdlCont3Pld1.style.display='none'; // Set back to none / Flex! 
   } else {mdlCont3.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
@@ -51,7 +51,7 @@ let mdlCont4Pld1 = document.getElementById('mdl-Cont4Pld1');
  }
 }
   function mdlCont4F(init){
-  if(init){mdlCont4.style.height='unset';
+  if(init){mdlCont4.style.height='290px';
     mdlCont4.style.border= 'rgb(218, 218, 218) solid 2px';
     mdlCont4Pld1.style.display='none'; // Set back to none / Flex!
   } else {mdlCont4.style.height='422px'; //make the window longer to accommodate for the buttons etc..  
@@ -389,4 +389,3 @@ function simpleSumFunc(sumClsLft,BtnSumId){
 
 
 
-          
