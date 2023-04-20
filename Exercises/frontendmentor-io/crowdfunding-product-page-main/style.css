@@ -167,6 +167,7 @@ body{
     opacity: 1;
     z-index: 3;
     }
+    
     #menuToggle input {
       position: absolute;
       cursor:pointer;
