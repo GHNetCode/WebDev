@@ -736,7 +736,7 @@ body{
                 flex-direction: column;
                 position: absolute;
                 } 
-              #lineDiv3{
+              #lineDiv3a{
                 display: flex;
                 position: absolute; 
                 border-top: rgb(218, 218, 218) solid 2px ;
@@ -794,7 +794,7 @@ body{
                 flex-direction: column;
                 position: absolute;
               } 
-              #lineDiv3{
+              #lineDiv3b{
                 display: flex;
                 position: absolute; 
                 border-top: rgb(218, 218, 218) solid 2px ;
@@ -900,7 +900,7 @@ body{
                 position: relative;
                 } 
 
-              #lineDiv3{
+              #lineDiv3c{
                 display: flex;
                 position: absolute; 
                 border-top: rgb(218, 218, 218) solid 2px ;
@@ -963,7 +963,7 @@ body{
                 position: absolute;
                 } 
 
-              #lineDiv3{
+              #lineDiv3d{
                 display: flex;
                 position: absolute; 
                 border-top: rgb(218, 218, 218) solid 2px ;
