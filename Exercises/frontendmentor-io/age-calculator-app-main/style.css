@@ -1,0 +1,165 @@
+
+/*Reset all inherited values to 0.*/
+*{box-sizing: border-box; margin:0;padding:0;}
+ /* Fonts.. */
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+ body {
+   font-family: 'Poppins', sans-serif;
+ }
+
+/*View Width in pixels on the page..*/
+    #resizeInnerW{/*disable after finished..*/
+    display:flex; /* none\inherit */
+    justify-content: center;
+    position:relative;
+    top:0; 
+    z-index: 100; 
+    color: rgb(239, 6, 6);
+        }
+   
+
+/* Keep the footer at the bottom of the page.. */
+    /* (a) Full height flex body.. */
+    body {
+      padding: 0; margin: 0;
+      height: 812px;
+      /* min-height: 812px; */
+      /* width: 375px; */
+      display: flex;
+      position: absolute;
+      flex-direction: column;
+      background: rgb(240, 240, 240);
+    }
+    /* (b) Allow main to fill height.. */
+    #pageMain { 
+    display: flex;
+    flex-grow: 1; 
+    flex-direction: column;
+    align-items: center;
+    /* height: 100%; */
+    /* justify-content: center; */
+
+    }
+
+
+#Cnt1{
+    display: flex;
+    position:relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top:68px;/*22.4vh 8.7% 67px*/
+    /* padding: 10%; */
+    width: 90%;/**/
+    height: 612px; /*80%  120vh Still needs tweaking...*/
+    background: white;
+    border: 1px red solid;
+    border-radius: 25px;/*6.5%*/ 
+    border-bottom-right-radius: 100px;
+}
+#Cnt1a{
+    /* font-family: 'Poppins'; */
+    display: flex;
+    position: relative;
+    justify-content: center;
+    top: 45px; /*-20.5%  -130px */
+    /* top:4.6%; */
+    /* height: 15%; 14% 13.8% 30vh*/
+    height: 100px;
+    /* background: blue; */
+    width: 100%;
+    border: solid blue 1px;
+    /* z-index: 1; */
+    /* border-bottom: 80% solid rgb(0, 0, 0) 1px; */
+}
+    #Cnt1aDay,#Cnt1aMonth,#Cnt1aYear{
+        display: flex;
+        position: relative;
+        justify-content: center;
+        /* align-items: center; */
+        /* margin-left: 7%; */
+        width: 100%;
+        /* border: 1px solid rgb(236, 53, 53); */
+    }
+    #DayH,#MonthH,#YearH{
+        display: flex;
+        position: absolute;
+        margin-left: -8.7vw;
+        font-size: 12.3px;
+        font-weight: 900;
+        letter-spacing: 2.8px;
+    }
+    #MonthH{
+        
+        margin-left: -7.5vw;
+        letter-spacing: 1.8px;
+    }
+    #YearH{
+        margin-left: -17.5vw;
+        letter-spacing: 1.7px;
+    }
+
+
+
+
+        #DayBox,#MonthBox,#YearBox{
+            display: flex;
+            position:relative;
+            /* justify-content: center; */
+            align-items: center;
+            top: 25px;/*27%*/
+            width:23.7vw;
+            height:50px;/*19.5vh*/
+            margin-left: 16%;
+            border-radius: 8.6px;
+            border: 1px solid grey;
+        }
+        #MonthBox,#YearBox{
+            margin-left: 0%;
+        }
+        #YearBox{
+            margin-left: -20%;
+        }
+
+        #DayBoxP,#MonthBoxP,#YearBoxP{
+            margin-left: 18.9%;
+            font-size: 19px;
+            font-weight: 900;
+        }
+        #MonthBoxP{margin-left: 18%;}
+        #YearBoxP{
+            margin-left: 16%;
+        letter-spacing: -0.6px;}
+
+#Cnt1b{
+    display: flex;
+    position: relative;
+    top:45px;
+    height: 300px;
+    width: 90%;
+    /* left: -4%; */
+    border: solid blue 1px;
+    /* z-index: 1; */
+    /* border-bottom: 80% solid rgb(0, 0, 0) 1px; */
+}
+
+
+
+
+
+
+@media (min-width:375px){
+/* Anything above 375px applies here! */
+#resizeInnerW{color: blue;}
+
+
+}
+
+
+
+#attribution { font-size: 11px; text-align: center; position: relative ; width:100%; margin-bottom: 10px;}
+#attribution a { color: hsl(228, 45%, 44%); }
+
+
+/* #attribution { font-size: 12px; text-align: center; }
+#attribution a { color: hsl(228, 45%, 44%); } */
