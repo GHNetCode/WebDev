@@ -1,44 +1,43 @@
 
-/*Reset all inherited values to 0.*/
-*{box-sizing: border-box; margin:0;padding:0;}
+
  /* Fonts.. */
  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
  body {
    font-family: 'Poppins', sans-serif;
  }
 
+ /*Reset all inherited values to 0.*/
+*{box-sizing: border-box; margin:0;padding:0;}
 /*View Width in pixels on the page..*/
     #resizeInnerW{/*disable after finished..*/
     display:flex; /* none\inherit */
     justify-content: center;
-    position:relative;
+    position:fixed;
     top:0; 
     z-index: 100; 
     color: rgb(239, 6, 6);
         }
    
 
-/* Keep the footer at the bottom of the page.. */
-    /* (a) Full height flex body.. */
+ 
     body {
-      padding: 0; margin: 0;
-      height: 812px;
-      /* min-height: 812px; */
-      /* width: 375px; */
-      display: flex;
-      position: absolute;
+      display:flex;
+      position: relative;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 785px;
       background: rgb(240, 240, 240);
+      /* border:black 1px solid; */
     }
-    /* (b) Allow main to fill height.. */
-    #pageMain { 
-    display: flex;
-    flex-grow: 1; 
-    flex-direction: column;
-    align-items: center;
-    /* height: 100%; */
-    /* justify-content: center; */
 
+    #pageMain{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:375px;
     }
 
 
@@ -48,55 +47,48 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top:68px;/*22.4vh 8.7% 67px*/
-    /* padding: 10%; */
-    width: 90%;/**/
-    height: 612px; /*80%  120vh Still needs tweaking...*/
+    top:-57px;
+    width: 92%;/**/
+    height: 495px; 
+    margin-left: -0.5px;
     background: white;
-    border: 1px red solid;
-    border-radius: 25px;/*6.5%*/ 
+    border-radius: 25px;
     border-bottom-right-radius: 100px;
 }
 #Cnt1a{
-    /* font-family: 'Poppins'; */
     display: flex;
     position: relative;
     justify-content: center;
-    top: 45px; /*-20.5%  -130px */
-    /* top:4.6%; */
-    /* height: 15%; 14% 13.8% 30vh*/
+    top: -107.5px; 
     height: 100px;
-    /* background: blue; */
-    width: 100%;
-    border: solid blue 1px;
-    /* z-index: 1; */
-    /* border-bottom: 80% solid rgb(0, 0, 0) 1px; */
+    width: 336px;
 }
     #Cnt1aDay,#Cnt1aMonth,#Cnt1aYear{
         display: flex;
         position: relative;
         justify-content: center;
-        /* align-items: center; */
-        /* margin-left: 7%; */
         width: 100%;
-        /* border: 1px solid rgb(236, 53, 53); */
     }
+
     #DayH,#MonthH,#YearH{
         display: flex;
         position: absolute;
-        margin-left: -8.7vw;
+        color: rgb(123, 123, 123);
+        margin-top: -3.5px;
+        margin-left: -36px;
         font-size: 12.3px;
         font-weight: 900;
-        letter-spacing: 2.8px;
+        letter-spacing: 2.5px;
     }
+
+
     #MonthH{
-        
-        margin-left: -7.5vw;
-        letter-spacing: 1.8px;
+        margin-left: -26.0px;
+        letter-spacing: 2.9px;
     }
     #YearH{
-        margin-left: -17.5vw;
-        letter-spacing: 1.7px;
+        margin-left: -60px;
+        letter-spacing: 2.9px;
     }
 
 
@@ -105,43 +97,103 @@
         #DayBox,#MonthBox,#YearBox{
             display: flex;
             position:relative;
-            /* justify-content: center; */
             align-items: center;
-            top: 25px;/*27%*/
-            width:23.7vw;
-            height:50px;/*19.5vh*/
-            margin-left: 16%;
+            top: 18px;
+            width:87.5px;
+            height:54px;
+            margin-left: 17px;
             border-radius: 8.6px;
-            border: 1px solid grey;
+            border: 1.5px solid rgb(219, 219, 219);
         }
         #MonthBox,#YearBox{
-            margin-left: 0%;
+            margin-left: -1px;
         }
         #YearBox{
-            margin-left: -20%;
+            margin-left: -17px;
         }
 
         #DayBoxP,#MonthBoxP,#YearBoxP{
-            margin-left: 18.9%;
+            margin-left: 15px;
             font-size: 19px;
             font-weight: 900;
         }
         #MonthBoxP{margin-left: 18%;}
         #YearBoxP{
-            margin-left: 16%;
-        letter-spacing: -0.6px;}
+        margin-left: 17%;
+        letter-spacing: 1.2px;}
+
+
+        #lineD{
+            display: flex;
+            position: relative;
+            border-top: rgb(237, 237, 237) 2px solid;
+            height: 2px;
+            width: 294.5px;
+            top:-72px;
+        }
+
+        #iconArr{
+            display:flex;
+            position: absolute;
+            background-color: rgb(132, 77, 255);
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width:55px;
+            height:55px; 
+            top:166px;
+            border-radius: 50%;
+            transform: scale(1.0, 0.49);
+            
+        }
+        #iconArrCropped{
+            display:flex;
+            position: absolute;
+            height: 65px;
+            width: 65px;
+            top:163px;
+            background: rgba(133, 77, 255, 0.0);
+            border-radius: 50%;
+            border:solid 21px rgb(132, 77, 255);
+            border-top:solid 20px rgb(132, 77, 255);
+        }
 
 #Cnt1b{
     display: flex;
     position: relative;
-    top:45px;
-    height: 300px;
+    flex-direction: column;
+    height: 60px;
     width: 90%;
-    /* left: -4%; */
-    border: solid blue 1px;
-    /* z-index: 1; */
-    /* border-bottom: 80% solid rgb(0, 0, 0) 1px; */
 }
+
+#Cnt1bYrs,#Cnt1bMonths,#Cnt1bDays{
+    display: flex;
+    position: relative;
+    /* border: rgb(238, 129, 40) solid 1px; */
+    top:3.0px;
+    margin-top: -23.0px;    
+}
+
+#Cnt1bYrsN,#Cnt1bMntsN,#Cnt1bDysN{
+        display: flex;
+        position: relative;
+        margin-left: 8px;
+        font-style: italic;
+        font-weight: 900;
+        font-size: 56px;
+        letter-spacing: -2.1px;
+        color: rgb(132, 77, 255);
+    }
+
+    #Cnt1bYrsL,#Cnt1bMntsL,#Cnt1bDysL{
+        display: flex;
+        position: relative;
+        margin-left: 10.5px;
+        font-style: italic;
+        font-weight: 900;
+        font-size: 56px;
+        letter-spacing: -1.1px;
+    }
 
 
 
@@ -149,17 +201,37 @@
 
 
 @media (min-width:375px){
-/* Anything above 375px applies here! */
 #resizeInnerW{color: blue;}
+
+body{
+    height: 960px;
+}
+#pageMain{
+    width:1440px;
+}
+#Cnt1{
+    width: 840px;
+    height: 655px; 
+    border: red solid 1px;
+    border-bottom-right-radius:200px;
+}
+#Cnt1a{
+    display: flex;
+    position: relative;
+    border: rgb(0, 42, 255) solid 1px;
+    margin-right: 182px;
+    width: 546px;
+    top: -185px ;
+}
+
+
+
 
 
 }
 
 
 
-#attribution { font-size: 11px; text-align: center; position: relative ; width:100%; margin-bottom: 10px;}
+#attribution {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  font-size: 10px;display: flex;position: relative ; text-align: center; justify-content: center; width:100%;}
 #attribution a { color: hsl(228, 45%, 44%); }
 
-
-/* #attribution { font-size: 12px; text-align: center; }
-#attribution a { color: hsl(228, 45%, 44%); } */
