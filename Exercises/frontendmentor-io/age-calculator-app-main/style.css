@@ -200,7 +200,7 @@
 
 
 
-@media (min-width:375px){
+@media (min-width:500px){/*375px*/
 #resizeInnerW{color: blue;}
 
 body{
