@@ -12,32 +12,46 @@
 </head>
   <body>
       <main id="pageMain">
-        <p id="resizeInnerW">- <span>&nbsp;&nbsp;Rev1</span></p>
+        <p id="resizeInnerW"><span>&nbsp;</span>-</p>
         <div id="Cnt1">
             <div id="Cnt1a">
 
                 <div id="Cnt1aDay">
                     <h5 id="DayH">DAY</h5>
                     <div id="DayBox">
-                        <p id="DayBoxP">24</p>
+                      <label for="DayBoxP"></label>
+                        <input type="number" id="DayBoxP" name="DayBoxP" min="01" max="31" value="24"  oninput="rangeDayId.value=DayBoxP.value" />
+                        <!-- <p id="DayBoxP" ></p> -->
                     </div>
                 </div>
 
                 <div id="Cnt1aMonth">
                     <h5 id="MonthH">MONTH</h5>
                     <div id="MonthBox">
-                        <p id="MonthBoxP">09</p>
+                        <!-- <p id="MonthBoxP">09</p> -->
+                        <label for="MonthBoxP"></label>
+                        <input type="number" id="MonthBoxP" name="MonthBoxP" min="01" max="12" value="09" oninput="rangeMonthId.value=MonthBoxP.value" />
                     </div>
                 </div>
 
                 <div id="Cnt1aYear">
                     <h5 id="YearH">YEAR</h5>
                     <div id="YearBox">
-                        <p id="YearBoxP">1984</p>
+                        <!-- <p id="YearBoxP">1984</p> -->
+                        <label for="YearBoxP"></label>
+                        <input type="number" id="YearBoxP" name="YearBoxP" min="01" max="2050" value="1984" oninput="rangeYearId.value=YearBoxP.value" />
                     </div>
                 </div>
 
+                <!-- Range Slider to try and implement :)  -->
+                <!-- <input type="range" min="0" max="100" value="0" class="range blue" oninput="DayBoxP.innerText = this.value"/> -->
+                <input id="rangeDayId"   type="range" min="01" max="31" value="00" class="range blue" oninput="DayBoxP.value=rangeDayId.value"/>
+                <input id="rangeMonthId" type="range" min="01" max="12" value="00" class="range blue" oninput="MonthBoxP.value=rangeMonthId.value"/>
+                <input id="rangeYearId"  type="range" min="01" max="2050" value="00" class="range blue" oninput="YearBoxP.value=rangeYearId.value"/>
             </div>
+
+            
+
 
             <div id="lineD"></div>
              
