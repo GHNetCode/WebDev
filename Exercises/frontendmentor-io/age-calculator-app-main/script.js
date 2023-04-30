@@ -37,7 +37,7 @@ if ('ontouchstart' in window){
      }
 
 
-    if(elementId ==="MonthBoxP"){
+    if(elementId ==="MonthBoxP"||"rangeMonthId"){
             rangeMonthId.style.display="flex";
             MonthBoxLbLP.style.display="none";//MM Label
      }else{                   
@@ -46,7 +46,7 @@ if ('ontouchstart' in window){
             MonthBoxLbLP.style.display="flex";
         }}
 
-   if(elementId ==="YearBoxP"){
+   if(elementId ==="YearBoxP"||"rangeYearId"){
             // YearBoxLbLP.style.display="none";
             rangeYearId.style.display="flex";
             YearBoxLbLP.style.display="none";//YYYY Label
@@ -55,11 +55,10 @@ if ('ontouchstart' in window){
         if (YearBoxP.value===""){
             YearBoxLbLP.style.display="flex";
         }}
+});
 
 
-
-
-});} else if ('ontouchend' in window){
+} else if ('ontouchend' in window){
         document.addEventListener("touchend", (event) => {
         
         //get id and class events from '(event)' for Variables above..
@@ -71,7 +70,8 @@ if ('ontouchstart' in window){
          
 
         });
-      } else{ document.addEventListener("click", (event) => {
+
+} else{ document.addEventListener("click", (event) => {
            //get id and class events from '(event)' for Variables above..
            let elementId = event.target.id;
            let elementCls = event.target.classList; //event.target.classList.contains("my-class")
