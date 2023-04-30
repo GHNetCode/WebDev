@@ -26,12 +26,12 @@ if ('ontouchstart' in window){
         console.log('all  elementId :'+ elementId);
 
         
-        if(elementId ==="DayBoxP"){
+        if(elementId ==="DayBoxP"||"rangeDayId"){
             rangeDayId.style.display="flex";
             DayBoxLbLP.style.display="none";//MM Label
      }else{                   
           rangeDayId.style.display="none";
-                    if (DayBoxP.value===""){
+            if (DayBoxP.value===""){
            DayBoxLbLP.style.display="flex";
        }
      }
