@@ -90,14 +90,21 @@
         #YearBox{margin-left: -17px;}
 
 
-            /* #tentacles{
-                font-size: 19px;
-                font-weight: 900;
-                margin-left: 15px;
-                width:60px;
-                border: none;
-            }
- */
+        /* #DayBoxLbLP{display: flex;} */
+        #DayBoxLbLP,#MonthBoxLbLP,#YearBoxLbLP{
+            display: flex;
+            position: absolute;
+            /* border: red 1px solid; */
+            color: rgb(164, 163, 163);
+            /* top:31% */ /* Desktop...*/
+            top:18%;
+            width: 100%;
+            padding-left:15%;
+            font-size: 1.3em;
+        }
+        #YearBoxLbLP{
+            padding-left:14%;
+        }
 
 
         #DayBoxP,#MonthBoxP,#YearBoxP{

@@ -11,7 +11,9 @@ window.onresize=()=>{
 let rangeYearId = document.getElementById('rangeYearId');
 let rangeMonthId = document.getElementById('rangeMonthId');
 let rangeDayId = document.getElementById('rangeDayId');
-
+let DayBoxLbLP = document.getElementById('DayBoxLbLP');
+let MonthBoxLbLP = document.getElementById('MonthBoxLbLP');
+let YearBoxLbLP = document.getElementById('YearBoxLbLP');
 
 
 if ('ontouchstart' in window){
@@ -23,20 +25,36 @@ if ('ontouchstart' in window){
         console.log('all  elementCls :'+ elementCls)
         console.log('all  elementId :'+ elementId);
 
- 
+        
+        if(elementId ==="DayBoxP"){
+            rangeDayId.style.display="flex";
+            DayBoxLbLP.style.display="none";//MM Label
+     }else{                   
+          rangeDayId.style.display="none";
+                    if (DayBoxP.value===""){
+           DayBoxLbLP.style.display="flex";
+       }
+     }
 
-        if(elementId ==='DayBoxP'||elementId ==='rangeDayId'){
-                  rangeDayId.style.display="flex";
-           }else{rangeDayId.style.display="none";
-        }
-        if(elementId ==='MonthBoxP'||elementId ==='rangeMonthId'){
+
+    if(elementId ==="MonthBoxP"){
             rangeMonthId.style.display="flex";
-           }else{rangeMonthId.style.display="none";
-        }
-         if(elementId ==='YearBoxP'||elementId ==='rangeYearId'){
+            MonthBoxLbLP.style.display="none";//MM Label
+     }else{                   
+          rangeMonthId.style.display="none";
+          if (MonthBoxP.value===""){
+            MonthBoxLbLP.style.display="flex";
+        }}
+
+   if(elementId ==="YearBoxP"){
+            // YearBoxLbLP.style.display="none";
             rangeYearId.style.display="flex";
-           }else{rangeYearId.style.display="none";
-        }
+            YearBoxLbLP.style.display="none";//YYYY Label
+     }else{
+        rangeYearId.style.display="none";
+        if (YearBoxP.value===""){
+            YearBoxLbLP.style.display="flex";
+        }}
 
 
 
@@ -60,18 +78,39 @@ if ('ontouchstart' in window){
            console.log('all  elementCls :'+ elementCls)
            console.log('all  elementId :'+ elementId);
 
-           if(elementId !=='YearBoxP'){
-                    rangeYearId.style.display="none";
-             }else{rangeYearId.style.display="flex";}
-           if(elementId !=='MonthBoxP'){
-                    rangeMonthId.style.display="none";
-             }else{
-                  rangeMonthId.style.display="flex";}
-           if(elementId !=='DayBoxP'){
-                    rangeDayId.style.display="none";
-             }else{
-                  rangeDayId.style.display="flex";}
 
+            if(elementId ==="DayBoxP"){
+                    rangeDayId.style.display="flex";
+                    DayBoxLbLP.style.display="none";//MM Label
+             }else{                   
+                  rangeDayId.style.display="none";
+                            if (DayBoxP.value===""){
+                   DayBoxLbLP.style.display="flex";
+               }
+             }
+
+
+            if(elementId ==="MonthBoxP"){
+                    rangeMonthId.style.display="flex";
+                    MonthBoxLbLP.style.display="none";//MM Label
+             }else{                   
+                  rangeMonthId.style.display="none";
+                  if (MonthBoxP.value===""){
+                    MonthBoxLbLP.style.display="flex";
+                }}
+
+           if(elementId ==="YearBoxP"){
+                    // YearBoxLbLP.style.display="none";
+                    rangeYearId.style.display="flex";
+                    YearBoxLbLP.style.display="none";//YYYY Label
+             }else{
+                rangeYearId.style.display="none";
+                if (YearBoxP.value===""){
+                    YearBoxLbLP.style.display="flex";
+                }  
+                
+                }
+            
 
       });}
           
@@ -81,6 +120,7 @@ if ('ontouchstart' in window){
 function DDMMnum (DDMMval,id){
 //DayBox
     if (id ==="DayBoxP"){
+        //console.log('DayBoxP:DDMMval.value :'+DDMMval.value)
         rangeDayId.value=DDMMval.value; //update the rangeDay Slider..
         if (DDMMval.value.length === 1){
          DDMMval.value = "0" + DDMMval.value;
@@ -91,22 +131,33 @@ function DDMMnum (DDMMval,id){
        // DayBoxP.value=DDMMval.value; //update the rangeDay Slider..
     if (DDMMval.value.length === 1){
         DayBoxP.value = "0" + DDMMval.value;
-
-    }else{DayBoxP.value=DDMMval.value;}
- }
+    }else{DayBoxP.value=DDMMval.value;}}
  
 //MonthBox
  if (id ==="MonthBoxP"){
     rangeMonthId.value=DDMMval.value; //update the rangeDay Slider..
      if (DDMMval.value.length === 1){
         DDMMval.value = "0" + DDMMval.value;
-      }
-}
+      }}
 
 if (id ==="rangeMonthId"){
     if (DDMMval.value.length === 1){
     MonthBoxP.value = "0" + DDMMval.value;
-    }else{MonthBoxP.value=DDMMval.value;
-   }
-  }
+    }else{MonthBoxP.value=DDMMval.value;}}
 };
+
+//Implement onchange function.. check value is not ""..
+
+        // if(DDMMval.value=="")
+        // {DayBoxLbLP.style.display="flex";}
+
+function dmyChgLabel(id){//on change
+    if (id ==="DayBoxP"){
+        // if(DDMMval.value=="")
+        // {DayBoxLbLP.style.display="flex";}
+        console.log('dmyChgLabel-DayBoxP :'+DayBoxP.value);
+        if (DayBoxP.value==="")
+        {DayBoxLbLP.style.display="flex";
+        }else{DayBoxLbLP.style.display="none";}
+    }
+}
