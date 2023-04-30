@@ -26,7 +26,7 @@ if ('ontouchstart' in window){
         console.log('all  elementId :'+ elementId);
 
         
-        if(elementId ==="DayBoxP"||"rangeDayId"){
+        if(elementId ==="DayBoxP"){
             rangeDayId.style.display="flex";
             DayBoxLbLP.style.display="none";//MM Label
      }else{                   
@@ -35,9 +35,13 @@ if ('ontouchstart' in window){
            DayBoxLbLP.style.display="flex";
        }
      }
+     //need to implement rangeDayId function for tracking and ending the slider.. with touchstart touchmove and touchend..
 
 
-    if(elementId ==="MonthBoxP"||"rangeMonthId"){
+
+
+
+    if(elementId ==="MonthBoxP"){
             rangeMonthId.style.display="flex";
             MonthBoxLbLP.style.display="none";//MM Label
      }else{                   
@@ -46,7 +50,7 @@ if ('ontouchstart' in window){
             MonthBoxLbLP.style.display="flex";
         }}
 
-   if(elementId ==="YearBoxP"||"rangeYearId"){
+   if(elementId ==="YearBoxP"){
             // YearBoxLbLP.style.display="none";
             rangeYearId.style.display="flex";
             YearBoxLbLP.style.display="none";//YYYY Label
