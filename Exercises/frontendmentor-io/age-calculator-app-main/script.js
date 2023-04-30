@@ -7,10 +7,12 @@ window.onresize=()=>{
 //
 
 
-//rangeYearId rangeMonthId'||'rangeDayId'
+
 let rangeYearId = document.getElementById('rangeYearId');
 let rangeMonthId = document.getElementById('rangeMonthId');
 let rangeDayId = document.getElementById('rangeDayId');
+
+
 
 if ('ontouchstart' in window){
     document.addEventListener("touchstart", (event) => { //For touch screens only.. 
@@ -21,18 +23,21 @@ if ('ontouchstart' in window){
         console.log('all  elementCls :'+ elementCls)
         console.log('all  elementId :'+ elementId);
 
+ 
 
-   if(elementId !=='YearBoxP'){
-            rangeYearId.style.display="none";
-     }else{rangeYearId.style.display="flex";}
-   if(elementId !=='MonthBoxP'){
-            rangeMonthId.style.display="none";
-     }else{
-          rangeMonthId.style.display="flex";}
-   if(elementId !=='DayBoxP'){
-            rangeDayId.style.display="none";
-     }else{
-          rangeDayId.style.display="flex";}
+        if(elementId ==='DayBoxP'||elementId ==='rangeDayId'){
+                  rangeDayId.style.display="flex";
+           }else{rangeDayId.style.display="none";
+        }
+        if(elementId ==='MonthBoxP'||elementId ==='rangeMonthId'){
+            rangeMonthId.style.display="flex";
+           }else{rangeMonthId.style.display="none";
+        }
+         if(elementId ==='YearBoxP'||elementId ==='rangeYearId'){
+            rangeYearId.style.display="flex";
+           }else{rangeYearId.style.display="none";
+        }
+
 
 
 
@@ -42,10 +47,10 @@ if ('ontouchstart' in window){
         //get id and class events from '(event)' for Variables above..
         let elementId = event.target.id;
         let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-        console.log('all  elementCls :'+ elementCls)
-        console.log('all  elementId :'+ elementId);
+        console.log('ontouchend all  elementCls :'+ elementCls)
+        console.log('ontouchend all  elementId :'+ elementId);
 
-        
+         
 
         });
       } else{ document.addEventListener("click", (event) => {
@@ -71,3 +76,37 @@ if ('ontouchstart' in window){
       });}
           
 
+// Format Day and Month to ensure they have a leading 0 for single digits (0 - 9)...
+
+function DDMMnum (DDMMval,id){
+//DayBox
+    if (id ==="DayBoxP"){
+        rangeDayId.value=DDMMval.value; //update the rangeDay Slider..
+        if (DDMMval.value.length === 1){
+         DDMMval.value = "0" + DDMMval.value;
+        }
+    }
+
+    if (id ==="rangeDayId"){
+       // DayBoxP.value=DDMMval.value; //update the rangeDay Slider..
+    if (DDMMval.value.length === 1){
+        DayBoxP.value = "0" + DDMMval.value;
+
+    }else{DayBoxP.value=DDMMval.value;}
+ }
+ 
+//MonthBox
+ if (id ==="MonthBoxP"){
+    rangeMonthId.value=DDMMval.value; //update the rangeDay Slider..
+     if (DDMMval.value.length === 1){
+        DDMMval.value = "0" + DDMMval.value;
+      }
+}
+
+if (id ==="rangeMonthId"){
+    if (DDMMval.value.length === 1){
+    MonthBoxP.value = "0" + DDMMval.value;
+    }else{MonthBoxP.value=DDMMval.value;
+   }
+  }
+};
