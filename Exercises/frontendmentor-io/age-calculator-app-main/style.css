@@ -94,7 +94,7 @@
         #DayBoxLbLP,#MonthBoxLbLP,#YearBoxLbLP{
             display: flex;
             position: absolute;
-            /* border: red 1px solid; */
+            border: red 1px solid;
             color: rgb(164, 163, 163);
             /* top:31% */ /* Desktop...*/
             top:18%;
@@ -111,7 +111,8 @@
             margin-left: 15px;
             font-size: 19px;
             font-weight: 900;
-            border:none;
+            height: 95%;
+            /* border:none; */
         }
        
         #MonthBoxP{margin-left: 18%;}
