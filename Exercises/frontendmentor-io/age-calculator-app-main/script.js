@@ -36,16 +36,16 @@ if ('ontouchstart' in window){
             DayBoxLbLP.style.display="flex";}
         }
 
-        if(elementId ==='DayBoxP'){
-            console.log('touchstart DayBoxP If statement..' );
-               rangeDayId.style.display="flex";
-               DayBoxLbLP.style.display="none";//MM Label
-        }else{                   
-             rangeDayId.style.display="none";
-               if (DayBoxP.value===""){
-              DayBoxLbLP.style.display="flex";
-          }
-        }
+  //    if(elementId ==='DayBoxP'){
+  //        console.log('touchstart DayBoxP If statement..' );
+  //           rangeDayId.style.display="flex";
+  //           DayBoxLbLP.style.display="none";//MM Label
+  //    }else{                   
+  //         rangeDayId.style.display="none";
+  //           if (DayBoxP.value===""){
+  //          DayBoxLbLP.style.display="flex";
+  //      }
+  //    }
 
        if(elementId ==='rangeDayId'){
         console.log('touchstart rangeDayId If statement..' );
@@ -56,7 +56,7 @@ if ('ontouchstart' in window){
           }
 
 
-          
+
      //need to implement rangeDayId function for tracking and ending the slider.. 
      //with touchstart -- implement rangeDayId function in here..
      //next is touchmove ( here maybe just ensure that flex is displayed... ) 
