@@ -31,6 +31,7 @@ if ('ontouchstart' in window){
             DayBoxLbLP.style.display='none';//MM Label
         }else{
             rangeDayId.style.display='none';
+
             if (DayBoxP.value===''){
             DayBoxLbLP.style.display='flex';}
         }
@@ -86,6 +87,7 @@ if ('ontouchstart' in window){
         }}
 });
 } else if ('ontouchmove' in window){
+    console.log('ontouchmove fired..');
         document.addEventListener("touchmove",(event) =>{
             let elementId = event.target.id;
             let elementCls = event.target.classList; //event.target.classList.contains("my-class")
