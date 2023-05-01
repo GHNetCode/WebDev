@@ -22,10 +22,11 @@ if ('ontouchstart' in window){
         //get id and class events from '(event)' for Variables above..
         let elementId = event.target.id;
         let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-        console.log('all  elementCls :'+ elementCls)
-        console.log('all  elementId :'+ elementId);
+        console.log('touchstart all  elementCls :'+ elementCls)
+        console.log('touchstart all  elementId :'+ elementId);
 
-    
+
+     
         if(elementId ==="DayBoxP"){
             rangeDayId.style.display="flex";
             DayBoxLbLP.style.display="none";//MM Label
@@ -70,7 +71,15 @@ if ('ontouchstart' in window){
             YearBoxLbLP.style.display="flex";
         }}
 });
+} else if ('ontouchmove' in window){
+        document.addEventListener("touchmove",(event) =>{
+        
 
+            if(elementId ==="rangeDayId"){
+                DayBoxLbLP.style.display="none";
+                rangeDayId.style.display="flex";
+             }
+});
 
 } else if ('ontouchend' in window){
         document.addEventListener("touchend", (event) => {
