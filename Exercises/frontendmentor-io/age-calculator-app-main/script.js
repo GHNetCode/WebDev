@@ -43,16 +43,17 @@ if ('ontouchstart' in window){
             //}
             //}
 
-          if(elementId ==='DayBoxP'){
-              console.log('tstart DayBoxP If statement..' );
-                 rangeDayId.style.display='flex';
-                 DayBoxLbLP.style.display='none';//MM Label
-          }else{                   
-               rangeDayId.style.display='none';
-                 if (DayBoxP.value===''){
-                DayBoxLbLP.style.display='flex';
-            }
-          }
+            //check if DayBoxLbLP.style.display='none'...
+    //     if(elementId ==='DayBoxP'){
+    //         console.log('tstart DayBoxP If statement..' );
+    //            rangeDayId.style.display='flex';
+    //            DayBoxLbLP.style.display='none';//MM Label
+    //     }else{                   
+    //          rangeDayId.style.display='none';
+    //            if (DayBoxP.value===''){
+    //           DayBoxLbLP.style.display='flex';
+    //       }
+    //     }
 
     
 //
