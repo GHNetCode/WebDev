@@ -175,9 +175,11 @@ function DDMMnum (DDMMval,id){
     if (id ==="DayBoxP"){
         //console.log('DayBoxP:DDMMval.value :'+DDMMval.value)
         rangeDayId.value=DDMMval.value; //update the rangeDay Slider..
-        if (DDMMval.value.length === 1){
-         DDMMval.value = "0" + DDMMval.value;
-        }
+        //below for Day and Month commented out, as format 
+        //can be changed when form is validated and submitted..
+//       if (DDMMval.value.length === 1){
+//        DDMMval.value = "0" + DDMMval.value;
+//       }
     }
 
     if (id ==="rangeDayId"){
@@ -189,9 +191,13 @@ function DDMMnum (DDMMval,id){
 //MonthBox
  if (id ==="MonthBoxP"){
     rangeMonthId.value=DDMMval.value; //update the rangeDay Slider..
-     if (DDMMval.value.length === 1){
-        DDMMval.value = "0" + DDMMval.value;
-      }}
+
+    //below for Day and Month commented out, as format 
+    //can be changed when form is validated and submitted..
+//     if (DDMMval.value.length === 1){
+//        DDMMval.value = "0" + DDMMval.value;
+//      }
+}
 
 if (id ==="rangeMonthId"){
     if (DDMMval.value.length === 1){
