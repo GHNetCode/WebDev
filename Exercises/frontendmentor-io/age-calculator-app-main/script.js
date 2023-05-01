@@ -31,8 +31,8 @@ if ('ontouchstart' in window){
         console.log('DayBoxLbLP.style.display.val :'+DayBoxLbLP.style.display.value );
                //DayBoxLbLP.style.display='none';//MM Label
 
-            if(DayBoxLbLP.style.display=='flex'){//1st initial touch..
-            //    console.log('tstart DayBoxLbLP If state Is Flex...' );
+            if(DayBoxLbLP.style.display==="flex"){//1st initial touch..
+                 console.log('tstart display==="flex" If state Is Flex...' );
             //    // rangeDayId.style.display='flex';
                 DayBoxLbLP.style.display='none';//MM Label
                 rangeDayId.style.display='flex';
