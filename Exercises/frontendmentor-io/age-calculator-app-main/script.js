@@ -27,13 +27,18 @@ if ('ontouchstart' in window){
 
 
         if(elementId ==="DayBoxLbLP"){
-           // rangeDayId.style.display="flex";
-            DayBoxLbLP.style.display="none";//MM Label
-        }else{DayBoxLbLP.style.display="flex";}
-     
-        if(elementId ==="DayBoxP"){
             rangeDayId.style.display="flex";
             DayBoxLbLP.style.display="none";//MM Label
+        }else{
+            rangeDayId.style.display="none";
+            if (DayBoxP.value===""){
+            DayBoxLbLP.style.display="flex";}
+        }
+     
+
+        if(elementId ==="DayBoxP"){
+            //rangeDayId.style.display="flex";
+            //DayBoxLbLP.style.display="none";//MM Label
      }else{                   
           rangeDayId.style.display="none";
             if (DayBoxP.value===""){
@@ -43,7 +48,7 @@ if ('ontouchstart' in window){
 
 
      if(elementId ==="rangeDayId"){
-        DayBoxLbLP.style.display="none";
+        DayBoxLbLP.style.display="none";//Label
         rangeDayId.style.display="flex";
      }else{
         rangeDayId.style.display="none";
