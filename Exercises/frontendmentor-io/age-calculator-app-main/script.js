@@ -28,28 +28,29 @@ if ('ontouchstart' in window){
     //problem with below is the Label does not 
            if(elementId ==='DayBoxLbLP'){ //||'DayBoxP'||'rangeDayId'){
                console.log('tstart DayBoxLbLP If statement..' );
-               if(DayBoxLbLP.style.display==='flex'){
-                console.log('tstart DayBoxLbLP If state Is Flex...' );
-                // rangeDayId.style.display='flex';
                DayBoxLbLP.style.display='none';//MM Label
-               }
-           }
-           //else{
-             //  rangeDayId.style.display='none';
+
+            //   if(DayBoxLbLP.style.display==='flex'){
+            //    console.log('tstart DayBoxLbLP If state Is Flex...' );
+            //    // rangeDayId.style.display='flex';
+            //   DayBoxLbLP.style.display='none';//MM Label
+            //   }
+           }else{
+             //  rangeDayId.style.display='flex';
 //
-          //     if (DayBoxP.value===''){
-          //     DayBoxLbLP.style.display='flex';
-          // }
-          // }
+                if (DayBoxP.value===''){
+                DayBoxLbLP.style.display='flex';
+            }
+            }
 
           if(elementId ==='DayBoxP'){
               console.log('tstart DayBoxP If statement..' );
-                 rangeDayId.style.display="flex";
-                 DayBoxLbLP.style.display="none";//MM Label
+                 rangeDayId.style.display='flex';
+                 DayBoxLbLP.style.display='none';//MM Label
           }else{                   
-               rangeDayId.style.display="none";
-                 if (DayBoxP.value===""){
-                DayBoxLbLP.style.display="flex";
+               rangeDayId.style.display='none';
+                 if (DayBoxP.value===''){
+                DayBoxLbLP.style.display='flex';
             }
           }
 
