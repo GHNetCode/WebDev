@@ -36,33 +36,27 @@ if ('ontouchstart' in window){
                 rangeDayId.style.display='flex';
                }
 
-            
-            //   if(DayBoxLbLP.style.display==='none'){//1st initial touch..
-            //    console.log('tstart display==="flex" If state Is Flex...' );
-            //    DayBoxLbLP.style.display='none';//MM Label
-            //    rangeDayId.style.display='flex';
-            //  }       
-        }
+        } // DayBoxLbLP > DayBoxP > rangeDayId
 
-        if(elementId !=='DayBoxP'||'rangeDayId'){ //||'DayBoxP'||'rangeDayId'){
-            console.log('tstart NOT DayBoxP-rangeDayId...' );
-            rangeDayId.style.display='none';
-            if (DayBoxP.value===''){
-                 DayBoxLbLP.style.display='flex';
-                }
-        }
+       // if(elementId !=='DayBoxP'||'rangeDayId'){ //||'DayBoxP'||'rangeDayId'){
+       //     console.log('tstart NOT DayBoxP-rangeDayId...' );
+       //     rangeDayId.style.display='none';
+       //     if (DayBoxP.value===''){
+       //          DayBoxLbLP.style.display='flex';
+       //         }
+       // }
 
             //check if DayBoxLbLP.style.display='none'...
-    //     if(elementId ==='DayBoxP'){
-    //         console.log('tstart DayBoxP If statement..' );
-    //            rangeDayId.style.display='flex';
-    //            DayBoxLbLP.style.display='none';//MM Label
-    //     }else{                   
-    //          rangeDayId.style.display='none';
-    //            if (DayBoxP.value===''){
-    //           DayBoxLbLP.style.display='flex';
-    //       }
-    //     }
+           if(elementId ==='DayBoxP'){
+               console.log('tstart DayBoxP If statement..' );
+                  rangeDayId.style.display='flex';
+                  DayBoxLbLP.style.display='none';//MM Label
+           }else{                   
+                rangeDayId.style.display='none';
+                  if (DayBoxP.value===''){
+                 DayBoxLbLP.style.display='flex';
+             }
+           }
 
     
 //
