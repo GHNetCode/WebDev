@@ -52,7 +52,7 @@ if ('ontouchstart' in window){
                   rangeDayId.style.display='flex';
                   DayBoxLbLP.style.display='none';//MM Label
            }else{                   
-                rangeDayId.style.display='none';
+              //  rangeDayId.style.display='none';
                   if (DayBoxP.value===''){
                  DayBoxLbLP.style.display='flex';
              }
