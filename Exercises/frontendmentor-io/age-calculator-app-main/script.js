@@ -25,7 +25,7 @@ if ('ontouchstart' in window){
         console.log('all  elementCls :'+ elementCls)
         console.log('all  elementId :'+ elementId);
 
-        
+    
         if(elementId ==="DayBoxP"){
             rangeDayId.style.display="flex";
             DayBoxLbLP.style.display="none";//MM Label
@@ -35,7 +35,10 @@ if ('ontouchstart' in window){
            DayBoxLbLP.style.display="flex";
        }
      }
-     //need to implement rangeDayId function for tracking and ending the slider.. with touchstart touchmove and touchend..
+     //need to implement rangeDayId function for tracking and ending the slider.. 
+     //with touchstart -- implement rangeDayId function in here..
+     //next is touchmove ( here maybe just ensure that flex is displayed... ) 
+     //and touchend.. then end the touch..
 
 
 
@@ -92,6 +95,10 @@ if ('ontouchstart' in window){
                    DayBoxLbLP.style.display="flex";
                }
              }
+
+             if(elementId ==="rangeDayId"){
+                rangeDayId.style.display="flex";
+             }//else{rangeDayId.style.display="none";}
 
 
             if(elementId ==="MonthBoxP"){
