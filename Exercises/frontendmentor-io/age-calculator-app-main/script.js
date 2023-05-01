@@ -41,7 +41,9 @@ if ('ontouchstart' in window){
      if(elementId ==="rangeDayId"){
         DayBoxLbLP.style.display="none";
         rangeDayId.style.display="flex";
-     }//else{rangeDayId.style.display="none";}
+     }else{
+        rangeDayId.style.display="none";
+        }
 
      //need to implement rangeDayId function for tracking and ending the slider.. 
      //with touchstart -- implement rangeDayId function in here..
