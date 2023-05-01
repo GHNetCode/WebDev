@@ -27,7 +27,7 @@ if ('ontouchstart' in window){
 
 
      
-        if(elementId ==="DayBoxP"){
+        if(elementId ==="DayBoxP"||"DayBoxLbLP"){
             rangeDayId.style.display="flex";
             DayBoxLbLP.style.display="none";//MM Label
      }else{                   
