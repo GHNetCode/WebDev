@@ -25,8 +25,8 @@ if ('ontouchstart' in window){
         console.log('touchstart all  elementCls :'+ elementCls)
         console.log('touchstart all  elementId :'+ elementId);
 
-        if(elementId ==='DayBoxLbLP'&&'DayBoxP'){
-            console.log('touchstart DayBoxLbLP If statement..' );
+        if(elementId ==='DayBoxLbLP'||'DayBoxP'||'rangeDayId'){
+            console.log('touchstart DayBoxLbLP-DayBoxP-rangeDayId If statement..' );
             rangeDayId.style.display='flex';
             DayBoxLbLP.style.display='none';//MM Label
         }else{
@@ -36,17 +36,17 @@ if ('ontouchstart' in window){
         }
 
 
-        if(elementId ==='DayBoxP'){
-            console.log('touchstart DayBoxP If statement..' );
-               rangeDayId.style.display="flex";
-               DayBoxLbLP.style.display="none";//MM Label
-        }else{                   
-             rangeDayId.style.display="none";
-               if (DayBoxP.value===""){
-              DayBoxLbLP.style.display="flex";
-          }
-        }
-
+    //    if(elementId ==='DayBoxP'){
+    //        console.log('touchstart DayBoxP If statement..' );
+    //           rangeDayId.style.display="flex";
+    //           DayBoxLbLP.style.display="none";//MM Label
+    //    }else{                   
+    //         rangeDayId.style.display="none";
+    //           if (DayBoxP.value===""){
+    //          DayBoxLbLP.style.display="flex";
+    //      }
+    //    }
+//
     //   if(elementId ==='rangeDayId'){
     //    console.log('touchstart rangeDayId If statement..' );
     //      DayBoxLbLP.style.display="none";//Label
