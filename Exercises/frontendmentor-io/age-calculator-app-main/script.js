@@ -30,7 +30,7 @@ if ('ontouchstart' in window){
         console.log('tstart-01 DayBoxLbLP If statement..' );
                //DayBoxLbLP.style.display='none';//MM Label
 
-            if(DayBoxLbLP.style.display==='flex'){//1st initial touch..
+            if(DayBoxLbLP.style.display=='flex'){//1st initial touch..
             //    console.log('tstart DayBoxLbLP If state Is Flex...' );
             //    // rangeDayId.style.display='flex';
                 DayBoxLbLP.style.display='none';//MM Label
