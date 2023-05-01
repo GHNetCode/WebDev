@@ -26,7 +26,7 @@ if ('ontouchstart' in window){
         console.log('touchstart all  elementId :'+ elementId);
 
 
-        if(elementId ==='DayBoxLbLP'||'DayBoxP'){
+        if(elementId ==='DayBoxLbLP'){
             console.log('touchstart DayBoxLbLP If statement..' );
             rangeDayId.style.display="flex";
             DayBoxLbLP.style.display="none";//MM Label
@@ -35,26 +35,28 @@ if ('ontouchstart' in window){
             if (DayBoxP.value===""){
             DayBoxLbLP.style.display="flex";}
         }
-     
 
-//       if(elementId ==="DayBoxP"){
-//           rangeDayId.style.display="flex";
-//           DayBoxLbLP.style.display="none";//MM Label
-//    }else{                   
-//         rangeDayId.style.display="none";
-//           if (DayBoxP.value===""){
-//          DayBoxLbLP.style.display="flex";
-//      }
-//    }
-//
-//
-//    if(elementId ==="rangeDayId"){
-//       DayBoxLbLP.style.display="none";//Label
-//       rangeDayId.style.display="flex";
-//    }else{
-//       rangeDayId.style.display="none";
-//       }
-//
+        if(elementId ==='DayBoxP'){
+            console.log('touchstart DayBoxP If statement..' );
+               rangeDayId.style.display="flex";
+               DayBoxLbLP.style.display="none";//MM Label
+        }else{                   
+             rangeDayId.style.display="none";
+               if (DayBoxP.value===""){
+              DayBoxLbLP.style.display="flex";
+          }
+        }
+
+       if(elementId ==='rangeDayId'){
+        console.log('touchstart rangeDayId If statement..' );
+          DayBoxLbLP.style.display="none";//Label
+          rangeDayId.style.display="flex";
+       }else{
+          rangeDayId.style.display="none";
+          }
+
+
+          
      //need to implement rangeDayId function for tracking and ending the slider.. 
      //with touchstart -- implement rangeDayId function in here..
      //next is touchmove ( here maybe just ensure that flex is displayed... ) 
