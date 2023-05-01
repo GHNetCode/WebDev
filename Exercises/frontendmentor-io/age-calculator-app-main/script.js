@@ -73,7 +73,11 @@ if ('ontouchstart' in window){
 });
 } else if ('ontouchmove' in window){
         document.addEventListener("touchmove",(event) =>{
-        
+            let elementId = event.target.id;
+            let elementCls = event.target.classList; //event.target.classList.contains("my-class")
+            console.log('ontouchmove all  elementCls :'+ elementCls)
+            console.log('ontouchmove all  elementId :'+ elementId);
+    
 
             if(elementId ==="rangeDayId"){
                 DayBoxLbLP.style.display="none";
