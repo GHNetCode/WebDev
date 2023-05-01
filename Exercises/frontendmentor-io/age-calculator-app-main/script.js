@@ -76,13 +76,13 @@ if ('ontouchstart' in window){
 
 
 
-    if(elementId ==="MonthBoxP"){
-            rangeMonthId.style.display="flex";
-            MonthBoxLbLP.style.display="none";//MM Label
+    if(elementId ==='MonthBoxP'){
+            rangeMonthId.style.display='flex';
+            MonthBoxLbLP.style.display='none';//MM Label
      }else{                   
-          rangeMonthId.style.display="none";
-          if (MonthBoxP.value===""){
-            MonthBoxLbLP.style.display="flex";
+          rangeMonthId.style.display='none';
+          if (MonthBoxP.value===''){
+            MonthBoxLbLP.style.display='flex';
         }}
 
    if(elementId ==="YearBoxP"){
