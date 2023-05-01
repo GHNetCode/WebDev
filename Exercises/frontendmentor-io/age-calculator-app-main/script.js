@@ -26,8 +26,12 @@ if ('ontouchstart' in window){
         console.log('touchstart all  elementId :'+ elementId);
 
 
+        if(elementId ==="DayBoxLbLP"){
+           // rangeDayId.style.display="flex";
+            DayBoxLbLP.style.display="none";//MM Label
+        }else{DayBoxLbLP.style.display="flex";}
      
-        if(elementId ==="DayBoxP"||"DayBoxLbLP"){
+        if(elementId ==="DayBoxP"){
             rangeDayId.style.display="flex";
             DayBoxLbLP.style.display="none";//MM Label
      }else{                   
