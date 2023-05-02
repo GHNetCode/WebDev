@@ -59,7 +59,7 @@ if ('ontouchstart' in window){
               //  rangeDayId.style.display='none';
                   if (DayBoxP.value===''){
                     console.log("3tstart DayBoxP.value==='' If statement.." );
-                // DayBoxLbLP.style.display='flex';
+                 DayBoxLbLP.style.display='flex';
              }
            }
 
