@@ -60,10 +60,13 @@ if ('ontouchstart' in window){
 
         if(elementId !=='DayBoxLbLP'){ //||'DayBoxP'||'rangeDayId'){
             console.log('tstart NOT DayBoxP-rangeDayId...elementId:'+elementId );
-            rangeDayId.style.display='none';
-            if (DayBoxP.value===''){
+            if(elementId !=='DayBoxP'){// the "||" query not functioning...
+                rangeDayId.style.display='none';
+                if (DayBoxP.value===''){
                  DayBoxLbLP.style.display='flex';
+                 }
                 }
+
         }
 
             //check if DayBoxLbLP.style.display='none'...
