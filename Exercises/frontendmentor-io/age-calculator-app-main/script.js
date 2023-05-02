@@ -12,6 +12,7 @@ let rangeYearId = document.getElementById('rangeYearId');
 let rangeMonthId = document.getElementById('rangeMonthId');
 let rangeDayId = document.getElementById('rangeDayId');
 let DayBoxLbLP = document.getElementById('DayBoxLbLP');
+let DayBoxP = document.getElementById('DayBoxP');
 let MonthBoxLbLP = document.getElementById('MonthBoxLbLP');
 let YearBoxLbLP = document.getElementById('YearBoxLbLP');
 
@@ -54,9 +55,13 @@ if ('ontouchstart' in window){
                   rangeDayId.style.display='flex';
                   DayBoxLbLP.style.display='none';//MM Label
            }
+
            if (elementId !=='DayBoxP'){
-            console.log('3tstart !==DayBoxP If statement..' );
-                if (DayBoxP.value===''){DayBoxLbLP.style.display='flex'
+               console.log('3tstart !==DayBoxP --.elementId :' );
+
+                if (DayBoxP.value===''){
+                    console.log("4tstart DayBoxP.value'' If statement.." );
+                    DayBoxLbLP.style.display='flex'
                 }
             }
 
