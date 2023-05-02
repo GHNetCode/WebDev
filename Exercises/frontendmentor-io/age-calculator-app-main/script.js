@@ -31,7 +31,7 @@ if ('ontouchstart' in window){
 
             if(DayBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
                  console.log("tstart display==='' If state Is Flex..." );
-                rangeDayId.style.display='flex';
+                //rangeDayId.style.display='flex';
                 DayBoxLbLP.style.display='none';//MM Label
                 
                }
