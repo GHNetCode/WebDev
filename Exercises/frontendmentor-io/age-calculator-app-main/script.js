@@ -22,8 +22,8 @@ if ('ontouchstart' in window){
         //get id and class events from '(event)' for Variables above..
         let elementId = event.target.id;
         let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-        console.log('touchstart all  elementCls :'+ elementCls)
-        console.log('touchstart all  elementId :'+ elementId);
+      //  console.log('touchstart all  elementCls :'+ elementCls)
+      //  console.log('touchstart all  elementId :'+ elementId);
 
     //problem with below is the Label does not 
         if(elementId ==='DayBoxLbLP'){ //||'DayBoxP'||'rangeDayId'){
@@ -32,6 +32,8 @@ if ('ontouchstart' in window){
             if(DayBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
                  console.log("tstart display==='' If state Is Flex..." );
                 //rangeDayId.style.display='flex';
+
+                //not working here in this if statement..
                 DayBoxLbLP.style.display='none';//MM Label
                 
                }
@@ -57,7 +59,7 @@ if ('ontouchstart' in window){
            else{                   
               //  rangeDayId.style.display='none';
                   if (DayBoxP.value===''){
-                 DayBoxLbLP.style.display='flex';
+                // DayBoxLbLP.style.display='flex';
              }
            }
 
