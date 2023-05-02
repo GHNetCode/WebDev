@@ -54,14 +54,20 @@ if ('ontouchstart' in window){
                   rangeDayId.style.display='flex';
                   DayBoxLbLP.style.display='none';//MM Label
            }
-           else{
+           if (elementId !=='DayBoxP'){
+                if (DayBoxP.value===''){DayBoxLbLP.style.display='flex'
+                }
+            }
+
+    //       else{
               //  rangeDayId.style.display='none';
-                  if (DayBoxP.value===''){
-                    console.log("3tstart DayBoxP.value==='' If statement.." );
-                    rangeDayId.style.display='none';
-                    DayBoxLbLP.style.display='flex';
-             }
-           }
+    //              if (DayBoxP.value===''){
+    //                console.log("3tstart DayBoxP.value==='' If statement.." );
+                    //applying the below when 
+                  //  rangeDayId.style.display='none';
+                  //  DayBoxLbLP.style.display='flex';
+    //         }
+    //      }
 
     
 //
