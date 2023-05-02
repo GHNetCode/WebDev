@@ -49,24 +49,22 @@ if ('ontouchstart' in window){
                  DayBoxLbLP.style.display='none';//MM Label
           }
 
-                 if(!DayBoxP.onfocus){
-                   console.log('3tstart !DayBoxP.onfocus...' );
-                               if (DayBoxP.value===''){
-                        DayBoxLbLP.style.display='flex';
-                       }
-                 }
+             //    if(!DayBoxP.onfocus){
+             //      console.log('3tstart !DayBoxP.onfocus...' );
+             //                  if (DayBoxP.value===''){
+             //           DayBoxLbLP.style.display='flex';
+             //          }
+             //    }
 
 
 
-
-
-       // if(elementId !=='DayBoxP'||'rangeDayId'){ //||'DayBoxP'||'rangeDayId'){
-       //     console.log('tstart NOT DayBoxP-rangeDayId...' );
-       //     rangeDayId.style.display='none';
-       //     if (DayBoxP.value===''){
-       //          DayBoxLbLP.style.display='flex';
-       //         }
-       // }
+        if(elementId !='DayBoxP'||'rangeDayId'){ //||'DayBoxP'||'rangeDayId'){
+            console.log('tstart NOT DayBoxP-rangeDayId...' );
+            rangeDayId.style.display='none';
+            if (DayBoxP.value===''){
+                 DayBoxLbLP.style.display='flex';
+                }
+        }
 
             //check if DayBoxLbLP.style.display='none'...
 
