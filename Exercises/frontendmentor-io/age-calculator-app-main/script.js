@@ -53,13 +53,13 @@ if ('ontouchstart' in window){
                console.log('2tstart DayBoxP If statement..' );
                   rangeDayId.style.display='flex';
                   DayBoxLbLP.style.display='none';//MM Label
-
            }
            else{
               //  rangeDayId.style.display='none';
                   if (DayBoxP.value===''){
                     console.log("3tstart DayBoxP.value==='' If statement.." );
-                 DayBoxLbLP.style.display='flex';
+                    rangeDayId.style.display='none';
+                    DayBoxLbLP.style.display='flex';
              }
            }
 
