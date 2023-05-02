@@ -56,8 +56,8 @@ if ('ontouchstart' in window){
                   DayBoxLbLP.style.display='none';//MM Label
            }
 
-           if (elementId !=='DayBoxP'){
-               console.log('3tstart !==DayBoxP --.elementId :'+elementId );
+           if (elementId !=='DayBoxP'||'DayBoxLbLP'){
+               console.log('3tstart !==DayBoxP||DayBoxLbLP --.elementId :'+elementId );
 
                 if (DayBoxP.value===''){
                     console.log("4tstart DayBoxP.value'' :"+DayBoxP.value );
