@@ -27,10 +27,10 @@ if ('ontouchstart' in window){
 
     //problem with below is the Label does not 
         if(elementId ==='DayBoxLbLP'){ //||'DayBoxP'||'rangeDayId'){
-        console.log('tstart DayBoxLbLP...' );
+        console.log('0tstart DayBoxLbLP...' );
 
             if(DayBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
-                 console.log("tstart display==='' If state Is Flex..." );
+                 console.log("1tstart display==='' If state Is Flex..." );
                 rangeDayId.style.display='flex';
 
                 //not working here in this if statement..
@@ -50,7 +50,7 @@ if ('ontouchstart' in window){
 
             //check if DayBoxLbLP.style.display='none'...
            if(elementId ==='DayBoxP'){
-               console.log('tstart DayBoxP If statement..' );
+               console.log('2tstart DayBoxP If statement..' );
                   rangeDayId.style.display='flex';
                   DayBoxLbLP.style.display='none';//MM Label
 
@@ -58,7 +58,7 @@ if ('ontouchstart' in window){
            else{
               //  rangeDayId.style.display='none';
                   if (DayBoxP.value===''){
-                    console.log("tstart DayBoxP.value==='' If statement.." );
+                    console.log("3tstart DayBoxP.value==='' If statement.." );
                 // DayBoxLbLP.style.display='flex';
              }
            }
