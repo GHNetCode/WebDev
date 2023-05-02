@@ -59,7 +59,7 @@ if ('ontouchstart' in window){
 
 
         if(elementId !='DayBoxP'||'rangeDayId'){ //||'DayBoxP'||'rangeDayId'){
-            console.log('tstart NOT DayBoxP-rangeDayId...' );
+            console.log('tstart NOT DayBoxP-rangeDayId...elementId:'+elementId );
             rangeDayId.style.display='none';
             if (DayBoxP.value===''){
                  DayBoxLbLP.style.display='flex';
