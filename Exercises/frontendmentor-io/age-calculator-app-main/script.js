@@ -34,7 +34,7 @@ if ('ontouchstart' in window){
                  console.log("1tstart display===''||'flex'" );
                 rangeDayId.style.display='flex';
 
-                //not working here in this if statement..
+                
                 DayBoxLbLP.style.display='none';//MM Label
                 
                }
@@ -56,12 +56,14 @@ if ('ontouchstart' in window){
                   DayBoxLbLP.style.display='none';//MM Label
            }
 
+           //need to check if DayBoxLbLP and DayBoxLbLP has been touched
+           //so below function needs reviewing...
            if (elementId !=='DayBoxP'||'DayBoxLbLP'){
                console.log('3tstart !==DayBoxP||DayBoxLbLP --.elementId :'+elementId );
 
                 if (DayBoxP.value===''){
                     console.log("4tstart DayBoxP.value'' :"+DayBoxP.value );
-                    DayBoxLbLP.style.display='flex';
+                //    DayBoxLbLP.style.display='flex';
                 }
             }
 
