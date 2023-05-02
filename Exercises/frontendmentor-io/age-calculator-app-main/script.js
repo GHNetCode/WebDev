@@ -31,7 +31,7 @@ if ('ontouchstart' in window){
         console.log('0tstart DayBoxLbLP...' );
 
             if(DayBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
-                 console.log("1tstart display==='' If state Is Flex..." );
+                 console.log("1tstart display===''||'flex'" );
                 rangeDayId.style.display='flex';
 
                 //not working here in this if statement..
@@ -51,17 +51,17 @@ if ('ontouchstart' in window){
 
             //check if DayBoxLbLP.style.display='none'...
            if(elementId ==='DayBoxP'){
-               console.log('2tstart DayBoxP If statement..' );
+               console.log('2tstart DayBoxP' );
                   rangeDayId.style.display='flex';
                   DayBoxLbLP.style.display='none';//MM Label
            }
 
            if (elementId !=='DayBoxP'){
-               console.log('3tstart !==DayBoxP --.elementId :' );
+               console.log('3tstart !==DayBoxP --.elementId :'+elementId );
 
                 if (DayBoxP.value===''){
-                    console.log("4tstart DayBoxP.value'' If statement.." );
-                    DayBoxLbLP.style.display='flex'
+                    console.log("4tstart DayBoxP.value'' :"+DayBoxP.value );
+                    DayBoxLbLP.style.display='flex';
                 }
             }
 
