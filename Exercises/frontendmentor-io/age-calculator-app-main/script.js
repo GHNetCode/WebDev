@@ -55,6 +55,7 @@ if ('ontouchstart' in window){
                   DayBoxLbLP.style.display='none';//MM Label
            }
            if (elementId !=='DayBoxP'){
+            console.log('3tstart !==DayBoxP If statement..' );
                 if (DayBoxP.value===''){DayBoxLbLP.style.display='flex'
                 }
             }
