@@ -63,7 +63,7 @@ if ('ontouchstart' in window){
             if(elementId !=='DayBoxP'){
                 if (DayBoxP.value===''){
                  DayBoxLbLP.style.display='flex';
-                 rangeDayId.style.display='none';
+                // rangeDayId.style.display='none';
                  }
                 }
         }
