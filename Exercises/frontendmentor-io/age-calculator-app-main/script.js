@@ -42,9 +42,19 @@ if ('ontouchstart' in window){
         
         // DayBoxLbLP > DayBoxP > rangeDayId
 
+        if(elementId !=='DayBoxLbLP'){ // the or operator "||" not behaving!! so using nested if statement..
+            console.log('2tstart NOT DayBoxP-rangeDayId...elementId:'+elementId );
+            if(elementId !=='DayBoxP'){
+                if (DayBoxP.value===''){
+                 DayBoxLbLP.style.display='flex';
+                // rangeDayId.style.display='none';
+                 }
+                }
+        }
+
 
           if(elementId ==='DayBoxP'){
-              console.log('2tstart DayBoxP' );
+              console.log('3tstart DayBoxP' );
                  rangeDayId.style.display='flex';
                  DayBoxLbLP.style.display='none';//MM Label
           }
@@ -56,17 +66,11 @@ if ('ontouchstart' in window){
              //          }
              //    }
 
-
-
-        if(elementId !=='DayBoxLbLP'){ // the or operator "||" not behaving!! so using nested if statement..
-            console.log('tstart NOT DayBoxP-rangeDayId...elementId:'+elementId );
-            if(elementId !=='DayBoxP'){
-                if (DayBoxP.value===''){
-                 DayBoxLbLP.style.display='flex';
-                // rangeDayId.style.display='none';
-                 }
-                }
-        }
+             if(elementId ==='rangeDayId'){
+                console.log('4tstart DayBoxP' );
+                   rangeDayId.style.display='flex';
+                   DayBoxLbLP.style.display='none';//MM Label
+            }
 
             //check if DayBoxLbLP.style.display='none'...
 
