@@ -61,9 +61,9 @@ if ('ontouchstart' in window){
         if(elementId !=='DayBoxLbLP'){ // the or operator "||" not behaving!! so using nested if statement..
             console.log('tstart NOT DayBoxP-rangeDayId...elementId:'+elementId );
             if(elementId !=='DayBoxP'){
-                rangeDayId.style.display='none';
                 if (DayBoxP.value===''){
                  DayBoxLbLP.style.display='flex';
+                 rangeDayId.style.display='none';
                  }
                 }
         }
