@@ -31,15 +31,34 @@ if ('ontouchstart' in window){
         console.log('0tstart DayBoxLbLP...' );
 
             if(DayBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
-                 console.log("1tstart display===''||'flex'" );
+                console.log("1tstart display===''||'flex'" );
                 rangeDayId.style.display='flex';
-
-                
                 DayBoxLbLP.style.display='none';//MM Label
                 
                }
 
-        } // DayBoxLbLP > DayBoxP > rangeDayId
+        }
+
+        
+        // DayBoxLbLP > DayBoxP > rangeDayId
+
+
+          if(elementId ==='DayBoxP'){
+              console.log('2tstart DayBoxP' );
+                 rangeDayId.style.display='flex';
+                 DayBoxLbLP.style.display='none';//MM Label
+          }
+
+                 if(!DayBoxP.onfocus){
+                   console.log('3tstart !DayBoxP.onfocus...' );
+                               if (DayBoxP.value===''){
+                        DayBoxLbLP.style.display='flex';
+                       }
+                 }
+
+
+
+
 
        // if(elementId !=='DayBoxP'||'rangeDayId'){ //||'DayBoxP'||'rangeDayId'){
        //     console.log('tstart NOT DayBoxP-rangeDayId...' );
@@ -50,23 +69,22 @@ if ('ontouchstart' in window){
        // }
 
             //check if DayBoxLbLP.style.display='none'...
-           if(elementId ==='DayBoxP'){
-               console.log('2tstart DayBoxP' );
-                  rangeDayId.style.display='flex';
-                  DayBoxLbLP.style.display='none';//MM Label
-           }
+
 
            //need to check if DayBoxLbLP and DayBoxLbLP has been touched and is active or not
            //
            //so below function needs reviewing...
-           if (elementId !=='DayBoxP'||'DayBoxLbLP'){
-               console.log('3tstart !==DayBoxP||DayBoxLbLP --.elementId :'+elementId );
+           //if (elementId !=='DayBoxP'||'DayBoxLbLP'){
+           //    console.log('3tstart !==DayBoxP||DayBoxLbLP --.elementId :'+elementId );
 
-                if (DayBoxP.value===''){
-                    console.log("4tstart DayBoxP.value'' :"+DayBoxP.value );
+           //     if (DayBoxP.value===''){
+           //         console.log("4tstart DayBoxP.value'' :"+DayBoxP.value );
                 //    DayBoxLbLP.style.display='flex';
-                }
-            }
+           //     }
+           // }
+
+
+
 
     //       else{
               //  rangeDayId.style.display='none';
