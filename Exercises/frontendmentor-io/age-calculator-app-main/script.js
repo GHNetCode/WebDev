@@ -56,7 +56,8 @@ if ('ontouchstart' in window){
                   DayBoxLbLP.style.display='none';//MM Label
            }
 
-           //need to check if DayBoxLbLP and DayBoxLbLP has been touched
+           //need to check if DayBoxLbLP and DayBoxLbLP has been touched and is active or not
+           //
            //so below function needs reviewing...
            if (elementId !=='DayBoxP'||'DayBoxLbLP'){
                console.log('3tstart !==DayBoxP||DayBoxLbLP --.elementId :'+elementId );
