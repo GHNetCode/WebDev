@@ -112,6 +112,8 @@
             font-size: 19px;
             font-weight: 900;
             height: 95%;
+            outline: none;
+
             border:none;/*input field border needs manually disabling*/
         }
        
