@@ -30,7 +30,7 @@ if ('ontouchstart' in window){
 
 
     //Day BOX
-        //display range Slider and hide Label..
+        //display range Slider and hide DDMMYYYYLabel..
         if(elementId ==='DayBoxLbLP'||'DayBoxP'||'rangeDayId'){ 
               if(DayBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
                   rangeDayId.style.display='flex';
@@ -38,7 +38,7 @@ if ('ontouchstart' in window){
                  }
         }
         // DayBoxLbLP > DayBoxP > rangeDayId
-        //hide range Slider and hide\display Label..
+        //hide range Slider and hide\display DDMMYYYYLabel..
         if(elementId !=='DayBoxLbLP'){ 
             if(elementId !=='DayBoxP'){
                 if (DayBoxP.value===''){
@@ -60,7 +60,7 @@ if ('ontouchstart' in window){
         if(elementId ==='MonthBoxLbLP'||'MonthBoxP'||'rangeMonthId'){ 
             if(MonthBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
                 rangeMonthId.style.display='flex';
-                MonthBoxLbLP.style.display='none';//MM Label                
+                MonthBoxLbLP.style.display='none';//DDMMYYYYLabel                
                }
       }
 
@@ -86,7 +86,7 @@ if ('ontouchstart' in window){
         if(elementId ==='YearBoxLbLP'||'YearBoxP'||'rangeYearId'){ 
             if(YearBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
                 rangeYearId.style.display='flex';
-                YearBoxLbLP.style.display='none';//MM Label                
+                YearBoxLbLP.style.display='none';//DDMMYYYYLabel                
                }
       }
 

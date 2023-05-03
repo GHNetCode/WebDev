@@ -113,15 +113,16 @@
             font-weight: 900;
             height: 95%;
             outline: none;
-
-            border:none;/*input field border needs manually disabling*/
+            width:60px
+            /* border:none; */
+            /*input field border needs manually disabling*/
         }
        
         #MonthBoxP{margin-left: 18%;}
         #YearBoxP{
         margin-left: 14%;
         /* letter-spacing: 1.0px; */
-        width:73px
+        width:70px
     }
 
         #lineD{
