@@ -447,6 +447,13 @@ width:105px;}
     border:solid 27px rgb(132, 77, 255);
     border-top:solid 25px rgb(132, 77, 255);}
 
+    #iconArrBtn{
+        margin-top: -4.5px;
+        margin-left: 634px;
+        width:  97px;
+        height: 97px;
+
+    }
 
 
 #Cnt1bYrs,#Cnt1bMonths,#Cnt1bDays{
