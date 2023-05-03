@@ -113,8 +113,8 @@
             font-weight: 900;
             height: 95%;
             outline: none;
-            width:60px
-            /* border:none; */
+            width:60px;
+            border:none;
             /*input field border needs manually disabling*/
         }
        
@@ -124,6 +124,24 @@
         /* letter-spacing: 1.0px; */
         width:70px
     }
+
+    .ModalChk{
+        display: flex;
+        position: absolute;
+        font-size: 8px;
+        bottom: 16px;
+        color: red;
+    }
+    #dayMdlChkP1{
+        margin-left:15px ;
+    }
+    #monthMdlChkP1{
+        margin-left:-6px ;
+    }
+    #yearMdlChkP1{
+        margin-left:-22px ;
+    }
+
 
         #lineD{
             display: flex;
@@ -155,6 +173,17 @@
             border-radius: 50%;
             border:solid 21px rgb(132, 77, 255);
             border-top:solid 20px rgb(132, 77, 255);}
+
+            #iconArrBtn{/*Lets create ourselves an invisible button for the SVG arrow icon*/
+            display:flex;
+            position: absolute;
+            width:  62px;
+            height: 62px;
+            top:164.5px;
+            margin-left:-0.187px ;
+            border-radius: 50%;
+            opacity: 50%;
+            }
 
 #Cnt1b{
     display: flex;
@@ -354,6 +383,11 @@ body{height: 960px;}
 #MonthBox{margin-left: 71px;}
 #YearBox{margin-left: 55px;}
 
+#DayBoxLbLP,#MonthBoxLbLP,#YearBoxLbLP{
+    font-size: 200%;
+
+}
+
 #DayBoxP,#MonthBoxP,#YearBoxP{
     margin-left: 22px;
     font-size: 31px;
@@ -363,6 +397,27 @@ body{height: 960px;}
 margin-left: 22px;
 letter-spacing: 1.2px;
 width:105px;}
+
+.ModalChk{
+    display: flex;
+    position: absolute;
+    font-size: 14px;
+    bottom: -28px;
+    /* border: solid black 1px; */
+    color: red;
+    width:150px;
+    font-style: italic;
+    /* font-weight: 600; */
+}
+#dayMdlChkP1{
+    margin-left:86px;
+}
+#monthMdlChkP1{
+    margin-left:63px;
+}
+#yearMdlChkP1{
+    margin-left:45px;
+}
 
 #lineD{
     display: flex;
@@ -376,7 +431,7 @@ width:105px;}
 #iconArr{
     background-color: rgb(132, 77, 255);
     width:75px;
-    height:135px; 
+    height:135px;
     top:140px;/*166px*/
     margin-left: 635px;
     transform: scale(0.6, 0.7);}
@@ -391,6 +446,8 @@ width:105px;}
     border-radius: 50%;
     border:solid 27px rgb(132, 77, 255);
     border-top:solid 25px rgb(132, 77, 255);}
+
+
 
 #Cnt1bYrs,#Cnt1bMonths,#Cnt1bDays{
     display: flex;
@@ -419,9 +476,10 @@ width:105px;}
         letter-spacing: -1.9px;}
 
         #rangeDayId,#rangeMonthId,#rangeYearId {
-         top:115px   
+         top:115px;
+         width:500px;
         }
-
+        #attribution{bottom: -130px;}
 }
 
 

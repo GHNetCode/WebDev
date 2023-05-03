@@ -54,7 +54,7 @@ if ('ontouchstart' in window){
           }
         }
 
-    
+
     //Month BOX
         //display range Slider and hide Label..
         if(elementId ==='MonthBoxLbLP'||'MonthBoxP'||'rangeMonthId'){ 
@@ -106,27 +106,23 @@ if ('ontouchstart' in window){
           }
         }
       }
-    
-    
-
-  
-});
-} else if ('ontouchmove' in window){
-    console.log('ontouchmove fired..');
-        document.addEventListener("touchmove",(event) =>{
-            let elementId = event.target.id;
-            let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-            console.log('ontouchmove all  elementCls :'+ elementCls)
-            console.log('ontouchmove all  elementId :'+ elementId);
-    
-
-            if(elementId ==="rangeDayId"){
-                DayBoxLbLP.style.display="none";
-                rangeDayId.style.display="flex";
-             }
-});
-
-} else if ('ontouchend' in window){
+    });
+} 
+// else if ('ontouchmove' in window){
+    // console.log('ontouchmove fired..');
+        // document.addEventListener("touchmove",(event) =>{
+            // let elementId = event.target.id;
+            // let elementCls = event.target.classList; //event.target.classList.contains("my-class")
+            // console.log('ontouchmove all  elementCls :'+ elementCls)
+            // console.log('ontouchmove all  elementId :'+ elementId);
+    // 
+// 
+            // if(elementId ==="rangeDayId"){
+                // DayBoxLbLP.style.display="none";
+                // rangeDayId.style.display="flex";
+            //  }
+// });}
+ else if ('ontouchend' in window){
         document.addEventListener("touchend", (event) => {
         
         //get id and class events from '(event)' for Variables above..
@@ -197,9 +193,9 @@ function DDMMnum (DDMMval,id){
         rangeDayId.value=DDMMval.value; //update the rangeDay Slider..
         //below for Day and Month commented out, as format 
         //can be changed when form is validated and submitted..
-//       if (DDMMval.value.length === 1){
-//        DDMMval.value = '0' + DDMMval.value;
-//       }
+       if (DDMMval.value.length === 1){
+        DDMMval.value = '0' + DDMMval.value;
+        }
     }
 
     if (id ==='rangeDayId'){
@@ -214,9 +210,9 @@ function DDMMnum (DDMMval,id){
 
     //below for Day and Month commented out, as format 
     //can be changed when form is validated and submitted..
-//     if (DDMMval.value.length === 1){
-//        DDMMval.value = '0' + DDMMval.value;
-//      }
+       if (DDMMval.value.length === 1){
+          DDMMval.value = '0' + DDMMval.value;
+        }
 }
 
 if (id ==='rangeMonthId'){
@@ -225,18 +221,11 @@ if (id ==='rangeMonthId'){
     }else{MonthBoxP.value=DDMMval.value;}}
 };
 
-//Implement onchange function.. check value is not ''..
-
-        // if(DDMMval.value=='')
-        // {DayBoxLbLP.style.display='flex';}
-
-function dmyChgLabel(id){//on change
-    if (id ==='DayBoxP'){
-        // if(DDMMval.value=='')
-        // {DayBoxLbLP.style.display='flex';}
-        console.log('dmyChgLabel-DayBoxP :'+DayBoxP.value);
-        if (DayBoxP.value==='')
-        {DayBoxLbLP.style.display='flex';
-        }else{DayBoxLbLP.style.display='none';}
-    }
+//Modal for Date Validation\Calculation...
+let iconArrBtnId = document.getElementById("iconArrBtn"); //class="iconArrBtn"
+iconArrBtnId.addEventListener("click",iconArrBtnFunc);
+function iconArrBtnFunc(){
+    alert("funky purply button..🎶");
 }
+
+

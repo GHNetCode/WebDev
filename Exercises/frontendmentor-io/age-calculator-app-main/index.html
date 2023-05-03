@@ -15,16 +15,14 @@
         <p id="resizeInnerW"><span>chng5&nbsp;</span>-</p>
         <div id="Cnt1">
             <div id="Cnt1a">
-
                 <div id="Cnt1aDay">
                     <h5 id="DayH">DAY</h5>
                     <div id="DayBox">
                       <label for="DayBoxP"><p id="DayBoxLbLP">DD</p></label>
                         <!-- <input type="number" id="DayBoxP" name="DayBoxP" min="01" max="31" value="24"  oninput="rangeDayId.value=DayBoxP.value" /> -->
-                        <input type="number" id="DayBoxP" name="DayBoxP" min="1" max="31" value=''  oninput='DDMMnum (this,"DayBoxP")'/>
-                       
-                        <!-- <p id="DayBoxP" ></p> -->
+                        <input type="number" id="DayBoxP" name="DayBoxP" min="01" max="31" value=''  oninput='DDMMnum (this,"DayBoxP")'/>
                     </div>
+                    <p id="dayMdlChkP1" class="ModalChk">This field is required</p>
                 </div>
 
                 <div id="Cnt1aMonth">
@@ -32,8 +30,9 @@
                     <div id="MonthBox">
                         <!-- <p id="MonthBoxP">09</p> -->
                         <label for="MonthBoxP"><p id="MonthBoxLbLP">MM</p></label>
-                        <input type="number" id="MonthBoxP" name="MonthBoxP" min="1" max="12" value='' oninput='DDMMnum (this,"MonthBoxP")' />
+                        <input type="number" id="MonthBoxP" name="MonthBoxP" min="01" max="12" value='' oninput='DDMMnum (this,"MonthBoxP")' />
                     </div>
+                    <p id="monthMdlChkP1" class="ModalChk">This field is required</p>
                 </div>
 
                 <div id="Cnt1aYear">
@@ -43,33 +42,35 @@
                         <label for="YearBoxP"><p id="YearBoxLbLP">YYYY</p></label>
                         <input type="number" id="YearBoxP" name="YearBoxP" min="1900" max="2050" value='' oninput="rangeYearId.value=YearBoxP.value" />
                     </div>
+                    <p id="yearMdlChkP1" class="ModalChk">This field is required</p>
                 </div>
 
                 <!-- Range Slider to try and implement :)  -->
                 <!-- <input type="range" min="0" max="100" value="0" class="range blue" oninput="DayBoxP.innerText = this.value"/> -->
-                <input id="rangeDayId"   type="range" min="1" max="31" value='1' class="range blue" oninput='DDMMnum (this,"rangeDayId")'/>
-                <input id="rangeMonthId" type="range" min="1" max="12" value='1' class="range blue" oninput='DDMMnum (this,"rangeMonthId")'/> 
+                <input id="rangeDayId"   type="range" min="01" max="31" value='1' class="range blue" oninput='DDMMnum (this,"rangeDayId")'/>
+                <input id="rangeMonthId" type="range" min="01" max="12" value='1' class="range blue" oninput='DDMMnum (this,"rangeMonthId")'/> 
                 <input id="rangeYearId"  type="range" min="1900" max="2050" value='1900' class="range blue" oninput="YearBoxP.value=rangeYearId.value"/>
             </div>
 
             
-
-
             <div id="lineD"></div>
              
-            <img id="iconArr" src="./assets/images/icon-arrow.svg" alt="icon-arrow.svg"> 
-            <div id="iconArrCropped"></div>
+            
+            <img id="iconArr" class="iconArrBtnCls" src="./assets/images/icon-arrow.svg" alt="icon-arrow.svg"> 
+            <div id="iconArrCropped" class="iconArrBtnCls"></div>
+            <button id="iconArrBtn" class="iconArrBtnCls"></button>
+
             <div id="Cnt1b">
                 <div id="Cnt1bYrs">
-                    <p id="Cnt1bYrsN">38</p>
+                    <p id="Cnt1bYrsN">--</p>
                     <p id="Cnt1bYrsL">years</p>
                 </div>
                 <div id="Cnt1bMonths">
-                    <p id="Cnt1bMntsN">3</p>
+                    <p id="Cnt1bMntsN">--</p>
                     <p id="Cnt1bMntsL">months</p>
                 </div>
                 <div id="Cnt1bDays">
-                    <p id="Cnt1bDysN">26</p>
+                    <p id="Cnt1bDysN">--</p>
                     <p id="Cnt1bDysL">days</p>
                 </div>
             </div>
