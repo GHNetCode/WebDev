@@ -2,105 +2,111 @@
 
  /* Fonts.. */
  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
- body {font-family: 'Poppins', sans-serif;}
+ body {font-family:'Poppins', sans-serif;}
 
  /*Reset all inherited values to 0.*/
-*{box-sizing: border-box; margin:0;padding:0;}
+*{box-sizing:border-box; margin:0;padding:0;}
 /*View Width in pixels on the page..*/
     #resizeInnerW{/*disable after finished..*/
     display:flex; /* none\flex */
-    justify-content: center;
+    justify-content:center;
     position:fixed;
     top:0; 
-    z-index: 100;
-    color: rgb(239, 6, 6);}
+    z-index:100;
+    color:rgb(239, 6, 6);}
  
     body {
       display:flex;
-      position: relative;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 785px;
-      background: rgb(240, 240, 240);}
+      position:relative;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      height:785px;
+      background:rgb(240, 240, 240);}
 
     #pageMain{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    position:relative;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     width:375px;
-    max-width: 100%;}
+    max-width:100%;}
 
 
 #Cnt1{
-    display: flex;
+    display:flex;
     position:relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     top:-57px;
-    width: 92%;/**/
-    height: 495px; 
-    margin-left: -0.5px;
-    background: white;
-    border-radius: 25px;
-    border-bottom-right-radius: 100px;}
+    width:92%;/**/
+    height:495px; 
+    margin-left:-0.5px;
+    background:white;
+    border-radius:25px;
+    border-bottom-right-radius:100px;}
 #Cnt1a{
-    display: flex;
-    position: relative;
-    justify-content: center;
-    top: -107.5px; 
-    height: 100px;
-    width: 336px;}
+    display:flex;
+    position:relative;
+    justify-content:center;
+    top:-107.5px; 
+    height:100px;
+    width:336px;}
     #Cnt1aDay,#Cnt1aMonth,#Cnt1aYear{
-        display: flex;
-        position: relative;
-        justify-content: center;
-        width: 100%;}
+        display:flex;
+        position:relative;
+        justify-content:center;
+        width:100%;}
 
     #DayH,#MonthH,#YearH{
-        display: flex;
-        position: absolute;
-        color: rgb(123, 123, 123);
-        margin-top: -3.5px;
-        margin-left: -36px;
-        font-size: 12.3px;
-        font-weight: 900;
-        letter-spacing: 2.5px;}
+        display:flex;
+        position:absolute;
+        color:rgb(123, 123, 123);
+        margin-top:-3.5px;
+        margin-left:-36px;
+        font-size:12.3px;
+        font-weight:900;
+        letter-spacing:2.5px;}
     #MonthH{
-        margin-left: -26.0px;
-        letter-spacing: 2.9px;}
+        margin-left:-26.0px;
+        letter-spacing:2.9px;}
     #YearH{
-        margin-left: -60px;
-        letter-spacing: 2.9px;}
+        margin-left:-60px;
+        letter-spacing:2.9px;}
 
         #DayBox,#MonthBox,#YearBox{
-            display: flex;
+            display:flex;
             position:relative;
-            align-items: center;
-            top: 18px;
+            align-items:center;
+            top:18px;
             width:87.5px;
             height:54px;
-            margin-left: 17px;
-            border-radius: 8.6px;
-            border: 1.5px solid rgb(219, 219, 219);}
-        #MonthBox,#YearBox{margin-left: -1px;}
-        #YearBox{margin-left: -17px;}
+            margin-left:17px;
+            border-radius:8.6px;
+            border:1.5px solid rgb(219, 219, 219);}
+        #MonthBox,#YearBox{margin-left:-1px;}
+        #YearBox{margin-left:-17px;}
+        #DayBox:hover,#MonthBox:hover,#YearBox:hover{
+            /* opacity: 30%; */
+                border: 1px solid rgb(133, 93, 197); 
+                transition: 0.2s;
+                /* text-shadow: ; */
+                box-shadow: 0 0 0 2px rgb(58, 130, 168);
+        }
 
-
-        /* #DayBoxLbLP{display: flex;} */
+        /* #DayBoxLbLP{display:flex;} */
         #DayBoxLbLP,#MonthBoxLbLP,#YearBoxLbLP{
-            display: flex;
-            position: absolute;
-            /* border: red 1px solid; */
-            color: rgb(164, 163, 163);
+            display:flex;
+            position:absolute;
+            /* border:red 1px solid; */
+            color:rgb(164, 163, 163);
             /* top:31% */ /* Desktop...*/
             top:18%;
-            width: 100%;
+            width:100%;
             padding-left:15%;
-            font-size: 1.3em;
+            font-size:1.3em;
         }
         #YearBoxLbLP{
             padding-left:14%;
@@ -108,115 +114,126 @@
 
 
         #DayBoxP,#MonthBoxP,#YearBoxP{
-            margin-left: 15px;
-            font-size: 19px;
-            font-weight: 900;
-            height: 95%;
-            outline: none;
+            margin-left:15px;
+            font-size:19px;
+            font-weight:900;
+            height:95%;
+            outline:none;
             width:60px;
             border:none;
             /*input field border needs manually disabling*/
         }
        
-        #MonthBoxP{margin-left: 18%;}
+        #MonthBoxP{margin-left:18%;}
         #YearBoxP{
-        margin-left: 14%;
-        /* letter-spacing: 1.0px; */
+        margin-left:14%;
+        /* letter-spacing:1.0px; */
         width:70px
     }
 
     .ModalChk{
-        display: flex;
-        position: absolute;
-        font-size: 8px;
-        bottom: 16px;
-        color: red;
+        display:flex;
+        position:absolute;
+        text-align: center;
+        font-size:11px;
+        bottom:16px;
+        color:red;
+        /* border: solid black 1px; */
+        width:70px;
+        top:71px
     }
     #dayMdlChkP1{
-        margin-left:15px ;
+        margin-left:19px;
     }
     #monthMdlChkP1{
-        margin-left:-6px ;
+        margin-left:-2px;
     }
     #yearMdlChkP1{
-        margin-left:-22px ;
+        margin-left:-16px;
     }
 
 
         #lineD{
-            display: flex;
-            position: relative;
-            border-top: rgb(237, 237, 237) 2px solid;
-            height: 2px;
-            width: 294.5px;
+            display:flex;
+            position:relative;
+            border-top:rgb(237, 237, 237) 2px solid;
+            height:2px;
+            width:294.5px;
             top:-72px;}
 
         #iconArr{
             display:flex;
-            position: absolute;
-            background-color: rgb(132, 77, 255);
+            position:absolute;
+            background-color:rgb(132, 77, 255);
             background-size:cover;
-            background-repeat: no-repeat;
-            background-position: center;
+            background-repeat:no-repeat;
+            background-position:center;
             width:55px;
             height:55px; 
             top:166px;
-            border-radius: 50%;
-            transform: scale(1.0, 0.49);}
+            border-radius:50%;
+            transform:scale(1.0, 0.49);}
         #iconArrCropped{
             display:flex;
-            position: absolute;
-            height: 65px;
-            width: 65px;
+            position:absolute;
+            height:65px;
+            width:65px;
             top:163px;
-            background: rgba(133, 77, 255, 0.0);
-            border-radius: 50%;
+            background:rgba(133, 77, 255, 0.0);
+            border-radius:50%;
             border:solid 21px rgb(132, 77, 255);
             border-top:solid 20px rgb(132, 77, 255);}
 
             #iconArrBtn{/*Lets create ourselves an invisible button for the SVG arrow icon*/
             display:flex;
-            position: absolute;
-            width:  62px;
-            height: 62px;
+            position:absolute;
+            width:62px;
+            height:62px;
             top:164.5px;
             margin-left:-0.187px ;
-            border-radius: 50%;
-            opacity: 50%;
+            border-radius:50%;
+            opacity:0;
+            }
+
+            #iconArrBtn:hover{
+                opacity: 30%;
+                border: 3px solid rgb(226,57,142);
+                transition: 0.2s;
+                box-shadow: inset 0 0 0 6px;
             }
 
 #Cnt1b{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    height: 60px;
-    width: 90%;}
+    display:flex;
+    position:relative;
+    flex-direction:column;
+    height:60px;
+    width:90%;}
 
 #Cnt1bYrs,#Cnt1bMonths,#Cnt1bDays{
-    display: flex;
-    position: relative;
-    /* border: rgb(238, 129, 40) solid 1px; */
+    display:flex;
+    position:relative;
+    /* border:rgb(238, 129, 40) solid 1px; */
     top:3.0px;
-    margin-top: -23.0px;}
+    margin-top:-23.0px;}
 
 #Cnt1bYrsN,#Cnt1bMntsN,#Cnt1bDysN{
-        display: flex;
-        position: relative;
-        margin-left: 8px;
-        font-style: italic;
-        font-weight: 900;
-        font-size: 56px;
-        letter-spacing: -2.1px;
-        color: rgb(132, 77, 255);}
+        display:flex;
+        position:relative;
+        margin-left:8px;
+        font-style:italic;
+        font-weight:900;
+        font-size:56px;
+        letter-spacing:-2.1px;
+        color:rgb(132, 77, 255);}
 
     #Cnt1bYrsL,#Cnt1bMntsL,#Cnt1bDysL{
-        display: flex;
-        position: relative;
-        margin-left: 10.5px;
-        font-style: italic;
-        font-weight: 900;
-        font-size: 56px;
-        letter-spacing: -1.1px;
+        display:flex;
+        position:relative;
+        margin-left:10.5px;
+        font-style:italic;
+        font-weight:900;
+        font-size:56px;
+        letter-spacing:-1.1px;
     }
 
 
@@ -224,104 +241,104 @@
 /* ------------------------------------------------------------------- */
 
     #rangeDayId,#rangeMonthId,#rangeYearId {
-    display: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    position: absolute;
-    left: 50%;
-    top: 78px;/**/
-    width: 300px;
-    margin-top: 10px;
-    transform: translate(-50%, -50%);
+    display:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    position:absolute;
+    left:50%;
+    top:78px;/**/
+    width:300px;
+    margin-top:10px;
+    transform:translate(-50%, -50%);
     }
-    #rangeMonthId {display: none;}
-    #rangeYearId {display: none;}
+    #rangeMonthId {display:none;}
+    #rangeYearId {display:none;}
     
     input[type=range]::-webkit-slider-runnable-track {
-    -webkit-appearance: none;
-    background: rgba(59,173,227,1);
-    background: -moz-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));
-    background: -webkit-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-    background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );
-    height: 2px;
+    -webkit-appearance:none;
+    background:rgba(59,173,227,1);
+    background:-moz-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    background:-webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));
+    background:-webkit-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    background:-o-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    background:-ms-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    background:linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );
+    height:2px;
     }
     input[type=range]:focus {
-        outline: none;
+        outline:none;
     }
     input[type=range]::-moz-range-track {
-    -moz-appearance: none;
-    background: rgba(59,173,227,1);
-    background: -moz-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));
-    background: -webkit-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-    background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );
-    height: 2px;
+    -moz-appearance:none;
+    background:rgba(59,173,227,1);
+    background:-moz-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    background:-webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));
+    background:-webkit-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    background:-o-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    background:-ms-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    background:linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bade3 ', endColorstr='#ff357f ', GradientType=1 );
+    height:2px;
     }
     input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: 2px solid;
-    border-radius: 50%;
-    height: 25px;
-    width: 25px;
-    max-width: 80px;
-    position: relative;
-    bottom: 11px;
-    background-color: rgba(132, 77, 255, 1);
-    cursor: -webkit-grab;
-    -webkit-transition: border 1000ms ease;
-    transition: border 1000ms ease;
+    -webkit-appearance:none;
+    border:2px solid;
+    border-radius:50%;
+    height:25px;
+    width:25px;
+    max-width:80px;
+    position:relative;
+    bottom:11px;
+    background-color:rgba(132, 77, 255, 1);
+    cursor:-webkit-grab;
+    -webkit-transition:border 1000ms ease;
+    transition:border 1000ms ease;
     }
     input[type=range]::-moz-range-thumb {
-    -moz-appearance: none;
-    border: 2px solid;
-    border-radius: 50%;
-    height: 25px;
-    width: 25px;
-    max-width: 80px;
-    position: relative;
-    bottom: 11px;
-    background-color: #1d1c25;
-    cursor: -moz-grab;
-    -moz-transition: border 1000ms ease;
-    transition: border 1000ms ease;
+    -moz-appearance:none;
+    border:2px solid;
+    border-radius:50%;
+    height:25px;
+    width:25px;
+    max-width:80px;
+    position:relative;
+    bottom:11px;
+    background-color:#1d1c25;
+    cursor:-moz-grab;
+    -moz-transition:border 1000ms ease;
+    transition:border 1000ms ease;
     }
     .range.blue::-webkit-slider-thumb {
-    border-color: rgb(59,173,227);
+    border-color:rgb(59,173,227);
     }
     .range.ltpurple::-webkit-slider-thumb {
-    border-color: rgb(87,111,230);
+    border-color:rgb(87,111,230);
     }
     .range.purple::-webkit-slider-thumb {
-    border-color: rgb(152,68,183);
+    border-color:rgb(152,68,183);
     }
     .range.pink::-webkit-slider-thumb {
-    border-color: rgb(255,53,127);
+    border-color:rgb(255,53,127);
     }
     .range.blue::-moz-range-thumb {
-    border-color: rgb(59,173,227);
+    border-color:rgb(59,173,227);
     }
     .range.ltpurple::-moz-range-thumb {
-    border-color: rgb(87,111,230);
+    border-color:rgb(87,111,230);
     }
     
     .range.purple::-moz-range-thumb {
-    border-color: rgb(152,68,183);
+    border-color:rgb(152,68,183);
     }
     .range.pink::-moz-range-thumb {
-    border-color: rgb(255,53,127);
+    border-color:rgb(255,53,127);
     }
     input[type=range]::-webkit-slider-thumb:active {
-    cursor: -webkit-grabbing;
+    cursor:-webkit-grabbing;
     }
     input[type=range]::-moz-range-thumb:active {
-    cursor: -moz-grabbing;
+    cursor:-moz-grabbing;
     }
     /* Resources1× 0.5× 0.25×Rerun */
     
@@ -329,85 +346,85 @@
 /* ------------------------------------------------------------------- */
 
 
-
 @media (min-width:700px){/*375px*/
-#resizeInnerW{color: blue;}
+#resizeInnerW{color:blue;}
 
-body{height: 960px;}
+body{height:960px;}
 #pageMain{width:1440px;}
 #Cnt1{
-    max-width: 100%;
-    width: 840px;
-    height: 655px; 
-    /* border: red solid 1px; */
+    max-width:100%;
+    width:840px;
+    height:655px; 
+    /* border:red solid 1px; */
     border-bottom-right-radius:200px;
     top:23px;
 }
 #Cnt1a{
-    display: flex;
-    position: relative;
-    /* border: rgb(0, 42, 255) solid 1px; */
-    /* margin-right: 182px; */
-    margin-right: 21.7%;
-    width: 546px;
-    top: -185px ;
+    display:flex;
+    position:relative;
+    /* border:rgb(0, 42, 255) solid 1px; */
+    /* margin-right:182px; */
+    margin-right:21.7%;
+    width:546px;
+    top:-185px ;
 }
 #Cnt1aDay,#Cnt1aMonth,#Cnt1aYear{
-    display: flex;
-    position: relative;
-    width: 0%;}
-#Cnt1aDay{margin-left: -73px;}/*-12.18%*/
-#Cnt1aMonth{margin-left: 203px;}
-#Cnt1aYear{margin-left: 200px;}
+    display:flex;
+    position:relative;
+    width:0%;}
+#Cnt1aDay{margin-left:-73px;}/*-12.18%*/
+#Cnt1aMonth{margin-left:203px;}
+#Cnt1aYear{margin-left:200px;}
 #DayH,#MonthH,#YearH{
-    display: flex;
-    position: absolute;
-    color: rgb(123, 123, 123);
-    margin-top: -3.5px;
-    margin-left: -27px;
-    font-size: 14.2px;
-    font-weight: 900;
-    letter-spacing: 3.7px;}
-#MonthH{margin-left: -18px;letter-spacing: 3.4px;}
-#YearH{margin-left: -54px;}
+    display:flex;
+    position:absolute;
+    color:rgb(123, 123, 123);
+    margin-top:-3.5px;
+    margin-left:-27px;
+    font-size:14.2px;
+    font-weight:900;
+    letter-spacing:3.7px;}
+#MonthH{margin-left:-18px;letter-spacing:3.4px;}
+#YearH{margin-left:-54px;}
 
 #DayBox,#MonthBox,#YearBox{
-    /* display: flex; */
+    /* display:flex; */
     position:absolute;
-    /* align-items: center; */
-    top: 26px;
+    /* align-items:center; */
+    top:26px;
     width:159px;
     height:72px;
-    margin-left: 94px;
-    border-radius: 8.6px;}
-#MonthBox{margin-left: 71px;}
-#YearBox{margin-left: 55px;}
+    margin-left:94px;
+    border-radius:8.6px;}
+#MonthBox{margin-left:71px;}
+#YearBox{margin-left:55px;}
 
 #DayBoxLbLP,#MonthBoxLbLP,#YearBoxLbLP{
-    font-size: 200%;
+    font-size:200%;
 
 }
 
 #DayBoxP,#MonthBoxP,#YearBoxP{
-    margin-left: 22px;
-    font-size: 31px;
-    font-weight: 900;}
-#MonthBoxP{margin-left: 23px;}
+    margin-left:22px;
+    font-size:31px;
+    font-weight:900;}
+#MonthBoxP{margin-left:23px;}
 #YearBoxP{
-margin-left: 22px;
-letter-spacing: 1.2px;
+margin-left:22px;
+letter-spacing:1.2px;
 width:105px;}
 
 .ModalChk{
-    display: flex;
-    position: absolute;
-    font-size: 14px;
-    bottom: -28px;
-    /* border: solid black 1px; */
-    color: red;
+    display:flex;
+    position:absolute;
+    font-size:14px;
+    bottom:-28px;
+    /* border:solid black 1px; */
+    color:red;
     width:150px;
-    font-style: italic;
-    /* font-weight: 600; */
+    font-style:italic;
+    top:100px;
+    /* font-weight:600; */
 }
 #dayMdlChkP1{
     margin-left:86px;
@@ -420,77 +437,80 @@ width:105px;}
 }
 
 #lineD{
-    display: flex;
-    position: relative;
-    border-top: rgb(239,239,239) 2px solid;
-    height: 2px;
-    width: 634.5px;
+    display:flex;
+    position:relative;
+    border-top:rgb(239,239,239) 2px solid;
+    height:2px;
+    width:634.5px;
     top:-138px;
-    margin-right: 94px;}
+    margin-right:94px;}
 
 #iconArr{
-    background-color: rgb(132, 77, 255);
+    background-color:rgb(132, 77, 255);
     width:75px;
     height:135px;
     top:140px;/*166px*/
-    margin-left: 635px;
-    transform: scale(0.6, 0.7);}
+    margin-left:635px;
+    transform:scale(0.6, 0.7);}
 #iconArrCropped{
     display:flex;
-    position: absolute;
-    height: 97px;
-    width: 97px;
+    position:absolute;
+    height:97px;
+    width:97px;
     top:160px;/*163px*/
-    margin-left: 634px;
-    background: rgba(133, 77, 255, 0.0);
-    border-radius: 50%;
+    margin-left:634px;
+    background:rgba(133, 77, 255, 0.0);
+    border-radius:50%;
     border:solid 27px rgb(132, 77, 255);
     border-top:solid 25px rgb(132, 77, 255);}
 
     #iconArrBtn{
-        margin-top: -4.5px;
-        margin-left: 634px;
-        width:  97px;
-        height: 97px;
+        margin-top:-4.5px;
+        margin-left:634px;
+        width:97px;
+        height:97px;
 
-    }
+    }/*Next, Sort out the hover effect of the button
+       and then the calculations...
+     */
+
 
 
 #Cnt1bYrs,#Cnt1bMonths,#Cnt1bDays{
-    display: flex;
-    position: relative;
+    display:flex;
+    position:relative;
     top:-74.2px;
-    margin-top: -41.5px;
-    margin-left: 7px;}
+    margin-top:-41.5px;
+    margin-left:7px;}
 
 #Cnt1bYrsN,#Cnt1bMntsN,#Cnt1bDysN{
-        display: flex;
-        position: relative;
-        margin-left: 8px;
-        font-style: italic;
-        font-weight: 900;
-        font-size: 104px;
-        letter-spacing: -2.1px;
-        color: rgb(132, 77, 255);}
+        display:flex;
+        position:relative;
+        margin-left:8px;
+        font-style:italic;
+        font-weight:900;
+        font-size:104px;
+        letter-spacing:-2.1px;
+        color:rgb(132, 77, 255);}
 
     #Cnt1bYrsL,#Cnt1bMntsL,#Cnt1bDysL{
-        display: flex;
-        position: relative;
-        margin-left: 10.5px;
-        font-style: italic;
-        font-weight: 900;
-        font-size: 104px;
-        letter-spacing: -1.9px;}
+        display:flex;
+        position:relative;
+        margin-left:10.5px;
+        font-style:italic;
+        font-weight:900;
+        font-size:104px;
+        letter-spacing:-1.9px;}
 
         #rangeDayId,#rangeMonthId,#rangeYearId {
          top:115px;
          width:500px;
         }
-        #attribution{bottom: -130px;}
+        #attribution{bottom:-130px;}
 }
 
 
 
-#attribution {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  font-size: 10px;display: flex;position: relative ; text-align: center; justify-content: center; width:100%;}
-#attribution a { color: hsl(228, 45%, 44%); }
+#attribution {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  font-size:10px;display:flex;position:relative ; text-align:center; justify-content:center; width:100%;}
+#attribution a { color:hsl(228, 45%, 44%); }
 
