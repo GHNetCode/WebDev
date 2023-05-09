@@ -8,7 +8,7 @@
 *{box-sizing:border-box; margin:0;padding:0;}
 /*View Width in pixels on the page..*/
     #resizeInnerW{/*disable after finished..*/
-    display:flex; /* none\flex */
+    display:none; /* none\flex */
     justify-content:center;
     position:fixed;
     top:0; 
@@ -224,7 +224,26 @@
         font-weight:900;
         font-size:56px;
         letter-spacing:-2.1px;
-        color:rgb(132, 77, 255);}
+        color:rgb(132, 77, 255); 
+        /* transition: all 2000ms ease; */
+        transform: rotate(0deg);
+        transition: 0s ease-in-out;
+
+        animation-duration: 1s;
+/* 132, 77, 255   246, 152, 255 */
+    }
+
+    #Cnt1bYrsN:hover,#Cnt1bMntsN:hover,#Cnt1bDysN:hover{
+
+        transform: rotate(360deg);
+        transition: transform 1s ease-in-out;
+    }
+
+      @keyframes color-change {
+        0% { color: rgb(61, 169, 227); }
+        50% { color: rgb(137, 77, 193); }
+        100% { color: rgb(252, 53, 128); }
+      }
 
     #Cnt1bYrsL,#Cnt1bMntsL,#Cnt1bDysL{
         display:flex;
@@ -235,6 +254,8 @@
         font-size:56px;
         letter-spacing:-1.1px;
     }
+
+
 
 
 /* ------------------------------------------------------------------- */

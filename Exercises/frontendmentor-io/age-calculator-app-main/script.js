@@ -13,6 +13,7 @@ let rangeMonthId = document.getElementById('rangeMonthId');
 let rangeDayId = document.getElementById('rangeDayId');
 let DayBoxLbLP = document.getElementById('DayBoxLbLP');
 let DayBoxP = document.getElementById('DayBoxP');
+let MonthBoxP = document.getElementById('MonthBoxP');
 let MonthBoxLbLP = document.getElementById('MonthBoxLbLP');
 let YearBoxLbLP = document.getElementById('YearBoxLbLP');
 
@@ -180,6 +181,12 @@ if ('ontouchstart' in window){
                 
                 }
             
+                // if(elementId ==='iconArrBtn'){
+                    
+                //     setTimeout(rotateysm("Cnt1bYrsN"),1200)
+                // }
+                
+                // rotateysm("Cnt1bYrsN");
 
       });}
           
@@ -290,6 +297,8 @@ let day = date.toLocaleString("default", { day: "2-digit" });
 // Generate yyyy-mm-dd date string
 let formattedDate = year + "-" + month + "-" + day;//  yyyy-mm-dd
 
+
+
 function iconArrBtnFunc(){
 let dmyArr =[dval,mval,yval];
   
@@ -368,20 +377,19 @@ if (dateChk){ //For Messages:"Must be a valid day","Must be a valid Month","Must
              To check if a year is a leap year, it must be divisible by 4 and not divisible by 100 or divisible by 400.
             */
 
-            if((yval % 4 == 0) && (yval % 100 !==0)){
+              if(((yval % 4 == 0) && (yval % 100 !==0))|| (yval % 400 == 0)){
                 //alert('We got ourselves a leap year..')
                 //Feb date here can be the 29th..
-                if (dval<=29){
+                if (dval<=28){
                     document.getElementById("dayMdlChkP1").innerHTML = "";
-                    mDaysVal = 29;
+                    mDaysVal = 28 ; //adding 1 as consistently get +1 day more in the results...
                  }else{document.getElementById("dayMdlChkP1").innerHTML = "Must be a valid date";
                   dateChk = false;}
-                }else if (dval<=28){//else if Not a leap year...
+                }else if (dval<=29){//else if Not a leap year...
                  document.getElementById("dayMdlChkP1").innerHTML = "";
-                 mDaysVal = 28;
+                 mDaysVal = 29;
                 }else{document.getElementById("dayMdlChkP1").innerHTML = "Must be a valid date";
                  dateChk = false;}
-         
 
         }
     }
@@ -424,90 +432,79 @@ if (dateChk){ //For Messages:"Must be a valid day","Must be a valid Month","Must
 
              //Check if the Days are more than the months, if so then add a month..
              //else remove a month and sort days..
+
+             //Need to check the Leap Years!!!
             if ((mDaysVal - dval) + day >= mDaysVal){//mDaysVal days in Bday month..
-               //  alert('02 mDaysVal:'+mDaysVal+'  dval:'+dval)
+             //    alert('02 mDaysVal:'+mDaysVal+'  dval:'+dval)
                 //monthSum +=1;//add a month..
                 daySum = ((mDaysVal - dval) + day) -mDaysVal;
                 
             }else{
 
-                daySum = mDaysVal -(dval - day);
-               //  alert('03 mDaysVal:'+mDaysVal+'  dval:'+dval);
-                //monthSum -=1;//subtract a month..
 
-                //needs checking against the months.. this needs moving 
-                // from the days section to the months section..
+                //check if leap year, add days..
+                if (mDaysVal==29){  mDaysVal +=2; }
+                if (mDaysVal==28){  mDaysVal +=2; }
+
+                daySum = mDaysVal -(dval - day);
+
+
                 if (dval > day){
-                  //alert('04');
                     if (monthSum==0){ monthSum=12; yearSum -=1;}
                     monthSum -=1
-                  //  alert('05') ;
                 }
             }
             
 //    }
 
-
-
-        //year(2023) yval(2021)=2
-
-        //yearSumDays = (year - yval -1)*365;//This is for Years prior to current year!!
-        //monthSumDays = (12 - mval)*31;//assuming ALL months are 31 days.. :(
-       
- 
         document.getElementById("Cnt1bYrsN").innerHTML = yearSum;
         document.getElementById("Cnt1bMntsN").innerHTML = monthSum;
         document.getElementById("Cnt1bDysN").innerHTML = daySum;
+        
+        //Let`s give the numbers some life with animations and colors. :)
+        counterAnim("#Cnt1bYrsN", 0, yearSum, 1000);
+        counterAnim("#Cnt1bMntsN", 0, monthSum, 1000);
+        counterAnim("#Cnt1bDysN", 0, daySum, 1000);
+        rotateysm("Cnt1bYrsN");
+        rotateysm("Cnt1bMntsN");
+        rotateysm("Cnt1bDysN");
     }
-
+ 
 };
-    
 
-function sparefunct() {
-    
-
-
-
-    //
-    //
-    //
-    //
-    //
-
-
-
-    monthSum =0;
-    if (dval < day){//from day to month increasing time..
-        alert('1');
-        daySum = day - dval;
-        
-       if(mval<month){
-        monthSum = month - mval;
-       }else{monthSum = mval -month;}
-       
-    }else{
-
-        if (dval == day){//arrived at a new month, increase mval by 1.. 
-            daySum =0;
-            mval +=1;
-         }
-            else{ daySum = mDaysVal-(dval - day);//from day to month decreasing time..
-             alert('2  dval - day: ' +dval +'  day:'+ day);
-              
-        }
-
-        if(mval<month){
-            monthSum = month - mval;
-        }else
-        
-        {monthSum = mval -month;}
+function rotateysm(eId){
+    //ysm.style.color='rgb(246, 152, 255)'; //132, 77, 255  -- rgb(246, 152, 255)
 
     
-    }
+let ysm = document.getElementById(eId);
+// let msm = document.getElementById('Cnt1bMntsN');
+// let dsm = document.getElementById('Cnt1bDysN');
+    ysm.style.transform= 'rotate(360deg)';
+    ysm.style.transition=  'transform 1s';
+    ysm.style.animationName= 'color-change';
+   
+ }
 
-}
+const counterAnim = (qSelector, start = 0, end, duration) => {
+    const target = document.querySelector(qSelector);
+    let startTimestamp = null;
+    const step = (timestamp) => {
+     if (!startTimestamp) startTimestamp = timestamp;
+     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+     target.innerText = Math.floor(progress * (end - start) + start);
+     if (progress < 1) {
+      //window.requestAnimationFrame(step);
+      setTimeout(window.requestAnimationFrame(step), 1);
+     }
+    };
+    //window.requestAnimationFrame(step);
+    setTimeout(window.requestAnimationFrame(step), 1);
+   };
 
 
-
-
+//    window.onload=function() {
+//     document.getElementById("Cnt1bYrsN").addEventListener('animationend',function(event){ event.srcElement.style.animationName=""; }); 
+//     document.getElementById("Cnt1bMntsN").addEventListener('animationend',function(event){ event.srcElement.style.animationName=""; }); 
+//     document.getElementById("Cnt1bDysN").addEventListener('animationend',function(event){ event.srcElement.style.animationName=""; }); 
+// };
 
