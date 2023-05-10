@@ -201,7 +201,7 @@
 
         
             /* Fix sticky hover effect.. on mobile phones using @media(hover: hover) {...}*/
-            @media(hover:hover) {
+            /* @media(hover:hover) {
                 #iconArrBtn:hover{
                     opacity: 30%;
                     border: 3px solid rgb(226,57,142);
@@ -209,7 +209,7 @@
                     box-shadow: inset 0 0 0 6px;
                 
                 }
-             }
+             } */
 
             /* #iconArrBtn:hover {
                color: #33d6f3 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
@@ -219,15 +219,30 @@
                    box-shadow: inset 0 0 0 6px;
                transition: background 1s;
              } */
+
              /* For touch screens... */
-              #iconArrBtn:active {
+              /* #iconArrBtn:active {
                 opacity: 30%;
                     border: 3px solid rgb(226,57,142);
                     transition: 0.2s;
                     box-shadow: inset 0 0 0 10px;
                 transition: background 1s;
-              }
+              } */
     
+              #iconArrBtn {
+                background-position: center;
+                transition: background 0.5s;
+              }
+              #iconArrBtn:hover {
+                opacity: 30%;
+                background: var(--focus-color) radial-gradient(circle, transparent 1%, var(--focus-color) 1%) center/15000%;
+              }
+              #iconArrBtn:active {
+                opacity: 30%;
+                background-color: var(--active-color);
+                background-size: 100%;
+                transition: background 0s;
+              }
 
 #Cnt1b{
     display:flex;
