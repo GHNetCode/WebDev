@@ -1,10 +1,7 @@
+//Show width in pixels for screen size, -- disable when done...:
 window.onresize=()=>{
     document.getElementById('resizeInnerW').textContent=window.innerWidth;
 }
-
-//
-// Sort out the double digits for Day and Month and Year!!
-//
 
 
 
@@ -54,7 +51,6 @@ if ('ontouchstart' in window){
             }
           }
         }
-
 
     //Month BOX
         //display range Slider and hide Label..
@@ -109,20 +105,7 @@ if ('ontouchstart' in window){
       }
     });
 } 
-// else if ('ontouchmove' in window){
-    // console.log('ontouchmove fired..');
-        // document.addEventListener("touchmove",(event) =>{
-            // let elementId = event.target.id;
-            // let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-            // console.log('ontouchmove all  elementCls :'+ elementCls)
-            // console.log('ontouchmove all  elementId :'+ elementId);
-    // 
-// 
-            // if(elementId ==="rangeDayId"){
-                // DayBoxLbLP.style.display="none";
-                // rangeDayId.style.display="flex";
-            //  }
-// });}
+
  else if ('ontouchend' in window){
         document.addEventListener("touchend", (event) => {
         
@@ -181,12 +164,6 @@ if ('ontouchstart' in window){
                 
                 }
             
-                // if(elementId ==='iconArrBtn'){
-                    
-                //     setTimeout(rotateysm("Cnt1bYrsN"),1200)
-                // }
-                
-                // rotateysm("Cnt1bYrsN");
 
       });}
           
@@ -396,95 +373,78 @@ if (dateChk){ //For Messages:"Must be a valid day","Must be a valid Month","Must
 
     if (dateChk){//At this stage, no errors.. Time to calculate and update years,months,days..
     
-        //calculate update form..:
 
-        //yval=Cnt1bYrsN, mval=Cnt1bMntsN, dval=Cnt1bDysN
-        //current date variables year + "-" + month + "-" + day;
-
-        //convert mm,dd from a str to an int..
+        //convert mm,dd to an int..
           year = parseInt(year);
           month = parseInt(month);
           day = parseInt(day);
-          //  alert('typeof year'+typeof year +'typeof month'+typeof month +'typeof day'+typeof day)
+         
         let yearSum,monthSum,daySum;
 
     
-    //   if ((year - yval >= 0) && (month-mval>=0) && (day-dval>=0) ){//If year is more than 2 years past then subtract years..
-            yearSum = year - yval -1;
+           yearSum = year - yval -1;
             
-            // now add the months between bday year and current year, IF 
+            //Add the months between bday year and current year, IF 
             //more than twelve, add 1 year and then subtract 12  to get
-            //months left minus 1 for the days....
-           
+            //months left minus 1 for the days....           
             if(((12 - mval) + month ) >= 12){
-             //   alert('>00 12 --: month :' + month+ '  12 - mval :'+(12 - mval))
                 yearSum +=1; // Add one year.
                 monthSum = ((12 - mval) + month) -12;//-12 remove year from months..
                 
             }else{
-            //    alert('01 monthSum = ((12 - mval) + month)');
                 monthSum = ((12 - mval) + month)
             
             }
-    
-             //   alert('0 mDaysVal:'+mDaysVal+'  dval:'+dval)
-             //mDaysVal is months
 
-             //Check if the Days are more than the months, if so then add a month..
-             //else remove a month and sort days..
-
-             //Need to check the Leap Years!!!
-            if ((mDaysVal - dval) + day >= mDaysVal){//mDaysVal days in Bday month..
-             //    alert('02 mDaysVal:'+mDaysVal+'  dval:'+dval)
-                //monthSum +=1;//add a month..
+            //mDaysVal is total num of days for the bday(mval) month..
+            if ((mDaysVal - dval) + day >= mDaysVal){
+               // alert('1');
                 daySum = ((mDaysVal - dval) + day) -mDaysVal;
-                
             }else{
-
-
-                //check if leap year, add days..
+               // alert('2');
+                //check if leap year, if so then add days..
                 if (mDaysVal==29){  mDaysVal +=2; }
                 if (mDaysVal==28){  mDaysVal +=2; }
 
                 daySum = mDaysVal -(dval - day);
 
-
                 if (dval > day){
-                    if (monthSum==0){ monthSum=12; yearSum -=1;}
+                    if (monthSum==0){ 
+                        monthSum=12; yearSum -=1;}
                     monthSum -=1
                 }
             }
             
-//    }
 
         document.getElementById("Cnt1bYrsN").innerHTML = yearSum;
         document.getElementById("Cnt1bMntsN").innerHTML = monthSum;
         document.getElementById("Cnt1bDysN").innerHTML = daySum;
         
         //Let`s give the numbers some life with animations and colors. :)
-        counterAnim("#Cnt1bYrsN", 0, yearSum, 1000);
-        counterAnim("#Cnt1bMntsN", 0, monthSum, 1000);
-        counterAnim("#Cnt1bDysN", 0, daySum, 1000);
+        counterAnim("#Cnt1bYrsN", 0, yearSum, 2000);
+        counterAnim("#Cnt1bMntsN", 0, monthSum, 2000);
+        counterAnim("#Cnt1bDysN", 0, daySum, 2000);
         rotateysm("Cnt1bYrsN");
         rotateysm("Cnt1bMntsN");
         rotateysm("Cnt1bDysN");
     }
- 
 };
 
 function rotateysm(eId){
-    //ysm.style.color='rgb(246, 152, 255)'; //132, 77, 255  -- rgb(246, 152, 255)
-
-    
 let ysm = document.getElementById(eId);
-// let msm = document.getElementById('Cnt1bMntsN');
-// let dsm = document.getElementById('Cnt1bDysN');
     ysm.style.transform= 'rotate(360deg)';
     ysm.style.transition=  'transform 1s';
     ysm.style.animationName= 'color-change';
-   
+    ysm.addEventListener("animationend", myEndAnimFunc);
  }
 
+ //lets ensure we can repeat the animation again after the button is clicked more than once..
+ function myEndAnimFunc (){
+    this.removeAttribute('style');
+}
+
+
+//Count the numbers function..
 const counterAnim = (qSelector, start = 0, end, duration) => {
     const target = document.querySelector(qSelector);
     let startTimestamp = null;
@@ -493,18 +453,9 @@ const counterAnim = (qSelector, start = 0, end, duration) => {
      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
      target.innerText = Math.floor(progress * (end - start) + start);
      if (progress < 1) {
-      //window.requestAnimationFrame(step);
       setTimeout(window.requestAnimationFrame(step), 1);
      }
     };
-    //window.requestAnimationFrame(step);
     setTimeout(window.requestAnimationFrame(step), 1);
    };
-
-
-//    window.onload=function() {
-//     document.getElementById("Cnt1bYrsN").addEventListener('animationend',function(event){ event.srcElement.style.animationName=""; }); 
-//     document.getElementById("Cnt1bMntsN").addEventListener('animationend',function(event){ event.srcElement.style.animationName=""; }); 
-//     document.getElementById("Cnt1bDysN").addEventListener('animationend',function(event){ event.srcElement.style.animationName=""; }); 
-// };
-
+   

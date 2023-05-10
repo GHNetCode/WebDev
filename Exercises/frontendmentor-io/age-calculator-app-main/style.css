@@ -227,16 +227,15 @@
         color:rgb(132, 77, 255); 
         /* transition: all 2000ms ease; */
         transform: rotate(0deg);
-        transition: 0s ease-in-out;
+        transition: 2s ease-in-out;
 
-        animation-duration: 1s;
+        animation-duration: 2s;
 /* 132, 77, 255   246, 152, 255 */
     }
 
     #Cnt1bYrsN:hover,#Cnt1bMntsN:hover,#Cnt1bDysN:hover{
-
-        transform: rotate(360deg);
-        transition: transform 1s ease-in-out;
+        transform: rotate(720deg);
+        transition: transform 2s ease-in-out;
     }
 
       @keyframes color-change {
@@ -491,9 +490,7 @@ width:105px;}
         width:97px;
         height:97px;
 
-    }/*Next, Sort out the hover effect of the button
-       and then the calculations...
-     */
+    }
 
 
 
