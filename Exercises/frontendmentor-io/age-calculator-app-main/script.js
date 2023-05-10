@@ -116,7 +116,7 @@ if ('ontouchstart' in window){
         console.log('ontouchend all  elementId :'+ elementId);
 //iconArrBtn
         if(elementId ==='iconArrBtn'){
-            iconArrBtn.style.inset = 'unset';
+            iconArrBtn.style.opacity = 'unset';
 
         }
 
