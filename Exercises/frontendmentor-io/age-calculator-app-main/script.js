@@ -168,18 +168,18 @@ if ('ontouchstart' in window){
       });}
           
 
-      function touchHover() {
-        function is_touch_enabled() {
-           // Verify that touch is turned on
-           return "ontouchstart" in window || navigator.maxTouchPoints > 0 ||
-              navigator.msMaxTouchPoints > 0;
-        }
-        if (!is_touch_enabled()) {
-           // Add the "myButton2" class if touch is not enabled.
-           let verifyTouch = document.getElementById("myButton");
-           verifyTouch.classList.add("myButton2");
-        }
-     }
+    //  function touchHover() {
+    //    function is_touch_enabled() {
+    //       // Verify that touch is turned on
+    //       return "ontouchstart" in window || navigator.maxTouchPoints > 0 ||
+    //          navigator.msMaxTouchPoints > 0;
+    //    }
+    //    if (!is_touch_enabled()) {
+    //       // Add the "myButton2" class if touch is not enabled.
+    //       let verifyTouch = document.getElementById("myButton");
+    //       verifyTouch.classList.add("myButton2");
+    //    }
+    // }
 
 
 // Format Day and Month to ensure they have a leading 0 for single digits (0 - 9)...
