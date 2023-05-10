@@ -121,7 +121,7 @@
             outline:none;
             width:60px;
             border:none;
-            /*input field border needs manually disabling*/
+            
         }
        
         #MonthBoxP{margin-left:18%;}
@@ -187,6 +187,9 @@
             #iconArrBtn{/*Lets create ourselves an invisible button for the SVG arrow icon*/
             display:flex;
             position:absolute;
+            /* color: rgba(0, 0, 0, 0); */
+            color: rgb(132, 77, 255);
+            font-size: 0px;
             width:62px;
             height:62px;
             top:164.5px;
@@ -485,6 +488,8 @@ width:105px;}
     border-top:solid 25px rgb(132, 77, 255);}
 
     #iconArrBtn{
+        /* display: none; */
+
         margin-top:-4.5px;
         margin-left:634px;
         width:97px;
