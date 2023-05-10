@@ -198,12 +198,17 @@
             opacity:0;
             }
 
-            #iconArrBtn:hover{
-                opacity: 30%;
-                border: 3px solid rgb(226,57,142);
-                transition: 0.2s;
-                box-shadow: inset 0 0 0 6px;
-            }
+        
+            /* Fix sticky hover effect.. on mobile phones using @media(hover: hover) {...}*/
+            @media(hover: hover) {
+                #iconArrBtn:hover{
+                    opacity: 30%;
+                    border: 3px solid rgb(226,57,142);
+                    transition: 0.2s;
+                    box-shadow: inset 0 0 0 6px;
+                }
+             }
+    
 
 #Cnt1b{
     display:flex;
