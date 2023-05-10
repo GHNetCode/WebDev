@@ -13,7 +13,7 @@ let DayBoxP = document.getElementById('DayBoxP');
 let MonthBoxP = document.getElementById('MonthBoxP');
 let MonthBoxLbLP = document.getElementById('MonthBoxLbLP');
 let YearBoxLbLP = document.getElementById('YearBoxLbLP');
-
+let iconArrBtn = document.getElementById('iconArrBtn');
 
 
 
@@ -114,8 +114,11 @@ if ('ontouchstart' in window){
         let elementCls = event.target.classList; //event.target.classList.contains("my-class")
         console.log('ontouchend all  elementCls :'+ elementCls)
         console.log('ontouchend all  elementId :'+ elementId);
+//iconArrBtn
+        if(elementId ==='iconArrBtn'){
+            iconArrBtn.style.inset = 'unset';
 
-         
+        }
 
         });
 
