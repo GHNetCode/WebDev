@@ -474,15 +474,3 @@ const counterAnim = (qSelector, start = 0, end, duration) => {
     };
     setTimeout(window.requestAnimationFrame(step), 1);
    };
-
-   //That pesky sticky hover issue we have on touch screens..
-   //https://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices
-   function fix()
-   {
-       var el = this;
-       var par = el.parentNode;
-       var next = el.nextSibling;
-       par.removeChild(el);
-       setTimeout(function() {par.insertBefore(el, next);}, 0)
-   }
-   
