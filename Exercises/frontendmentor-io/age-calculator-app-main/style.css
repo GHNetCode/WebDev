@@ -196,27 +196,47 @@
             margin-left:-0.187px ;
             border-radius:50%;
             opacity:0;
-            transition: background 1s;
+            transition: background 0.2s;
             }
 
         
             /* Fix sticky hover effect.. on mobile phones using @media(hover: hover) {...}*/
-            @media(hover: hover) {
+            /* @media(hover: hover) {
                 #iconArrBtn:hover{
                     opacity: 30%;
                     border: 3px solid rgb(226,57,142);
                     transition: 0.2s;
                     box-shadow: inset 0 0 0 6px;
                 
+                } */
+                @media (hover: hover) and (pointer: fine){
+                    #iconArrBtn:hover{
+                        opacity: 30%;
+                        border: 3px solid rgb(226,57,142);
+                        transition: 0.2s;
+                        box-shadow: inset 0 0 0 6px;
+
                 }
              }
-             @media (hover: none) {
+
+
+             @media (hover: none) and (pointer: coarse) {
+                #iconArrBtn{
+                    opacity: 0%;
+                    /* border: 3px solid rgb(226,57,142);
+                    transition: 0.2s;
+                    box-shadow: inset 0 0 0 6px; */
+
+            }
+
+            }
+             /* @media (hover: none) {
                 #iconArrBtn {
                     color: rgb(132, 77, 255);
                     opacity:0;
                     box-shadow:unset;
                 }
-            }
+            } */
 
             /* #iconArrBtn:hover {
                color: #33d6f3 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
@@ -233,7 +253,7 @@
                     border: 3px solid rgb(226,57,142);
                     transition: 0.2s;
                     box-shadow: inset 0 0 0 10px;
-                transition: background 1s;
+                transition: background 0.2s;
               }
     
           
