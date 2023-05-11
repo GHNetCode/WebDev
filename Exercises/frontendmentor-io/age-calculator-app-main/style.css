@@ -107,12 +107,13 @@
             width:100%;
             padding-left:15%;
             font-size:1.3em;
+            
         }
         #YearBoxLbLP{
             padding-left:14%;
         }
 
-
+        /* input{appearance: textfield;} */
         #DayBoxP,#MonthBoxP,#YearBoxP{
             margin-left:15px;
             font-size:19px;
@@ -121,14 +122,15 @@
             outline:none;
             width:60px;
             border:none;
-            
+            appearance: textfield;
+
         }
        
         #MonthBoxP{margin-left:18%;}
         #YearBoxP{
         margin-left:14%;
         /* letter-spacing:1.0px; */
-        width:70px
+        width:70px;
     }
 
     .ModalChk{

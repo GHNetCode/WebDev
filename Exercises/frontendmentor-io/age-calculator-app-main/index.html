@@ -20,7 +20,7 @@
                     <div id="DayBox">
                       <label for="DayBoxP"id="DayBoxLbLP">DD</label>
                         <!-- <input type="number" id="DayBoxP" name="DayBoxP" min="01" max="31" value="24"  oninput="rangeDayId.value=DayBoxP.value" /> -->
-                        <input type="number" id="DayBoxP" name="DayBoxP" min="01" max="31" value=''  oninput='dmyNumF (this,"DayBoxP")' onchange="dmyVals('day',this.value)"/>
+                        <input type="text" id="DayBoxP" name="DayBoxP" min="01" max="31" value=''  oninput='dmyNumF (this,"DayBoxP")' onchange="dmyVals('day',this.value)"/>
                     </div>
                     <p id="dayMdlChkP1" class="ModalChk"></p>
                 </div>
@@ -30,7 +30,7 @@
                     <div id="MonthBox">
                         <!-- <p id="MonthBoxP">09</p> -->
                         <label for="MonthBoxP"id="MonthBoxLbLP">MM</label>
-                        <input type="number" id="MonthBoxP" name="MonthBoxP" min="01" max="12" value='' oninput='dmyNumF (this,"MonthBoxP")' onchange="dmyVals('month',this.value)"/>
+                        <input type="text" id="MonthBoxP" name="MonthBoxP" min="01" max="12" value='' oninput='dmyNumF (this,"MonthBoxP")' onchange="dmyVals('month',this.value)"/>
                     </div>
                     <p id="monthMdlChkP1" class="ModalChk"></p>
                 </div>
@@ -41,7 +41,7 @@
                         <!-- <p id="YearBoxP">1984</p> -->
                         <label for="YearBoxP" id="YearBoxLbLP">YYYY</label>
                         <!-- <input type="number" id="YearBoxP" name="YearBoxP" min="1900" max="2050" value='' oninput="rangeYearId.value=YearBoxP.value" onchange="dmyVals('year',this.value)"/> -->
-                        <input type="number" id="YearBoxP" name="YearBoxP" min="1900" max="2050" value='' oninput='dmyNumF (this,"YearBoxP")' onchange="dmyVals('year',this.value)"/>
+                        <input type="text" id="YearBoxP" name="YearBoxP" min="1900" max="2050" value='' oninput='dmyNumF (this,"YearBoxP")' onchange="dmyVals('year',this.value)"/>
 
                     </div>
                     <p id="yearMdlChkP1" class="ModalChk"></p>
@@ -49,9 +49,9 @@
 
                 <!-- Range Slider to try and implement :)  -->
                 <!-- <input type="range" min="0" max="100" value="0" class="range blue" oninput="DayBoxP.innerText = this.value"/> -->
-                <input id="rangeDayId"   type="range" min="01" max="31" value='1' class="range blue" oninput='dmyNumF (this,"rangeDayId")' onchange="dmyVals('day',this.value)"/>
-                <input id="rangeMonthId" type="range" min="01" max="12" value='1' class="range blue" oninput='dmyNumF (this,"rangeMonthId")' onchange="dmyVals('month',this.value)"/>
-                <input id="rangeYearId"  type="range" min="1900" max="2050" value='1900' class="range blue" oninput='dmyNumF (this,"rangeYearId")' onchange="dmyVals('year',this.value)"/>
+                <input id="rangeDayId"   type="range" min="01" max="31" value=' ' class="range blue" oninput='dmyNumF (this,"rangeDayId")' onchange="dmyVals('day',this.value)"/>
+                <input id="rangeMonthId" type="range" min="01" max="12" value=' ' class="range blue" oninput='dmyNumF (this,"rangeMonthId")' onchange="dmyVals('month',this.value)"/>
+                <input id="rangeYearId"  type="range" min="1900" max="2050" value=' ' class="range blue" oninput='dmyNumF (this,"rangeYearId")' onchange="dmyVals('year',this.value)"/>
             </div>
 
             

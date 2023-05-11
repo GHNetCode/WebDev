@@ -32,7 +32,9 @@ if ('ontouchstart' in window){
         if(elementId ==='DayBoxLbLP'||'DayBoxP'||'rangeDayId'){
               if(DayBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
                   rangeDayId.style.display='flex';
-                  DayBoxLbLP.style.display='none';//MM Label                
+                  DayBoxLbLP.style.display='none';//MM Label
+                  //reset any prior messages for "dayMdlChkP1" "monthMdlChkP1" "yearMdlChkP1")
+                  document.getElementById("dayMdlChkP1").innerHTML = "";                
                  }
         }
         // DayBoxLbLP > DayBoxP > rangeDayId
@@ -57,7 +59,9 @@ if ('ontouchstart' in window){
         if(elementId ==='MonthBoxLbLP'||'MonthBoxP'||'rangeMonthId'){ 
             if(MonthBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
                 rangeMonthId.style.display='flex';
-                MonthBoxLbLP.style.display='none';//DDMMYYYYLabel                
+                MonthBoxLbLP.style.display='none';//DDMMYYYYLabel  
+                //reset any prior messages for "dayMdlChkP1" "monthMdlChkP1" "yearMdlChkP1")
+                document.getElementById("monthMdlChkP1").innerHTML = "";               
                }
       }
 
@@ -83,7 +87,9 @@ if ('ontouchstart' in window){
         if(elementId ==='YearBoxLbLP'||'YearBoxP'||'rangeYearId'){ 
             if(YearBoxLbLP.style.display===''||'flex'){//initial and consecutive touches.. 
                 rangeYearId.style.display='flex';
-                YearBoxLbLP.style.display='none';//DDMMYYYYLabel                
+                YearBoxLbLP.style.display='none';//DDMMYYYYLabel
+                //reset any prior messages for "dayMdlChkP1" "monthMdlChkP1" "yearMdlChkP1")
+                document.getElementById("yearMdlChkP1").innerHTML = "";                 
                }
       }
 
@@ -103,6 +109,8 @@ if ('ontouchstart' in window){
           }
         }
       }
+
+
     });
 } 
 
@@ -112,13 +120,13 @@ if ('ontouchstart' in window){
         //get id and class events from '(event)' for Variables above..
         let elementId = event.target.id;
         let elementCls = event.target.classList; //event.target.classList.contains("my-class")
-        console.log('ontouchend all  elementCls :'+ elementCls)
-        console.log('ontouchend all  elementId :'+ elementId);
+        //console.log('ontouchend all  elementCls :'+ elementCls)
+        //console.log('ontouchend all  elementId :'+ elementId);
 //iconArrBtn
-        if(elementId ==='iconArrBtn'){
-            iconArrBtn.style.opacity = 'unset';
+        // if(elementId ==='iconArrBtn'){
+        //     iconArrBtn.style.opacity = 'unset';
 
-        }
+        // }
 
         });
 
@@ -126,13 +134,17 @@ if ('ontouchstart' in window){
            //get id and class events from '(event)' for Variables above..
            let elementId = event.target.id;
            let elementCls = event.target.classList; //event.target.classList.contains('my-class')
-           console.log('all  elementCls :'+ elementCls)
-           console.log('all  elementId :'+ elementId);
+          // console.log('all  elementCls :'+ elementCls)
+          // console.log('all  elementId :'+ elementId);
 
 
             if(elementId ==='DayBoxP'){
                     rangeDayId.style.display='flex';
                     DayBoxLbLP.style.display='none';//MM Label
+
+        //reset any prior messages for "dayMdlChkP1" "monthMdlChkP1" "yearMdlChkP1")
+                    document.getElementById("dayMdlChkP1").innerHTML = "";
+
              }else{                   
                   rangeDayId.style.display='none';
                             if (DayBoxP.value===''){
@@ -143,12 +155,16 @@ if ('ontouchstart' in window){
              if(elementId ==='rangeDayId'){
                 DayBoxLbLP.style.display='none';
                 rangeDayId.style.display='flex';
+           
+
              }//else{rangeDayId.style.display='none';}
 
 
             if(elementId ==='MonthBoxP'){
                     rangeMonthId.style.display='flex';
                     MonthBoxLbLP.style.display='none';//MM Label
+                    //reset any prior messages for "dayMdlChkP1" "monthMdlChkP1" "yearMdlChkP1")
+                    document.getElementById("monthMdlChkP1").innerHTML = "";
              }else{                   
                   rangeMonthId.style.display='none';
                   if (MonthBoxP.value===''){
@@ -159,13 +175,13 @@ if ('ontouchstart' in window){
                     // YearBoxLbLP.style.display='none';
                     rangeYearId.style.display='flex';
                     YearBoxLbLP.style.display='none';//YYYY Label
+                    //reset any prior messages for "dayMdlChkP1" "monthMdlChkP1" "yearMdlChkP1")
+                    document.getElementById("yearMdlChkP1").innerHTML = "";
              }else{
                 rangeYearId.style.display='none';
                 if (YearBoxP.value===''){
                     YearBoxLbLP.style.display='flex';
-                }  
-                
-                }
+                }}
             
 
       });}
@@ -193,8 +209,8 @@ let reg = /^\d+$/; //check only for numbers
 
 //DayBox
     if (id ==='DayBoxP'){
-        //console.log('DayBoxP:DDMMval.value :'+DDMMval.value)
-        
+       // console.log('DayBoxP:ymdVal.value :'+ymdVal.value)
+       // console.log('DayBoxP:rangeDayId.value :'+rangeDayId.value)
     
         if (!reg.test(ymdVal.value)){//if input not a number,reset to 0.
             ymdVal.value = 0;
@@ -212,10 +228,20 @@ let reg = /^\d+$/; //check only for numbers
 
     if (id ==='rangeDayId'){
        // DayBoxP.value=ymdVal.value; //update the rangeDay Slider..
-    if (ymdVal.value.length === 1){
-        DayBoxP.value = '0' + ymdVal.value;
-    }else{DayBoxP.value=ymdVal.value;}}
+       //  console.log('rangeDayId:DayBoxP.value :'+DayBoxP.value)
+       //  console.log('rangeDayId:ymdVal.value :'+ymdVal.value)
+    
+      
+      if (ymdVal.value.length === 1){
+          DayBoxP.value = '0' + ymdVal.value;
+      }else{DayBoxP.value=ymdVal.value;
+      }
+}
  
+
+
+
+
 //MonthBox
  if (id ==='MonthBoxP'){
 
@@ -271,9 +297,15 @@ let dval;
 let mval;
 let yval;
 function dmyVals(DMY,dValue){
-if (DMY==='day'){dval=dValue;}
-if (DMY==='month'){mval=dValue;}
-if (DMY==='year'){yval=dValue;}};
+if (DMY==='day'){
+//console.log('dmyVals dval:'+dval+' dValue:'+dValue);
+    dval=dValue;
+}
+if (DMY==='month'){
+    mval=dValue;}
+if (DMY==='year'){
+    yval=dValue;}
+};
 
 //Modal for Date Validation\Calculation...
 let iconArrBtnId = document.getElementById("iconArrBtn"); //class="iconArrBtn"
@@ -300,6 +332,8 @@ let dateChk = true; //true = date is currently valid..
 
 let mDaysVal = 0;//Days for bday month.
 
+
+
 //reset any prior messages
 document.getElementById("dayMdlChkP1").innerHTML = "";
 document.getElementById("monthMdlChkP1").innerHTML = "";
@@ -307,6 +341,7 @@ document.getElementById("yearMdlChkP1").innerHTML = "";
 
   //Loop to validate if there is a date value that is undefined or empty''.. 
    for (let i = 0; i < dmyArr.length; i++) {
+//    console.log('dmyArr[i] :'+dmyArr[i]+' i:'+[i]+' dmyArr.length:'+dmyArr.length);
 
         if (dmyArr[i]===undefined||dmyArr[i]===''){
                 //alert("value is undefined! or ''- i:"+'dmyArr[i] :'+dmyArr[i]+' i:'+[i]+' dmyArr.length:'+dmyArr.length);
