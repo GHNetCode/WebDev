@@ -132,6 +132,10 @@ body{
     height: 14px;
     cursor: pointer;
     /* background: rgba(40, 39, 39, 0.927); */
+    
+        background-image: url(../ip-address-tracker-master/images/icon-arrow.svg);
+      
+      
 }
 #srchInpTxt{
     font-family:'Rubik';
