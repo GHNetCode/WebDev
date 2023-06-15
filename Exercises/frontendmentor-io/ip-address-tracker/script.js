@@ -253,9 +253,14 @@ const getJSON = async url => {
               sBRCiPaDD.innerHTML=data.ip; //IP ADDRESS
               //sBRCLoc.innerText=(data.city+","+data.country_code3+" "+data.zipcode); // LOCATION
               sBRCLoc.innerText=(data.city+","+data.country_code3+" "+data.zipcode+" "); // LOCATION
-              sBRCLocFlag.src=(data.country_flag); // LOCATION FLAG
+              
               //img.src ='https://media.geeksforgeeks.org/wp-content/uploads/20190529122828/bs21.png';
+             
               document.getElementById('sBRCLoc').appendChild(sBRCLocFlag);// previous line 'sBRCLoc.innerText=..' overwrites the inner img tag, so it needs adding again..
+              sBRCLocFlag.src=(data.country_flag); // LOCATION FLAG
+              //const div = document.createElement('div');
+              //div.style.background = 'url(img.png)';
+
               console.log(data.country_flag);
                                        
               var localDate = new Date();// --TIMEZONE-->>
