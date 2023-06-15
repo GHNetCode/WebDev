@@ -178,7 +178,7 @@ body{
 }
 #sBRCLocLbl,#sBRCtimeZLbl,#sBRCiSPLbl{margin-top:34px;}
 #sBRCtimeZLbl{margin-top:32px;}
-
+#sBRCLocFlag{height: 15px;}
 #sBRCiPaDD,#sBRCLoc,#sBRCtimeZ,#sBRCiSP{
     position: relative;
     font-weight:600;
@@ -187,6 +187,8 @@ body{
     
 }
 #sBRCtimeZ{transform:scale(0.98, 1.0);}
+
+
 
 #cntr2{
     display:flex;
