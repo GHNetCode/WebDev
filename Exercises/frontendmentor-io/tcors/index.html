@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta http-equiv="Permissions-Policy" content="interest-cohort=()"> <!-- go to bobbyhadz.com to check out error-with-permissions-policy-header-unrecognized-feature -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | IP Address Tracker</title>
+
+  <!-- Feel free to remove these styles or customize in your own stylesheet 👍 -->
+
+  
+   <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <p id="resizeInnerW"><span>&nbsp;</span>-</p>
+  <main id="mainPage">
+      <div id="backGrndPic"></div>
+        <div id="cntr1">
+            <H4 style="display:none;">IP Address Tracker</H4>
+            <p id="ipAdrTitle">IP Address Tracker</p>
+            <div id="srchBarCnt1">
+                <div id="srchBarFld">
+                  <button id="srchBarFldBtn"></button>
+                  <img id="iconArrowBtn" src="./images/icon-arrow.svg" alt="icon-arrow.svg">
+                  <!-- Search for any IP address or domain 192.212.174.101 -->
+                  <!-- <p id="srchInpTxt">Search for any IP address or domain</p> -->
+                    <input id="srchInpTxt" type="text" placeholder="Search for any IP address or domain">
+                    <!-- <textarea id="srchInpTxt" cols="25" rows="2" maxlength="48" onkeydown="return limitLines(this, event)"onpaste="return false;" ondrop="return false;" placeholder="Search for any IP address or domain"></textarea> -->
+                    <span id="btnArrHvr"></span>
+                </div>
+
+            </div>
+            <div id="srchBarResCnt1">
+              <p id="sBRCiPaDDLbl">IP ADDRESS</p><!-- Label-->
+              <p id="sBRCiPaDD">127.0.0.1</p>
+              <p id="sBRCLocLbl">LOCATION</p><!-- Label-->
+              <p id="sBRCLoc">City,Country <img id="sBRCLocFlag" src="./images/WhiteFlag.png" alt="flags"></p>
+              <p id="sBRCtimeZLbl">TIMEZONE</p><!--Label - add offset value dynamically using the API -->
+              <p id="sBRCtimeZ">UTC - 00:00 (Local Time)</p>
+              <p id="sBRCiSPLbl">ISP</p><!-- Label-->
+              <p id="sBRCiSP">Internet Service Provider</p>
+            </div>
+            
+
+         
+      </div>
+      <div id="cntr2">
+
+
+
+      </div>
+  </main>
+  <footer id="attribution">
+    Challenge by &nbsp;<a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>
+    &nbsp;&nbsp;Coded by&nbsp;&nbsp<a href="#">Mark</a>
+  </footer> 
+  <script src="./script.js"></script>
+</body>
+</html>
