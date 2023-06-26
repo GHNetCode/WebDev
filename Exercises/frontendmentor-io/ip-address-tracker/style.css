@@ -71,6 +71,7 @@ body{
     color: white;
     margin-left: -2px;
 }
+
 #srchBarCnt1{
     display:flex;
     position: relative;
@@ -91,7 +92,7 @@ body{
     border-radius: 14px;
     z-index: 1;
 }
-#srchBarFldBtn,#btnArrHvr{
+#srchBarFldBtn{
     display:flex;
     position: absolute;
     width: 58px;
@@ -108,9 +109,90 @@ body{
 }
 /* Invisible field covering button for smooth hover effect... */
 #btnArrHvr{
+    display:flex;
+    position:absolute;
+    width:58px;
+    height:100%;
+    right:0px;
+    border-top-right-radius:14px;
+    border-bottom-right-radius:14px;
+    border:none;
+    background:linear-gradient(#000000,#006ca6);
+    z-index:0;
     background:rgba(161, 161, 247, 0);
-    z-index: 2;
+    z-index:2;
+    -webkit-transition-duration:1.5s; /* Safari */
+    transition-duration:1.5s;
 }
+#btnArrHvr:after {
+    content:" ";
+    display:block;
+    position:inherit;
+    border-top-right-radius:14px;
+    border-bottom-right-radius:14px;
+    border:2px dotted rgba(6, 255, 234, 0.836) ;
+    left:0;
+    top:0;
+    width:98%;
+    height:98%;
+    opacity:0;
+    transition:all 1.5s;
+    box-shadow:10px 0px 0px 20px  rgb(2, 123, 189);
+    /* box-shadow:inset 0 0 0 11px; */
+    }
+  #btnArrHvr:active:after {
+    /* animation: name-of-animation 0.5s ease-out; */
+    box-shadow:0 0 0 0 rgb(8, 108, 161);
+    position:absolute;
+    border-top-right-radius:14px;
+    border-bottom-right-radius:14px;
+    left:0;
+    top:0;
+    opacity:1;
+    transition:0s;
+  }
+  #btnArrHvr:active{
+    /* animation: name-of-animation 0.5s ease-out; */
+    /* border:2px dotted rgb(197, 50, 45); */
+    opacity:1;
+    transition:0.5s;
+  }
+
+
+
+
+
+#XXXXbtnArrHvrXXX:active  {
+    /* background:rgb(67, 67, 131,0.5); */
+    
+    border:2px dotted rgb(48, 255, 2) ;
+    /* box-shadow: inset 0px 0px 15px rgb(23, 2, 33); */
+    /* transition:0.2s; */
+    /* transform:rotate(-360deg) 0.2s; */
+    /* transition:1s; */
+    /* color: rgb(255, 255, 255); */
+    /* box-shadow:0px 0px 35px rgba(101, 182, 92, 1.9) 2.1s; */
+    animation: name-of-animation 0.5s ease-out;
+    /* transition: name-of-animation 0.2s ease-out; */
+    /* animation: mymove 5s; */
+}
+@keyframes name-of-animation {
+    0%    { opacity: 1; }
+    100%  { opacity: 0; }
+    /* from {left: 0px;}
+    to {left: 200px;} */
+   
+  }
+
+  /* 
+  'transition-duration' used in the element
+  then  'transition' used below in
+  #btnArrHvr:after{} and   #btnArrHvr:active:after
+  
+  */
+  
+
+  
 
     
 @media (hover: hover) and (pointer: fine){
@@ -131,12 +213,8 @@ body{
     top:21px;
     height: 14px;
     cursor: pointer;
-    /* background: rgba(40, 39, 39, 0.927); */
-    
-        background-image: url(../ip-address-tracker-master/images/icon-arrow.svg);
-      
-      
 }
+
 #srchInpTxt{
     font-family:'Rubik';
     text-align:center;
@@ -159,26 +237,26 @@ body{
 
 #srchBarResCnt1{
     display:flex;
-    position: relative;
+    position:relative;
     flex-direction:column;
     /* justify-content:center; */
     /* align-items:center;   */
     top:53px;
-    width: 327px;
-    height: 295px;
-    background: white;
-    margin-left: -2px;
+    width:327px;
+    height:295px;
+    background:white;
+    margin-left:-2px;
     /* border:greenyellow 1px solid; */
-    border-radius: 15px;
+    border-radius:15px;
 }
 
 #sBRCiPaDDLbl,#sBRCLocLbl,#sBRCtimeZLbl,#sBRCiSPLbl{
-    position: relative;
+    position:relative;
     font-weight:800;
-    font-size: 9.9px;
-    letter-spacing: 01.1px;
+    font-size:9.9px;
+    letter-spacing:01.1px;
     margin-top:25px;
-    color: rgb(116,116,116);
+    color:rgb(116,116,116);
 }
 #sBRCLocLbl,#sBRCtimeZLbl,#sBRCiSPLbl{margin-top:34px;}
 #sBRCtimeZLbl{margin-top:32px;}
