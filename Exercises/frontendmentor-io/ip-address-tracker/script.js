@@ -315,7 +315,7 @@ console.log("Tracker 8")
 console.log("Tracker 9");
 //                try {
                  //errMsgSite = "https://ipv4.seeip.org/jsonip";
-                 const response = await fetch('https://ipv4.seeip.org/jsonip')
+                 const response = await fetch('https://ipv4.seeip.org/jsonip',{ signal: AbortSignal.timeout(5000)})
                  .then((response) => {
                         if (response.ok) {
                           return response.json();
