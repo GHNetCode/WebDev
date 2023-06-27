@@ -15,7 +15,7 @@ Steps    Overview--:
 let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
 "+"\n"+"\
 Please Note: As this WebApp checks IP address`s please allow "+"\n"+"\
-'Trackers/Ads' for it to function properly. See below URL image to allow for this site only (For BRAVE Browser)..."+"\n"+"\
+'Trackers' for it to function properly. See below URL image to allow for this site only (For BRAVE Browser)..."+"\n"+"\
 "+"\n"+"\
 Please also check your internet connection and try again."+"\n"+"\
 "+"\n"+"\
@@ -314,23 +314,36 @@ console.log("Tracker 8")
             if (srchInpTxt.value===""&&inpTxtHasIp==false){
 console.log("Tracker 9");
                 try {
-                 errMsgSite = "https://ipv4.seeip.org/jsonip";
+                 //errMsgSite = "https://ipv4.seeip.org/jsonip";
                  const response = await fetch('https://ipv4.seeip.org/jsonip');
-                 const data = await response.json();
-                 console.log("inpTxtHasIp-:"+inpTxtHasIp)
-                 console.log('User IP Address:', data.ip);
-                 url = url+data.ip;
-                 getUserIPChk = true;
+                 if(!response.response_code ===200){ // check if response worked (no http errors etc...)
+                    throw new Error(response); //response.statusText
+                  }else{
+                    const data = await response.json(); // get JSON from the response
+                    console.log("inpTxtHasIp-:"+inpTxtHasIp);
+                    console.log('User IP Address:', data.ip);
+                    url = url+data.ip;
+                    getUserIPChk = true;
+                  //  return data; // This async function returns a promise which resolves to this data value..
+                  }
+               //  const data = await response.json();
+               //  console.log("inpTxtHasIp-:"+inpTxtHasIp)
+               //  console.log('User IP Address:', data.ip);
+               //  url = url+data.ip;
+               //  getUserIPChk = true;
                } catch (error) {
                  rotateArrow.cancel();
                  btnArrHvr.style.display = "unset";
                  console.error('Error fetching public IP from '+errMsgSite +' . :', error);
                 // alert('Error fetching public IP from '+errMsgSite +' Please check internet connection and try again... :', error);
-                alert(alertmsgIntro);
+               // alert(alertmsgIntro);
                 prompt(alertmsgIntro, trkradsUrl);
 
                }
             };
+
+
+
 //            else{
 //console.log("Tracker 10")
 //              try {
@@ -371,7 +384,7 @@ console.log('getUserIPChk -:'+ getUserIPChk);
              console.log("Data error message:"+JSON.stringify(data));
              alert("Data error message:"+JSON.stringify(data));
              }else{
-console.log("Tracker 12")
+console.log("Tracker 12");
              console.log("We`re cooking!!");
              console.log("Data: "+JSON.stringify(data));
 
