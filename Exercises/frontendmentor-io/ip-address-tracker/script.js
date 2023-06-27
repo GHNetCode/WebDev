@@ -63,8 +63,8 @@ const response = await fetch(wisxApiUrl);
 //Setup Animations for the spinning arrow.
 let iconArrowBtn = document.getElementById('iconArrowBtn');
 const effect = new KeyframeEffect(//for Button
-iconArrowBtn, // Element to animate
-[{transform: 'rotate(0deg)'},{transform: 'rotate(720000deg)'}],// Keyframes
+iconArrowBtn, // Element to animate width: 11px;
+[{transform: 'rotate(0deg) scalex(1)'},{transform: 'rotate(750000deg) scalex(10)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
 {duration: 20000} // Keyframe settings   8sec..  
 );
 const rotateArrow = new Animation(effect, document.timeline);
