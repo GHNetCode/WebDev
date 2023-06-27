@@ -313,33 +313,58 @@ console.log("Tracker 8")
           async function getUserIP() {
             if (srchInpTxt.value===""&&inpTxtHasIp==false){
 console.log("Tracker 9");
-                try {
+//                try {
                  //errMsgSite = "https://ipv4.seeip.org/jsonip";
-                 const response = await fetch('https://ipv4.seeip.org/jsonip');
-                 if(!response.response_code ===200){ // check if response worked (no http errors etc...)
-                    throw new Error(response); //response.statusText
-                  }else{
-                    const data = await response.json(); // get JSON from the response
-                    console.log("inpTxtHasIp-:"+inpTxtHasIp);
-                    console.log('User IP Address:', data.ip);
-                    url = url+data.ip;
+                 const response = await fetch('https://ipv4.seeip.org/jsonip')
+                 .then((response) => {
+                        if (response.ok) {
+                          return response.json();
+                          }
+                      throw new Error('Something went wrong');
+                  })
+                  .then((respData) => {
+                  // Do something with the fetched response data
+                   console.log('respData :'+JSON.stringify(respData) );
+                   console.log("inpTxtHasIp-:"+inpTxtHasIp);
+                    console.log('User IP Address:', respData.ip);
+                    url = url+respData.ip;
                     getUserIPChk = true;
-                  //  return data; // This async function returns a promise which resolves to this data value..
-                  }
+                  //  return respData
+                  })
+                  .catch((error) => {
+                  console.log('the error we got..'+error)
+                  rotateArrow.cancel();
+                  
+                  });
+                 
+                   
+               
+           //     if(!response.response_code ===200){ // check if response worked (no http errors etc...)
+           //      //  throw new Error(response); //response.statusText
+           //        rotateArrow.cancel();
+           //        btnArrHvr.style.display = "unset";
+           //        console.error('Error fetching public IP from '+errMsgSite +' . :', error);
+           //       // alert('Error fetching public IP from '+errMsgSite +' Please check internet connection and try again... :', error);
+           //      // alert(alertmsgIntro);
+           //       prompt(alertmsgIntro, trkradsUrl);
+   
+
+           //      }else{
+           //        const data = await response.json(); // get JSON from the response
+           //        console.log("inpTxtHasIp-:"+inpTxtHasIp);
+           //        console.log('User IP Address:', data.ip);
+           //        url = url+data.ip;
+           //        getUserIPChk = true;
+           //      //  return data; // This async function returns a promise which resolves to this data value..
+           //      }
                //  const data = await response.json();
                //  console.log("inpTxtHasIp-:"+inpTxtHasIp)
                //  console.log('User IP Address:', data.ip);
                //  url = url+data.ip;
                //  getUserIPChk = true;
-               } catch (error) {
-                 rotateArrow.cancel();
-                 btnArrHvr.style.display = "unset";
-                 console.error('Error fetching public IP from '+errMsgSite +' . :', error);
-                // alert('Error fetching public IP from '+errMsgSite +' Please check internet connection and try again... :', error);
-               // alert(alertmsgIntro);
-                prompt(alertmsgIntro, trkradsUrl);
+//               } catch (error) {
 
-               }
+//               }
             };
 
 
