@@ -334,9 +334,9 @@ console.log("Tracker 9");
                   //  return respData
                   })
                   .catch((error) => {
-                  console.log('the error we got..'+error)
-                  rotateArrow.cancel();
-                  prompt(alertmsgIntro, trkradsUrl);
+                    setTimeout(rotateArrow.cancel(),500);// keeps running in the background when prompt is displayed..
+                    console.log('the error we got..'+error)
+                    prompt(alertmsgIntro, trkradsUrl)
                   });
                  
                    
