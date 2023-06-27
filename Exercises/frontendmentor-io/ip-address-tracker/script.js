@@ -1,23 +1,27 @@
 //Show width in pixels for screen size, -- disable when done...:
 window.onresize=()=>{
   document.getElementById('resizeInnerW').textContent=window.innerWidth;
-}
+};
 
 /*
 Steps    Overview--:
+0. On launch find the current ip address.
 1. If there is nothing entered in the search field, find IP address of current connection.
 2. If there is something entered, validate if it`s a Domain if not then IP Address.
 3. If it`s a domain name convert it to ip via API www.whoisxmlapi.com
 4. If it`s an IP address get Geolocation Details.. 
 */
-let alertmsgIntro = ("Welcome to 'IP Address Tracker' WebApp!"+"\n"+"\
-"+"\n"+"\
-Leave search field blank and press the button to retrieve your own current IP."+"\n"+"\
+
+let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
 "+"\n"+"\
 Please Note: As this WebApp checks IP address`s please allow "+"\n"+"\
-'Trackers/Ads' for it to function properly. See below URL image to allow for this site only (For BRAVE Browser)...");
+'Trackers/Ads' for it to function properly. See below URL image to allow for this site only (For BRAVE Browser)..."+"\n"+"\
+"+"\n"+"\
+Please also check your internet connection and try again."+"\n"+"\
+"+"\n"+"\
+");
 let trkradsUrl = "https://ghnetcode.github.io/WebDev/Exercises/frontendmentor-io/ip-address-tracker/images/BRAVEbrowser%20AllowTracker&ads.png";
-prompt(alertmsgIntro, trkradsUrl);
+//prompt(alertmsgIntro, trkradsUrl);
 
 
 
@@ -53,7 +57,7 @@ const response = await fetch(wisxApiUrl);
    return data; // This async function returns a promise which resolves to this data value..
    }
 
-}
+};
 
 
 //Setup Animations for the spinning arrow.
@@ -78,7 +82,7 @@ function htmlEreset(){
   sBRCLocFlag.src=('./images/icon-arrow.svg'); // LOCATION FLAG
   sBRCtimeZ.innerHTML=("UTC - 00:00 (Local Time)");// --TIMEZONE--<<
   sBRCiSP.innerHTML=("Internet Service Provider");
-}
+};
 
 
 
@@ -86,9 +90,9 @@ function htmlEreset(){
 let btnArrHvr = document.getElementById('btnArrHvr');//srchInpTxt
 
 // create a specific "pointerdown" event for the window to listen out for the Enter Key
-let pntrDowEntEvnt = new PointerEvent('pointerdown')
+let pntrDowEntEvnt = new PointerEvent('pointerdown');
 window.addEventListener("keypress", function(event) {
-  
+
 // If the user presses the "Enter" key on the keyboard
 if (event.key === "Enter") {
 
@@ -98,8 +102,14 @@ if (event.key === "Enter") {
   // Trigger the button element with a click
   //document.getElementById("btnArrHvr").dispatchEvent(pntrDowEntEvnt);
   btnArrHvr.dispatchEvent(pntrDowEntEvnt);
-}
+};
 });
+
+
+//On initial load of the page, let`s dispatch a pointerdown event to press the button ..:
+//Re-enable before go live!!
+//window.onload=()=>{ btnArrHvr.dispatchEvent(pntrDowEntEvnt);};
+
 
 // The Arrow button function to run when pressed..
 btnArrHvr.addEventListener("pointerdown",e =>{
@@ -107,7 +117,7 @@ btnArrHvr.addEventListener("pointerdown",e =>{
   btnArrHvr.style.display = "none";//only allow one press after x ms..
   setTimeout(()=>{//revert back the change..
   btnArrHvr.style.display = "unset";
-  },10000)// 10seconds wait....
+  },10000);// 10seconds wait....
 
    console.log("button pushed..");
    htmlEreset();//clear previous results..
@@ -124,28 +134,27 @@ btnArrHvr.addEventListener("pointerdown",e =>{
    // console.log(srchInpTxt.value);
    //
    if (srchInpTxt.value===""){//Return default ip info if nothing in the search field..
-console.log("Tracker 1")
+console.log("Tracker 1");
       console.log("value has No data-- :"+srchInpTxt.value);
        // url = 'https://api.ipgeolocation.io/ipgeo?apiKey='+ipgeoKey;
           url = 'https://njsar.glitch.me/ipgeoApi/'
        console.log(url);
        errMsgSite = url;
     }else{//If something is in the search field, analyze search string if domain or ip... 
-console.log("Tracker 2")
-      // url ='https://api.ipgeolocation.io/ipgeo?apiKey='+ipgeoKey+'&ip='+srchInpTxt.value;
-        url = 'https://njsar.glitch.me/ipgeoApi/'+srchInpTxt.value;
-        console.log("url:"+url);
-        errMsgSite = url;
+console.log("Tracker 2");
       // Checkif domain or an IP address.
       //1. Checking domain..
         // Clean up the string.. If we have 'https://' or 'http' or 'www.' in front lets remove them..
         // for regex check https://stackoverflow.com/questions/41942690/removing-http-or-http-and-www/41942787
          srchInpTxtcleaned = srchInpTxt.value.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0];
-            console.log("srchInpTxt.value cleaned..:"+srchInpTxtcleaned);
-
+         //remove whitespaces from the String.
+         srchInpTxtcleaned = srchInpTxtcleaned.split(' ').join('');
+            console.log("srchInpTxt.value cleaned..: '"+srchInpTxtcleaned+"'");
             //String now cleaned, check number of elements\dots..
             let chkDomIpvalid = srchInpTxtcleaned.split("."); 
-
+            url = 'https://njsar.glitch.me/ipgeoApi/'+srchInpTxtcleaned;
+            console.log("url:"+url);
+            errMsgSite = url;
           //Check if a domain name has been entered. more than 0, less than 4 elements\Octets is a domain..
             if (chkDomIpvalid.length > 0 && chkDomIpvalid.length < 4 ){ 
                 console.log("Validate domain name further..");
@@ -161,8 +170,9 @@ console.log("Tracker 2")
                               }
                     }
                       if (is_domain(srchInpTxtcleaned)){// Domain validated, now lookup the ip address..
-console.log("Tracker 3")                          
+console.log("Tracker 3");
                         console.log("Domain Valid, lookup ip address..:"+srchInpTxtcleaned);
+
                           //calling whoisxmlapi API to convert Domain name to Ip...
                           wisxApiUrlget = wisxApiUrl + srchInpTxtcleaned;//Note wisxApiUrlget is also a flag to allow function getJsonWisx(wisxApiUrlget) to run.
                           console.log("wisxApiUrl -----:"+wisxApiUrl);
@@ -175,17 +185,17 @@ console.log("Tracker 3")
                       }
            }else{ //Here onwards checking if input str is a valid ip...
               if (chkDomIpvalid.length === 4){
-console.log("Tracker 4")                  
+console.log("Tracker 4");
               console.log("we atleast have 4 octets, check further..");
             const isValidIp = value => (/^(?:(?:^|\.)(?:2(?:5[0-5]|[0-4]\d)|1?\d?\d)){4}$/.test(value));
-            if(isValidIp (srchInpTxt.value)){
-console.log("Tracker 5")  
-               console.log('We have a Valid ip! -:'+srchInpTxt.value);
+            if(isValidIp (srchInpTxtcleaned)){// srchInpTxt.value
+console.log("Tracker 5");
+               console.log('We have a Valid ip! -:'+srchInpTxtcleaned);// srchInpTxt.value
                inpTxtHasIp = true;
                }else{
                 rotateArrow.cancel();
-                console.log('We have a INVALID ip..'+srchInpTxt.value);
-                alert(srchInpTxt.value+" IP address attempt detected, please enter correct Ip Address.");
+                console.log('We have a INVALID ip..'+srchInpTxtcleaned);// srchInpTxt.value
+                alert(srchInpTxtcleaned+" IP address attempt detected, please enter correct Ip Address.");
               }}
             };
     }
@@ -228,12 +238,12 @@ if (srchInpTxt.value!==""&&wisxApiUrlget!==""&&inpTxtHasDom!==false){
                       //and provide the list of ip`s..
                       ipLstArr= ipLstArr.join('\n');
                       console.log(ipLstArr); 
-                      let alertmsg = ("List of ip address`s that have been found for domain:"+srchInpTxtcleaned+", using the first IP as the location..:"+"\n"+ipLstArr+"\n"+"List can be copied to clipboard using Ctrl+C ...:")
+                      let alertmsg = ("A list of ip address`s have been found for domain the '"+srchInpTxtcleaned+"', using the first IP as the location..:"+"\n"+ipLstArr+"\n"+"List can be copied to clipboard using Ctrl+C ...:")
                       prompt(alertmsg, ipLstArr);//Using prompt to allow copying to clipboard..
                     }
 
                 }
-console.log("Tracker 6")  
+console.log("Tracker 6");
                 inpTxtHasIp = true;
                 //url ='https://api.ipgeolocation.io/ipgeo?apiKey='+ipgeoKey+'&ip='+data.DNSData.dnsRecords[0].address;
                   url = 'https://njsar.glitch.me/ipgeoApi/'+data.DNSData.dnsRecords[0].address;
@@ -249,7 +259,7 @@ console.log("Tracker 6")
           }
 
         }
-console.log("Tracker 7")  
+console.log("Tracker 7");
         console.log("Data2: "+JSON.stringify(data));
         
       }).catch(Error =>{ // "fetch failed. (site,page,url error..)"
@@ -302,7 +312,7 @@ console.log("Tracker 8")
           //BEFORE using the "Serverless API Proxy on glitch.com.
           async function getUserIP() {
             if (srchInpTxt.value===""&&inpTxtHasIp==false){
-console.log("Tracker 9")
+console.log("Tracker 9");
                 try {
                  errMsgSite = "https://ipv4.seeip.org/jsonip";
                  const response = await fetch('https://ipv4.seeip.org/jsonip');
@@ -315,9 +325,10 @@ console.log("Tracker 9")
                  rotateArrow.cancel();
                  btnArrHvr.style.display = "unset";
                  console.error('Error fetching public IP from '+errMsgSite +' . :', error);
-                 alert('Error fetching public IP from '+errMsgSite +' Please check internet connection and try again. . :', error);
+                // alert('Error fetching public IP from '+errMsgSite +' Please check internet connection and try again... :', error);
+                prompt(alertmsgIntro, trkradsUrl);
                }
-          }
+            };
 //            else{
 //console.log("Tracker 10")
 //              try {
@@ -401,8 +412,8 @@ console.log("Tracker 13");
 console.log("Tracker 14");
          rotateArrow.cancel();
          btnArrHvr.style.display = "unset";
-         alert("Unable to reach the site--:"+errMsgSite+" 1. Please check internet connection and url and try again. If you get 'Failed to load resource: net::ERR_BLOCKED_BY_CLIENT' in devtools(F12) check browser Adblockers/shields have been disabled to view returned site message(s).");
-         console.error("Unable to reach the site--:"+errMsgSite+" 1. Please check internet connection and url and try again. If you get 'Failed to load resource: net::ERR_BLOCKED_BY_CLIENT' in devtools(F12) check browser Adblockers/shields have been disabled to view returned site message(s).");
+         alert("Unable to reach the site--:"+errMsgSite+" 1. Please check internet connection and try again. If you get 'Failed to load resource: net::ERR_BLOCKED_BY_CLIENT' in devtools(F12) check browser Adblockers/shields have been disabled to view returned site message(s).");
+         console.error("Unable to reach the site--:"+errMsgSite+" 1. Please check internet connection and try again. If you get 'Failed to load resource: net::ERR_BLOCKED_BY_CLIENT' in devtools(F12) check browser Adblockers/shields have been disabled to view returned site message(s).");
          console.error(Error);
          //console.log(JSON.stringify(data));
          // NOTE!! If it is working in VSC( or other browsers) but NOT in Chrome, and you get error-: "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT"
@@ -413,7 +424,7 @@ console.log("Tracker 14");
 
    }
 
- } 
+ };
   getip(); //async function getip
 
 };
