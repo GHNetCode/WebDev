@@ -336,7 +336,7 @@ console.log("Tracker 9");
                   .catch((error) => {
                   console.log('the error we got..'+error)
                   rotateArrow.cancel();
-
+                  prompt(alertmsgIntro, trkradsUrl);
                   });
                  
                    
