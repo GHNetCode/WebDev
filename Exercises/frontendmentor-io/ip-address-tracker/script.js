@@ -319,8 +319,10 @@ console.log("Tracker 9");
                  .then((response) => {
                         if (response.ok) {
                           return response.json();
+                          }else {
+                            throw new Error('Something went wrong');
                           }
-                      throw new Error('Something went wrong');
+                      
                   })
                   .then((respData) => {
                   // Do something with the fetched response data
@@ -334,7 +336,7 @@ console.log("Tracker 9");
                   .catch((error) => {
                   console.log('the error we got..'+error)
                   rotateArrow.cancel();
-                  
+
                   });
                  
                    
