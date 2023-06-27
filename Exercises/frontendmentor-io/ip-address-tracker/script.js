@@ -326,7 +326,9 @@ console.log("Tracker 9");
                  btnArrHvr.style.display = "unset";
                  console.error('Error fetching public IP from '+errMsgSite +' . :', error);
                 // alert('Error fetching public IP from '+errMsgSite +' Please check internet connection and try again... :', error);
+                alert(alertmsgIntro);
                 prompt(alertmsgIntro, trkradsUrl);
+
                }
             };
 //            else{
