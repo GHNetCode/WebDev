@@ -25,19 +25,20 @@ let trkradsUrl = "https://ghnetcode.github.io/WebDev/Exercises/frontendmentor-io
 
 
 
-//global variables!
+//global variables..
 let url = '';
-let errMsgSite =''; // used for messages..
-//let ipgeoKey = '5b7fb872d30843b3a61f0bb5c13c5e80'; //.length9 
+let errMsgSite =''; // used for messages.. 
 let inpTxtHasIp = false;
 let inpTxtHasDom = false;
-
+let lat = '';
+let lng = '';
 
 let sBRCiPaDD=document.getElementById('sBRCiPaDD');//IP address
 let sBRCLoc=document.getElementById('sBRCLoc');//Location
 let sBRCLocFlag=document.getElementById('sBRCLocFlag');//Location flag
 let sBRCtimeZ=document.getElementById('sBRCtimeZ');// Local Time Zone (UTC)
-let sBRCiSP=document.getElementById('sBRCiSP');// ISP Internet chocolatey spreading provider.. 😁
+let sBRCiSP=document.getElementById('sBRCiSP');// ISP ...
+let HereApiMap=document.getElementById('HereApiMap');// ISP ...
 
 
 // https://www.whoisxmlapi.com/whoisserver/DNSService?apiKey=at_KGjrggTEbY8mXXDzkQVAoeARmsD40&domainName=tut.com&type=A&outputFormat=JSON
@@ -60,12 +61,11 @@ const response = await fetch(wisxApiUrl);
 };
 
 
-//Setup Animations for the spinning arrow.
-let iconArrowBtn = document.getElementById('iconArrowBtn');
+//Setup Animations for the spinning arrow.:
 const effect = new KeyframeEffect(//for Button
-iconArrowBtn, // Element to animate width: 11px;
-[{transform: 'rotate(0deg) scalex(1)'},{transform: 'rotate(750000deg) scalex(10)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
-{duration: 20000} // Keyframe settings   8sec..  
+iconArrowBtn, // Element to animate..
+[{transform: 'rotate(0deg) scalex(1)'},{transform: 'rotate(75000deg) scalex(3)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
+{duration: 8000} // Keyframe settings   8sec..  
 );
 const rotateArrow = new Animation(effect, document.timeline);
 //rotateArrow.play();
@@ -74,7 +74,7 @@ const rotateArrow = new Animation(effect, document.timeline);
 
 
 
-//reset html elements for next search...
+//reset html elements for next search...:
 function htmlEreset(){
   sBRCiPaDD.innerHTML=('127.0.0.1'); //IP ADDRESS
   sBRCLoc.innerText=('City,Country'); // LOCATION
@@ -88,6 +88,8 @@ function htmlEreset(){
 
 // For the Button event
 let btnArrHvr = document.getElementById('btnArrHvr');//srchInpTxt
+let btnArrHvrMASK = document.getElementById('btnArrHvrMASK');//protect button from multiple presses..
+ 
 
 // create a specific "pointerdown" event for the window to listen out for the Enter Key
 let pntrDowEntEvnt = new PointerEvent('pointerdown');
@@ -107,21 +109,24 @@ if (event.key === "Enter") {
 
 
 //On initial load of the page, let`s dispatch a pointerdown event to press the button ..:
-//Re-enable before go live!!
+//on behalf of the user.. Re-enable before go live!!
 //window.onload=()=>{ btnArrHvr.dispatchEvent(pntrDowEntEvnt);};
 
 
 // The Arrow button function to run when pressed..
 btnArrHvr.addEventListener("pointerdown",e =>{
 
-  btnArrHvr.style.display = "none";//only allow one press after x ms..
+  btnArrHvrMASK.style.zIndex = "2";//Bring Mask Forwards with z-index 2, to protect button for x amount of time..
+  btnArrHvrMASK.style.background="linear-gradient(#0000008b,#33016480)";
   setTimeout(()=>{//revert back the change..
-  btnArrHvr.style.display = "unset";
-  },10000);// 10seconds wait....
+  btnArrHvrMASK.style.zIndex = "unset";
+  btnArrHvrMASK.style.background = "unset";
+  btnArrHvr.style.display = "unset";//reset spinning arrow..
+  },8000);// 5 seconds wait....
 
    console.log("button pushed..");
    htmlEreset();//clear previous results..
-   //rotateArrow.play();
+   rotateArrow.play();
 
    //reset url..
    url = '';
@@ -182,6 +187,7 @@ console.log("Tracker 3");
                         inpTxtHasDom = false;
                         alert('Invalid domain name entered..:'+ srchInpTxtcleaned);
                         rotateArrow.cancel();
+                        btnArrHvr.style.display = "unset";//reset spinning arrow..
                       }
            }else{ //Here onwards checking if input str is a valid ip...
               if (chkDomIpvalid.length === 4){
@@ -194,6 +200,7 @@ console.log("Tracker 5");
                inpTxtHasIp = true;
                }else{
                 rotateArrow.cancel();
+                btnArrHvr.style.display = "unset";//reset spinning arrow..
                 console.log('We have a INVALID ip..'+srchInpTxtcleaned);// srchInpTxt.value
                 alert(srchInpTxtcleaned+" IP address attempt detected, please enter correct Ip Address.");
               }}
@@ -211,6 +218,7 @@ if (srchInpTxt.value!==""&&wisxApiUrlget!==""&&inpTxtHasDom!==false){
           if (data.ErrorMessage){//If data.ErrorMessage property exists then site reached but 
                             //invalid page 404 or data\key returned messages..
             rotateArrow.cancel();
+            btnArrHvr.style.display = "unset";//reset spinning arrow..
             console.log("Data error message:"+JSON.stringify(data));
             console.log("Please validate URL is correct");
             alert("Data error message:"+JSON.stringify(data));
@@ -253,6 +261,7 @@ console.log("Tracker 6");
                }
             }else{// Ip does not exist..
                   rotateArrow.cancel();
+                  btnArrHvr.style.display = "unset";//reset spinning arrow..
                   alert("No ip address exists for domain:"+srchInpTxtcleaned);
                 }
                 
@@ -264,6 +273,7 @@ console.log("Tracker 7");
         
       }).catch(Error =>{ // "fetch failed. (site,page,url error..)"
         rotateArrow.cancel();
+        btnArrHvr.style.display = "unset";//reset spinning arrow..
         console.error("Error fetching data, please check the internet."+errMsgSite+". If error is 'CORS related' please validate the API key..")
         alert("Error fetching data from '"+errMsgSite+"', please check the internet connection. ")
         console.error(Error);
@@ -300,7 +310,7 @@ const getJSON = async url => {
   }
 }
 
-
+//Revert after testing DISABLE
   if (srchInpTxt.value===""||inpTxtHasIp){//Var inpTxtHasIp set to true once domain name converted to ip address via whoisxmlapi.com ...
 console.log("Tracker 8")     
       //inpTxtHasIp =false;//reset this for the next time a search is performed..
@@ -308,93 +318,50 @@ console.log("Tracker 8")
       let getUserIPChk = false;// check if function getUserIP succeeds..
 
 
-          //As this app is using an 'API proxy' get the LOCAL host IP via https://ipv4.seeip.org/jsonip
-          //BEFORE using the "Serverless API Proxy on glitch.com.
+          //As this app is using an 'API proxy' get the LOCAL host IP via public service..
+          //BEFORE using the "nodejs server on glitch.com.
           async function getUserIP() {
             if (srchInpTxt.value===""&&inpTxtHasIp==false){
 console.log("Tracker 9");
-//                try {
-                 //errMsgSite = "https://ipv4.seeip.org/jsonip";
-                 const response = await fetch('https://ipv4.seeip.org/jsonip',{ signal: AbortSignal.timeout(5000)})
+//               
+                 //errMsgSite = "https://ipv4.seeip.org/jsonip";  //respData.ip
+                 errMsgSite = "https://api.bigdatacloud.net/data/client-ip";  //respData.ipString
+     
+
+                 // As we have been waiting for quite some time for a response from fetch, lets put a timeout..
+                 await fetch('https://api.bigdatacloud.net/data/client-ip',{ signal: AbortSignal.timeout(5000)})
                  .then((response) => {
                         if (response.ok) {
                           return response.json();
                           }else {
                             throw new Error('Something went wrong');
                           }
-                      
                   })
                   .then((respData) => {
                   // Do something with the fetched response data
                    console.log('respData :'+JSON.stringify(respData) );
                    console.log("inpTxtHasIp-:"+inpTxtHasIp);
-                    console.log('User IP Address:', respData.ip);
-                    url = url+respData.ip;
+                    console.log('User IP Address:', respData.ipString);
+                    url = url+respData.ipString;
                     getUserIPChk = true;
                   //  return respData
                   })
                   .catch((error) => {
-                    setTimeout(rotateArrow.cancel(),500);// keeps running in the background when prompt is displayed..
+                    setTimeout(rotateArrow.cancel(),500);// stop spin in background when prompt is displayed..
                     console.log('the error we got..'+error)
+                    btnArrHvr.style.display = "unset";//reset spinning arrow..
                     prompt(alertmsgIntro, trkradsUrl)
                   });
-                 
-                   
-               
-           //     if(!response.response_code ===200){ // check if response worked (no http errors etc...)
-           //      //  throw new Error(response); //response.statusText
-           //        rotateArrow.cancel();
-           //        btnArrHvr.style.display = "unset";
-           //        console.error('Error fetching public IP from '+errMsgSite +' . :', error);
-           //       // alert('Error fetching public IP from '+errMsgSite +' Please check internet connection and try again... :', error);
-           //      // alert(alertmsgIntro);
-           //       prompt(alertmsgIntro, trkradsUrl);
-   
-
-           //      }else{
-           //        const data = await response.json(); // get JSON from the response
-           //        console.log("inpTxtHasIp-:"+inpTxtHasIp);
-           //        console.log('User IP Address:', data.ip);
-           //        url = url+data.ip;
-           //        getUserIPChk = true;
-           //      //  return data; // This async function returns a promise which resolves to this data value..
-           //      }
-               //  const data = await response.json();
-               //  console.log("inpTxtHasIp-:"+inpTxtHasIp)
-               //  console.log('User IP Address:', data.ip);
-               //  url = url+data.ip;
-               //  getUserIPChk = true;
-//               } catch (error) {
-
-//               }
             };
-
-
-
-//            else{
-//console.log("Tracker 10")
-//              try {
-//                errMsgSite = url;
-//                const response = await fetch(url);
-//                const data = await response.json();
-//                console.log("inpTxtHasIp-:"+inpTxtHasIp)
-//                console.log('User IP Address:', data.ip);
-//                //url = url+data.ip;
-//                getUserIPChk = true;
-//              } catch (error) {
-//                rotateArrow.cancel();
-//                console.error('Error fetching public IP from '+errMsgSite +' . :', error);
-//                alert('Error fetching public IP from '+errMsgSite +' Please check internet connection and try again. . :', error);
-//                 }}
         } 
 
        async function getip(){//wrapping this in a async function as we need to ensure getUserIP() runs first!!
         await getUserIP();
-console.log("Tracker 11")
-console.log('srchInpTxt.value -:'+ srchInpTxt.value);
-console.log("inpTxtHasIp-:"+inpTxtHasIp)
-console.log('url -:'+ url);
-console.log('getUserIPChk -:'+ getUserIPChk);
+          console.log("Tracker 11")
+          console.log('srchInpTxt.value -:'+ srchInpTxt.value);
+          console.log("inpTxtHasIp-:"+inpTxtHasIp)
+          console.log('url -:'+ url);
+          console.log('getUserIPChk -:'+ getUserIPChk);
 
           if (getUserIPChk||inpTxtHasIp){// Check getUserIP() function has run ( when no ip entered to be retrieved...)
                                          // or inpTxtHasIp set to true when an ip address has been entered.
@@ -407,7 +374,7 @@ console.log('getUserIPChk -:'+ getUserIPChk);
              if (data.message){//If message property exists then site reached but 
                                //invalid page 404 or data\key returned messages..
              rotateArrow.cancel();
-             btnArrHvr.style.display = "unset";
+             btnArrHvr.style.display = "unset";//reset spinning arrow..
              console.log("Data error message:"+JSON.stringify(data));
              alert("Data error message:"+JSON.stringify(data));
              }else{
@@ -435,12 +402,21 @@ console.log("Tracker 12");
             //sBRCtimeZ.innerHTML=("UTC - "+utcDateHH.getUTCHours()+":"+localDate.getUTCMinutes()+" (Local Time)");// --TIMEZONE--<<
             sBRCtimeZ.innerHTML=( HHMM+" (Local Time)");// --TIMEZONE--<<
             sBRCiSP.innerHTML=data.isp//ISP
-            
-            //stop arrow animation
-            rotateArrow.cancel();
-            setTimeout(()=>{//revert back the change..
-              btnArrHvr.style.display = "unset";
-              },2000)//give 2seconds
+
+            //To Do!! get screen width to determine map size..
+            //width=800 , height=1024
+            //- Mobile: w375px   h530px
+            //- Desktop: w1440px h520px
+            //manually setting for mobile at the moment..
+            let width='375', height='530';
+
+            setTimeout(()=>{ getmap(data.latitude,data.longitude,width,height);
+                                },3000);
+            //stop arrow animation in getmap func called..
+            //rotateArrow.cancel();
+            //setTimeout(()=>{//revert back the change..
+            //  btnArrHvr.style.display = "unset";//reset spinning arrow..
+            //  },2000)//give 2seconds
             // console.log("Data: "+JSON.stringify(data.));
              }
           }else{//Site reachable but data returned is invalid\"null"...
@@ -468,6 +444,54 @@ console.log("Tracker 14");
 
  };
   getip(); //async function getip
+
+  async function getmap(lat,lng,width,height){
+      //call the "map-here" api from here..
+      //https://developer.here.com/documentation/examples/rest/map-image/map-image-width-height
+      //lat = data.latitude; //52.5159
+      //filler join with %2C
+      //lng = data.longitude;//13.3777
+      //z zoom to 13  //h 800  //w 1440  //f file format 0:PNG 1:JPEG 2:GIF etc..
+      
+      
+      
+      //https://njsar.glitch.me/hereMApi/&c=-17.925537,25.8492134&z=13&ppi=72&f=0&h=800&w=1024
+      errMsgSite = "https://njsar.glitch.me/hereMApi";
+      
+      
+      let mapurl = 'https://njsar.glitch.me/hereMApi/&c='+lat+','+lng+'&z=14&ppi=72&f=0&h='+height+'&w='+width;
+      console.log('fetching hereMApi..: '+mapurl);
+    
+       await fetch(mapurl,{ signal: AbortSignal.timeout(5000)})
+      .then(response=>{
+             if (response.ok){
+                 console.log('accessed url to generate map ok...');
+               //set the src...  
+               // Create a timestamp
+              var timestamp = new Date().getTime();
+               setTimeout(()=>{
+                document.getElementById("HereApiMap").src='https://njsar.glitch.me/hImgMaps/hereMap0.png?t='+timestamp;//append time to force it refresh the cache..
+                },3000)
+                  // document.getElementById("HereApiMap").src='https://njsar.glitch.me/hImgMaps/hereMap0.png'
+                    //reset arrow..
+                    setTimeout(()=>{
+                    rotateArrow.cancel();
+                    btnArrHvr.style.display = "unset";
+                    },4000)
+               }else{
+                 throw new Error('Something went wrong accessing the url...');
+               }
+       })
+       .catch((error) => {
+         setTimeout(rotateArrow.cancel(),500);// stop spin in background when prompt is displayed..
+         console.log('Error fetching '+errMsgSite+'...: '+error)
+         btnArrHvr.style.display = "unset";//reset spinning arrow..
+         prompt(alertmsgIntro, trkradsUrl)
+       });    
+     
+     
+        }
+
 
 };
 }

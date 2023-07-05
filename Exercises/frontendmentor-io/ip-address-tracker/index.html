@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="prefetch" href="https://njsar.glitch.me/" as="document"> <!--Wakeup glitch..-->  <meta charset="UTF-8">
+  <!-- <link rel="prefetch" href="https://njsar.glitch.me/" as="document">    -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <meta http-equiv="Cache-control" content="public" max-age=180>
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <!-- For the here.com Api to display the map... -->
+  <!-- <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script> -->
+  <!-- <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script> -->
   
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | IP Address Tracker</title>
 
-  <!-- Feel free to remove these styles or customize in your own stylesheet 👍 -->
-
-  
    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -29,6 +29,7 @@
                     <input id="srchInpTxt" type="text" placeholder="Search for any IP address or domain">
                     <!-- <textarea id="srchInpTxt" cols="25" rows="2" maxlength="48" onkeydown="return limitLines(this, event)"onpaste="return false;" ondrop="return false;" placeholder="Search for any IP address or domain"></textarea> -->
                     <span id="btnArrHvr"></span>
+                    <span id="btnArrHvrMASK"></span>
                 </div>
 
             </div>
@@ -43,13 +44,10 @@
               <p id="sBRCiSP">Internet Service Provider</p>
             </div>
             
-
-         
       </div>
       <div id="cntr2">
-
-
-
+        <img id="HereApiMap" src="./images/earthMoon3a.png">
+        <!-- https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=M7lshortened&c=-17.925537,25.8492134&z=13&ppi=72 --> <!-- ppi resolution options 72,250 or 320 -->
       </div>
   </main>
   <footer id="attribution">
