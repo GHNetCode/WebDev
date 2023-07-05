@@ -14,10 +14,12 @@ Steps    Overview--:
 
 let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
 "+"\n"+"\
-Please Note: As this WebApp checks IP address`s please allow "+"\n"+"\
+Please be aware this WebApp is based entirely on free web services and as a "+"\n"+"\
+result goes to sleep after being used, so please press it`s search button"+"\n"+"\
+to wake it up if needed.😴  In addition for best experience please allow "+"\n"+"\
 'Trackers' for it to function properly. See below URL image to allow for this site only (For BRAVE Browser)..."+"\n"+"\
 "+"\n"+"\
-Please also check your internet connection and try again."+"\n"+"\
+Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
 "+"\n"+"\
 ");
 let trkradsUrl = "https://ghnetcode.github.io/WebDev/Exercises/frontendmentor-io/ip-address-tracker/images/BRAVEbrowser%20AllowTracker&ads.png";
@@ -65,7 +67,7 @@ const response = await fetch(wisxApiUrl);
 const effect = new KeyframeEffect(//for Button
 iconArrowBtn, // Element to animate..
 [{transform: 'rotate(0deg) scalex(1)'},{transform: 'rotate(75000deg) scalex(3)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
-{duration: 8000} // Keyframe settings   8sec..  
+{duration: 10000} // Keyframe settings   8sec..  
 );
 const rotateArrow = new Animation(effect, document.timeline);
 //rotateArrow.play();
@@ -112,6 +114,7 @@ if (event.key === "Enter") {
 //on behalf of the user.. Re-enable before go live!!
 //window.onload=()=>{ btnArrHvr.dispatchEvent(pntrDowEntEvnt);};
 
+//prompt(alertmsgIntro, trkradsUrl);
 
 // The Arrow button function to run when pressed..
 btnArrHvr.addEventListener("pointerdown",e =>{
@@ -122,7 +125,7 @@ btnArrHvr.addEventListener("pointerdown",e =>{
   btnArrHvrMASK.style.zIndex = "unset";
   btnArrHvrMASK.style.background = "unset";
   btnArrHvr.style.display = "unset";//reset spinning arrow..
-  },8000);// 5 seconds wait....
+  },10000);// 5 seconds wait....
 
    console.log("button pushed..");
    htmlEreset();//clear previous results..
