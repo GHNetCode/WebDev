@@ -65,9 +65,9 @@ const response = await fetch(wisxApiUrl);
 
 //Setup Animations for the spinning arrow.:
 const effect = new KeyframeEffect(//for Button
-iconArrowBtn, // Element to animate..
-[{transform: 'rotate(0deg) scalex(1)'},{transform: 'rotate(75000deg) scalex(3)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
-{duration: 10000} // Keyframe settings   8sec..  
+iconArrowBtn, // Element to animate.. background-color(lightblue)
+[{transform: 'rotate(0deg) scalex(2)'},{transform: 'rotate(700000deg) scalex(4)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
+{duration: 15000} // Keyframe settings   15sec..  
 );
 const rotateArrow = new Animation(effect, document.timeline);
 //rotateArrow.play();
@@ -125,7 +125,7 @@ btnArrHvr.addEventListener("pointerdown",e =>{
   btnArrHvrMASK.style.zIndex = "unset";
   btnArrHvrMASK.style.background = "unset";
   btnArrHvr.style.display = "unset";//reset spinning arrow..
-  },10000);// 5 seconds wait....
+  },15000);// 10 seconds wait....
 
    console.log("button pushed..");
    htmlEreset();//clear previous results..
@@ -411,7 +411,11 @@ console.log("Tracker 12");
             //- Mobile: w375px   h530px
             //- Desktop: w1440px h520px
             //manually setting for mobile at the moment..
-            let width='375', height='530';
+            let width='',height='';
+            console.log('window.innerWidth:'+window.innerWidth)
+            if (window.innerWidth>'700'){
+                  width='1263',height='522';//1263px 1352px  1440px
+            }else{width='375' ,height='530';}
 
             setTimeout(()=>{ getmap(data.latitude,data.longitude,width,height);
                                 },3000);
@@ -474,13 +478,15 @@ console.log("Tracker 14");
               var timestamp = new Date().getTime();
                setTimeout(()=>{
                 document.getElementById("HereApiMap").src='https://njsar.glitch.me/hImgMaps/hereMap0.png?t='+timestamp;//append time to force it refresh the cache..
+                    rotateArrow.cancel();
+                    btnArrHvr.style.display = "unset";
                 },3000)
                   // document.getElementById("HereApiMap").src='https://njsar.glitch.me/hImgMaps/hereMap0.png'
                     //reset arrow..
-                    setTimeout(()=>{
-                    rotateArrow.cancel();
-                    btnArrHvr.style.display = "unset";
-                    },4000)
+                  //  setTimeout(()=>{
+                  //  rotateArrow.cancel();
+                  //  btnArrHvr.style.display = "unset";
+                  //  },4000)
                }else{
                  throw new Error('Something went wrong accessing the url...');
                }
