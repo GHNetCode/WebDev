@@ -130,7 +130,8 @@ body{
     border-top-right-radius:14px;
     border-bottom-right-radius:14px;
     border:2px dotted rgba(6, 255, 234, 0.865) ;
-    left:350px;
+    left:100px;
+    top:-170px;
     width:55px;
     height:55px;
     opacity:1;
