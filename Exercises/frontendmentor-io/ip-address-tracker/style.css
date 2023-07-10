@@ -1,6 +1,8 @@
 /* Import our fonts.. fonts.google.com */
 /* @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap'); */
+   @import url('rubik457800NormalFonts.css');
+/* importing local file rubik rubik45800NormalFonts.css*/
 /* font-family: 'Rubik', sans-serif; */
 
 /*Reset all inherited values to 0.*/
@@ -248,8 +250,8 @@ body{
     font-weight:600;
     font-size: 18.6px;
     top:8px;
-    
 }
+
 #sBRCtimeZ{transform:scale(0.98, 1.0);}
 
 
