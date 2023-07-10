@@ -12,21 +12,10 @@ Steps    Overview--:
 4. If it`s an IP address get Geolocation Details.. 
 */
 
-/**
-If you are curious how this has been implemented in the background
-please see the diagram  
-
-
-
- */
-
 
 let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
 "+"\n"+"\
-Please be aware this WebApp is based entirely on free web services and as a "+"\n"+"\
-result goes to sleep after being used, so please press it`s search button"+"\n"+"\
-to wake it up if needed.😴  In addition for best experience please allow "+"\n"+"\
-'Trackers' for it to function properly. See below URL image to allow for this site only (For BRAVE Browser)..."+"\n"+"\
+Please be aware this WebApp is based entirely on free web services and as a result goes to sleep after being used, so please press it`s search button again to wake it up if needed.😴  In addition for best experience please allow 'Trackers' for it to function properly. See below URL image to allow for this site only (For BRAVE Browser)..."+"\n"+"\
 "+"\n"+"\
 Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
 "+"\n"+"\
@@ -95,8 +84,6 @@ function htmlEreset(){
   sBRCiSP.innerHTML=("Internet Service Provider");
 };
 
-
-
 // For the Button event
 let btnArrHvr = document.getElementById('btnArrHvr');//srchInpTxt
 let btnArrHvrMASK = document.getElementById('btnArrHvrMASK');//protect button from multiple presses..
@@ -120,13 +107,15 @@ if (event.key === "Enter") {
 
 
 //On initial load of the page, let`s dispatch a pointerdown event to press the button ..:
-//on behalf of the user.. Re-enable before go live!!
+//on behalf of the user.. Re-enable before go live if needed!!
 //window.onload=()=>{ btnArrHvr.dispatchEvent(pntrDowEntEvnt);};
 
 //prompt(alertmsgIntro, trkradsUrl);
 
 // The Arrow button function to run when pressed..
 btnArrHvr.addEventListener("pointerdown",e =>{
+
+prompt(alertmsgIntro, trkradsUrl);
 
   btnArrHvrMASK.style.zIndex = "2";//Bring Mask Forwards with z-index 2, to protect button for x amount of time..
   btnArrHvrMASK.style.background="linear-gradient(#0000008b,#33016480)";
@@ -415,11 +404,7 @@ console.log("Tracker 12");
             sBRCtimeZ.innerHTML=( HHMM+" (Local Time)");// --TIMEZONE--<<
             sBRCiSP.innerHTML=data.isp//ISP
 
-            //To Do!! get screen width to determine map size..
-            //width=800 , height=1024
-            //- Mobile: w375px   h530px
-            //- Desktop: w1440px h520px
-            //manually setting for mobile at the moment..
+            //screen size "window.innerWidth" to determine size of map needed..
             let width='',height='';
             console.log('window.innerWidth:'+window.innerWidth)
             if (window.innerWidth>'700'){
@@ -428,13 +413,7 @@ console.log("Tracker 12");
 
             setTimeout(()=>{ getmap(data.latitude,data.longitude,width,height);
                                 },2000);
-            //stop arrow animation in getmap func called..
-            //rotateArrow.cancel();
-            //setTimeout(()=>{//revert back the change..
-            //  btnArrHvr.style.display = "unset";//reset spinning arrow..
-            //  },2000)//give 2seconds
-            // console.log("Data: "+JSON.stringify(data.));
-             }
+        }
           }else{//Site reachable but data returned is invalid\"null"...
 console.log("Tracker 13");
              console.log("Error: Invalid data returned. - data:" +JSON.stringify(data));
@@ -473,7 +452,7 @@ console.log("Tracker 14");
       errMsgSite = "https://njsar.glitch.me/hereMApi";
       
       
-      let mapurl = 'https://njsar.glitch.me/hereMApi/&c='+lat+','+lng+'&z=14&ppi=72&f=0&h='+height+'&w='+width;
+      let mapurl = 'https://njsar.glitch.me/hereMApi/&c='+lat+','+lng+'&u=250&z=14&ppi=72&f=0&h='+height+'&w='+width;
       console.log('fetching hereMApi..: '+mapurl);
     
        await fetch(mapurl,{ signal: AbortSignal.timeout(5000)})
