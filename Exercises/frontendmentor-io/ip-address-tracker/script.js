@@ -427,7 +427,7 @@ console.log("Tracker 12");
             }else{width='375' ,height='530';}
 
             setTimeout(()=>{ getmap(data.latitude,data.longitude,width,height);
-                                },3000);
+                                },2000);
             //stop arrow animation in getmap func called..
             //rotateArrow.cancel();
             //setTimeout(()=>{//revert back the change..
