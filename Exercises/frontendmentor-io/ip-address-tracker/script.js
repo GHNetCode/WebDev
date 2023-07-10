@@ -5,7 +5,7 @@ window.onresize=()=>{
 
 /*
 Steps    Overview--:
-0. On launch find the current ip address.
+0. On pressing the button find the current ip address.
 1. If there is nothing entered in the search field, find IP address of current connection.
 2. If there is something entered, validate if it`s a Domain if not then IP Address.
 3. If it`s a domain name convert it to ip via API www.whoisxmlapi.com ( if more than one ip use the first ip address..)
@@ -15,9 +15,9 @@ Steps    Overview--:
 
 let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
 "+"\n"+"\
-Please be aware this WebApp is based entirely on free web services and as a result goes to sleep after being used, so please press it`s search button again to wake it up if needed.😴  In addition for best experience please allow 'Trackers' for it to function properly. See below URL image to allow for this site only (For BRAVE Browser)..."+"\n"+"\
+Please be aware this WebApp is based entirely on free web services and as a result goes to sleep after being used, so please press it`s search button again to wake it up if needed."+"\n"+"\
 "+"\n"+"\
-Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
+Lastly if you continuously get this message, please also check your internet connection and try again, thank you..."+"\n"+"\
 "+"\n"+"\
 ");
 let trkradsUrl = "https://ghnetcode.github.io/WebDev/Exercises/frontendmentor-io/ip-address-tracker/images/BRAVEbrowser%20AllowTracker&ads.png";
@@ -108,14 +108,18 @@ if (event.key === "Enter") {
 
 //On initial load of the page, let`s dispatch a pointerdown event to press the button ..:
 //on behalf of the user.. Re-enable before go live if needed!!
-//window.onload=()=>{ btnArrHvr.dispatchEvent(pntrDowEntEvnt);};
+  //window.onload=()=>{ btnArrHvr.dispatchEvent(pntrDowEntEvnt);};
 
 //prompt(alertmsgIntro, trkradsUrl);
 
 // The Arrow button function to run when pressed..
+let promptcntr =0;
 btnArrHvr.addEventListener("pointerdown",e =>{
 
-prompt(alertmsgIntro, trkradsUrl);
+  //Let`be nice and display this intro message only once when searching
+  // other ip`s..
+    if (promptcntr<1){prompt(alertmsgIntro, trkradsUrl);}
+       promptcntr++
 
   btnArrHvrMASK.style.zIndex = "2";//Bring Mask Forwards with z-index 2, to protect button for x amount of time..
   btnArrHvrMASK.style.background="linear-gradient(#0000008b,#33016480)";

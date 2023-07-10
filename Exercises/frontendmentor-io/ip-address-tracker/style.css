@@ -140,7 +140,7 @@ body{
     width:50px;
     height:1px;
     opacity:1;
-    transition:all 2.5s ease-in-out;
+    transition:all 3.5s ease-in-out;
     box-shadow:10px 0px 0px 20px  rgb(2, 123, 189);
     }
   #btnArrHvr:active:after {
