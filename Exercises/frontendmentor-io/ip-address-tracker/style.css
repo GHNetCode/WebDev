@@ -16,7 +16,7 @@ body{
     justify-content:center;
     align-items:center;
     width: 100vw;
-    /* height:785px; */
+    /* height:785px;  100vw*/
     background:rgb(32, 38, 50);
     overflow-x: hidden; 
 }
@@ -45,11 +45,12 @@ body{
     display:flex;
     position:relative;
     justify-content:center;
-    width:375px; /*375px*/
+    width:100vw; /*375px*/
+    /* max-width: 500px; */
     height:300px;/*100vmin*/
     top:0px;
     background:no-repeat url(./images/pattern-bg-mobile.png);
-    background-size:375px;
+    background-size:100%;
     z-index:-1;
 }
 
@@ -127,21 +128,25 @@ body{
     content:" ";
     display:block;
     position:inherit;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
     border-top-right-radius:14px;
     border-bottom-right-radius:14px;
-    border:2px dotted rgba(6, 255, 234, 0.865) ;
-    left:100px;
+    /* border:1px dotted rgba(6, 255, 234, 0.865) ; */
+    /* left:-255px; */
     top:-170px;
-    width:55px;
-    height:55px;
+    width:50px;
+    height:1px;
     opacity:1;
-    transition:all 1.0s ease-in-out;
+    transition:all 0.5s ease-in-out;
     box-shadow:10px 0px 0px 20px  rgb(2, 123, 189);
     }
   #btnArrHvr:active:after {
     /* display:none; */
     box-shadow:0 0 0 0 rgb(8, 108, 161);
     position:absolute;
+    border:1px dotted rgba(6, 255, 234, 0.865) ;
     border-top-right-radius:14px;
     border-bottom-right-radius:14px;
     left:0px;
@@ -175,8 +180,6 @@ body{
     
 @media (hover: hover) and (pointer: fine){
     #srchInpTxt:hover,#btnArrHvr:hover{
-        /* opacity: 30%; */
-        /* border: 3px solid rgb(226,57,142); */
         transition:all 0s;
         box-shadow: inset 0px 0px 5px rgb(40, 1, 58);
         box-shadow: 0px 2px 10px rgb(35, 79, 114);
@@ -256,24 +259,25 @@ body{
     position:absolute;
         /* justify-content:center; */
     /* align-items:center;   */
-    width: 375px;
+    width: 100vw;/*  375px*/
     height: 543px;
     top:300px;
     /* background: grey; */
     z-index: -1;
 }
 
-#HereApiMap{
+#HereApiMapMble{
     display:flex;
     position: relative;
-    width:375px;
+    width:700px;/*  375px*/
     height: 540px;
     /* top: 2px;  375px; 530*/
-    background: url("./images/earthMoon3a.png");
-    background-size: contain;
+    /* background: url("./images/earthMoon3a.png"); */
+    background-size: 375px;
+    /*contain  */
     color: black;
 }
-
+#HereApiMapDskt{display:none}
 
 
 
@@ -306,14 +310,14 @@ body{
         position:relative;
         justify-content:center;
         align-items:center;  
-        width:1440px;/* 1440px x 800px*/
-        height:800px;/*800px*/
+        width:1440px; 
+        height:800px; 
         background:no-repeat url(./images/pattern-bg-desktop.png);
-        background-size:1440px; /* 1440px x 800px*/
-        /* border: red 1px solid; */
+        background-size:1440px;
         z-index:-1;
     }
 
+   
     /*holds the search bar and results..  */
     #cntr1{
         display:flex;
@@ -354,10 +358,7 @@ body{
         border-top-right-radius: 14px;
         border-bottom-right-radius: 14px;
         border: none;
-        /* background: black; */
         background: linear-gradient(#000000,#006ca6);
-        /* box-shadow: 0px 2px 10px rgb(35, 79, 114); */
-        /* opacity: 20%; */
         z-index: 0;
     }
 
@@ -397,8 +398,6 @@ body{
     #sBRCiSPLbl{margin-top:31px;}
 
     #sBRCiPaDD,#sBRCLoc,#sBRCtimeZ,#sBRCiSP{
-        /* position: relative;
-        font-weight:600; */
         font-size: 26px;
         color:rgb(61, 61, 61);
         top:12px;
@@ -412,47 +411,25 @@ body{
         display:flex;
         position:absolute;
         justify-content:center;
-        /* align-items:center;   */
         /*1352px x 546px   maps: Desktop: w 1440px h 520px*/
         width: 100vw;  /*  100%  1440px*/
         height: 520px;
-        /* top:280px;  */
     }
 
 
-    #HereApiMap{
+    #HereApiMapDskt{
         display:flex;
         position: relative;
-        justify-content:center;/*up<>down*/
+        justify-content:center; 
         align-items:center;  
-        width:1440px;  /* 1440 x 780 */
-        height: 540px; /*  125vh  780 */
-       /* top: -8.9vh; */
+        width:1440px; 
+        height: 540px; 
        top: -20px;
-        background:no-repeat url(./images/earthMlkyWDesktop.jpg);
-        background-size:100vw;
+        /* background:no-repeat url(./images/earthMlkyWDesktopv2.jpg); */
+        background-size:1440px;
     }
-    
-    #btnArrHvr:after {
-        top:-200px;
-        left:450px;
-        background:linear-gradient(#006ca6b7,#00000094);
-
-    }
-
-    /* #sBRCLocLbl,#sBRCtimeZLbl,#sBRCiSPLbl{margin-top:34px;}
-    #sBRCtimeZLbl{margin-top:32px;}
-    #sBRCLocFlag{height: 15px;}
-    #sBRCiPaDD,#sBRCLoc,#sBRCtimeZ,#sBRCiSP{
-        position: relative;
-        font-weight:600;
-        font-size: 18.6px;
-        top:8px;
-        
-    }
-    #sBRCtimeZ{transform:scale(0.98, 1.0);} */
-
-    /* 1440 */
+    #HereApiMapMble{display: none;}
+   
 
     #attribution { margin-bottom:0px;}
     

@@ -8,9 +8,18 @@ Steps    Overview--:
 0. On launch find the current ip address.
 1. If there is nothing entered in the search field, find IP address of current connection.
 2. If there is something entered, validate if it`s a Domain if not then IP Address.
-3. If it`s a domain name convert it to ip via API www.whoisxmlapi.com
+3. If it`s a domain name convert it to ip via API www.whoisxmlapi.com ( if more than one ip use the first ip address..)
 4. If it`s an IP address get Geolocation Details.. 
 */
+
+/**
+If you are curious how this has been implemented in the background
+please see the diagram  
+
+
+
+ */
+
 
 let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
 "+"\n"+"\
@@ -414,7 +423,7 @@ console.log("Tracker 12");
             let width='',height='';
             console.log('window.innerWidth:'+window.innerWidth)
             if (window.innerWidth>'700'){
-                  width='1263',height='522';//1263px 1352px  1440px
+                  width='1440',height='522';
             }else{width='375' ,height='530';}
 
             setTimeout(()=>{ getmap(data.latitude,data.longitude,width,height);
@@ -460,8 +469,6 @@ console.log("Tracker 14");
       //lng = data.longitude;//13.3777
       //z zoom to 13  //h 800  //w 1440  //f file format 0:PNG 1:JPEG 2:GIF etc..
       
-      
-      
       //https://njsar.glitch.me/hereMApi/&c=-17.925537,25.8492134&z=13&ppi=72&f=0&h=800&w=1024
       errMsgSite = "https://njsar.glitch.me/hereMApi";
       
@@ -472,35 +479,31 @@ console.log("Tracker 14");
        await fetch(mapurl,{ signal: AbortSignal.timeout(5000)})
       .then(response=>{
              if (response.ok){
-                 console.log('accessed url to generate map ok...');
-               //set the src...  
-               // Create a timestamp
-              var timestamp = new Date().getTime();
+               console.log('accessed url to generate map ok...');
                setTimeout(()=>{
-                document.getElementById("HereApiMap").src='https://njsar.glitch.me/hImgMaps/hereMap0.png?t='+timestamp;//append time to force it refresh the cache..
-                    rotateArrow.cancel();
-                    btnArrHvr.style.display = "unset";
-                },3000)
-                  // document.getElementById("HereApiMap").src='https://njsar.glitch.me/hImgMaps/hereMap0.png'
-                    //reset arrow..
-                  //  setTimeout(()=>{
-                  //  rotateArrow.cancel();
-                  //  btnArrHvr.style.display = "unset";
-                  //  },4000)
+                var timestamp = new Date().getTime();
+                
+                 if (window.innerWidth>'700'){
+                        document.getElementById("HereApiMapDskt").src='https://njsar.glitch.me/hImgMaps/hereMap0.png?t='+timestamp;//append time to force it refresh the cache..
+                  }else{document.getElementById("HereApiMapMble").src='https://njsar.glitch.me/hImgMaps/hereMap0.png?t='+timestamp;//append time to force it refresh the cache..
+                  } 
+
+                rotateArrow.cancel();
+                btnArrHvr.style.display = "unset";
+                btnArrHvrMASK.style.zIndex = "unset";
+                btnArrHvrMASK.style.background = "unset";
+                },5000)//give some time for imgMap to download to https://njsar.glitch.me...
                }else{
                  throw new Error('Something went wrong accessing the url...');
                }
-       })
+       })   
        .catch((error) => {
          setTimeout(rotateArrow.cancel(),500);// stop spin in background when prompt is displayed..
          console.log('Error fetching '+errMsgSite+'...: '+error)
          btnArrHvr.style.display = "unset";//reset spinning arrow..
          prompt(alertmsgIntro, trkradsUrl)
        });    
-     
-     
         }
-
 
 };
 }
