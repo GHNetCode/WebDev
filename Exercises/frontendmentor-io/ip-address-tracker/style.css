@@ -46,12 +46,12 @@ body{
     display:flex;
     position:relative;
     justify-content:center;
-    width:100vw; /*375px*/
+    width:375px; /*375px*/
     /* max-width: 500px; */
     height:300px;/*100vmin*/
     top:0px;
     background:no-repeat url(./images/pattern-bg-mobile.png);
-    background-size:100%;
+    background-size:375px;
     z-index:-1;
 }
 
@@ -140,7 +140,7 @@ body{
     width:50px;
     height:1px;
     opacity:1;
-    transition:all 0.5s ease-in-out;
+    transition:all 2.5s ease-in-out;
     box-shadow:10px 0px 0px 20px  rgb(2, 123, 189);
     }
   #btnArrHvr:active:after {
@@ -258,9 +258,9 @@ body{
 #cntr2{
     display:flex;
     position:absolute;
-        /* justify-content:center; */
+    justify-content:center;
     /* align-items:center;   */
-    width: 100vw;/*  375px*/
+    width: 375px;/*  375px*/
     height: 543px;
     top:300px;
     /* background: grey; */
@@ -270,7 +270,7 @@ body{
 #HereApiMapMble{
     display:flex;
     position: relative;
-    width:700px;/*  375px*/
+    width:375px;/*  375px*/
     height: 540px;
     /* top: 2px;  375px; 530*/
     /* background: url("./images/earthMoon3a.png"); */
@@ -287,10 +287,7 @@ body{
 #attribution a { color: hsl(253, 37%, 50%); }
 
 @media (min-width:700px){/*700px or more required for Desktops...*/
-    #mainPage{
-        height: 100%;
-
-    }
+    #mainPage{  height: 100%;    }
     
     #ipAdrTitle{
         display: flex;
