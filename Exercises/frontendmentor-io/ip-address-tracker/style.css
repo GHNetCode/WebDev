@@ -412,7 +412,7 @@ body{
         position:absolute;
         justify-content:center;
         /*1352px x 546px   maps: Desktop: w 1440px h 520px*/
-        width: 100vw;  /*  100%  1440px*/
+        width: 1440px;  /*  100%  1440px*/
         height: 520px;
     }
 
@@ -422,11 +422,11 @@ body{
         position: relative;
         justify-content:center; 
         align-items:center;  
-        width:1440px; 
+        width:1440px; /*1440px*/
         height: 540px; 
-       top: -20px;
+        top: -20px;
         /* background:no-repeat url(./images/earthMlkyWDesktopv2.jpg); */
-        background-size:1440px;
+        background-size:1440px;/*100vw*/
     }
     #HereApiMapMble{display: none;}
    
