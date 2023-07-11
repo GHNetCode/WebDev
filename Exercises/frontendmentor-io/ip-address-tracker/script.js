@@ -118,8 +118,8 @@ btnArrHvr.addEventListener("pointerdown",e =>{
 
   //Let`be nice and display this intro message only once when searching
   // other ip`s..
- //   if (promptcntr<1){prompt(alertmsgIntro, trkradsUrl);}
- //      promptcntr++
+   // if (promptcntr<1){prompt(alertmsgIntro, trkradsUrl); promptcntr++}
+       
 
   btnArrHvrMASK.style.zIndex = "2";//Bring Mask Forwards with z-index 2, to protect button for x amount of time..
   btnArrHvrMASK.style.background="linear-gradient(#0000008b,#33016480)";
