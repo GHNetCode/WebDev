@@ -144,7 +144,7 @@ btnArrHvr.addEventListener("pointerdown",e =>{
    Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
    "+"\n"+"\
    Thank you and i hope you enjoy the WebApp as much as i did making it. 🔭 "+"\n"+"\
-   "+"\n"+"\
+   0001"+"\n"+"\
    ");
     if (promptcntr<1){
      alert(alertmsgIntro);
