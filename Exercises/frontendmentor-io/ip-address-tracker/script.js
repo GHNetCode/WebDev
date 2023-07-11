@@ -117,12 +117,9 @@ if (event.key === "Enter") {
 // The Arrow button function to run when pressed..
 let promptcntr =0;
 
-function promptF(promptcntr){
-  if (promptcntr<1){alert(alertmsgIntro);}
-}
+
 btnArrHvr.addEventListener("pointerdown",e =>{
-  promptF(promptcntr);
-  promptcntr++
+
   //Let`be nice and display this intro message only once when searching
   // other ip`s..
    // if (promptcntr<1){prompt(alertmsgIntro, trkradsUrl); promptcntr++}
@@ -137,6 +134,8 @@ btnArrHvr.addEventListener("pointerdown",e =>{
 
    console.log("button pushed..");
    htmlEreset();//clear previous results..
+   if (promptcntr<1){alert(alertmsgIntro);}
+   promptcntr++
    rotateArrow.play();
 
    //reset url..
