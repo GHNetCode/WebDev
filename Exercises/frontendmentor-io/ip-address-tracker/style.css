@@ -289,7 +289,7 @@ body{
 #attribution a { color: hsl(253, 37%, 50%); }
 
 @media (min-width:700px){/*700px or more required for Desktops...*/
-    #mainPage{  height: 100%;    }
+    #mainPage{  height: 100%;  align-items:center;   }
     
     #ipAdrTitle{
         display: flex;
@@ -423,8 +423,8 @@ body{
         justify-content:center; 
         align-items:center;  
         width:1440px; /*1440px*/
-        height: 540px; 
-        top: -20px;
+        height:540px; 
+        top:-20px;
         /* background:no-repeat url(./images/earthMlkyWDesktopv2.jpg); */
         background-size:1440px;/*100vw*/
     }
