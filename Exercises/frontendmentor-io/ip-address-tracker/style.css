@@ -22,8 +22,8 @@ body{
     overflow-x: hidden; 
 }
 
-#resizeInnerW{/*disable after finished..*/
-    display:flex; /* none\flex */
+#resizeInnerW{/*disable before release...*/
+    display:none; /* none\flex */
     position:absolute;
     justify-content:center;
     top:0px; 
@@ -137,10 +137,10 @@ body{
     /* border:1px dotted rgba(6, 255, 234, 0.865) ; */
     /* left:-255px; */
     top:-170px;
-    width:50px;
+    width:250px;
     height:1px;
     opacity:1;
-    transition:all 3.5s ease-in-out;
+    transition:all 5.0s ease-in-out;
     box-shadow:10px 0px 0px 20px  rgb(2, 123, 189);
     }
   #btnArrHvr:active:after {
@@ -150,6 +150,7 @@ body{
     border:1px dotted rgba(6, 255, 234, 0.865) ;
     border-top-right-radius:14px;
     border-bottom-right-radius:14px;
+    width:50px;
     left:0px;
     top:0px; 
     opacity:1;

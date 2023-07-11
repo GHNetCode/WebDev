@@ -15,9 +15,11 @@ Steps    Overview--:
 
 let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
 "+"\n"+"\
-Please be aware this WebApp is based entirely on free web services and as a result goes to sleep after being used, so please press it`s search button again to wake it up if needed."+"\n"+"\
+As this App is based on free web services it might need waking up (by pressing the search button). For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags."+"\n"+"\
 "+"\n"+"\
-Lastly if you continuously get this message, please also check your internet connection and try again, thank you..."+"\n"+"\
+Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
+"+"\n"+"\
+Thank you and i hope you enjoy the search as much as i did making it. 🔭 "+"\n"+"\
 "+"\n"+"\
 ");
 let trkradsUrl = "https://ghnetcode.github.io/WebDev/Exercises/frontendmentor-io/ip-address-tracker/images/BRAVEbrowser%20AllowTracker&ads.png";
@@ -64,8 +66,8 @@ const response = await fetch(wisxApiUrl);
 //Setup Animations for the spinning arrow.:
 const effect = new KeyframeEffect(//for Button
 iconArrowBtn, // Element to animate.. background-color(lightblue)
-[{transform: 'rotate(0deg) scalex(2)'},{transform: 'rotate(700000deg) scalex(4)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
-{duration: 15000} // Keyframe settings   15sec..  
+[{transform: 'rotate(0deg) scalex(2)'},{transform: 'rotate(1000000deg) scalex(4)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
+{duration: 30000} // Keyframe settings   30sec..  
 );
 const rotateArrow = new Animation(effect, document.timeline);
 //rotateArrow.play();
@@ -119,7 +121,7 @@ btnArrHvr.addEventListener("pointerdown",e =>{
   //Let`be nice and display this intro message only once when searching
   // other ip`s..
    // if (promptcntr<1){prompt(alertmsgIntro, trkradsUrl); promptcntr++}
-       
+   if (promptcntr<1){alert(alertmsgIntro); promptcntr++}
 
   btnArrHvrMASK.style.zIndex = "2";//Bring Mask Forwards with z-index 2, to protect button for x amount of time..
   btnArrHvrMASK.style.background="linear-gradient(#0000008b,#33016480)";
@@ -127,7 +129,7 @@ btnArrHvr.addEventListener("pointerdown",e =>{
   btnArrHvrMASK.style.zIndex = "unset";
   btnArrHvrMASK.style.background = "unset";
   btnArrHvr.style.display = "unset";//reset spinning arrow..
-  },15000);// 10 seconds wait....
+  },30000);// 10 seconds wait....
 
    console.log("button pushed..");
    htmlEreset();//clear previous results..
@@ -415,8 +417,8 @@ console.log("Tracker 12");
                   width='1440',height='522';
             }else{width='375' ,height='530';}
 
-            setTimeout(()=>{ getmap(data.latitude,data.longitude,width,height);
-                                },2000);
+            //setTimeout(()=>{ getmap(data.latitude,data.longitude,width,height);},2000);
+            getmap(data.latitude,data.longitude,width,height);
         }
           }else{//Site reachable but data returned is invalid\"null"...
 console.log("Tracker 13");
@@ -462,20 +464,21 @@ console.log("Tracker 14");
        await fetch(mapurl,{ signal: AbortSignal.timeout(5000)})
       .then(response=>{
              if (response.ok){
-               console.log('accessed url to generate map ok...');
+               console.log('mapurl fetched ok to set src map ok...');
                setTimeout(()=>{
-                var timestamp = new Date().getTime();
-                
-                 if (window.innerWidth>'700'){
-                        document.getElementById("HereApiMapDskt").src='https://njsar.glitch.me/hImgMaps/hereMap0.png?t='+timestamp;//append time to force it refresh the cache..
-                  }else{document.getElementById("HereApiMapMble").src='https://njsar.glitch.me/hImgMaps/hereMap0.png?t='+timestamp;//append time to force it refresh the cache..
-                  } 
+                let timestamp = new Date().getTime();
 
-                rotateArrow.cancel();
-                btnArrHvr.style.display = "unset";
-                btnArrHvrMASK.style.zIndex = "unset";
-                btnArrHvrMASK.style.background = "unset";
-                },5000)//give some time for imgMap to download to https://njsar.glitch.me...
+                    if (window.innerWidth>'700'){
+                        document.getElementById("HereApiMapDskt").src='https://njsar.glitch.me/hImgMaps/hereMap0.png?t='+timestamp;//append time to force it refresh the cache..
+                      }else{document.getElementById("HereApiMapMble").src='https://njsar.glitch.me/hImgMaps/hereMap0.png?t='+timestamp;//append time to force it refresh the cache..
+                      }
+
+                     console.log('resetting button...')
+                     rotateArrow.cancel();
+                     btnArrHvr.style.display = "unset";
+                     btnArrHvrMASK.style.zIndex = "unset";
+                     btnArrHvrMASK.style.background = "unset";
+                },2000)//give some time for imgMap to download to https://njsar.glitch.me...
                }else{
                  throw new Error('Something went wrong accessing the url...');
                }
