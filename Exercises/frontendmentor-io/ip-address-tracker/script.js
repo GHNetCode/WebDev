@@ -116,13 +116,17 @@ if (event.key === "Enter") {
 
 // The Arrow button function to run when pressed..
 let promptcntr =0;
-btnArrHvr.addEventListener("pointerdown",e =>{
 
+function promptF(promptcntr){
+  if (promptcntr<1){alert(alertmsgIntro);}
+}
+btnArrHvr.addEventListener("pointerdown",e =>{
+  promptF(promptcntr);
+  promptcntr++
   //Let`be nice and display this intro message only once when searching
   // other ip`s..
    // if (promptcntr<1){prompt(alertmsgIntro, trkradsUrl); promptcntr++}
-   if (promptcntr<1){alert(alertmsgIntro); promptcntr++}
-
+ 
   btnArrHvrMASK.style.zIndex = "2";//Bring Mask Forwards with z-index 2, to protect button for x amount of time..
   btnArrHvrMASK.style.background="linear-gradient(#0000008b,#33016480)";
   setTimeout(()=>{//revert back the change..
