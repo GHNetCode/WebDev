@@ -122,8 +122,7 @@ let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
    "+"\n"+"\
    If you continuously get this message, please do check your internet connection and try again."+"\n"+"\
    "+"\n"+"\
-   Thank you and i hope you enjoy the WebApp as much as i did making it. 🔭 "+"\n"+"\
-   ");
+   🔭");
 
    // if (promptcntr<1){//{e.preventDefault();}
      
