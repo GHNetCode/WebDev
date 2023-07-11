@@ -149,9 +149,10 @@ btnArrHvr.addEventListener("pointerdown",e =>{
     if (promptcntr<1){
      alert(alertmsgIntro);
      e.preventDefault;//stop extra clicks being issued..
+     e.stopPropagation;
      }
     promptcntr++
-    
+
    rotateArrow.play();
 
    //reset url..

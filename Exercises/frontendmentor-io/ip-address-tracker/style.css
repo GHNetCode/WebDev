@@ -132,7 +132,7 @@ body{
     justify-content:center;
     align-items:center;
     text-align: center;
-    border-radius:24px;
+    border-radius:50%;
     /* border-bottom-right-radius:14px; */
     /* border:1px dotted rgba(6, 255, 234, 0.865) ; */
     /* left:-255px; */
@@ -148,8 +148,9 @@ body{
     box-shadow:0 0 0 0 rgb(8, 108, 161);
     position:absolute;
     border:1px dotted rgba(6, 255, 234, 0.865) ;
-    border-top-right-radius:14px;
-    border-bottom-right-radius:14px;
+    border-radius:50%;
+    /* border-top-right-radius:14px; */
+    /* border-bottom-right-radius:14px; */
     width:50px;
     left:0px;
     top:0px; 
