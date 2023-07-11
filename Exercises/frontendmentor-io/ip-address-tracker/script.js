@@ -19,7 +19,7 @@ As this App is based on free web services it might need waking up (by pressing t
 "+"\n"+"\
 Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
 "+"\n"+"\
-Thank you and i hope you enjoy the search as much as i did making it. 🔭 "+"\n"+"\
+Thank you and i hope you enjoy the WebApp as much as i did making it. 🔭 "+"\n"+"\
 "+"\n"+"\
 ");
 let trkradsUrl = "https://ghnetcode.github.io/WebDev/Exercises/frontendmentor-io/ip-address-tracker/images/BRAVEbrowser%20AllowTracker&ads.png";
