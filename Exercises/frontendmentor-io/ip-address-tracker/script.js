@@ -13,16 +13,16 @@ Steps    Overview--:
 */
 
 
-let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
-"+"\n"+"\
-As this App is based on free web services it might need waking up (by pressing the search button). For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags."+"\n"+"\
-"+"\n"+"\
-Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
-"+"\n"+"\
-Thank you and i hope you enjoy the WebApp as much as i did making it. 🔭 "+"\n"+"\
-"+"\n"+"\
-");
-let trkradsUrl = "https://ghnetcode.github.io/WebDev/Exercises/frontendmentor-io/ip-address-tracker/images/BRAVEbrowser%20AllowTracker&ads.png";
+// let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
+// "+"\n"+"\
+// As this App is based on free web services it might need waking up (by pressing the search button). For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags."+"\n"+"\
+// "+"\n"+"\
+// Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
+// "+"\n"+"\
+// Thank you and i hope you enjoy the WebApp as much as i did making it. 🔭 "+"\n"+"\
+// "+"\n"+"\
+// ");
+// let trkradsUrl = "https://ghnetcode.github.io/WebDev/Exercises/frontendmentor-io/ip-address-tracker/images/BRAVEbrowser%20AllowTracker&ads.png";
 //prompt(alertmsgIntro, trkradsUrl);
 
 
@@ -134,6 +134,18 @@ btnArrHvr.addEventListener("pointerdown",e =>{
 
    console.log("button pushed..");
    htmlEreset();//clear previous results..
+
+
+
+   let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
+   "+"\n"+"\
+   As this App is based on free web services it might need waking up (by pressing the search button). For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags."+"\n"+"\
+   "+"\n"+"\
+   Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
+   "+"\n"+"\
+   Thank you and i hope you enjoy the WebApp as much as i did making it. 🔭 "+"\n"+"\
+   "+"\n"+"\
+   ");
    if (promptcntr<1){alert(alertmsgIntro);}
    promptcntr++
    rotateArrow.play();
