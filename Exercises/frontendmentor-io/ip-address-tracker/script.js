@@ -146,8 +146,12 @@ btnArrHvr.addEventListener("pointerdown",e =>{
    Thank you and i hope you enjoy the WebApp as much as i did making it. 🔭 "+"\n"+"\
    "+"\n"+"\
    ");
-   if (promptcntr<1){alert(alertmsgIntro);}
-   promptcntr++
+    if (promptcntr<1){
+     alert(alertmsgIntro);
+     e.preventDefault;//stop extra clicks being issued..
+     }
+    promptcntr++
+    
    rotateArrow.play();
 
    //reset url..
