@@ -116,7 +116,24 @@ if (event.key === "Enter") {
 
 // The Arrow button function to run when pressed..
 let promptcntr =0;
+let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
+   "+"\n"+"\
+   As this App is based on free web services it might need waking up (by pressing the search button). For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags."+"\n"+"\
+   "+"\n"+"\
+   Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
+   "+"\n"+"\
+   Thank you and i hope you enjoy the WebApp as much as i did making it. 🔭 "+"\n"+"\
+   0003"+"\n"+"\
+   ");
 
+   // if (promptcntr<1){//{e.preventDefault();}
+     
+     setTimeout(()=>{//revert back the change..
+      alert(alertmsgIntro);
+      },3000);
+     //e.stopPropagation;
+   //  }
+    //promptcntr++
 
 btnArrHvr.addEventListener("pointerdown",e =>{
 
@@ -137,22 +154,7 @@ btnArrHvr.addEventListener("pointerdown",e =>{
 
 
 
-   let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
-   "+"\n"+"\
-   As this App is based on free web services it might need waking up (by pressing the search button). For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags."+"\n"+"\
-   "+"\n"+"\
-   Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
-   "+"\n"+"\
-   Thank you and i hope you enjoy the WebApp as much as i did making it. 🔭 "+"\n"+"\
-   0002"+"\n"+"\
-   ");
-
-   // if (promptcntr<1){//{e.preventDefault();}
-     alert(alertmsgIntro);
-  
-     //e.stopPropagation;
-   //  }
-    //promptcntr++
+   
 
    rotateArrow.play();
 
