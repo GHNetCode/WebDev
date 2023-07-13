@@ -3,6 +3,7 @@ window.onresize=()=>{
   document.getElementById('resizeInnerW').textContent=window.innerWidth;
 };
 
+
 /*
 Steps    Overview--:
 0. On pressing the button find the current ip address.
@@ -11,20 +12,6 @@ Steps    Overview--:
 3. If it`s a domain name convert it to ip via API www.whoisxmlapi.com ( if more than one ip use the first ip address..)
 4. If it`s an IP address get Geolocation Details.. 
 */
-
-
-// let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
-// "+"\n"+"\
-// As this App is based on free web services it might need waking up (by pressing the search button). For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags."+"\n"+"\
-// "+"\n"+"\
-// Lastly if you continuously get this message, please also check your internet connection and try again."+"\n"+"\
-// "+"\n"+"\
-// Thank you and i hope you enjoy the WebApp as much as i did making it. 🔭 "+"\n"+"\
-// "+"\n"+"\
-// ");
-// let trkradsUrl = "https://ghnetcode.github.io/WebDev/Exercises/frontendmentor-io/ip-address-tracker/images/BRAVEbrowser%20AllowTracker&ads.png";
-//prompt(alertmsgIntro, trkradsUrl);
-
 
 
 //global variables..
@@ -43,17 +30,13 @@ let sBRCiSP=document.getElementById('sBRCiSP');// ISP ...
 let HereApiMap=document.getElementById('HereApiMap');// ISP ...
 
 
-// https://www.whoisxmlapi.com/whoisserver/DNSService?apiKey=at_KGjrggTEbY8mXXDzkQVAoeARmsD40&domainName=tut.com&type=A&outputFormat=JSON
-//let wisxApiUrl="https://www.whoisxmlapi.com/whoisserver/DNSService?apiKey=at_sqEwNRG6G69xcfzaEFQMPOcvpWR&type=A&outputFormat=JSON&domainName="
 let wisxApiUrl = 'https://njsar.glitch.me/wxmlApi/'
 
 let wisxApiUrlget='';
-//let   wisxdomainName ;//&domainName=tut.com
 const getJsonWisx = async wisxApiUrl => {
 const response = await fetch(wisxApiUrl);
   if(!response.status >= 200 && !response.status <= 299){ // check if response worked (no http errors etc...)
-    // For this Api, possible Invalid 'error' includes "CORS",
-    // is actually an invalid API key for example..
+    // For this Api, possible Invalid 'error' which includes "CORS", is actually an invalid API key for example..
        throw new Error(response); //response.statusText
    }else{
    const data = response.json(); // get JSON from the response
@@ -94,28 +77,21 @@ let btnArrHvrMASK = document.getElementById('btnArrHvrMASK');//protect button fr
 // create a specific "pointerdown" event for the window to listen out for the Enter Key
 let pntrDowEntEvnt = new PointerEvent('pointerdown');
 window.addEventListener("keypress", function(event) {
-
-// If the user presses the "Enter" key on the keyboard
-if (event.key === "Enter") {
-
-  // Cancel the default action, if needed
-  event.preventDefault();
-  
-  // Trigger the button element with a click
-  //document.getElementById("btnArrHvr").dispatchEvent(pntrDowEntEvnt);
-  btnArrHvr.dispatchEvent(pntrDowEntEvnt);
-};
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+      event.preventDefault();
+    // Trigger the button element with a click
+    //document.getElementById("btnArrHvr").dispatchEvent(pntrDowEntEvnt);
+      btnArrHvr.dispatchEvent(pntrDowEntEvnt);
+    };
 });
-
 
 //On initial load of the page, let`s dispatch a pointerdown event to press the button ..:
 //on behalf of the user.. Re-enable before go live if needed!!
-  //window.onload=()=>{ btnArrHvr.dispatchEvent(pntrDowEntEvnt);};
+//window.onload=()=>{ btnArrHvr.dispatchEvent(pntrDowEntEvnt);};
 
-//prompt(alertmsgIntro, trkradsUrl);
 
-// The Arrow button function to run when pressed..
-let promptcntr =0;
 let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
    "+"\n"+"\
    As this App is based on free web services it might need waking up (by pressing the search button). For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags."+"\n"+"\
@@ -124,27 +100,22 @@ let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
    "+"\n"+"\
    🔭");
 
-   // if (promptcntr<1){//{e.preventDefault();}
-     
-     setTimeout(()=>{//revert back the change..
+     setTimeout(()=>{
       alert(alertmsgIntro);
       },3000);
-     //e.stopPropagation;
-   //  }
-    //promptcntr++
 
+
+
+
+// The Arrow button function to run when pressed..
 btnArrHvr.addEventListener("pointerdown",e =>{
 
-  //Let`be nice and display this intro message only once when searching
-  // other ip`s..
-   // if (promptcntr<1){prompt(alertmsgIntro, trkradsUrl); promptcntr++}
- 
   btnArrHvrMASK.style.zIndex = "2";//Bring Mask Forwards with z-index 2, to protect button for x amount of time..
   btnArrHvrMASK.style.background="linear-gradient(#0000008b,#33016480)";
-  setTimeout(()=>{//revert back the change..
+  setTimeout(()=>{//reset button..
   btnArrHvrMASK.style.zIndex = "unset";
   btnArrHvrMASK.style.background = "unset";
-  btnArrHvr.style.display = "unset";//reset spinning arrow..
+  btnArrHvr.style.display = "unset";
   },30000);// 10 seconds wait....
 
    console.log("button pushed..");
@@ -180,12 +151,12 @@ console.log("Tracker 2");
          //remove whitespaces from the String.
          srchInpTxtcleaned = srchInpTxtcleaned.split(' ').join('');
             console.log("srchInpTxt.value cleaned..: '"+srchInpTxtcleaned+"'");
-            //String now cleaned, check number of elements\dots..
+            //String now cleaned, check number of octets\dots..
             let chkDomIpvalid = srchInpTxtcleaned.split("."); 
             url = 'https://njsar.glitch.me/ipgeoApi/'+srchInpTxtcleaned;
             console.log("url:"+url);
             errMsgSite = url;
-          //Check if a domain name has been entered. more than 0, less than 4 elements\Octets is a domain..
+          //Check if a domain name has been entered. more than 0, less than 4 Octets is a domain..
             if (chkDomIpvalid.length > 0 && chkDomIpvalid.length < 4 ){ 
                 console.log("Validate domain name further..");
                 //For regex check https://stackoverflow.com/questions/10306690/what-is-a-regular-expression-which-will-match-a-valid-domain-name-without-a-subd
@@ -200,10 +171,10 @@ console.log("Tracker 2");
                               }
                     }
                       if (is_domain(srchInpTxtcleaned)){// Domain validated, now lookup the ip address..
-console.log("Tracker 3");
+
                         console.log("Domain Valid, lookup ip address..:"+srchInpTxtcleaned);
 
-                          //calling whoisxmlapi API to convert Domain name to Ip...
+                        //calling whoisxmlapi API to convert Domain name to Ip...
                           wisxApiUrlget = wisxApiUrl + srchInpTxtcleaned;//Note wisxApiUrlget is also a flag to allow function getJsonWisx(wisxApiUrlget) to run.
                           console.log("wisxApiUrl -----:"+wisxApiUrl);
                         inpTxtHasDom = true;
@@ -216,12 +187,8 @@ console.log("Tracker 3");
                       }
            }else{ //Here onwards checking if input str is a valid ip...
               if (chkDomIpvalid.length === 4){
-console.log("Tracker 4");
-              console.log("we atleast have 4 octets, check further..");
             const isValidIp = value => (/^(?:(?:^|\.)(?:2(?:5[0-5]|[0-4]\d)|1?\d?\d)){4}$/.test(value));
             if(isValidIp (srchInpTxtcleaned)){// srchInpTxt.value
-console.log("Tracker 5");
-               console.log('We have a Valid ip! -:'+srchInpTxtcleaned);// srchInpTxt.value
                inpTxtHasIp = true;
                }else{
                 rotateArrow.cancel();
@@ -312,7 +279,7 @@ console.log("Tracker 7");
 
 getJSONurlFwrapr();//This same function is implemented twice-:
                  //1st time is here for when it is instantly available for when an ip address is queried.
-                 //2nd time used in conjunction with setTimeout function (line:~195)
+                 //2nd time used in conjunction with setTimeout function (line:~268)
                  //for when waiting for getJsonWisx function to initialize data...
 
 })//----------End Button function btnArrHvr----------//
@@ -344,11 +311,9 @@ console.log("Tracker 8")
 
 
           //As this app is using an 'API proxy' get the LOCAL host IP via public service..
-          //BEFORE using the "nodejs server on glitch.com.
+          //BEFORE using "nodejs server on glitch.com.
           async function getUserIP() {
             if (srchInpTxt.value===""&&inpTxtHasIp==false){
-console.log("Tracker 9");
-//               
                  //errMsgSite = "https://ipv4.seeip.org/jsonip";  //respData.ip
                  errMsgSite = "https://api.bigdatacloud.net/data/client-ip";  //respData.ipString
      
@@ -403,10 +368,6 @@ console.log("Tracker 9");
              console.log("Data error message:"+JSON.stringify(data));
              alert("Data error message:"+JSON.stringify(data));
              }else{
-console.log("Tracker 12");
-             console.log("We`re cooking!!");
-             console.log("Data: "+JSON.stringify(data));
-
             console.log(data.ip);
             sBRCiPaDD.innerHTML=data.ip; //IP ADDRESS
             //sBRCLoc.innerText=(data.city+","+data.country_code3+" "+data.zipcode); // LOCATION
@@ -419,7 +380,7 @@ console.log("Tracker 12");
             //const div = document.createElement('div');
             //div.style.background = 'url(img.png)';
 
-            console.log(data.country_flag);
+            //console.log(data.country_flag);
             let HHMM = String(data.time_zone.current_time).slice(11,16);
               console.log('HHMM-:'+HHMM);
 
@@ -430,7 +391,7 @@ console.log("Tracker 12");
 
             //screen size "window.innerWidth" to determine size of map needed..
             let width='',height='';
-            console.log('window.innerWidth:'+window.innerWidth)
+            //console.log('window.innerWidth:'+window.innerWidth)
             if (window.innerWidth>'700'){
                   width='1440',height='522';
             }else{width='375' ,height='530';}
@@ -439,14 +400,12 @@ console.log("Tracker 12");
             getmap(data.latitude,data.longitude,width,height);
         }
           }else{//Site reachable but data returned is invalid\"null"...
-console.log("Tracker 13");
              console.log("Error: Invalid data returned. - data:" +JSON.stringify(data));
              alert("Error: Invalid data returned. - data:" +JSON.stringify(data));
              rotateArrow.cancel();
              btnArrHvr.style.display = "unset";
           }
      }).catch(Error => { 
-console.log("Tracker 14");
          rotateArrow.cancel();
          btnArrHvr.style.display = "unset";
          alert("Unable to reach the site--:"+errMsgSite+" 1. Please check internet connection and try again. If you get 'Failed to load resource: net::ERR_BLOCKED_BY_CLIENT' in devtools(F12) check browser Adblockers/shields have been disabled to view returned site message(s).");
