@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>F.E.M. | URL shortener</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    
+  </style>
+</head>
+
+<body>
+   <p id="resizeInnerW"><span>&nbsp;</span>-</p>
+   <main id="mainPage">
+   <div id="ct1">
+    <div id="ct1A">
+      <img id="ct1A1"src="./images/logo.svg" alt="Shortly logo.svg">
+      <nav id="ct1A2" role="navigation">
+       <div id="toggleMenu">
+        <!--Hidden checkbox  used as click receiver to use checked selector on it. -->
+        <label title="checkB" for="checkB"></label> <input type="checkbox" title="checkB" id="checkB" name="checkB" />
+        
+        <!-- Some spans for the hamburger.-->
+        <span></span>
+        <span></span>
+        <span></span>
+        
+        <!-- change ul to another container!!!!-->
+        <ul id="menu">
+          <li>Features</li>
+          <li>Pricing</li>
+          <li>Resources</li>
+          <p id="sep"> &nbsp </p>
+          <li id="liLogin">Login</li>
+          <li id="liSgnup">Sign Up</li>
+          <!-- <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a> -->
+        </ul>
+      </div>
+     </nav>
+
+    </div>
+    
+    <div id="ct1B" src="./images/illustration-working.svg" alt="illustration-working.svg"></div>
+    <div id="ct1C">
+      <H1>More than just shorter links</H1>
+      
+      <p>Build your brand’s recognition and get detailed insights 
+        on how your links are performing.</p>
+
+        <button id="ct1Cbtn">Get Started</button>
+      
+    </div>
+
+    <div id="ct1D">
+     <div id="ct1D1">
+        <img  src="./images/bg-shorten-mobile.svg" alt="bg-shorten-mobile.svg">
+         <div id="ct1D1inpFld">
+           <label id="ct1D1Lbl" for="name">ct1D1inpFld</label>
+           <input id="ct1D1inp"  type="text" name="name" placeholder="Shorten a link here..."/>
+         </div>
+         <!-- <p id="ct1D1AdLnkMsg">Please add a link</p> -->
+         <button id="ct1D1Btn" class="BtnstylC">Shorten It!</button>
+     </div>
+     
+     
+     <div id="ct1D1LnksN1" class="ct1D1LnksN1Cls"><!-- to be removed!!! -->
+        <p id="ct1DlongUrlP">https:<span class="fwdSlsh">//</span>www.frontendmentor.io/asefaefaefefefefefefefefefefefefefefefef</p>
+         <span id="ct1Dsep"></span>
+        <p id="ct1D1ShrtLnkP">https:<span class="fwdSlsh">//</span>rel.ink/k4lKyk</p>
+        <!-- <p id="ct1D1LngLnk"></p> -->
+        <button id="ct1D1CpyLnkBtn" class="BtnstylC">Copy</button>
+     </div>
+ 
+     <div id="ct1D2">
+       <h1>Advanced Statistics</h1>
+       <p>Track how your links are performing across the web with our 
+          advanced statistics dashboard.</p>
+     </div>
+
+     <div id="ct1D3">
+       <div id="ct1D3img">
+         <img src="./images/icon-brand-recognition.svg" alt="icon-brand-recognition.svg">
+       </div>
+       <h2>Brand Recognition</h2>
+       <p>Boost your brand recognition with <span id="ct1D3sp1"> each click.</span> 
+          <span id="ct1D3sp2">Generic links don’t</span> <span id="ct1D3sp3">me</span>an a thing.<span id="ct1D3sp4">
+          Branded links help</span> instil confidence in your content.</p>
+     </div>
+
+     <div id="ctjoinerD3D4"></div>
+
+     <div id="ct1D4"> 
+        <div id="ct1D4img">
+          <img src="./images/icon-detailed-records.svg" alt="icon-detailed-records.svg">
+        </div>
+        <h2>Detailed Records</h2>
+       <p>Gain insights into who is clicking your links. Knowing when and <span id="ct1D4sp1">where 
+          people engage with your</span> <span id="ct1D4sp2">content helps inform better</span> decisions.</p>
+     </div>
+
+     <div id="ctjoinerD4D5"></div>
+
+     <div id="ct1D5"> 
+       <div id="ct1D5img">
+          <img src="./images/icon-fully-customizable.svg" alt="icon-fully-customizable.svg">
+       </div>
+       <h2>Fully Customizable</h2>
+       <p>Improve brand awareness and content discoverability through <span id="ct1D5sp1">customizable 
+          links</span>, supercharging audience engagement.</p>
+     </div>
+
+    </div>
+    <div id="ct1E">
+      <div id="ct1E1">
+        <img src="./images/bg-boost-mobile.svg" alt="bg-boost-mobile.svg">
+        <h2>Boost your links today</h2>
+        <button id="ct1E1btn">Get Started</button>
+ 
+       
+      </div>
+      <div id="ct1E2">
+
+         <img id="ct1E2img"src="./images/logo.svg" alt="Shortly logo.svg">
+
+
+          <h2 id="ct1E2h2a">Features</h2>
+
+          <h3 id="ct1E2h3a">Link Shortening</h3>
+          <h3 id="ct1E2h3b">Branded Links</h3>
+          <h3 id="ct1E2h3c">Analytics</h3>
+         
+          <h2 id="ct1E2h2b">Resources</h2>
+         
+          <h3 id="ct1E2h3d">Blog</h3>
+          <h3 id="ct1E2h3e">Developers</h3>
+          <h3 id="ct1E2h3f">Support</h3>
+
+          <h2 id="ct1E2h2c">Company</h2>
+
+          <h3 id="ct1E2h3g">About</h3>
+          <h3 id="ct1E2h3h">Our Team</h3>
+          <h3 id="ct1E2h3i">Careers</h3>
+          <h3 id="ct1E2h3j">Contact</h3>
+          
+       </div>
+       <div id="ct1E2A">
+        <div id="ct1E2A1">
+          <img src="./images/icon-facebook.svg" alt="icon-facebook.svg">
+          <img src="./images/icon-twitter.svg" alt="icon-facebook.svg">
+          <img src="./images/icon-pinterest.svg" alt="icon-facebook.svg">
+          <img src="./images/icon-instagram.svg" alt="icon-facebook.svg">
+         </div>
+
+         <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="#">Your Name Here</a>.
+        </div>   
+       </div>
+     </div>
+    </div>
+   </main>
+</body>
+<script content-type="utf-8" src="./script.js"></script>
+</html>
