@@ -335,7 +335,7 @@ height: 100%;/*3470px 785px 100vh */
             }*/
 
 
-            /* #ct1D1Btn{ */
+            /* Button Styling class */
               .BtnstylC{
              font-family: 'poppins';
               display:flex;
@@ -373,13 +373,12 @@ height: 100%;/*3470px 785px 100vh */
               border-radius: 5px;
               margin-bottom: 25px;
             }
-              #ct1DlongUrlP{
-                
+              #ct1DlongUrlP, .ct1DlongUrlPC{                
                 /* display: flex; */
                 position: relative;
-                width: 315px;
+                width: 312px;
                  /* Both of the following are required for text-overflow */
-                 /* white-space:nowrap; */
+                 white-space:nowrap;
                  overflow:hidden;
                  margin-left: 15px;
                  margin-top: 14px;
@@ -392,14 +391,14 @@ height: 100%;/*3470px 785px 100vh */
               }
               .fwdSlsh{letter-spacing: -1px;}
               
-              #ct1Dsep{
+              #ct1Dsep, .ct1DsepC{/*class added due to cloned div`s having unique id`s..*/
                 height: 1.5px;
                 background: linear-gradient(0.25turn,rgb(0, 0, 0),rgb(43, 209, 209),rgb(72, 37, 159));
                 margin: 10px 2px 0px 2px;
                 opacity: 40%;
                 /* color: grey; */
               }
-              #ct1D1ShrtLnkP{
+              #ct1D1ShrtLnkP, .ct1D1ShrtLnkPC{/*class added due to cloned div`s having unique id`s..*/
                 /* display: flex; */
                 position: relative;
                 width: 315px;
@@ -415,7 +414,7 @@ height: 100%;/*3470px 785px 100vh */
                  overflow:-moz-hidden-unscrollable;
                  text-overflow:ellipsis;
               }
-              #ct1D1CpyLnkBtn{/* override class.BtnstylC */
+              #ct1D1CpyLnkBtn, .ct1D1CpyLnkBtnC{/* override class.BtnstylC . Class added due to cloned div`s having unique id`s..*/ 
                 height: 40px;
                 width: 295px;
                 margin-left: 15px;
