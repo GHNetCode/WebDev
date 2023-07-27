@@ -422,6 +422,16 @@ height: 100%;/*3470px 785px 100vh */
                 font-size: 16px;
                 padding-left: 3px;
               }
+              .ct1D1CpyLnkBtnC:active{
+                background: linear-gradient(rgb(29, 23, 46),rgb(76, 48, 145));
+              }
+              /* .ct1D1CpyLnkBtnC:active:after{
+                background: linear-gradient(rgb(29, 23, 46),rgb(29, 23, 46));
+              } */
+
+
+
+
 
 
 
