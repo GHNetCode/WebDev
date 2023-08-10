@@ -41,16 +41,10 @@ const rotatect1D1Btn = new Animation(effect, document.timeline);
 //rotatect1D1Btn.cancel();// to stop the animation before set duration..
 
 
-// implement another function for the enter key to also push the button
-
-
-
 
 ct1D1Btn.addEventListener("pointerdown",e=>{//Button 'Shorten It!' pressed..
-    
 
 console.log('ct1D1Btn Button has been pressed..')
-
 
 //console.log('Url text field..:'+ct1D1inp.value)
 
@@ -86,17 +80,12 @@ if (ct1D1inp.value){//ct1D1inp - check if we have data and process it..
 
             if(ct1DshortUrl){//Api returned short url ok...
                 OnLoadLclStrgFlag=false
-                
-                
                 UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl);
             }else{
                 rotatect1D1Btn.cancel();
                 console.log('Error fetching url, please check internet connection..:'+error ); }
           }
 
-        //UrlLinkDiv(ct1D1CpyLnkBtnId,ct1DlongUrl,ct1DshortUrl);
-          // UrlLinkDiv(ct1DlongUrl,ct1DshortUrl);
-          
     }else{
          console.log('Please add a link..')
         if (!oneClickFlag){plsAddLnkMsg();}//call plsAddLnkMsg "Please add a link"  
@@ -107,7 +96,6 @@ if (ct1D1inp.value){//ct1D1inp - check if we have data and process it..
 
 BtnProc();
 
-//}, 3000)
 
 })
 
@@ -142,12 +130,11 @@ function plsAddLnkMsg(){//function to create&display err msg and style input ele
 }
 
 
-//DRY Function
+
 //on Text Input clear error styling..
 // 1. check if child elem id ct1D1AdLnkMsg is still  
 //    present and remove it to clear msg "Please add a link" when text is enter in input field..
 // 2. Reset border back to none..
-
 function resetErrStyles(){
     let ct1D1AdLnkMsg=document.getElementById('ct1D1AdLnkMsg'); 
     if(ct1D1AdLnkMsg!==null){ct1D1AdLnkMsg.remove();}
@@ -191,8 +178,8 @@ ct1D1inp.onpaste=function(){
       }
 
 
-
-async function urlValidator(ct1DlongUrl){//Validate url..
+//Validate url..
+async function urlValidator(ct1DlongUrl){
     let errMsg="Woops, looks like we got ourselves an invalid Url..."+"\n"+"\
     -:  "+ct1DlongUrl+"\n"+"\ ";
 
@@ -215,7 +202,8 @@ async function urlValidator(ct1DlongUrl){//Validate url..
     }
 
 
-  // Before cloning check max number of links already added (children)..
+
+  // Before cloning check max number of links already added to the UI (children)..
     // if above threshold advise to copy\save old link..
     let numChd = document.getElementById("ct1D").childElementCount;
         console.log('Before cloning -: ct1D has '+numChd+' children........................')//num of children cloned..
@@ -225,79 +213,42 @@ async function urlValidator(ct1DlongUrl){//Validate url..
     "+"To generate a New link please copy/save This old link."+"\n"+"\ "
 
 
-//update all child id`s in Cloned Div "ct1D1LnksN1Clnd"..
+//Child id`s in Cloned Div "ct1D1LnksN1Clnd" to be udpated...
 let ct1D1LnksN1 = document.getElementById("ct1D1LnksN1");
 let ct1Dsep = document.getElementById('ct1Dsep');
 let ct1D1ShrtLnkP = document.getElementById('ct1D1ShrtLnkP');
 let ct1D1CpyLnkBtn = document.getElementById('ct1D1CpyLnkBtn');
-let cloneElIdCntr = 0;// clone counter so each copy id is unique when an id is assigned..
-
-//    //Let`s clone div '#ct1D1LnksN1' id already defined in html & css to 
-      //a template 'cloneTemplate' as cloning the clone hopefully resolves issues with
-      //buttons not being selected once the clone is deleted and added again..
-//    //and display it setting the display param..
-
-////    //Clone it with deep copy (true), so we have all the children..
-//    let cloneTemplate = ct1D1LnksN1.cloneNode('true');
-////    // Update the ID and add a class to it to keep styles intact..
-//      cloneTemplate.id = 'ct1D1LsN1Cld'+iKey;//+cloneElIdCntr
-//      cloneTemplate.classList.add('ct1D1LnksN1Cls')
-
-
-
 let ct1DinitHeight = document.getElementById('ct1D').clientHeight; //Get initial clientHeight.
-let ct1D1CpyLnkBtnArr =[];
+let ct1D1CpyLnkBtnArr =[];//Array to store Btn number and Link..
 
-//UrlLinkDiv function run on initial load and when pressing the "Shorten It!" Button
+
+//UrlLinkDiv function runs when-:
+//1.Function OnLoadLclStrg() is called on the initial startup, clones and updates the UI.
+//2.Pressing the "Shorten It!" Button, updates the template then clones it with new link, updates the UI and then writes to storage..
 function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){//show shorten validated Url and write to local storage..
-                    //ct1D1CpyLnkBtnId,ct1DlongUrl,ct1DshortUrl
-
-
+                    
     // Get the parent element 
     let parentElemct1D = document.getElementById("ct1D");// ct1D2 insertBefore ct1C 
     // Get parent's child where we want to insert the new div next too..
     let childElem = document.getElementById("ct1D2");
     
-    // update iKey Based on what is already in the storage If storage
-    // is below maxRows set and increment it
-    //need to check that initial load is also accounted for...
-//   if (iKey<maxRows){
-//   let iKeynumSA = highestStorageKey();//keys are Validated
-//   console.log('highestStorageKey iKey returned      :'+iKeynumSA[0]);
-//   iKey=iKeynumSA[0];
-//   console.log('highestStorageKey numStored returned :'+iKeynumSA[1]);
-//   //set i to last row saved(Same as iKeynumSA[0])
-// }
-
 console.log("UrlLinkDiv -- OnLoadLclStrgFlagiKey..:"+OnLoadLclStrgFlagiKey)
 console.log("UrlLinkDiv -- iKey..:"+iKey)
 
 
-//f (OnLoadLclStrgFlagiKey){//Flag to check if this is the initial load being run or not...
-// console.log("UrlLinkDiv -- if (OnLoadLclStrgFlagiKey)0..:"+iKey)
-//   //Do not increment iKey if below maxRows to ensure iKey number '0' is preserved.
-//     if ((iKey+1)>maxRows){
-//         iKey++;
-//         console.log("UrlLinkDiv -- if (OnLoadLclStrgFlagiKey)0 iKey has been incremented..:"+iKey);
-//        }
-//  OnLoadLclStrgFlagiKey=false;
-//  console.log("UrlLinkDiv -- if (OnLoadLclStrgFlagiKey)1..:"+iKey)
-// }
-
-
 
   //Notifications for Deleting the oldest link (first one in the list) only apply After 
-  //pressing the 'Shorten it!' button, hence it is within this function UrlLinkDiv()..
+  //pressing the 'Shorten it!' button in this function UrlLinkDiv()..
       // Before cloning check max number of 'links (children)' already added on the page ..
       // if above threshold advise to copy\save old link...
       numChd = document.getElementById("ct1D").childElementCount;
       console.log('UrlLinkDiv -: ct1D has '+numChd+' children...........');//num of children cloned..
   
       if (numChd > (7+maxRows) ){//(numChd >11)   7+maxRows=11..
-      console.log("UrlLinkDiv numChd iKey ----------- :"+iKey  );//if ikey is 0 use ct1D1ShrtLnkP..
+      console.log("UrlLinkDiv numChd iKey ----------- :"+iKey  );
       console.log("UrlLinkDiv numChd maxRows ----------- :"+maxRows  );
       
-           //NOTE iKey[] has ALREADY been incremented to assign to the new clone.
+           //NOTE iKey[] has Already been incremented.
           if (iKey===maxRows){
               if (document.getElementById("ct1D1ShrtLnkP")){// The first child id there is no num appended..
 
@@ -311,32 +262,27 @@ console.log("UrlLinkDiv -- iKey..:"+iKey)
   
                     console.log("UrlLinkDiv numChd short link to be deleted ct1D1ShrtLnkP :"+document.getElementById("ct1D1ShrtLnkP").innerText);
                     console.log('UrlLinkDiv numChd ')
-                    //ct1D1LsN1Cld
-                      let ct1D1LsN1CldiKey = document.getElementById("ct1D1LsN1Cld"+(iKey - maxRows));
-                      console.log("UrlLinkDiv numChd ct1D1LsN1Cld"+(iKey - maxRows));
-                     ct1D1LsN1CldiKey.parentNode.removeChild(ct1D1LsN1CldiKey);
-                     console.log("UrlLinkDiv numChd0 ct1D1CpyLnkBtnArr -:"+ct1D1CpyLnkBtnArr);
-                     ct1D1CpyLnkBtnArr.splice(0,2);//Lets remove the first 2 elements from our array..
-                     console.log("UrlLinkDiv numChd1 ct1D1CpyLnkBtnArr -:"+ct1D1CpyLnkBtnArr);
+                    
+                    let ct1D1LsN1CldiKey = document.getElementById("ct1D1LsN1Cld"+(iKey - maxRows));
+                    console.log("UrlLinkDiv numChd ct1D1LsN1Cld"+(iKey - maxRows));
+                    ct1D1LsN1CldiKey.parentNode.removeChild(ct1D1LsN1CldiKey);
+                    console.log("UrlLinkDiv numChd0 ct1D1CpyLnkBtnArr -:"+ct1D1CpyLnkBtnArr);
+                    ct1D1CpyLnkBtnArr.splice(0,2);//Lets remove the first 2 elements from our array..
+                    console.log("UrlLinkDiv numChd1 ct1D1CpyLnkBtnArr -:"+ct1D1CpyLnkBtnArr);
   
                   }
-              }else if(iKey > maxRows ){//maxRows)>=0 
+              }else if(iKey > maxRows ){
 
-                  // Here we do now have numbers that are appended to ct1D1ShrtLnkP id`s where 
+                  // Here we have numbers that are appended to ct1D1ShrtLnkP id`s where 
                   // iKey is above maxRows..
                   // Because iKey has already been incremented for id 'ct1D1LsN1Cld'
                   // let's decrease it by 1 for id 'ct1D1ShrtLnkP'
                   
-                  // When refreshing the page after set maxRows the child tags 'ct1D1ShrtLnkP' 
-                  // are being reset and need to remain consistent..
-
                   //ct1D1ShrtLnkP
                   console.log("UrlLinkDiv numChd iKey... :"+iKey)
                   console.log("UrlLinkDiv numChd maxRows... :"+maxRows)
                   console.log("UrlLinkDiv numChd else if -- short link to be deleted-: ct1D1ShrtLnkP"+((iKey -1) - maxRows));//((iKey -1) - maxRows)) 
                   console.log('UrlLinkDiv numChd '+document.getElementById("ct1D1ShrtLnkP"+((iKey -1) - maxRows)).innerText);//((iKey -1) - maxRows))
-                  // with ((iKey -1) - maxRows)) this is needed otherwise it skips a 
-                  // link and works well if refresh of the page is NOT done!!
 
 
                   prompt(maxnumLnksMsg,"Old link -: https://"+document.getElementById("ct1D1ShrtLnkP"+((iKey -1)  - maxRows)).innerText)
@@ -348,43 +294,29 @@ console.log("UrlLinkDiv -- iKey..:"+iKey)
                     ct1D1CpyLnkBtnArr.splice(0,2);//Lets remove the first 2 elements from our array..
 
   
-              }
-
-           
-   }
+          }
+      }
 
 
 
-//STEP1: 
-//lets update the original ct1D1LnksN1 DIV with new Url BEFORE cloning..
+//lets update the original ct1D1LnksN1 DIV with new Url before cloning..
 ct1DlongUrlP.textContent=ct1DlongUrl;
 ct1D1ShrtLnkP.textContent=ct1DshortUrl;
 
 
-//Push the ct1D1CpyLnkBtn.id onto an array to 
-    // 1. use as a filter for Global addEventListener.
-    // 2. update/reset buttons textContent and style.
-    //Push short link (ct1D1ShrtLnkP.textContent) to copy this to the clipboard..
-  //  ct1D1CpyLnkBtnArr.push(ct1D1CpyLnkBtnId,ct1D1ShrtLnkP.textContent)
-  //  console.log('UrlLinkDiv ct1D1CpyLnkBtnArr 0 Clone -:'+ct1D1CpyLnkBtnArr) //btn
-
 
 
 if (OnLoadLclStrgFlag){//From OnLoadLclStrg() - Before cloning 'Div\Template' ct1D1LnksN1 below..
-// Note: sticky buttons can be due to duplicate id`s!
+
 
     //When loading from storage we do not have a button id "ct1D1CpyLnkBtn" stored
-    //this will need to be accounted for to keep it consistent..
+    //this will need to be accounted for..
          if (iKey===0){
               ct1D1CpyLnkBtnId='ct1D1CpyLnkBtn';
-
               ct1D1ShrtLnkPId='ct1D1ShrtLnkP';
-
-              }else if (iKey>=1){//use iKey here..
-                
+              }else if (iKey>=1){
                 ct1D1CpyLnkBtnId='ct1D1CpyLnkBtn'+(iKey -1);
                 ct1D1ShrtLnkPId='ct1D1ShrtLnkP'+(iKey -1);
-               
              }
 
 
@@ -392,7 +324,7 @@ if (OnLoadLclStrgFlag){//From OnLoadLclStrg() - Before cloning 'Div\Template' ct
  ct1D1CpyLnkBtn.id = ct1D1CpyLnkBtnId;
  ct1D1ShrtLnkP.id = ct1D1ShrtLnkPId;
  // if enabled the last one is sticky, both respond..
- // Clue-: sticky buttons can be due to duplicate id`s...
+ // Note-: sticky buttons can be due to duplicate id`s...
 
 console.log('UrlLinkDiv OnLoadLclStrgFlag Before Clone iKey-:'+iKey) //btn
 console.log('UrlLinkDiv OnLoadLclStrgFlag Before Clone ct1D1CpyLnkBtn.id-:'+ct1D1CpyLnkBtn.id) //btn
@@ -404,139 +336,53 @@ console.log('UrlLinkDiv OnLoadLclStrgFlag ct1D1CpyLnkBtnArr Before Clone -:'+ct1
 
 ct1D1LnksN1.id = 'ct1D1LnksN1'+iKey;//This is for the template..
 
-}else{//From "Shorten It1" Button
-
-   //   ct1D1ShrtLnkP.id = ct1D1ShrtLnkPId;
-   //   ct1D1CpyLnkBtn.id = ct1D1CpyLnkBtnId;
-// ct1D1LnksN1.id = 'ct1D1LnksN1'+iKey;//This is for the template..
-// if above is enable all button are sticking..
-
-//ct1Dsep.id = 'ct1Dsep'+iKey;
-//ct1DlongUrlP.id = 'ct1DlongUrlP'+iKey;
-//ct1D1ShrtLnkP.id = 'ct1D1ShrtLnkP'+iKey;
-//ct1D1CpyLnkBtn.id = 'ct1D1CpyLnkBtn'+iKey;
+}else{//When "Shorten It" button is pushed..
 
 
-//Disabling the below for the moment to test buttons work after
-    ////a row has been Removed and then added again..
-    ////Let`s update the template before a clone is
-    ////performed for the child elements in the HTML Form.
-    ////Add a row to account for assigned button id  'ct1D1CpyLnkBtn'
-    ////ct1D1CpyLnkBtn.id : these ".id`s" are for the elements on the HTML form\Dom
-    ////ct1D1CpyLnkBtnid :   these are for the Storage Id`s..
-    //if (iKey===0){
-    // ct1Dsep.id ='ct1Dsep';
-    // ct1DlongUrlP.id ='ct1DlongUrlP';
-    // ct1D1ShrtLnkP.id ='ct1D1ShrtLnkP';
-    // ct1D1CpyLnkBtn.id ='ct1D1CpyLnkBtn';
-    //
-    //
-    // }else if (iKey>=1){//use iKey here..
-    //   ct1Dsep.id ='ct1Dsep'+(iKey -1);
-    //   ct1DlongUrlP.id ='ct1DlongUrlP'+(iKey -1);
-    //   ct1D1ShrtLnkP.id='ct1D1ShrtLnkP'+(iKey -1);
-    //   ct1D1CpyLnkBtn.id='ct1D1CpyLnkBtn'+(iKey -1);
-    //}
-
-
-    // // IDs "ct1D1CpyLnkBtnId" used for local storage
-    //      ct1D1CpyLnkBtnId = 'ct1D1CpyLnkBtn'+(iKey);
-    //      ct1D1ShrtLnkPId  = 'ct1D1ShrtLnkP'+(iKey);
-
-
-
- //Push the ct1D1CpyLnkBtn.id onto an array to 
-    // 1. use as a filter for Global addEventListener.
-    // 2. update/reset buttons textContent and style.
-    //Push short link (ct1D1ShrtLnkP.textContent) to copy this to the clipboard..
+ //Push the ct1D1CpyLnkBtn.id onto an array to use as a filter for addGlobalEventListener() 
+ //that updates/resets buttons textContent and style and copies link to the clipboard when btn is pressed.
     ct1D1CpyLnkBtnArr.push(ct1D1CpyLnkBtn.id,ct1D1ShrtLnkP.textContent)
     console.log('UrlLinkDiv ct1D1CpyLnkBtnArr 1 Clone -:'+ct1D1CpyLnkBtnArr)
-    //Above makes all buttons work except bottom one is sticky when at maxRows Threshold (0 to 3, 4 elements..).
-    // sticky button resolved by adding following after the clone..:
-    // ct1D1LnksN1.id = 'ct1D1LnksN1'+iKey;//This is for the template..
- 
-
 }
 
 
 
-    // updating the id`s like 'ct1D1CpyLnkBtn.id' Before the clone is made on 
-    //Template ensures that the id`s are updated..
-
-    //Let`s clone div '#ct1D1LnksN1' id already defined in html & css to display the links..
+    //Clone div '#ct1D1LnksN1' id (already defined in html & css) to display the links..
     //and display it setting the display param..
-    //Get Div to be cloned..
     //Clone it with deep copy (true), so we have all the children..
     let ct1D1LnksN1Clnd = ct1D1LnksN1.cloneNode('true');
 
     
     // Update the ID and add a class to it to keep styles intact..
-    ct1D1LnksN1Clnd.id = 'ct1D1LsN1Cld'+iKey;//+cloneElIdCntr
+    ct1D1LnksN1Clnd.id = 'ct1D1LsN1Cld'+iKey;
+    ct1D1LnksN1Clnd.classList.add('ct1D1LnksN1Cls')
 
  
 
-  if (OnLoadLclStrgFlag){//After cloning Template\Div ct1D1LnksN1..
-    // Note sticky buttons can be due to duplicate id`s!
-     // ct1D1ShrtLnkP.id = ct1D1ShrtLnkPId;
-     // ct1D1CpyLnkBtn.id = ct1D1CpyLnkBtnId;
-      //if enabled the bottom one works, top one does not stay selected..
+  if (OnLoadLclStrgFlag){//After cloning Div ct1D1LnksN1, and before loading to dom..
 
+      //set template for next round
       ct1Dsep.id = 'ct1Dsep'+iKey;
       ct1DlongUrlP.id = 'ct1DlongUrlP'+iKey;
-      ct1D1ShrtLnkP.id = 'ct1D1ShrtLnkP'+iKey;//resetting template back to ct1D1ShrtLnkP for next round
-      ct1D1CpyLnkBtn.id = 'ct1D1CpyLnkBtn'+iKey;//resetting template back to ct1D1CpyLnkBtn for next round..
-
-       //  ct1D1LnksN1.id = 'ct1D1LnksN1'+iKey;//This for the template, to be updated when there is more than maxRows loading from Storage..
-
+      ct1D1ShrtLnkP.id = 'ct1D1ShrtLnkP'+iKey;
+      ct1D1CpyLnkBtn.id = 'ct1D1CpyLnkBtn'+iKey;
       
       console.log('UrlLinkDiv OnLoadLclStrgFlag After Clone ct1D1CpyLnkBtn.id-:'+ct1D1CpyLnkBtn.id) //btn
       console.log('UrlLinkDiv OnLoadLclStrgFlag After Clone ct1D1CpyLnkBtnId-:'+ct1D1CpyLnkBtnId) //btn
 
-     // ct1D1CpyLnkBtnArr.push(ct1D1CpyLnkBtnId,ct1DshortUrl)
-     // console.log('UrlLinkDiv OnLoadLclStrgFlag After Clone ct1D1CpyLnkBtnArr -:'+ct1D1CpyLnkBtnArr) //btn
-     
-     }else{ //update id`s when "Shorten It" button is pushed, and save to local storage using onWriteLclStrg(..)..
-
-      //Let`s update the template After a clone is performed for the 
-      //child elements in the HTML Form to Keep the Template unique preventing sticky buttons..
-//         ct1Dsep.id = 'ct1DsepUNQ';
-//         ct1DlongUrlP.id = 'ct1DlongUrlPUNQ';
-//         ct1D1ShrtLnkP.id = 'ct1D1ShrtLnkPUNQ';
-//         ct1D1CpyLnkBtn.id = 'ct1D1CpyLnkBtnUNQ';
-
- //update child elem Id`s
- ct1D1LnksN1.id = 'ct1D1LnksN1'+iKey;//+cloneElIdCntr
- ct1Dsep.id = 'ct1Dsep'+iKey;//+cloneElIdCntr
- ct1DlongUrlP.id = 'ct1DlongUrlP'+iKey;//+cloneElIdCntr
- ct1D1ShrtLnkP.id = 'ct1D1ShrtLnkP'+iKey;//+cloneElIdCntr
- ct1D1CpyLnkBtn.id = 'ct1D1CpyLnkBtn'+iKey;//+cloneElIdCntr
-
- ct1D1CpyLnkBtnId = ct1D1CpyLnkBtn.id;// ID "ct1D1CpyLnkBtnId" used for local storage
- ct1D1ShrtLnkPId  = ct1D1ShrtLnkP.id;  // ID "ct1D1ShrtLnkPId" used for local storage
+     }else{ //update id`s when "Shorten It" button is pushed..
 
 
+        //update template child elem Id`s
+        ct1D1LnksN1.id = 'ct1D1LnksN1'+iKey;
+        ct1Dsep.id = 'ct1Dsep'+iKey;
+        ct1DlongUrlP.id = 'ct1DlongUrlP'+iKey;
+        ct1D1ShrtLnkP.id = 'ct1D1ShrtLnkP'+iKey;
+        ct1D1CpyLnkBtn.id = 'ct1D1CpyLnkBtn'+iKey;
 
-
-
-
-
-//
-//     //  ct1D1LnksN1.id = 'ct1D1LnksN1'+iKey;//This for the template..
-//
-//      ct1D1CpyLnkBtnId = ct1D1CpyLnkBtn.id;// ID "ct1D1CpyLnkBtnId" used for local storage
-//      ct1D1ShrtLnkPId  = ct1D1ShrtLnkP.id;  // ID "ct1D1ShrtLnkPId" used for local storage
-
-    //  ct1D1CpyLnkBtnArr.push(ct1D1CpyLnkBtn.id,ct1D1ShrtLnkP.textContent)
-    //  console.log('UrlLinkDiv ct1D1CpyLnkBtnArr 1 Clone -:'+ct1D1CpyLnkBtnArr)
-  
+        ct1D1CpyLnkBtnId = ct1D1CpyLnkBtn.id;// ID "ct1D1CpyLnkBtnId" used for local storage
+        ct1D1ShrtLnkPId  = ct1D1ShrtLnkP.id;  // ID "ct1D1ShrtLnkPId" used for local storage
     }
-// ct1D1CpyLnkBtnArr.push(ct1D1CpyLnkBtn.id,ct1D1ShrtLnkP.textContent)
-//ct1D1CpyLnkBtnArr.push(ct1D1CpyLnkBtnId,ct1D1ShrtLnkP.textContent)
-//console.log('UrlLinkDiv OnLoadLclStrgFlag ct1D1CpyLnkBtnArr 0 Clone -:'+ct1D1CpyLnkBtnArr) //btn
-
-// possibly adding the class here will resolve issues where button is not being clicked
-// after the clone is removed\added again..
-ct1D1LnksN1Clnd.classList.add('ct1D1LnksN1Cls')
 
   
 
@@ -556,52 +402,34 @@ ct1D1LnksN1Clnd.classList.add('ct1D1LnksN1Cls')
     ct1D1LnksN1Clnd.style.display="flex";
     
 
-
-
-
-
-
     //resize to accommodate new height.. ct1D
     //lets take into account the 'maxRows' (number of links that can be displayed) to ensure we do 
-    //not continue adding above the maxRows.) 1485
-    //check max height already added is not above 4 x the height given 
+    //not continue adding above the maxRows.) 1485px
      if ((parentElemct1D.clientHeight) < ((ct1DinitHeight) + (maxRows * 190)) ){
-     let parElClntHt = (parentElemct1D.clientHeight + 190);//160
-     parentElemct1D.style.height=(parElClntHt+"px");// no need for the toString param as the datatype for "px" is already a string...
-     //console.log('parentElemct1D-height:'+parentElemct1D.clientHeight )
+        let parElClntHt = (parentElemct1D.clientHeight + 190);//160
+        parentElemct1D.style.height=(parElClntHt+"px");// no need for the toString param as the datatype for "px" is already a string...
+        //console.log('parentElemct1D-height:'+parentElemct1D.clientHeight )
      }
 
     // Insert the new element before the childElem
     parentElemct1D.insertBefore(ct1D1LnksN1Clnd, childElem);
-    // parentElement.appendChild(newDivElem);
 
-
-
-    
-
-//    console.log('UrlLinkDiv onWriteLclStrg --Before iKey increment:'+ iKey);
-
-if (!OnLoadLclStrgFlag){//Skip writing to local storage on initial load..
-    onWriteLclStrg(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl);
-}
-
-
+    if (!OnLoadLclStrgFlag){//Skip writing to local storage on initial load when OnLoadLclStrg() is run..
+        onWriteLclStrg(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl);
+    }
 
 }
 
 
 // Global EventListener for All Buttons added( including the cloned 'Copy' buttons) 
-// reason for this approach is when cloning the EventListeners are Not cloned.
-//let CopiedFlagId ='';
+// reason for this approach is when cloning the EventListener is not taken into account.
  addGlobalEventListener('pointerdown', 'button', e =>{
     // console.log('From addGlobalEventListener');
        console.log('addGlobalEventListener e.target.id :'+ e.target.id);//This will show just the button id clicked on..
 
     //This for loop 1. Checks anything in the array ct1D1CpyLnkBtnArr for just all the Cloned Buttons.
     //2. Copies the short Link. 3. Updates button style. 4. updates textContent.
-    //CopiedFlag
       for(i=0; i <=ct1D1CpyLnkBtnArr.length; i++){
-      //  for(i=(iKey - maxRows); i <=ct1D1CpyLnkBtnArr.length; i++){
           console.log('addGlobalEventListener iKey '+(iKey));
           console.log('addGlobalEventListener maxRows:'+(maxRows));
           console.log('addGlobalEventListener i=(iKey - maxRows):'+(iKey - maxRows));
@@ -623,7 +451,6 @@ if (!OnLoadLclStrgFlag){//Skip writing to local storage on initial load..
                e.target.style.background="linear-gradient(rgb(29, 23, 46),rgb(29, 23, 46))";
              //update text
                e.target.textContent="Copied!";
-
              }
 
        //reset btn styles for cloned div`s 'ct1D1CpyLnkBtn' if the button was not pressed.
@@ -642,14 +469,11 @@ if (!OnLoadLclStrgFlag){//Skip writing to local storage on initial load..
                        lnkBtnElem.textContent="Copy";
                     }
 
-             //  //  if statement for CopiedFlagId 
-             //  if(ct1D1CpyLnkBtnArr[i]===CopiedFlagId){
-             //  console.log('CopiedFlagId -  flag id  WAS set for '+CopiedFlagId)
-             //  }
              }
      }
         
  });
+
 
  function addGlobalEventListener(type, selector, callback){
      document.addEventListener(type, e =>{
@@ -659,17 +483,15 @@ if (!OnLoadLclStrgFlag){//Skip writing to local storage on initial load..
  };
 
  
- //if (!OnLoadLclStrgFlag){//skip writing  to local storage on initial load..
-
  
-
-//write to local storage.. 
-//onWriteLclStrg comes First in writing to localStorage then OnLoadLclStrg
-//Get number of items stored for THIS webapp!
+//Write to local storage...
+//1. The Function onWriteLclStrg is used by UrlLinkDiv().
+//2. onWriteLclStrg() checks param 'numStored' updated by OnLoadLclStrg() when adding\removing LocalStorage keys
+//   and updates 'numStored' param as well
 let numStored=0 // incremented by onWriteLclStrg OnLoadLclStrg
 function onWriteLclStrg(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){
 
-    //write new Links to local storage for retrieval
+    //write new Links to local storage array for retrieval later
     //localStorage.setItem("key", "value");
     //https://www.saintsatplay.com/blog/2015-10-21-storing-and-retrieving-objects-with-localstorage?s=2015/10/storing-and-retrieving-objects-with-localstorage
     //button id        - ct1D1CpyLnkBtnId ( the key we need for retrieval..)
@@ -680,129 +502,44 @@ function onWriteLclStrg(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUr
             {'ct1DlongUrl':ct1DlongUrl},
             {'ct1DshortUrl':ct1DshortUrl}]
 
-// Before writing to local storage, check number of rows already written and set Max number of 'rows\links' that can be written for Data Retention.
-// Get all keys in local storage related to this WebApp and check the number of rows..
-console.log('onWriteLclStrg ct1D1CpyLnkBtnId-- --:'+ct1D1CpyLnkBtnId);
-console.log('onWriteLclStrg for loop...');
-console.log('onWriteLclStrg localStorage.length for any webapp.. :'+localStorage.length);
 
 
-//numStored is increased via OnLoadLclStrg() below
-console.log('onWriteLclStrg numStored Before writing -- --:'+numStored);
-if (numStored===maxRows){//Threshold reached, lets Remove oldest link and Add the Newest..
-    console.log('onWriteLclStrg warning msg..');
+//console.log('onWriteLclStrg ct1D1CpyLnkBtnId-- --:'+ct1D1CpyLnkBtnId);
+//console.log('onWriteLclStrg numStored Before writing\adding -- --:'+numStored);
 
-               
-    //            for (i = 0; i < localStorage.length; i++){
-    //                if (firstkey===0){
-                let key = localStorage.getItem('ct1D1CpyLnkBtn'+(iKey - maxRows));//getItem('ct1D1CpyLnkBtn'+i); 
-                let LSkey = JSON.parse(key);
 
-                if (((LSkey[0].ct1D1CpyLnkBtnId).slice(0,14))==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp!
-                       console.log('onWriteLclStrg Exceeded threshold, removing..:'+'ct1D1CpyLnkBtn'+(iKey - maxRows));
-                        localStorage.removeItem('ct1D1CpyLnkBtn'+(iKey - maxRows));
-                       //localStorage.setItem(ct1D1CpyLnkBtnId, JSON.stringify(cloneLinkData));
-    //            }}
-                     console.log('onWriteLclStrg after removing old link, lets now store the new Link..:')
-                     localStorage.setItem(ct1D1CpyLnkBtnId, JSON.stringify(cloneLinkData));
+//numStored is increased via function OnLoadLclStrg()
 
-                  //  numStored--//no need to decrease numStored as we are also re-adding the new link. :)
+    if (numStored===maxRows){//Threshold reached, lets Remove oldest link and Add the newest..
+        console.log('onWriteLclStrg warning msg..');
+    
+
+                    let key = localStorage.getItem('ct1D1CpyLnkBtn'+(iKey - maxRows));//getItem('ct1D1CpyLnkBtn'+i); 
+                    let LSkey = JSON.parse(key);
+
+                  //  console.log('onWriteLclStrg  LSkey[0].ct1D1CpyLnkBtnId :'+LSkey[0].ct1D1CpyLnkBtnId );
+                    if ((LSkey[0].ct1D1CpyLnkBtnId!==null)&&((LSkey[0].ct1D1CpyLnkBtnId).slice(0,14))==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp!
+                         console.log('onWriteLclStrg Exceeded threshold, removing..:'+'ct1D1CpyLnkBtn'+(iKey - maxRows));
+                         localStorage.removeItem('ct1D1CpyLnkBtn'+(iKey - maxRows));
+
+                         localStorage.setItem(ct1D1CpyLnkBtnId, JSON.stringify(cloneLinkData));
+                    
+                      //no need to decrease numStored as we are also re-adding the new link.
+                }
+              
+    }else{//Within threshold, lets keep adding more to local storage keys\Data..
+    
+                //write to storage..:
+                localStorage.setItem(ct1D1CpyLnkBtnId, JSON.stringify(cloneLinkData));
+    
+                numStored++;//update number of items stored...
+                //console.log('Stored Items for ThisWebApp After Writing-:'+numStored);
             }
 
-}else{//Within threshold, update local storage..
-        //    console.log('localStorage.length<maxRows');
-        //    localStorage.setItem(ct1D1CpyLnkBtnId, JSON.stringify(cloneLinkData));
-           // for (i = 0; i < localStorage.length; i++){
-           //      let key = localStorage.getItem('ct1D1CpyLnkBtn'+i);
-           //      let LSkey = JSON.parse(key);
-           //      if (((LSkey[0].ct1D1CpyLnkBtnId).slice(0,14))==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp!
-           //             console.log('Within threshold.. if (((LSkey[0].ct1D1...');
-           // localStorage.setItem(ct1D1CpyLnkBtnId, JSON.stringify(cloneLinkData));
-           //      }}
 
-           //iKey++;//increment ID(s) for next loop. Let`s increment it from the START in UrlLinkDiv!
-           
-            //  //for (i = 0; i < localStorage.length; i++){
-
-            //  //check whats already stored... Lets update iKey first!
-//              for (i = 0; i < localStorage.length; i++){
-//
-//
-//                  let key = localStorage.getItem('ct1D1CpyLnkBtn'+i);
-//                  console.log('ct1D1CpyLnkBtn+  i:'+i);
-//              
-//                  let LSkey = JSON.parse(key);
-//              if (((LSkey[0].ct1D1CpyLnkBtnId).slice(0,14))==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp!
-//                      console.log('Stored Item for ThisWebApp Found Before Writing---------------:');
-//                      console.log('key = localStorage.getItem---------------:' + key);
-//                      console.log('LSkey = JSON.parse(key)---------------:'+ LSkey);
-//
-//                   //  localStorage.setItem(ct1D1CpyLnkBtnId, JSON.stringify(cloneLinkData));
-//                  }
-//              }
-
-
-
-
-            //write to storage..:
-            localStorage.setItem(ct1D1CpyLnkBtnId, JSON.stringify(cloneLinkData));
-
-
-         //  for (i = iKeynumSA[0]; i < localStorage.length; i++){
-
-
-         //    console.log('writing to storage!!');
-         //  }
-
-
-
-
-
-        //    // numStored is is a global variable updated via onload() & onWriteLclStrg()..
-        //    console.log('iKey After Writing-- --:'+iKey);
-            numStored++;//update number of items stored...
-            console.log('Stored Items for ThisWebApp After Writing-:'+numStored);
-          
-
-        }
-
-
-iKey++;//iKey increment for Storage Key and ID(s) for next loop.
-console.log('onWriteLclStrg iKey number incremented for next loop:'+iKey);
+  iKey++;//iKey increment for Storage Key and ID(s) for next loop.
+  console.log('onWriteLclStrg iKey number incremented for next loop:'+iKey);
 }
-
-
- 
-    // we have something in local Storage, validate and update..
-//
-//    for (i = 0; i < localStorage.length; i++){
-//    let key = localStorage.getItem('ct1D1CpyLnkBtn'+i);
-//    let LSkey = JSON.parse(key);
-//    //Check we actually got the correct key
-//    console.log('LSkey --:'+(LSkey[0].ct1D1CpyLnkBtnId).slice(0,14));
-//
-//      if (((LSkey[0].ct1D1CpyLnkBtnId).slice(0,14))==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp!
-//        
-//        //data now validated, check we have not reached the Max number of rows!
-//        // if we have, let`s Delete oldest one(first one in the row..)
-//        if(i <=maxRows){
-//            console.log('if(i <maxRows) ---:'+maxRows) 
-//             localStorage.setItem(ct1D1CpyLnkBtnId, JSON.stringify(cloneLinkData));
-//
-//        }else{ // we have more than 'maxRows' links!
-//                // notify we are deleting the oldest link. prompt \ alert..
-//console.log('Max number of Links saved. :'+(maxRows+1)+"\n"+"\
-//"+"To generate a New link please copy/save This old link that will be deleted, Thank you..."+"\n"+"\ ", "Old Link-:")
-//
-//        }
-//
-//
-//        
-//
-//    }
-//   }
-//  }
-
 
    
     
@@ -828,7 +565,7 @@ function OnLoadLclStrg(){//On first initial load of the page check local storage
          console.log('OnLoadLclStrg (key).substring(14)  ----:'+(key).slice(0,14));//get the first part of the string to validate
          console.log('OnLoadLclStrg substring(key.length ----:'+(key).substring(key.length - (key.length-14)));
 
-        if((key).slice(0,14)==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp..
+        if(key!=null&&(key).slice(0,14)==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp..
         //keyV -: Key Verified.
          let keyV = localStorage.getItem('ct1D1CpyLnkBtn'+(key).substring(key.length - (key.length-14)));
          let LSkey = JSON.parse(keyV);
@@ -880,21 +617,23 @@ function OnLoadLclStrg(){//On first initial load of the page check local storage
         console.log('OnLoadLclStrg Before "for()Loop" iKmL :'+iKmL);
         console.log('OnLoadLclStrg Before "for()Loop" iKey :'+iKey);
 
-        
+       
         for (i = iKmL; i < (iKmL + maxRows ); i++){ //for (i = ((iKey+1) - maxRows); i < (iKey+1); i++)
         //Let`s display it back in the correct order..
        // let key = localStorage.getItem('ct1D1CpyLnkBtn'+i);//+(iKey - maxRows)
         let key = localStorage.getItem('ct1D1CpyLnkBtn'+i);
         let LSkey = JSON.parse(key);
 
+        console.log('LSkey[0].ct1D1CpyLnkBtnId:'+LSkey[0].ct1D1CpyLnkBtnId);
         //double check we actually got the correct key to write back to the UI. 
     //    console.log('OnLoadLclStrg ((iKey+1) - maxRows)) -: ct1D1CpyLnkBtn'+i);
     //    console.log('OnLoadLclStrg ((iKey+1) - maxRows)) -: '+i);
     //    //console.log('OnLoadLclStrg (iKey - maxRows) -: '+(iKey - maxRows));
     //    console.log('OnLoadLclStrg LSkey ct1D1CpyLnkBtnId-: '+(LSkey[0].ct1D1CpyLnkBtnId));
     //    console.log('OnLoadLclStrg LSkey ct1D1CpyLnkBtnId slice(0,14)--: '+(LSkey[0].ct1D1CpyLnkBtnId).slice(0,14));
-
-        if (((LSkey[0].ct1D1CpyLnkBtnId).slice(0,14))==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp!
+        if(key!==null){
+       // if(LSkey[0].ct1D1CpyLnkBtnId!==null){//Check this key is for This WebApp..
+        //if (((LSkey[0].ct1D1CpyLnkBtnId).slice(0,14))==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp!
         //    console.log('ct1D1CpyLnkBtnId :'+JSON.stringify(LSkey[0].ct1D1CpyLnkBtnId));
         //    console.log('ct1D1ShrtLnkPId :'+JSON.stringify(LSkey[1].ct1D1ShrtLnkPId));
         //    console.log('ct1DlongUrl :'+JSON.stringify(LSkey[2].ct1DlongUrl));
@@ -904,8 +643,11 @@ function OnLoadLclStrg(){//On first initial load of the page check local storage
                        (LSkey[1].ct1D1ShrtLnkPId),
                        (LSkey[2].ct1DlongUrl),
                        (LSkey[3].ct1DshortUrl));
+
+        iKey++;               
         }
-        iKey++;
+
+        
       }
       console.log('OnLoadLclStrg iKey (Above rowMax) incremented on Initial load, for next loop.:'+ iKey) 
      }else{//Let`s display it back in the correct order calling UrlLinkDiv() function.
@@ -922,17 +664,18 @@ function OnLoadLclStrg(){//On first initial load of the page check local storage
             console.log('OnLoadLclStrg localStorage.length--- :'+localStorage.length);
             console.log('OnLoadLclStrg --- iKey:'+iKey);
 
-            let key = localStorage.getItem('ct1D1CpyLnkBtn'+i);
+            let key = localStorage.getItem('ct1D1CpyLnkBtn'+i);//Check this key is for This WebApp..
             let LSkey = JSON.parse(key);
-
-            console.log('OnLoadLclStrg key-------------First loop:'+key);
-            console.log('OnLoadLclStrg LSkey-----------First loop:'+LSkey);
+            console.log('OnLoadLclStrg key:'+key);
+        //    console.log('OnLoadLclStrg key-------------First loop:'+key);
+        //    console.log('OnLoadLclStrg LSkey-----------First loop:'+LSkey);
 
             //double check we actually got the correct key to write back to the UI. :)
-            console.log('OnLoadLclStrg LSkey-:'+(LSkey[0].ct1D1CpyLnkBtnId));
-            console.log('OnLoadLclStrg LSkey --:'+(LSkey[0].ct1D1CpyLnkBtnId).slice(0,14));
-
-            if (((LSkey[0].ct1D1CpyLnkBtnId).slice(0,14))==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp!
+        //    console.log('OnLoadLclStrg LSkey-:'+(LSkey[0].ct1D1CpyLnkBtnId));
+        //    console.log('OnLoadLclStrg LSkey --:'+(LSkey[0].ct1D1CpyLnkBtnId).slice(0,14));
+          if(key!==null){//Check this key is for This WebApp..
+     //     if(LSkey[0].ct1D1CpyLnkBtnId!==null){
+            //  if (((LSkey[0].ct1D1CpyLnkBtnId).slice(0,14))==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp!
             //    console.log('ct1D1CpyLnkBtnId :'+JSON.stringify(LSkey[0].ct1D1CpyLnkBtnId));
             //    console.log('ct1D1ShrtLnkPId :'+JSON.stringify(LSkey[1].ct1D1ShrtLnkPId));
             //    console.log('ct1DlongUrl :'+JSON.stringify(LSkey[2].ct1DlongUrl));
@@ -941,9 +684,11 @@ function OnLoadLclStrg(){//On first initial load of the page check local storage
                            (LSkey[1].ct1D1ShrtLnkPId),
                            (LSkey[2].ct1DlongUrl),
                            (LSkey[3].ct1DshortUrl));
+
+                           console.log('OnLoadLclStrg iKey on Initial load before increment..:'+ iKey)
+                           iKey++;
               }
-            console.log('OnLoadLclStrg iKey on Initial load before increment..:'+ iKey)
-            iKey++;
+
             
       }
       //if (iKey <3){
@@ -956,39 +701,6 @@ function OnLoadLclStrg(){//On first initial load of the page check local storage
 
 
 
-
-//DRY Function.. return numStored,iKey
-function highestStorageKey(){
-///// Highest storage key....
-//  Set the iKey value to the highest number already stored.. 
-//  increase numStored variable..
-for (i = 0; i < localStorage.length; i++){
-  let key = localStorage.key(i);
-   console.log('highestStorageKey key----------------------:'+key);
-   console.log('highestStorageKey (key).substring(14)  ----:'+(key).slice(0,14));//get the first part of the string to validate
-   console.log('highestStorageKey substring(key.length ----:'+(key).substring(key.length - (key.length-14)));
-
-  if((key).slice(0,14)==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp, verify 1st 14 chars..
-  //keyV -: Key Verified.
-   let keyV = localStorage.getItem('ct1D1CpyLnkBtn'+(key).substring(key.length - (key.length-14)));
-   let LSkey = JSON.parse(keyV);
-
-      console.log('highestStorageKey LSkey:'+LSkey)
-
-      numStored++
-
-    //Set the iKey value to the highest number already stored..
-     if (iKey < (LSkey[0].ct1D1CpyLnkBtnId.substring(LSkey[0].ct1D1CpyLnkBtnId.length - (LSkey[0].ct1D1CpyLnkBtnId.length-14)))){
-                   iKey=Number (LSkey[0].ct1D1CpyLnkBtnId.substring(LSkey[0].ct1D1CpyLnkBtnId.length - (LSkey[0].ct1D1CpyLnkBtnId.length-14)));
-                   console.log('highestStorageKey setting iKey- :'+iKey);
-                 }
-  }
-
- }
-//////////highest storage key...
-//return [iKey,numStored];
-return [iKey,numStored];
-} 
 
 
 console.log("OnLoadLclStrgFlag :"+OnLoadLclStrgFlag)
