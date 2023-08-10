@@ -355,7 +355,7 @@ height: 100%;/*3470px 785px 100vh */
               outline:none; 
             }
 
-            #ct1D1LnksN1, .ct1D1LnksN1Cls{/*Display shortened Url sample when cloned, adding a class*/
+            #ct1D1LnksN1, .ct1D1LnksN1Cls{/*Display shortened Url sample for template when cloning, adding a class*/
               display: none;/*none flex*/
               position:relative;
               flex-Direction:column;
@@ -747,13 +747,12 @@ height: 100%;/*3470px 785px 100vh */
               box-shadow:inset 0px 0px 25px #ffffff;
               /* transition: all 0.2s ease-out; */
             }
-            #ct1D1Btn:active:after,#ct1Cbtn:active:after{
-              transition: all 0.2s ease-in-out;
-            }
-            #ct1D1Btn:after,#ct1Cbtn:after{
-              transition: all 0.4s ease-in-out;
-            }
 
+            .noPointerEvnC{
+              pointer-events: none;
+              background: linear-gradient(#6f46b6,#3c1e70);
+
+            }
 
 
 
