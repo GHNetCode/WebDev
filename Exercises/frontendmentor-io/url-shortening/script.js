@@ -32,7 +32,7 @@ let iKey = 0; // Key Id for Local storage to keep track of buttons. This value a
 // Setup Animations for the spinning arrow.:
 const effect = new KeyframeEffect(//for Button
 ct1D1Btn, // Element to animate.. background-color(lightblue)
-[{transform: 'rotate(0deg) scalex(0.17)'},{transform: 'rotate(3600deg) scalex(0.0)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
+[{transform: 'rotate(0deg) scalex(0.25)'},{transform: 'rotate(3600deg) scalex(0.0)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
 {duration: 1000} // Keyframe settings   1sec..  
 );
 const rotatect1D1Btn = new Animation(effect, document.timeline);
@@ -50,7 +50,7 @@ console.log('ct1D1Btn Button has been pressed..')
 
 async function BtnProc(){//process functions for Button "Shorten It!"
  if (ct1D1inp.value){//ct1D1inp - check if we have data and process it..
-    console.log('we have data:'+ct1DlongUrl);
+//    console.log('we have data:'+ct1DlongUrl);
     ct1DlongUrl=ct1D1inp.value;
 
       rotatect1D1Btn.play();
@@ -79,7 +79,7 @@ async function BtnProc(){//process functions for Button "Shorten It!"
           }
 
     }else{
-         console.log('Please add a link..')
+//         console.log('Please add a link..')
         if (!oneClickFlag){plsAddLnkMsg();}//call plsAddLnkMsg "Please add a link"  
          oneClickFlag=true;
     }
@@ -151,19 +151,11 @@ ct1D1inp.onpaste=function(){
     //lets call our Api to return the shorted link.. https://shrtco.de/docs
     //GET/POST: https://api.shrtco.de/v2/shorten?url=example.org/very/long/link.html
 
-    /**
-    {"ok": true, "result": {
-        "code": "erMfo9",
-        "short_link": "shrtco.de\/erMfo9",
-        "full_short_link": "https:\/\/shrtco.de\/erMfo9",
-        "short_link2": "9qr.de\/erMfo9",
-        "full_short_link2": "https:\/\/9qr.de\/erMfo9",
-        "short_link3": "shiny.link\/erMfo9",
-        "full_short_link3": "https:\/\/shiny.link\/erMfo9",
-        "share_link": "shrtco.de\/share\/erMfo9",
-        "full_share_link": "https:\/\/shrtco.de\/share\/erMfo9",
-        "original_link": "http:\/\/example.org\/very\/long\/link.html"}}
-*/
+        /**
+        "short_link":  shrtco.de"
+        "short_link2": 9qr.de"
+        "short_link3": shiny.link
+        */
     async function getShortUrl(ct1DlongUrl) {
         try {
           const response = await fetch('https://api.shrtco.de/v2/shorten?url='+ct1DlongUrl,{ signal: AbortSignal.timeout(2000)});// timeout in 2 seconds..
@@ -185,14 +177,14 @@ async function urlValidator(ct1DlongUrl){
 
     try {
           new URL(ct1DlongUrl);//Validate the Url against the URL constructor
-          console.log('We have a valid Url, Great!:'+ct1DlongUrl);
+//          console.log('We have a valid Url, Great!:'+ct1DlongUrl);
 
           return true;
       } catch (err) {
         rotatect1D1Btn.cancel();
-        console.log('invalid url...: '+ct1DlongUrl)
+//        console.log('invalid url...: '+ct1DlongUrl)
         error = err;
-            console.log(errMsg)
+//            console.log(errMsg)
             alert(errMsg+err);
           return false;
         }
@@ -224,8 +216,6 @@ let ct1D1CpyLnkBtnArr =[];//Array to store Btn number and Link..
 //2.Pressing the "Shorten It!" Button, updates the template then clones it with new link, updates the UI and then writes to storage..
 function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){//show shorten validated Url and write to local storage..
 
-
-
     // Get the parent element 
     let parentElemct1D = document.getElementById("ct1D");// ct1D2 insertBefore ct1C 
     // Get parent's child where we want to insert the new div next too..
@@ -236,7 +226,7 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
       // Before cloning check max number of 'links (children)' already added on the page ..
       // if above threshold advise to copy\save old link...
       numChd = document.getElementById("ct1D").childElementCount;
-      console.log('UrlLinkDiv -: ct1D has '+numChd+' children...........');//num of children cloned..
+//      console.log('UrlLinkDiv -: ct1D has '+numChd+' children...........');//num of children cloned..
   
       if (numChd > (7+maxRows) ){//(numChd >11)   7+maxRows=11..
 
@@ -252,7 +242,7 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
           //            navigator.clipboard.writeText(oldShortUrl);
                     }
 
-                    console.log('UrlLinkDiv numChd iKey'+iKey)
+//                    console.log('UrlLinkDiv numChd iKey'+iKey)
                     let ct1D1LsN1CldiKey = document.getElementById("ct1D1LsN1Cld"+(iKey  - maxRows));
                     ct1D1LsN1CldiKey.parentNode.removeChild(ct1D1LsN1CldiKey);
                     ct1D1CpyLnkBtnArr.splice(0,2);//Lets remove the first 2 elements from our array..
@@ -271,7 +261,7 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
 
                   //ct1D1LsN1Cld
                     let ct1D1LsN1CldiKey = document.getElementById("ct1D1LsN1Cld"+(iKey  - maxRows));//+((iKey -1)  - maxRows))
-                    console.log("UrlLinkDiv numChd Removing Child ct1D1LsN1Cld"+(iKey  - maxRows));//+((iKey -1)  - maxRows))
+//                    console.log("UrlLinkDiv numChd Removing Child ct1D1LsN1Cld"+(iKey  - maxRows));//+((iKey -1)  - maxRows))
                     ct1D1LsN1CldiKey.parentNode.removeChild(ct1D1LsN1CldiKey);
                     ct1D1CpyLnkBtnArr.splice(0,2);//Lets remove the first 2 elements from our array..
 
@@ -307,7 +297,7 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
   //  console.log('UrlLinkDiv OnLoadLclStrgFlag Before Clone ct1D1CpyLnkBtnId-:'+ct1D1CpyLnkBtnId) //btn
 
     ct1D1CpyLnkBtnArr.push(ct1D1CpyLnkBtnId,ct1DshortUrl)
-    console.log('UrlLinkDiv OnLoadLclStrgFlag ct1D1CpyLnkBtnArr Before Clone -:'+ct1D1CpyLnkBtnArr) //btn
+//    console.log('UrlLinkDiv OnLoadLclStrgFlag ct1D1CpyLnkBtnArr Before Clone -:'+ct1D1CpyLnkBtnArr) //btn
 
 
   }else{//When "Shorten It" button is pushed..
@@ -330,6 +320,7 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
     // Update the ID and add a class to it to keep styles intact..
      ct1D1LnksN1Clnd.id = 'ct1D1LsN1Cld'+iKey;
      ct1D1LnksN1Clnd.classList.add('ct1D1LnksN1Cls')
+
 
 
   if (OnLoadLclStrgFlag){//After cloning Div ct1D1LnksN1, and before loading to dom..
@@ -371,8 +362,8 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
        }
 
     // ct1D1CpyLnkBtnArr.push(ct1D1CpyLnkBtn.id,ct1D1ShrtLnkP.textContent)
-     console.log('UrlLinkDiv ct1D1CpyLnkBtnArr 1 Clone -:'+ct1D1CpyLnkBtnArr)
-     console.log('UrlLinkDiv ct1D1ShrtLnkP.textContent 1 Clone -:'+ct1D1ShrtLnkP.textContent)
+//     console.log('UrlLinkDiv ct1D1CpyLnkBtnArr 1 Clone -:'+ct1D1CpyLnkBtnArr)
+//     console.log('UrlLinkDiv ct1D1ShrtLnkP.textContent 1 Clone -:'+ct1D1ShrtLnkP.textContent)
     }
 
   
@@ -392,6 +383,7 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
     //update clone so it can be Displayed..
     ct1D1LnksN1Clnd.style.display="flex";
     
+ 
 
     //resize to accommodate height of new clone.. ct1D
     //lets take into account the 'maxRows' (number of links that can be displayed) to ensure we do 
@@ -405,6 +397,8 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
     // Insert the new element before the childElem
     parentElemct1D.insertBefore(ct1D1LnksN1Clnd, childElem);
 
+
+
     if (!OnLoadLclStrgFlag){//Skip writing to local storage on initial load when OnLoadLclStrg() is run..
         onWriteLclStrg(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl);
     }
@@ -417,54 +411,61 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
  addGlobalEventListener('pointerdown', 'button', e =>{
     // console.log('From addGlobalEventListener');
        console.log('addGlobalEventListener e.target.id :'+ e.target.id);//This will show just the button id clicked on..
-
-    //This for loop 1. Checks anything in the array ct1D1CpyLnkBtnArr for just all the Cloned Buttons.
+       
+       
+    //This for loop 1. Checks array ct1D1CpyLnkBtnArr for Cloned Buttons.
     //2. Copies the short Link. 3. Updates button style. 4. updates textContent.
       for(i=0; i <=ct1D1CpyLnkBtnArr.length; i++){
  
-          if (ct1D1CpyLnkBtnArr[i]!==undefined&&
-              ct1D1CpyLnkBtnArr[i]===e.target.id
-              //&&e.target.id==='ct1D1CpyLnkBtn'
-              ){
-             
-              //console.log('addGlobalEventListener set btn style -: for button      (ct1D1CpyLnkBtnArr[i]):'+ ct1D1CpyLnkBtnArr[i]);
-              //console.log('addGlobalEventListener set btn style -: Str short link  (ct1D1CpyLnkBtnArr[i]+1):'+ ct1D1CpyLnkBtnArr[i+1]);
-
-             //copy the link to clipboard, it`s always the next elem in the Arr that contains the short Url str..
-             // navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
-             
-             async function copyShrtUrl(shortLink) {
-              try {
-                await navigator.clipboard.writeText(shortLink);
-                console.log('shortLink copied to clipboard -:'+ shortLink);
-              } catch (err) {
-                console.error('Failed to copy: ', err);
-                alert (err)
-              }
-            }
-              let shortLink=ct1D1CpyLnkBtnArr[i+1];
-              copyShrtUrl(shortLink);
-
-              console.log('addGlobalEventListener set btn style -: Str short link  (ct1D1CpyLnkBtnArr[i]+1):'+ ct1D1CpyLnkBtnArr[i+1]);
-              console.log('addGlobalEventListener set btn style ct1D1CpyLnkBtnArr:'+ ct1D1CpyLnkBtnArr);
+        if (ct1D1CpyLnkBtnArr[i]!==undefined&&
+            ct1D1CpyLnkBtnArr[i]===e.target.id
+            //&&e.target.id==='ct1D1CpyLnkBtn'
+            ){
               
-             //set button style
-               e.target.style.background="linear-gradient(rgb(29, 23, 46),rgb(29, 23, 46))";
-             //update text
-               e.target.textContent="Copied!";
-             }
+          //https://jonathancrozier.com/blog/using-javascript-to-copy-text-to-the-clipboard
+          const clpBrd = () => {
+            const copyText = async (text) => {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    console.log('Short link copied to clipboard ok..:'+text)
+                 //   alert('Text copied to clipboard ok');
+                } catch (error) {
+                    console.log('Copy failed..:'+error.message)
+                    alert('Copy failed..:'+error.message);
+                }
+            };
+            return {
+                copyText
+            };
+          };
+           const clpbrd = clpBrd();
+           clpbrd.copyText(ct1D1CpyLnkBtnArr[i+1]);
+
+
+        
+          //  let shortLink=ct1D1CpyLnkBtnArr[i+1];
+          //  copyShrtUrl(shortLink);
+
+        //    console.log('addGlobalEventListener set btn style -: Str short link  (ct1D1CpyLnkBtnArr[i]+1):'+ ct1D1CpyLnkBtnArr[i+1]);
+        //    console.log('addGlobalEventListener set btn style ct1D1CpyLnkBtnArr:'+ ct1D1CpyLnkBtnArr);
+            
+           //set button style
+             e.target.style.background="linear-gradient(rgb(29, 23, 46),rgb(29, 23, 46))";
+           //update text
+             e.target.textContent="Copied!";
+           }
 
        //reset btn styles for cloned div`s 'ct1D1CpyLnkBtn' if the button was not pressed.
         if (ct1D1CpyLnkBtnArr[i]!==undefined&&    //ct1D1CpyLnkBtnArr[i].slice(0,14)==='ct1D1CpyLnkBtn'
             ct1D1CpyLnkBtnArr[i]!==e.target.id){
 
-                console.log('addGlobalEventListener reset btnstyle for:'+ct1D1CpyLnkBtnArr[i])
+          //      console.log('addGlobalEventListener reset btnstyle for:'+ct1D1CpyLnkBtnArr[i])
 
                 //btnstyle for ct1D1CpyLnkBtn 
                 if(ct1D1CpyLnkBtnArr[i].slice(0,14)==='ct1D1CpyLnkBtn'){
-                   console.log('addGlobalEventListener resetting ct1D1CpyLnkBtn :'+ ct1D1CpyLnkBtnArr[i])
+          //         console.log('addGlobalEventListener resetting ct1D1CpyLnkBtn :'+ ct1D1CpyLnkBtnArr[i])
                    //('ct1D1CpyLnkBtn'+(iKey - maxRows)
-                   console.log('addGlobalEventListener reset btnstyle iKey - maxRows'+(iKey - maxRows));
+          //         console.log('addGlobalEventListener reset btnstyle iKey - maxRows'+(iKey - maxRows));
                    let lnkBtnElem = document.getElementById(ct1D1CpyLnkBtnArr[i]);
                        lnkBtnElem.style.background ="";
                        lnkBtnElem.textContent="Copy";
@@ -483,7 +484,6 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
      })
  };
 
- //let shortLink;
  
  
 //Write to local storage...
@@ -520,7 +520,7 @@ function onWriteLclStrg(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUr
 
                   //  console.log('onWriteLclStrg  LSkey[0].ct1D1CpyLnkBtnId :'+LSkey[0].ct1D1CpyLnkBtnId );
                     if ((LSkey[0].ct1D1CpyLnkBtnId!==null)&&((LSkey[0].ct1D1CpyLnkBtnId).slice(0,14))==='ct1D1CpyLnkBtn'){//Check this key is for This WebApp!
-                         console.log('onWriteLclStrg Exceeded threshold, removing..:'+'ct1D1CpyLnkBtn'+(iKey - maxRows));
+         //                console.log('onWriteLclStrg Exceeded threshold, removing..:'+'ct1D1CpyLnkBtn'+(iKey - maxRows));
                          localStorage.removeItem('ct1D1CpyLnkBtn'+(iKey - maxRows));
 
                          localStorage.setItem(ct1D1CpyLnkBtnId, JSON.stringify(cloneLinkData));
@@ -547,31 +547,31 @@ function onWriteLclStrg(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUr
 //Update numStored, incremented by onWriteLclStrg & OnLoadLclStrg
 function OnLoadLclStrg(){//On first initial load of the page check local storage, validate key and render to UI..
     OnLoadLclStrgFlag=true;
-    console.log("OnLoadLclStrg function..");
+//    console.log("OnLoadLclStrg function..");
 
 
 // 1. get Highest storage key 'iKey' as this is needed with maxRows..
 // 2. Set the iKey value to the highest number already stored and increase 'numStored' variable..
     for (i = 0; i < localStorage.length; i++){
         let key = localStorage.key(i);
-         console.log('OnLoadLclStrg key----------------------:'+key);
-         console.log('OnLoadLclStrg (key).substring(14)  ----:'+(key).slice(0,14));//get the first part of the string to validate
-         console.log('OnLoadLclStrg substring(key.length ----:'+(key).substring(key.length - (key.length-14)));
+  //       console.log('OnLoadLclStrg key----------------------:'+key);
+  //       console.log('OnLoadLclStrg (key).substring(14)  ----:'+(key).slice(0,14));//get the first part of the string to validate
+  //       console.log('OnLoadLclStrg substring(key.length ----:'+(key).substring(key.length - (key.length-14)));
 
       if(key!=null&&(key).slice(0,14)==='ct1D1CpyLnkBtn'){//Checked and this key is for this WebApp..
         //keyV -: update keyV with verified key[{..}] (found above) so we can get the highest appended number.
         // storage keys always start with 'ct1D1CpyLnkBtn'..
          let keyV = localStorage.getItem('ct1D1CpyLnkBtn'+(key).substring(key.length - (key.length-14)));
          let LSkey = JSON.parse(keyV);
-            console.log('OnLoadLclStrg keyV:'+localStorage.getItem('ct1D1CpyLnkBtn'+(key).substring(key.length - (key.length-14))));
-            console.log('OnLoadLclStrg LSkey:'+LSkey);
+  //          console.log('OnLoadLclStrg keyV:'+localStorage.getItem('ct1D1CpyLnkBtn'+(key).substring(key.length - (key.length-14))));
+  //          console.log('OnLoadLclStrg LSkey:'+LSkey);
             
             numStored++;
 
           //Set the iKey value to the highest number already stored..
            if (iKey < (LSkey[0].ct1D1CpyLnkBtnId.substring(LSkey[0].ct1D1CpyLnkBtnId.length - (LSkey[0].ct1D1CpyLnkBtnId.length-14)))){
                          iKey=Number (LSkey[0].ct1D1CpyLnkBtnId.substring(LSkey[0].ct1D1CpyLnkBtnId.length - (LSkey[0].ct1D1CpyLnkBtnId.length-14)));
-                         console.log('OnLoadLclStrg setting highest iKey- :'+iKey);
+  //                       console.log('OnLoadLclStrg setting highest iKey- :'+iKey);
                        }
             
         }
@@ -599,8 +599,8 @@ function OnLoadLclStrg(){//On first initial load of the page check local storage
         //the beginning of the current maxRows specified used in UrlLinkDiv()..
         let iKmL=((iKey+1) - maxRows);
         iKey = ((iKey+1) - maxRows);
-        console.log('OnLoadLclStrg Before "for()Loop" iKmL :'+iKmL);
-        console.log('OnLoadLclStrg Before "for()Loop" iKey :'+iKey);
+  //      console.log('OnLoadLclStrg Before "for()Loop" iKmL :'+iKmL);
+  //      console.log('OnLoadLclStrg Before "for()Loop" iKey :'+iKey);
 
        //Let`s display it back in the correct order..
         for (i = iKmL; i < (iKmL + maxRows ); i++){ //for (i = ((iKey+1) - maxRows); i < (iKey+1); i++)
@@ -631,9 +631,9 @@ function OnLoadLclStrg(){//On first initial load of the page check local storage
 
             for (i = 0; i < localStorage.length; i++){
 
-            console.log('OnLoadLclStrg --- i:'+i);
-            console.log('OnLoadLclStrg localStorage.length--- :'+localStorage.length);
-            console.log('OnLoadLclStrg --- iKey:'+iKey);
+  //          console.log('OnLoadLclStrg --- i:'+i);
+  //         console.log('OnLoadLclStrg localStorage.length--- :'+localStorage.length);
+  //          console.log('OnLoadLclStrg --- iKey:'+iKey);
 
             let key = localStorage.getItem('ct1D1CpyLnkBtn'+i);//Check this key is for This WebApp..
             let LSkey = JSON.parse(key);
@@ -652,7 +652,7 @@ function OnLoadLclStrg(){//On first initial load of the page check local storage
 
       }
     
-      console.log('OnLoadLclStrg iKey (Below rowMax) incremented on Initial load, for next loop.:'+ iKey)
+//      console.log('OnLoadLclStrg iKey (Below rowMax) incremented on Initial load, for next loop.:'+ iKey)
     }
 }
 
@@ -660,9 +660,9 @@ function OnLoadLclStrg(){//On first initial load of the page check local storage
 
 
 
-console.log("OnLoadLclStrgFlag :"+OnLoadLclStrgFlag)
+//console.log("OnLoadLclStrgFlag :"+OnLoadLclStrgFlag)
 OnLoadLclStrg();
-console.log("OnLoadLclStrgFlag :"+OnLoadLclStrgFlag)
+//console.log("OnLoadLclStrgFlag :"+OnLoadLclStrgFlag)
 
 
 // That`s all folks...

@@ -112,8 +112,6 @@ height: 100%;/*3470px 785px 100vh */
         box-shadow:inset 1px 1px 10px rgb(46, 53, 189);
       }
 
-
-
       #toggleMenu input{
         display: block;
         width: 40px;
@@ -753,7 +751,7 @@ height: 100%;/*3470px 785px 100vh */
 
             .noPointerEvnC{
               pointer-events: none;
-              background: linear-gradient(#6f46b6,#3c1e70);
+              background: #3c1e70;
 
             }
 
