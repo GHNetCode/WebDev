@@ -95,7 +95,8 @@ height: 100%;/*3470px 785px 100vh */
       }
       
 
-      #toggleMenu li:hover{
+      /* #toggleMenu li:hover{ */
+        .tMenHovActC:hover{
         display: flex;
         justify-content:center;
         align-items:center;
@@ -105,10 +106,12 @@ height: 100%;/*3470px 785px 100vh */
         background: linear-gradient(0.25turn,#4779a1,#2bd1d1,#4779a1);
         transition: all 0.1s ease-out;
       }
-      #toggleMenu li:active{
+      /* #toggleMenu li:active{ */
+        .tMenHovActC:active{
         border:10px rgb(58, 48, 83) solid;
         box-shadow:inset 1px 1px 10px rgb(46, 53, 189);
       }
+
 
 
       #toggleMenu input{
@@ -377,17 +380,17 @@ height: 100%;/*3470px 785px 100vh */
                 /* display: flex; */
                 position: relative;
                 width: 312px;
-                 /* Both of the following are required for text-overflow */
-                 white-space:nowrap;
-                 overflow:hidden;
-                 margin-left: 15px;
-                 margin-top: 14px;
-                 font-size: 16px;
-                 font-weight: 600;
-                 color: rgb(83,82,88);
-                 letter-spacing: -0.2px;
-                 overflow:-moz-hidden-unscrollable;
-                 text-overflow:ellipsis;
+                margin-left: 15px;
+                margin-top: 14px;
+                font-size: 16px;
+                font-weight: 600;
+                color: rgb(83,82,88);
+                letter-spacing: -0.2px;
+                /* Both of the following are required for text-overflow */
+                white-space:nowrap;
+                overflow:-moz-hidden-unscrollable;
+                overflow:hidden;
+                text-overflow:ellipsis;
               }
               .fwdSlsh{letter-spacing: -1px;}
               
@@ -402,17 +405,17 @@ height: 100%;/*3470px 785px 100vh */
                 /* display: flex; */
                 position: relative;
                 width: 315px;
-                 /* Both of the following are required for text-overflow */
-                 /* white-space:nowrap; */
-                 overflow:hidden;
-                 margin-left: 15px;
-                 margin-top: 14px;
-                 font-size: 16px;
-                 font-weight: 600;
-                 letter-spacing: -0.5px;
-                 color: #2bd1d1;
-                 overflow:-moz-hidden-unscrollable;
-                 text-overflow:ellipsis;
+                margin-left: 15px;
+                margin-top: 14px;
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: -0.5px;
+                color: #2bd1d1;
+                /* Both of the following are required for text-overflow */
+                /* white-space:nowrap; */
+                overflow:-moz-hidden-unscrollable;
+                overflow:hidden;
+                text-overflow:ellipsis;
               }
               #ct1D1CpyLnkBtn, .ct1D1CpyLnkBtnC{/* override class.BtnstylC . Class added due to cloned div`s having unique id`s..*/ 
                 height: 40px;

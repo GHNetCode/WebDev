@@ -432,7 +432,18 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
 
              //copy the link to clipboard, it`s always the next elem in the Arr that contains the short Url str..
              // navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
-              copyShrtUrl(ct1D1CpyLnkBtnArr[i+1]);
+             
+             async function copyShrtUrl(shortLink) {
+              try {
+                await navigator.clipboard.writeText(shortLink);
+                console.log('shortLink copied to clipboard -:'+ shortLink);
+              } catch (err) {
+                console.error('Failed to copy: ', err);
+                alert (err)
+              }
+            }
+              let shortLink=ct1D1CpyLnkBtnArr[i+1];
+              copyShrtUrl(shortLink);
 
               console.log('addGlobalEventListener set btn style -: Str short link  (ct1D1CpyLnkBtnArr[i]+1):'+ ct1D1CpyLnkBtnArr[i+1]);
               console.log('addGlobalEventListener set btn style ct1D1CpyLnkBtnArr:'+ ct1D1CpyLnkBtnArr);
@@ -473,15 +484,7 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
  };
 
  //let shortLink;
- async function copyShrtUrl(shortLink) {
-  try {
-    await navigator.clipboard.writeText(shortLink);
-    console.log('shortLink copied to clipboard -:'+ shortLink);
-  } catch (err) {
-    console.error('Failed to copy: ', err);
-    alert (err)
-  }
-}
+ 
  
 //Write to local storage...
 //1. The Function onWriteLclStrg is used by UrlLinkDiv().
