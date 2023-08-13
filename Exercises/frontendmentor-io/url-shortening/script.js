@@ -207,8 +207,8 @@ async function urlValidator(ct1DlongUrl){
     
     let maxRows=3;//for Data retention.. Number of Links that can be displayed..
     let maxnumLnksMsg = 'Maximum number of Links saved has been reached. :'+(maxRows)+"\n"+"\
-    "+"Please copy it to clipboard before it is overwritten."+"\n"+"\ "
-
+    "+"Please save it before it is overwritten."+"\n"+"\ "
+    //"+"Please copy it to clipboard before it is overwritten."+"\n"+"\ "
 
 //Child id`s in Cloned Div "ct1D1LnksN1Clnd" to be udpated...
 let ct1D1LnksN1 = document.getElementById("ct1D1LnksN1");
@@ -431,7 +431,9 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
               //console.log('addGlobalEventListener set btn style -: Str short link  (ct1D1CpyLnkBtnArr[i]+1):'+ ct1D1CpyLnkBtnArr[i+1]);
 
              //copy the link to clipboard, it`s always the next elem in the Arr that contains the short Url str..
-              navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
+             // navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
+              copyShrtUrl(ct1D1CpyLnkBtnArr[i+1]);
+
               console.log('addGlobalEventListener set btn style -: Str short link  (ct1D1CpyLnkBtnArr[i]+1):'+ ct1D1CpyLnkBtnArr[i+1]);
               console.log('addGlobalEventListener set btn style ct1D1CpyLnkBtnArr:'+ ct1D1CpyLnkBtnArr);
               
@@ -470,7 +472,16 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
      })
  };
 
- 
+ //let shortLink;
+ async function copyShrtUrl(shortLink) {
+  try {
+    await navigator.clipboard.writeText(shortLink);
+    console.log('shortLink copied to clipboard -:'+ shortLink);
+  } catch (err) {
+    console.error('Failed to copy: ', err);
+    alert (err)
+  }
+}
  
 //Write to local storage...
 //1. The Function onWriteLclStrg is used by UrlLinkDiv().
