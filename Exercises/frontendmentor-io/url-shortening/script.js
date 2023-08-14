@@ -406,12 +406,14 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
 }
 
 
+
 // Global EventListener for All Buttons added( including the cloned 'Copy' buttons) 
 // reason for this approach is when cloning the EventListener is not taken into account.
  addGlobalEventListener('pointerdown', 'button', e =>{
     // console.log('From addGlobalEventListener');
        console.log('addGlobalEventListener e.target.id :'+ e.target.id);//This will show just the button id clicked on..
        
+
        
     //This for loop 1. Checks array ct1D1CpyLnkBtnArr for Cloned Buttons.
     //2. Copies the short Link. 3. Updates button style. 4. updates textContent.
@@ -421,25 +423,27 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
             ct1D1CpyLnkBtnArr[i]===e.target.id
             //&&e.target.id==='ct1D1CpyLnkBtn'
             ){
+              //await navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
+
               
-          //https://jonathancrozier.com/blog/using-javascript-to-copy-text-to-the-clipboard
-          const clpBrd = () => {
-            const copyText = async (text) => {
-                try {
-                    await navigator.clipboard.writeText(text);
-                    console.log('Short link copied to clipboard ok..:'+text)
-                 //   alert('Text copied to clipboard ok');
-                } catch (error) {
-                    console.log('Copy failed..:'+error.message)
-                    alert('Copy failed..:'+error.message);
-                }
-            };
-            return {
-                copyText
-            };
+        //https://jonathancrozier.com/blog/using-javascript-to-copy-text-to-the-clipboard
+        const clpBrd = () => {
+          const copyText = async (text) => {
+              try {
+                  await navigator.clipboard.writeText(text);
+                  console.log('Short link copied to clipboard ok..:'+text)
+               //   alert('Text copied to clipboard ok');
+              } catch (error) {
+                  console.log('Copy failed..:'+error.message)
+                  alert('Copy failed..:'+error.message);
+              }
           };
-           const clpbrd = clpBrd();
-           clpbrd.copyText(ct1D1CpyLnkBtnArr[i+1]);
+          return {
+              copyText
+          };
+        };
+         const clpbrd = clpBrd();
+         clpbrd.copyText(ct1D1CpyLnkBtnArr[i+1]);
 
 
         
@@ -473,6 +477,7 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
 
              }
      }
+
         
  });
 
