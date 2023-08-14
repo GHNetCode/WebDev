@@ -397,6 +397,7 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
     // Insert the new element before the childElem
     parentElemct1D.insertBefore(ct1D1LnksN1Clnd, childElem);
 
+    ct1D1LnksN1Clnd.focus();
 
 
     if (!OnLoadLclStrgFlag){//Skip writing to local storage on initial load when OnLoadLclStrg() is run..
@@ -423,8 +424,12 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
             ct1D1CpyLnkBtnArr[i]===e.target.id
             //&&e.target.id==='ct1D1CpyLnkBtn'
             ){
-              //await navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
 
+              document.getElementById(e.target.id).focus();
+              resetBtn = e.target.id;
+              //await navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
+            //  ct1Cbtn.focus();
+            //  ct1Cbtn.click();
               
         //https://jonathancrozier.com/blog/using-javascript-to-copy-text-to-the-clipboard
         const clpBrd = () => {
@@ -445,10 +450,6 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
          const clpbrd = clpBrd();
          clpbrd.copyText(ct1D1CpyLnkBtnArr[i+1]);
 
-
-        
-          //  let shortLink=ct1D1CpyLnkBtnArr[i+1];
-          //  copyShrtUrl(shortLink);
 
         //    console.log('addGlobalEventListener set btn style -: Str short link  (ct1D1CpyLnkBtnArr[i]+1):'+ ct1D1CpyLnkBtnArr[i+1]);
         //    console.log('addGlobalEventListener set btn style ct1D1CpyLnkBtnArr:'+ ct1D1CpyLnkBtnArr);
@@ -489,7 +490,43 @@ function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){/
      })
  };
 
+
  
+ const ct1Cbtn = document.getElementById('ct1Cbtn');
+let resetBtn;
+ // When switching tabs we loose focus and 'focus\gesture' errors appear..
+ // to resolve this lets reset the "copied" button back when visibilityState === "visible"... 
+ document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    console.log('visibilitychange visibilityState changed to visible..');
+    //backgroundMusic.play();
+    ct1Cbtn.dispatchEvent(new Event('click'));
+    ct1Cbtn.click();
+    //above ct1Cbtn is not working, lets try resetting the button manually..
+        if (resetBtn){
+            let resetlnkBtn = document.getElementById(resetBtn);
+            resetlnkBtn.style.background ="";
+            resetlnkBtn.textContent="Copy";
+         }else{
+            console.log('resetBtn not found.:cloned button not selected..')}
+
+  } else {
+    console.log('visibilitychange visibilityState changed to visible..');
+    ct1Cbtn.click();
+    //backgroundMusic.pause();
+  }
+});
+
+
+ct1Cbtn.addEventListener('click', e => {
+  console.log('button clicked ...........ct1Cbtn...........');
+});
+
+//console.log('Using click()');
+//body.click();
+//console.log('Using dispatchEvent');
+//body.dispatchEvent(new Event('click'));
+
  
 //Write to local storage...
 //1. The Function onWriteLclStrg is used by UrlLinkDiv().
