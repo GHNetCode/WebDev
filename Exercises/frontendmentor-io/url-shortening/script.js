@@ -482,7 +482,7 @@ window.onresize=()=>{
               usrNotiGeResult = Notification.permission;
               // …
               console.log('permission :'+permission)
-              setTimeout(() => { copyText() }, 500)
+              setTimeout(() => { copyText() }, 200)
 
           }
           });
