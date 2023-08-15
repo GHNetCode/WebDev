@@ -464,7 +464,7 @@ window.onresize=()=>{
            
   //https://developer.mozilla.org/en-US/docs/Web/API/Notification/requestPermission_static
       let usrNotiGeResult;//Notification user Gesture result
-      console.log('Notification.permission:'+Notification.permission);
+      //console.log('Notification.permission:'+Notification.permission);
       const usrNotifGesture = async() =>{
   
       // if (Notification.permission === "granted"){
