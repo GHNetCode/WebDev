@@ -221,10 +221,10 @@ window.onresize=()=>{
       // Get parent's child where we want to insert the new div next too..
       let childElem = document.getElementById("ct1D2");
   
-    //prompt Notifications for Deleting the oldest link (first one in the list) only apply After 
-    //pressing the 'Shorten it!' button in this function UrlLinkDiv()..
-        // Before cloning check max number of 'links (children)' already added on the page ..
-        // if above threshold advise to copy\save old link...
+      //prompt Notifications for Deleting the oldest link (first one in the list) only apply After 
+      //pressing the 'Shorten it!' button in this function UrlLinkDiv()..
+      // Before cloning check max number of 'links (children)' already added on the page ..
+      // if above threshold advise to copy\save old link...
         numChd = document.getElementById("ct1D").childElementCount;
   //      console.log('UrlLinkDiv -: ct1D has '+numChd+' children...........');//num of children cloned..
     
@@ -238,9 +238,9 @@ window.onresize=()=>{
                     let p=null;
                     let oldShortUrl=("https://"+document.getElementById("ct1D1ShrtLnkP").innerText);
                      p = prompt(maxnumLnksMsg,"Old link -: "+oldShortUrl);
-                     if (p){//usr clicked on the ok button, lets do something..
-            //            navigator.clipboard.writeText(oldShortUrl);
-                      }
+                     //if (p){//usr clicked on the ok button, lets do something..
+                     //    navigator.clipboard.writeText(oldShortUrl);
+                     // }
   
   //                    console.log('UrlLinkDiv numChd iKey'+iKey)
                       let ct1D1LsN1CldiKey = document.getElementById("ct1D1LsN1Cld"+(iKey  - maxRows));
@@ -255,9 +255,9 @@ window.onresize=()=>{
                     let p=null;
                     let oldShortUrl=("https://"+document.getElementById("ct1D1ShrtLnkP"+((iKey  - maxRows)-1)).innerText);
                      p = prompt(maxnumLnksMsg,"Old link -: "+oldShortUrl);
-                     if (p){//usr clicked on the ok button, lets do something..
-            //            navigator.clipboard.writeText(oldShortUrl);
-                      }
+                     //if (p){//usr clicked on the ok button, lets do something..
+                     //   navigator.clipboard.writeText(oldShortUrl);
+                     // }
   
                     //ct1D1LsN1Cld
                       let ct1D1LsN1CldiKey = document.getElementById("ct1D1LsN1Cld"+(iKey  - maxRows));//+((iKey -1)  - maxRows))
@@ -374,7 +374,7 @@ window.onresize=()=>{
   //    console.log('UrlLinkDiv ct1D1CpyLnkBtn.id-:'+ct1D1CpyLnkBtn.id)
   //    console.log('UrlLinkDiv ct1D1CpyLnkBtnId-:'+ct1D1CpyLnkBtnId)
   
-      
+
       // add it to the DOM after child ct1D1LnksN1
       ct1D1LnksN1.after(ct1D1LnksN1Clnd);
   
@@ -411,13 +411,13 @@ window.onresize=()=>{
 
 
   
-  //Clipboard Permissions..
-  let clipPermsRes;
-  let granted;
-
   // Global EventListener for All Buttons added( including the cloned 'Copy' buttons) 
   // reason for this approach is when cloning the EventListener is not taken into account.
-   addGlobalEventListener('pointerdown', 'button', e =>{
+  // updating  from: 'pointerdown' (addGlobalEventListener('pointerdown',...)
+  //           to  : 'click'  ...
+  //           This is to resolve issue with message when working with the clipboard
+  //           msg received: 'Must be handling a user gesture to use custom clipboard'
+   addGlobalEventListener('click', 'button', e =>{
       // console.log('From addGlobalEventListener');
          console.log('addGlobalEventListener e.target.id :'+ e.target.id);//This will show just the button id clicked on..
          
@@ -455,18 +455,20 @@ window.onresize=()=>{
 
 
 
-              //         let clpData=ct1D1CpyLnkBtnArr[i+1]; 
-              //         const copyText = async () => {
-              //          try {
-              //              await navigator.clipboard.writeText(clpData);
-              //              //await navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
-              //              console.log('Short link copied to clipboard ok..:'+clpData)
-              //                   alert('Text copied to clipboard ok:'+clpData);
-              //               } catch (error) {
-              //                   console.log('Copy failed..:'+error.message)
-              //                   alert('Copy failed: timed out, please try again.:'+error.message);
-              //               }
-              //             };
+                       let clpData=ct1D1CpyLnkBtnArr[i+1]; 
+                       const copyText = async () => {
+                        try {
+                            await navigator.clipboard.writeText(clpData);
+                            //await navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
+                            console.log('Short link copied to clipboard ok..:'+clpData)
+                                 alert('Text copied to clipboard ok:'+clpData);
+                             } catch (error) {
+                                 console.log('Copy failed..:'+error.message)
+                                 alert('Copy failed: timed out, please try again.:'+error.message);
+                             }
+                           };
+                           copyText();
+
            
     //          //https://developer.mozilla.org/en-US/docs/Web/API/Notification/requestPermission_static
     //           const usrNotifGesture = async() =>{ 
@@ -619,54 +621,58 @@ window.onresize=()=>{
 
 
 
-   const ct1Cbtn = document.getElementById('ct1Cbtn');
-  let resetBtn;
-   // When switching tabs we loose focus and 'focus\gesture' errors appear..
-   // to resolve this lets reset the "copied" button back when visibilityState === "visible"... 
-   document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible") {
-      console.log('visibilitychange visibilityState changed to visible..');
-      //backgroundMusic.play();
-  //    ct1Cbtn.dispatchEvent(new Event('click'));
-  //    ct1Cbtn.click();
-      //above ct1Cbtn is not working, lets try resetting the button manually..
-          if (resetBtn){
-              let resetlnkBtn = document.getElementById(resetBtn);
-              resetlnkBtn.style.background ="";
-              resetlnkBtn.textContent="Copy";
-           }else{
-              console.log('resetBtn not found.:cloned button not selected..')}
+//   const ct1Cbtn = document.getElementById('ct1Cbtn');
+//
+//  let resetBtn;
+//   // When switching tabs we loose focus and 'focus\gesture' errors appear..
+//   // to resolve this lets reset the "copied" button back when visibilityState === "visible"... 
+//   document.addEventListener("visibilitychange", () => {
+//    if (document.visibilityState === "visible") {
+//      console.log('visibilitychange visibilityState changed to visible..');
+//      //backgroundMusic.play();
+//  //    ct1Cbtn.dispatchEvent(new Event('click'));
+//  //    ct1Cbtn.click();
+//      //above ct1Cbtn is not working, lets try resetting the button manually..
+//          if (resetBtn){
+//              let resetlnkBtn = document.getElementById(resetBtn);
+//              resetlnkBtn.style.background ="";
+//              resetlnkBtn.textContent="Copy";
+//           }else{
+//              console.log('resetBtn not found.:cloned button not selected..')}
+//  
+//    } else {
+//      console.log('visibilitychange visibilityState changed to visible..');
+//  //    ct1Cbtn.click();
+//      //backgroundMusic.pause();
+//    }
+//  });
   
-    } else {
-      console.log('visibilitychange visibilityState changed to visible..');
-  //    ct1Cbtn.click();
-      //backgroundMusic.pause();
-    }
-  });
-  
   
 
 
-  let testData = 'sometestdata written to clipboard..'
-  const copyText = async () => {
-    try {
-        await navigator.clipboard.writeText(testData);
-        //await navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
-        console.log('Short link copied to clipboard ok..:'+testData)
-             alert('Text copied to clipboard ok:'+testData);
-         } catch (error) {
-             console.log('Copy failed..:'+error.message)
-             alert('Copy failed: timed out, please try again.:'+error.message);
-         }
-       };
+ //  let testData = 'sometestdata written to clipboard..'
+ //  const copyText = async () => {
+ //    try {
+ //        await navigator.clipboard.writeText(testData);
+ //        //await navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
+ //        console.log('Short link copied to clipboard ok..:'+testData)
+ //             alert('Text copied to clipboard ok:'+testData);
+ //         } catch (error) {
+ //             console.log('Copy failed..:'+error.message)
+ //             alert('Copy failed: timed out, please try again.:'+error.message);
+ //         }
+ //       };
 
-  ct1Cbtn.addEventListener('click', e => {
+ //  //when using 'pointerdown' 'addEventListener('pointerdown', e => {..' 
+ //  //i receive the error:Must be handling a user gesture to use custom clipboard
+ //  //when using 'click' it works okay..
+ //  ct1Cbtn.addEventListener('click', e => {
 
-    console.log('button clicked ...........ct1Cbtn...........');
+ //    console.log('button clicked ...........ct1Cbtn...........');
 
-   copyText();
+ //   copyText();
 
-  });
+ //  });
   
 
 
