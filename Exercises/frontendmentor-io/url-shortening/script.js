@@ -408,6 +408,9 @@ window.onresize=()=>{
   
   
   
+
+
+  
   //Clipboard Permissions..
   let clipPermsRes;
   let granted;
@@ -433,83 +436,83 @@ window.onresize=()=>{
                 
               //Clipboard functions..
                
-              let clipPerms = async()=>{
-                const clpWritePerms = await navigator.permissions.query({ name: 'clipboard-write' });
+          //    let clipPerms = async()=>{
+          //      const clpWritePerms = await navigator.permissions.query({ name: 'clipboard-write' });
+//
+          //      // clipboard-read \'clipboard-write' for appropriate perms..
+          //      // above will return a state: 'granted', 'denied' or 'pro
+          //      //Lets continue if we have access to write to the clipboard..
+          //        if(clpWritePerms.state==='granted'){// sample result: granted
+          //          console.log('clipPerms -:'+clpWritePerms.state);
+          //          clipPermsRes = clpWritePerms.state;}
+          //        if(clpWritePerms.state==='denied'){
+          //          console.log('clipPerms -:'+clpWritePerms.state);
+          //          clipPermsRes = clpWritePerms.state;}
+          //        if(clpWritePerms.state==='prompt'){
+          //          console.log('clipPerms -:'+clpWritePerms.state);
+          //          clipPermsRes = clpWritePerms.state;}
+          //          return clipPermsRes}
 
-                // clipboard-read \'clipboard-write' for appropriate perms..
-                // above will return a state: 'granted', 'denied' or 'pro
-                //Lets continue if we have access to write to the clipboard..
-                  if(clpWritePerms.state==='granted'){// sample result: granted
-                    console.log('clipPerms -:'+clpWritePerms.state);
-                    clipPermsRes = clpWritePerms.state;}
-                  if(clpWritePerms.state==='denied'){
-                    console.log('clipPerms -:'+clpWritePerms.state);
-                    clipPermsRes = clpWritePerms.state;}
-                  if(clpWritePerms.state==='prompt'){
-                    console.log('clipPerms -:'+clpWritePerms.state);
-                    clipPermsRes = clpWritePerms.state;}
-                    return clipPermsRes}
 
 
-
-                       let clpData=ct1D1CpyLnkBtnArr[i+1]; 
-                       const copyText = async () => {
-                        try {
-                            await navigator.clipboard.writeText(clpData);
-                            //await navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
-                            console.log('Short link copied to clipboard ok..:'+clpData)
-                                 alert('Text copied to clipboard ok:'+clpData);
-                             } catch (error) {
-                                 console.log('Copy failed..:'+error.message)
-                                 alert('Copy failed: timed out, please try again.:'+error.message);
-                             }
-                           };
+              //         let clpData=ct1D1CpyLnkBtnArr[i+1]; 
+              //         const copyText = async () => {
+              //          try {
+              //              await navigator.clipboard.writeText(clpData);
+              //              //await navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
+              //              console.log('Short link copied to clipboard ok..:'+clpData)
+              //                   alert('Text copied to clipboard ok:'+clpData);
+              //               } catch (error) {
+              //                   console.log('Copy failed..:'+error.message)
+              //                   alert('Copy failed: timed out, please try again.:'+error.message);
+              //               }
+              //             };
            
-              //https://developer.mozilla.org/en-US/docs/Web/API/Notification/requestPermission_static
-               const usrNotifGesture = async() =>{ 
-                 console.log('usrNotifGesture 1 permissions...');
-                 if (Notification.permission === "granted"){
-                   // Check whether notification permissions have already been granted;
-                   // if so, create a notification
-                   const notification = new Notification("Confirm: Clipboard write access?");
-                   console.log('usrNotifGesture 2 permissions...')
-                   //instead of setTimeout try implement 'addEventListener'
-                   //https://stackoverflow.com/questions/38791760/domexception-play-can-only-be-initiated-by-a-user-gesture
-                   setTimeout(() => { copyText(); }, 1500)
-                   // …
-                 } else 
-                    if (Notification.permission !== "denied"){
-                     console.log('usrNotifGesture 3 permissions...')
-                     // We need to ask the user for permission
-                      Notification.requestPermission().then((permission) => {
-                      // If the user accepts, let's create a notification
-                      if (permission === "granted") {
-                       console.log('usrNotifGesture 3 permission :'+permission)
-                        const notification = new Notification("Confirm: Clipboard write access?");
-                        //usrNotiGeResult = Notification.permission;
-                        // …
-                        console.log('usrNotifGesture 4 permissions... :'+permission);
-                        //instead of setTimeout try implement 'addEventListener'
-                        //https://stackoverflow.com/questions/38791760/domexception-play-can-only-be-initiated-by-a-user-gesture
-                        setTimeout(() => { copyText(); }, 1500);
-                         }
-                        });
-                      }
-                     };
-      usrNotifGesture();
+    //          //https://developer.mozilla.org/en-US/docs/Web/API/Notification/requestPermission_static
+    //           const usrNotifGesture = async() =>{ 
+    //             console.log('usrNotifGesture 1 permissions...');
+    //             if (Notification.permission === "granted"){
+    //               // Check whether notification permissions have already been granted;
+    //               // if so, create a notification
+    //               const notification = new Notification("Confirm: Clipboard write access?");
+    //               console.log('usrNotifGesture 2 permissions...')
+    //               //instead of setTimeout try implement 'addEventListener'
+    //               //https://stackoverflow.com/questions/38791760/domexception-play-can-only-be-initiated-by-a-user-gesture
+    //               setTimeout(() => { copyText(); }, 1500)
+    //               // …
+    //             } else 
+    //                if (Notification.permission !== "denied"){
+    //                 console.log('usrNotifGesture 3 permissions...')
+    //                 // We need to ask the user for permission
+    //                  Notification.requestPermission().then((permission) => {
+    //                  // If the user accepts, let's create a notification
+    //                  if (permission === "granted") {
+    //                   console.log('usrNotifGesture 3 permission :'+permission)
+    //                    const notification = new Notification("Confirm: Clipboard write access?");
+    //                    //usrNotiGeResult = Notification.permission;
+    //                    // …
+    //                    console.log('usrNotifGesture 4 permissions... :'+permission);
+    //                    //instead of setTimeout try implement 'addEventListener'
+    //                    //https://stackoverflow.com/questions/38791760/domexception-play-can-only-be-initiated-by-a-user-gesture
+    //                    setTimeout(() => { copyText(); }, 1500);
+    //                     }
+    //                    });
+    //                  }
+    //                 };
+    //  usrNotifGesture();
 
 
            
           // call our clipboard Permissions function (returns a promise.)
           // and check we have access to the clipboard. 
-           clipPerms().then((result=>{
-            if(result==='granted'){//We have access..
-              console.log('result Granted..:'+result);
- 
-            }else{
-              console.log('result other.. result..:'+result);            
-            }
-           }))
+    //       clipPerms().then((result=>{
+    //        if(result==='granted'){//We have access..
+    //          console.log('result Granted..:'+result);
+ //
+    //        }else{
+    //          console.log('result other.. result..:'+result);            
+    //        }
+    //       }))
 
       //       let clpData=ct1D1CpyLnkBtnArr[i+1]; 
       //               //https://jonathancrozier.com/blog/using-javascript-to-copy-text-to-the-clipboard
@@ -624,8 +627,8 @@ window.onresize=()=>{
     if (document.visibilityState === "visible") {
       console.log('visibilitychange visibilityState changed to visible..');
       //backgroundMusic.play();
-      ct1Cbtn.dispatchEvent(new Event('click'));
-      ct1Cbtn.click();
+  //    ct1Cbtn.dispatchEvent(new Event('click'));
+  //    ct1Cbtn.click();
       //above ct1Cbtn is not working, lets try resetting the button manually..
           if (resetBtn){
               let resetlnkBtn = document.getElementById(resetBtn);
@@ -636,14 +639,33 @@ window.onresize=()=>{
   
     } else {
       console.log('visibilitychange visibilityState changed to visible..');
-      ct1Cbtn.click();
+  //    ct1Cbtn.click();
       //backgroundMusic.pause();
     }
   });
   
   
+
+
+  let testData = 'sometestdata written to clipboard..'
+  const copyText = async () => {
+    try {
+        await navigator.clipboard.writeText(testData);
+        //await navigator.clipboard.writeText(ct1D1CpyLnkBtnArr[i+1]);
+        console.log('Short link copied to clipboard ok..:'+testData)
+             alert('Text copied to clipboard ok:'+testData);
+         } catch (error) {
+             console.log('Copy failed..:'+error.message)
+             alert('Copy failed: timed out, please try again.:'+error.message);
+         }
+       };
+
   ct1Cbtn.addEventListener('click', e => {
+
     console.log('button clicked ...........ct1Cbtn...........');
+
+   copyText();
+
   });
   
 
