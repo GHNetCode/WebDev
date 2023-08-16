@@ -620,32 +620,16 @@ window.onresize=()=>{
    
 
 
-
-//   const ct1Cbtn = document.getElementById('ct1Cbtn');
-//
-//  let resetBtn;
-//   // When switching tabs we loose focus and 'focus\gesture' errors appear..
-//   // to resolve this lets reset the "copied" button back when visibilityState === "visible"... 
-//   document.addEventListener("visibilitychange", () => {
-//    if (document.visibilityState === "visible") {
-//      console.log('visibilitychange visibilityState changed to visible..');
-//      //backgroundMusic.play();
-//  //    ct1Cbtn.dispatchEvent(new Event('click'));
-//  //    ct1Cbtn.click();
-//      //above ct1Cbtn is not working, lets try resetting the button manually..
-//          if (resetBtn){
-//              let resetlnkBtn = document.getElementById(resetBtn);
-//              resetlnkBtn.style.background ="";
-//              resetlnkBtn.textContent="Copy";
-//           }else{
-//              console.log('resetBtn not found.:cloned button not selected..')}
-//  
-//    } else {
-//      console.log('visibilitychange visibilityState changed to visible..');
-//  //    ct1Cbtn.click();
-//      //backgroundMusic.pause();
-//    }
-//  });
+// Using a 'dummy' button to click to reset the style 
+// of the button from 'copied' to 'copy' when
+// the page is switched back from another tab
+// so it is starting a fresh..
+   document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      console.log('visibilitychange visibilityState changed to visible 1..');
+      ct1Cbtn.click();
+    } 
+  });
   
   
 
