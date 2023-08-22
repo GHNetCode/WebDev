@@ -728,15 +728,25 @@ body{
               #ct1D1inp:hover{box-shadow:inset 0px 0px 5px rgb(28, 189, 248);}
 
               .deskTmenC:hover{
-                color: rgb(46, 36, 70);
+                color: rgb(34, 169, 184);
               }
             }
+            .deskTmenC:active{
+              color: rgb(44, 11, 72);
+            }
 
-            #ct1E1btn:active,#ct1D1Btn:active,#ct1Cbtn:active,.BtnstylC:active{
+            #ct1E1btn:active,#ct1D1Btn:active,#ct1Cbtn:active,#dskTmR2Btn:active,.BtnstylC:active{
               border:1px #7bf7f7 solid;
               box-shadow:inset 0px 0px 25px #ffffff;
               /* transition: all 0.2s ease-out; */
             }
+
+            /* Get rid of that pesky blue background for touch screens when 
+               an element is touched\pushed..: https://stackoverflow.com/questions/45049873/how-to-remove-the-blue-highlight-of-button-on-mobile
+            */
+            .deskTmenC,.ct1D1LnksN1Cls,input,textarea,button,select,a{
+            -webkit-tap-highlight-color: transparent;}
+
  
 
             /* Class to disable button presses for the 'Shorten It!' button when pressed 
@@ -1251,26 +1261,16 @@ body{
                        margin-left: 2px;
                      }
 
-
-
-
-
-        
-
-
-
-
-
-        
-        
    }
 
 
-#attribution {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+.attribution {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
   font-size:10px;display:flex;position:relative ; text-align:center; 
   justify-content:center; width:100%;
-background: white;}
-#attribution a { color:hsl(228, 45%, 44%); }
+  color:hsl(227, 21%, 57%);
+  /* background: rgb(58,48,83) */
+}
+.attribution a { color:hsl(228, 45%, 44%); }
 
 
 

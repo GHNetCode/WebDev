@@ -38,8 +38,8 @@ window.onresize=()=>{
   //rotatect1D1Btn.play();
   //rotatect1D1Btn.reverse();
   //rotatect1D1Btn.cancel();// to stop the animation before set duration..
-  
-  
+
+ 
   
   ct1D1Btn.addEventListener("pointerdown",e=>{//Button 'Shorten It!' pressed..
 
@@ -56,9 +56,10 @@ window.onresize=()=>{
         ct1D1Btn.style.background='linear-gradient(0.25turn, #c7a2ff, #502457, #eb88fa)';
         rotatect1D1Btn.play();
 
-        oneClickFlag=false;//reset oneClickFlag..:
+        oneClickFlag=false;//Reset oneClickFlag..:
         error = ''; //reset error flag....:
-        urlValidator(ct1DlongUrl); //Validate url before calling func UrlLinkDiv() to shorten it..
+      
+         urlValidator(ct1DlongUrl); //Validate url before calling func UrlLinkDiv() to shorten it..
   
           if (error===''){// Url validated.. 
   
@@ -80,11 +81,10 @@ window.onresize=()=>{
                   rotatect1D1Btn.cancel();
                   console.log('Error fetching url, please check internet connection..:'+error ); 
               }
-            }
-  
+          }
       }else{
-  //         console.log('Please add a link..')
-          if (!oneClickFlag){plsAddLnkMsg();}//call plsAddLnkMsg "Please add a link"  
+           console.log('Please add a link..')
+          if (!oneClickFlag||ct1DlongUrl==''){plsAddLnkMsg();}//call plsAddLnkMsg "Please add a link"  
            oneClickFlag=true;
       }
   }
@@ -210,8 +210,7 @@ window.onresize=()=>{
     // Before cloning check max number of links (children) already added to the UI ..
       // if above threshold advise to copy\save old link..
        let numChd = document.getElementById("ct1D").childElementCount;
-       // console.log('Before cloning -: ct1D has '+numChd+' children........................')//num of children cloned..
-      
+  
   
   //Child id`s in Cloned Div "ct1D1LnksN1Clnd" to be udpated...
    let ct1D1LnksN1 = document.getElementById("ct1D1LnksN1");
@@ -231,7 +230,7 @@ window.onresize=()=>{
   //1.Function OnLoadLclStrg() is called on the initial startup, clones and updates the UI.
   //2.Pressing the "Shorten It!" Button, updates the template then clones it with new link, updates the UI and then writes to storage..
    function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){//show shorten validated Url and write to local storage..
-  
+    
       // Get the parent element 
        let parentElemct1D = document.getElementById("ct1D");// ct1D2 insertBefore ct1C 
       // Get parent's child where we want to insert the new div next too..
@@ -258,7 +257,7 @@ window.onresize=()=>{
                      //    navigator.clipboard.writeText(oldShortUrl);
                      // }
   
-                      // console.log('UrlLinkDiv numChd iKey'+iKey)
+                     
                       let ct1D1LsN1CldiKey = document.getElementById("ct1D1LsN1Cld"+(iKey  - maxRows));
                       ct1D1LsN1CldiKey.parentNode.removeChild(ct1D1LsN1CldiKey);
                       ct1D1CpyLnkBtnArr.splice(0,2);//Lets remove the first 2 elements from our array..
@@ -303,9 +302,6 @@ window.onresize=()=>{
             }
               ct1D1CpyLnkBtn.id = ct1D1CpyLnkBtnId;
               ct1D1ShrtLnkP.id = ct1D1ShrtLnkPId;
-            //  console.log('UrlLinkDiv OnLoadLclStrgFlag Before Clone iKey-:'+iKey) //btn
-            //  console.log('UrlLinkDiv OnLoadLclStrgFlag Before Clone ct1D1CpyLnkBtn.id-:'+ct1D1CpyLnkBtn.id) //btn
-            //  console.log('UrlLinkDiv OnLoadLclStrgFlag Before Clone ct1D1CpyLnkBtnId-:'+ct1D1CpyLnkBtnId) //btn
               ct1D1CpyLnkBtnArr.push(ct1D1CpyLnkBtnId,ct1DshortUrl)
           }
   
@@ -332,9 +328,6 @@ window.onresize=()=>{
             ct1D1ShrtLnkP.id = 'ct1D1ShrtLnkP'+iKey;
             ct1D1CpyLnkBtn.id = 'ct1D1CpyLnkBtn'+iKey;
         
-          // console.log('UrlLinkDiv OnLoadLclStrgFlag After Clone ct1D1CpyLnkBtn.id-:'+ct1D1CpyLnkBtn.id) //btn
-          // console.log('UrlLinkDiv OnLoadLclStrgFlag After Clone ct1D1CpyLnkBtnId-:'+ct1D1CpyLnkBtnId) //btn
-        
            }else{ //update id`s when "Shorten It" button is pushed..
           
               //update template child elem Id`s
@@ -358,12 +351,6 @@ window.onresize=()=>{
         }
   
     
-  
-  //    console.log('UrlLinkDiv ct1D1LnksN1Clnd.id-:'+ct1D1LnksN1Clnd.id)
-  //    console.log('UrlLinkDiv ct1DlongUrlP.id-:'+ct1DlongUrlP.id)
-  //    console.log('UrlLinkDiv ct1D1ShrtLnkP.id-:'+ct1D1ShrtLnkP.id)
-  //    console.log('UrlLinkDiv ct1D1CpyLnkBtn.id-:'+ct1D1CpyLnkBtn.id)
-  //    console.log('UrlLinkDiv ct1D1CpyLnkBtnId-:'+ct1D1CpyLnkBtnId)
   
 
       // add it to the DOM after child ct1D1LnksN1
@@ -435,6 +422,17 @@ window.onresize=()=>{
               ct1D1CpyLnkBtnArr[i]===e.target.id
               //&&e.target.id==='ct1D1CpyLnkBtn'
               ){
+ 
+                let elem = document.getElementById(e.target.id);
+                // Setup Animations for the copy button.:
+                const effect2 = new KeyframeEffect(//for Button
+                elem, // Element to animate.. 
+                [{transform: 'scalex(0.5)'},{transform: 'scalex(0.2)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
+                {duration: 250} // Keyframe settings   1sec..  
+                );
+                const AnimcpyBtn = new Animation(effect2, document.timeline);
+                AnimcpyBtn.play();
+ 
                  let clpData=ct1D1CpyLnkBtnArr[i+1]; 
                  const copyText = async () => {
                   try {
@@ -463,9 +461,6 @@ window.onresize=()=>{
   
                   //btnstyle for ct1D1CpyLnkBtn 
                   if(ct1D1CpyLnkBtnArr[i].slice(0,14)==='ct1D1CpyLnkBtn'){
-            //         console.log('addGlobalEventListener resetting ct1D1CpyLnkBtn :'+ ct1D1CpyLnkBtnArr[i])
-                     //('ct1D1CpyLnkBtn'+(iKey - maxRows)
-            //         console.log('addGlobalEventListener reset btnstyle iKey - maxRows'+(iKey - maxRows));
                      let lnkBtnElem = document.getElementById(ct1D1CpyLnkBtnArr[i]);
                          lnkBtnElem.style.background ="";
                          lnkBtnElem.textContent="Copy";
