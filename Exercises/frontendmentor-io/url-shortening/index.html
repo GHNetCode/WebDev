@@ -24,16 +24,18 @@
     <div id="ct1A">
       <img id="ct1A1" type="utf-8" src="./images/logo.svg" alt="Shortly logo.svg">
       <nav id="ct1A2" role="navigation">
+
+    <!----------- MOBILE ------------>
        <div id="toggleMenu">
         <!--Hidden checkbox  used as click receiver to use checked selector on it. -->
-        <label title="checkB" for="checkB"></label> <input type="checkbox" title="checkB" id="checkB" name="checkB" />
+        <input type="checkbox" title="checkB" id="checkB" name="checkB" autocomplete="name" />
+        <label title="checkB" for="checkB"></label> 
         
         <!-- Some spans for the hamburger.-->
         <span></span>
         <span></span>
         <span></span>
         
-        <!-- change ul to another container!!!!-->
         <ul id="menu">
           <li class="tMenHovActC">Features</li>
           <li class="tMenHovActC">Pricing</li>
@@ -42,14 +44,30 @@
           <li id="sep"> &nbsp </li>
           <li class="tMenHovActC">Login</li>
           <li class="tMenHovActC">Sign Up</li>
-          <!-- <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a> -->
         </ul>
-      </div>
+       </div>
+
+       <div id="deskTmenuL">
+        <p id="dskTmL1" class="deskTmenC">Features</p>
+        <p id="dskTmL2" class="deskTmenC">Pricing</p>
+        <p id="dskTmL3" class="deskTmenC">Resources</p>
+       </div>
+
+       <div id="deskTmenuR">
+        <p id="dskTmR1" class="deskTmenC">Login</p> 
+        <button id="dskTmR2Btn">Sign Up</button>
+       </div>
+       
+
+
+
+
+
      </nav>
 
     </div>
-    
-    <div id="ct1B" src="./images/illustration-working.svg" alt="illustration-working.svg"></div>
+
+    <div id="ct1B" type="utf-8" src="./images/illustration-working.svg" alt="illustration-working.svg"></div>
     <div id="ct1C">
       <H1>More than just shorter links</H1>
       
@@ -57,15 +75,16 @@
         on how your links are performing.</p>
 
         <button id="ct1Cbtn">Get Started</button>
-      
     </div>
+  
 
     <div id="ct1D">
      <div id="ct1D1">
-        <img  src="./images/bg-shorten-mobile.svg" alt="bg-shorten-mobile.svg">
+        <img  id="ct1D1imgM" type="utf-8" src="./images/bg-shorten-mobile.svg" alt="bg-shorten-mobile.svg">
+        <img  id="ct1D1imgD" type="utf-8" src="./images/bg-shorten-desktop.svg" alt="bg-shorten-desktop.svg">
          <div id="ct1D1inpFld">
-           <label id="ct1D1Lbl" for="name">ct1D1inpFld</label>
-           <input id="ct1D1inp"  type="text" name="name" placeholder="Shorten a link here..."/>
+           <input id="ct1D1inp"  type="text" name="name" placeholder="Shorten a link here..." autocomplete="name"/>
+           <label id="ct1D1Lbl" for="ct1D1inp">ct1D1inpFld</label>
          </div>
          <!--  -->
          <button id="ct1D1Btn" class="BtnstylC">Shorten It!</button>
@@ -88,7 +107,7 @@
 
      <div id="ct1D3">
        <div id="ct1D3img">
-         <img src="./images/icon-brand-recognition.svg" alt="icon-brand-recognition.svg">
+         <img type="utf-8" src="./images/icon-brand-recognition.svg" alt="icon-brand-recognition.svg">
        </div>
        <h2>Brand Recognition</h2>
        <p>Boost your brand recognition with <span id="ct1D3sp1"> each click.</span> 
@@ -100,7 +119,7 @@
 
      <div id="ct1D4"> 
         <div id="ct1D4img">
-          <img src="./images/icon-detailed-records.svg" alt="icon-detailed-records.svg">
+          <img type="utf-8" src="./images/icon-detailed-records.svg" alt="icon-detailed-records.svg">
         </div>
         <h2>Detailed Records</h2>
        <p>Gain insights into who is clicking your links. Knowing when and <span id="ct1D4sp1">where 
@@ -111,7 +130,7 @@
 
      <div id="ct1D5"> 
        <div id="ct1D5img">
-          <img src="./images/icon-fully-customizable.svg" alt="icon-fully-customizable.svg">
+          <img type="utf-8" src="./images/icon-fully-customizable.svg" alt="icon-fully-customizable.svg">
        </div>
        <h2>Fully Customizable</h2>
        <p>Improve brand awareness and content discoverability through <span id="ct1D5sp1">customizable 
@@ -121,7 +140,8 @@
     </div>
     <div id="ct1E">
       <div id="ct1E1">
-        <img src="./images/bg-boost-mobile.svg" alt="bg-boost-mobile.svg">
+        <img id="ct1E1Mimg" type="utf-8" src="./images/bg-boost-mobile.svg" alt="bg-boost-mobile.svg">
+        <img id="ct1E1Dimg" type="utf-8" src="./images/bg-boost-desktop.svg" alt="bg-boost-desktop.svg">
         <h2>Boost your links today</h2>
         <button id="ct1E1btn">Get Started</button>
  
@@ -129,7 +149,7 @@
       </div>
       <div id="ct1E2">
 
-         <img id="ct1E2img"src="./images/logo.svg" alt="Shortly logo.svg">
+         <img type="utf-8" id="ct1E2img"src="./images/logo.svg" alt="Shortly logo.svg">
 
 
           <h2 id="ct1E2h2a">Features</h2>
@@ -154,15 +174,15 @@
        </div>
        <div id="ct1E2A">
         <div id="ct1E2A1">
-          <img src="./images/icon-facebook.svg" alt="icon-facebook.svg">
-          <img src="./images/icon-twitter.svg" alt="icon-facebook.svg">
-          <img src="./images/icon-pinterest.svg" alt="icon-facebook.svg">
-          <img src="./images/icon-instagram.svg" alt="icon-facebook.svg">
+          <img type="utf-8" src="./images/icon-facebook.svg" alt="icon-facebook.svg">
+          <img type="utf-8" src="./images/icon-twitter.svg" alt="icon-facebook.svg">
+          <img type="utf-8" src="./images/icon-pinterest.svg" alt="icon-facebook.svg">
+          <img type="utf-8" src="./images/icon-instagram.svg" alt="icon-facebook.svg">
          </div>
 
          <div class="attribution">
           Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-          Coded by <a href="#">Your Name Here</a>.
+          Coded by <a href="#">Mark</a>.
         </div>   
        </div>
      </div>
