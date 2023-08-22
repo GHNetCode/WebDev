@@ -19,7 +19,7 @@ body{
 }
 
 #resizeInnerW{/*disable before release...*/
-  display:flex; /* none\flex */
+  display:none; /* none\flex */
   position:absolute;
   justify-content:center;
   top:0px; 

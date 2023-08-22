@@ -3,8 +3,6 @@ window.onresize=()=>{
   }
   
   
-  
-  
   let error = '';
   let parentElemct1D1 = document.getElementById("ct1D1"); //Div for ct1D1inp, ct1D1Btn
   let ct1D1inp = document.getElementById('ct1D1inp');//ct1D1inp - url field..
@@ -44,11 +42,11 @@ window.onresize=()=>{
   
   
   ct1D1Btn.addEventListener("pointerdown",e=>{//Button 'Shorten It!' pressed..
-  
+
   console.log('ct1D1Btn Button has been pressed..')
   
   //console.log('Url text field..:'+ct1D1inp.value)
-  
+
   async function BtnProc(){//process functions for Button "Shorten It!"
    if (ct1D1inp.value){//ct1D1inp - check if we have data and process it..
   //    console.log('we have data:'+ct1DlongUrl);
@@ -94,7 +92,6 @@ window.onresize=()=>{
   
   BtnProc();
   
-  
   })
   
   
@@ -122,7 +119,7 @@ window.onresize=()=>{
         }
       newPElem.style.fontsize="12px";
       newPElem.style.fontStyle="italic";
-      
+
       newPElem.appendChild(textnode);
       parentElemct1D1.insertBefore(newPElem, childElem);
   
@@ -136,11 +133,7 @@ window.onresize=()=>{
       }else{//Desktop more than 700px
 
       }
-
-      
   }
-  
-  
   
   //on Text Input clear error styling..
   // 1. check if child elem id ct1D1AdLnkMsg is still  
@@ -162,9 +155,6 @@ window.onresize=()=>{
       parentElemct1D1.style.height="160px";
       ct1D1Btn.style.top="86px"
       }
-
-
-
   }
 
   ct1D1inp.oninput=function(){
@@ -178,7 +168,7 @@ window.onresize=()=>{
   
    
   
-      //lets call our Api to return the shorted link.. https://shrtco.de/docs
+      //lets call our Api to return the shorted link from..: https://shrtco.de/docs
       //GET/POST: https://api.shrtco.de/v2/shorten?url=example.org/very/long/link.html
       //"short_link":shrtco.de","short_link2":9qr.de","short_link3":shiny.link
       async function getShortUrl(ct1DlongUrl) {
@@ -219,33 +209,33 @@ window.onresize=()=>{
   
     // Before cloning check max number of links (children) already added to the UI ..
       // if above threshold advise to copy\save old link..
-      let numChd = document.getElementById("ct1D").childElementCount;
-      // console.log('Before cloning -: ct1D has '+numChd+' children........................')//num of children cloned..
+       let numChd = document.getElementById("ct1D").childElementCount;
+       // console.log('Before cloning -: ct1D has '+numChd+' children........................')//num of children cloned..
       
   
   //Child id`s in Cloned Div "ct1D1LnksN1Clnd" to be udpated...
-  let ct1D1LnksN1 = document.getElementById("ct1D1LnksN1");
-  let ct1Dsep = document.getElementById('ct1Dsep');
-  let ct1D1ShrtLnkP = document.getElementById('ct1D1ShrtLnkP');
-  let ct1D1CpyLnkBtn = document.getElementById('ct1D1CpyLnkBtn');
-  let ct1DinitHt = document.getElementById('ct1D').clientHeight; //Get initial clientHeight.
-  let ct1D1CpyLnkBtnArr =[];//Array to store Btn number and Link..
+   let ct1D1LnksN1 = document.getElementById("ct1D1LnksN1");
+   let ct1Dsep = document.getElementById('ct1Dsep');
+   let ct1D1ShrtLnkP = document.getElementById('ct1D1ShrtLnkP');
+   let ct1D1CpyLnkBtn = document.getElementById('ct1D1CpyLnkBtn');
+   let ct1DinitHt = document.getElementById('ct1D').clientHeight; //Get initial clientHeight.
+   let ct1D1CpyLnkBtnArr =[];//Array to store Btn number and Link..
   
   //For Desktop #joiners need "top\height" adjusting when a new link is added..
-  let ctjnrD3D4 = document.getElementById('ctjoinerD3D4');
+   let ctjnrD3D4 = document.getElementById('ctjoinerD3D4');
       ctjnrD3D4.style.top=(512+"px");//Overriding initial setting from '' to 512px..
-  let ctjnrD4D5 = document.getElementById('ctjoinerD4D5');
+   let ctjnrD4D5 = document.getElementById('ctjoinerD4D5');
       ctjnrD4D5.style.top=(550+"px");//Overriding initial setting from '' to 550px.. 
 
   //UrlLinkDiv function runs when-:
   //1.Function OnLoadLclStrg() is called on the initial startup, clones and updates the UI.
   //2.Pressing the "Shorten It!" Button, updates the template then clones it with new link, updates the UI and then writes to storage..
-  function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){//show shorten validated Url and write to local storage..
+   function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){//show shorten validated Url and write to local storage..
   
       // Get the parent element 
-      let parentElemct1D = document.getElementById("ct1D");// ct1D2 insertBefore ct1C 
+       let parentElemct1D = document.getElementById("ct1D");// ct1D2 insertBefore ct1C 
       // Get parent's child where we want to insert the new div next too..
-      let childElem = document.getElementById("ct1D2");
+       let childElem = document.getElementById("ct1D2");
 
     
       //prompt Notifications for Deleting the oldest link (first one in the list) only apply After 
@@ -394,17 +384,21 @@ window.onresize=()=>{
        }
       }else{//Desktop: > 700px   elements cloned 88px
           //#ctjoinerD3D4, #ctjoinerD4D5
-       //   if ((parentElemct1D.clientHeight)<((ct1DinitHt)+(maxRows * 88)) ){
+            console.log('parentElemct1D.clientHeight'+parentElemct1D.clientHeight)
+            console.log('(ct1DinitHt)+(maxRows * 89))'+((ct1DinitHt)+(maxRows * 89)))
+
+          //if ((parentElemct1D.clientHeight) < ((ct1DinitHt) + (maxRows * 89)) ){//adding +1 so we are always within the limits..
+          if (numChd <= (7+maxRows)){
             let ctjnrD3D4Tp = Number((ctjnrD3D4.style.top).slice(0,-2)); 
               ctjnrD3D4.style.top=((ctjnrD3D4Tp+88)+"px"); //512(initial height) + 88 (cloned height)
               console.log((ctjnrD3D4Tp+88)+"px")
-              console.log('ctjnrD3D4.style.top :'+ctjnrD3D4.style.top);
+              console.log('ctjnrD3D4.style.top-------- :'+ctjnrD3D4.style.top);
             let ctjnrD4D5Tp = Number((ctjnrD4D5.style.top).slice(0,-2)); 
               ctjnrD4D5.style.top=((ctjnrD4D5Tp+88)+"px"); //512(initial height) + 88 (cloned height)
               console.log((ctjnrD4D5Tp+88)+"px")
-              console.log('ctjnrD3D4.style.top :'+ctjnrD4D5.style.top);
+              console.log('ctjnrD3D4.style.top-------- :'+ctjnrD4D5.style.top);
+         }
 
-       //  }
       }
        
   
