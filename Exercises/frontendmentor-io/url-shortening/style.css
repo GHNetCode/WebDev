@@ -196,16 +196,31 @@ body{
         }
 
 
-      #ct1B{
+      /* #ct1B{
         display: flex;
         position: relative;
-        width: 375px;/*100vw 375px*/
-        height: 325px;
+        width: 375px; 
+        height: 330px; 
         top:75px;
         background: no-repeat url(./images/illustration-working.svg);
         background-size:500px 330px;
         background-position-x: 23px;
+      } */
+      #ct1B{
+        display: flex;
+        position: relative;
+        width:370px; 
+        height:325px;  
+        top:76px;
+        /* background: no-repeat url(./images/illustration-working.svg);
+        background-size:500px 330px;
+        background-position-x: 23px; */
+        object-fit: cover;/*contain; cover; fill; none; scale-down;*/
+        object-position:21px 0px;
+        
       }
+
+
       #ct1C{
         display: flex;
         position: relative;
@@ -434,8 +449,10 @@ body{
         position:relative;
         flex-direction:column;
         align-items:center;
+        text-align: center;
         height:160px;
         width:327px;
+       
       }
           #ct1D2 h1{
             font-size: 28px;
@@ -447,6 +464,7 @@ body{
             margin-top: 17.5px;
             margin-left: -3px;
             line-height: 27.5px;
+            color: rgb(142, 143, 149);
           }
 
        #ct1D3{
@@ -691,7 +709,7 @@ body{
              flex-direction: column;
              justify-content:center;
              align-items: center;
-             top:32px;
+             top:5px;
              width:375px;
              background: rgb(35,32,39); 
             }
@@ -833,17 +851,20 @@ body{
             .deskTmenC{
               cursor: pointer;
             }
-
             #ct1B{ /* working illustration */
               display: flex;
               position: relative;
-              width: 635px;/*100vw 375px*/
+              width: 638px;/*633px*/
               height: 480px;/*480*/
               top:133px;
-              margin-left: 806px;
-              background: no-repeat url(./images/illustration-working.svg);
-              background-size:730px 480px;/*width height*/
-              background-position-x: 23px;
+              margin-left: 808px;
+              margin-right: 5px;
+              object-fit: cover;/*contain; cover; fill; none; scale-down;*/
+              object-position:28px 0px;
+              /* background: no-repeat url(./images/illustration-working.svg); */
+              /* background-size:730px 480px;    */
+              /*width height*/
+              /* background-position-x: 24px; */
               /* border: blue 3px solid; */
             }
 
