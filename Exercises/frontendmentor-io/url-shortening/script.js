@@ -581,14 +581,9 @@ window.onresize=()=>{
         //  console.log('OnLoadLclStrg ((iKey+1) - maxRows) -:'+((iKey+1) - maxRows));
         //  console.log('OnLoadLclStrg            (iKey+1)  -:'+(iKey+1));
   
-// iKmL ('iKey max Loop') param created for number of localStorage keys found.
-// iKey is incremented in every 'for loop' below...
-//   let iKmL=((iKey+1) - maxRows);
+
        iKey = ((iKey+1) - maxRows);
 
-          // console.log('OnLoadLclStrg Before "for()Loop" iKmL :'+iKmL);
-          // console.log('OnLoadLclStrg Before "for()Loop" iKey :'+iKey);
-  
          //Let`s display it (localStorage) back in the correct order..
           for (i = iKey; i < (iKey + maxRows ); i++){ 
           let key = localStorage.getItem('ct1D1CpyLnkBtn'+i);//Check we actually got the correct key to write back to the UI. 
