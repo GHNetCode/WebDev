@@ -84,7 +84,9 @@ window.onresize=()=>{
           }
       }else{
            console.log('Please add a link..')
-          if (!oneClickFlag||ct1DlongUrl==''){plsAddLnkMsg();}//call plsAddLnkMsg "Please add a link"  
+          if (!oneClickFlag||ct1DlongUrl==''){
+            resetErrStyles();
+            plsAddLnkMsg();}//call plsAddLnkMsg "Please add a link"  
            oneClickFlag=true;
       }
   }
