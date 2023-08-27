@@ -106,41 +106,27 @@ let once = false;//false = it has not yet been displayed..
 let dispOnce = () =>{
   let date = new Date().toJSON().replace(/[-:]/g, '');// 20230827T114220.103Z
   console.log('date :'+date);
-  console.log('typeof date:'+typeof date +localStorage.length);
-  if (localStorage.length===0){//if there is nothing in storage..
+  if (localStorage.length===0){
     localStorage.setItem('IPAddressTracker',date); 
-    once = true; //display msg!
     setTimeout(()=>{
-      alert(alertmsgIntro);
-      },2000); 
-    }else{
-      for (i = 0; i < localStorage.length; i++){//find if key is present in localStorage.
+        once = true; //message has already been displayed..
+        alert(alertmsgIntro); },2000); } 
+  for (i = 0; i < localStorage.length; i++){//find if key is present in localStorage.
         let key = localStorage.key(i);
         console.log('key ---------:'+key);
-       if(key==='IPAddressTracker'){
+        if(key==='IPAddressTracker'){
          let keyV = localStorage.getItem('IPAddressTracker');
          console.log('key and keyV -:'+'IPAddressTracker'+', '+JSON.stringify(keyV))
          once = true; //message has already been displayed..
-        }
-        //else{//key not present, lets display the message only once and write to localStorage..
-        //   localStorage.setItem('IPAddressTracker',date); 
-        //   once = false; //display msg!
-        // }
-        }
-
-        
-        if (once===false){
-          localStorage.setItem('IPAddressTracker',date); 
-          setTimeout(()=>{
-            alert(alertmsgIntro);
-            },2000); 
-          }
-
-
-    }
-    
-    
-}; 
+         }
+        if (i===localStorage.length -1 ){//End of the last row..
+          if (once===false){
+            localStorage.setItem('IPAddressTracker',date); 
+            setTimeout(()=>{
+              once = true; //message has already been displayed..
+              alert(alertmsgIntro);
+              },2000) } }
+  } }; 
 dispOnce();
 
 
