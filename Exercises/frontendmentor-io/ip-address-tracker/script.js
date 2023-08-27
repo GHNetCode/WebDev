@@ -110,6 +110,10 @@ let dispOnce = () =>{
   if (localStorage.length===0){//if there is nothing in storage..
     localStorage.setItem('IPAddressTracker',date); 
     once = false; //display msg!
+    setTimeout(()=>{
+      alert(alertmsgIntro);
+      },2000); 
+
     }else{
       for (i = 0; i < localStorage.length; i++){//find if key is present in localStorage.
         let key = localStorage.key(i);
@@ -123,13 +127,16 @@ let dispOnce = () =>{
             once = false; //display msg!
           }
         }
+        
+        if (once===false){
+          setTimeout(()=>{
+            alert(alertmsgIntro);
+            },2000); 
+          }
+        
     }
 
-    if (once===false){
-      setTimeout(()=>{
-        alert(alertmsgIntro);
-        },2000); 
-      }
+    
 }; 
 dispOnce();
 
