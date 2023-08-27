@@ -34,14 +34,13 @@ let dnsResUrl = 'https://njsar.glitch.me/dnsRes/'
 
 let dnsResUrlget=''; // dnsResUrlget
 let getJsndnsRes = async dnsResUrl => { 
-let response = await fetch(dnsResUrl); 
-  if(!response.status >= 200 && !response.status <= 299){ 
-       //throw new Error(response); //
-       return Error(response);
-   }else{
-   let dnsResdata = await response.json(); // get JSON from the response
-   return dnsResdata; // This async function returns a promise which resolves to this data value..
-   }
+  try {
+    let response = await fetch(dnsResUrl);
+    let dnsResdata = await response.json(); // get JSON from the response
+    return dnsResdata; // This async function returns a promise which resolves to this data value..
+  } catch (error){
+    return alert(response); 
+  } 
 };
 
 //Setup Animations for the spinning arrow.:
