@@ -102,7 +102,7 @@ Thank you for trying out this Web App and Have a Great Day."+"\n"+"\
 
 
  //lets display the message alertmsgIntro, only once..
-let once = true;
+let once = false;//false = it has not yet been displayed..
 let dispOnce = () =>{
   let date = new Date().toJSON().replace(/[-:]/g, '');// 20230827T114220.103Z
   console.log('date :'+date);
@@ -121,18 +121,24 @@ let dispOnce = () =>{
          let keyV = localStorage.getItem('IPAddressTracker');
          console.log('key and keyV -:'+'IPAddressTracker'+', '+JSON.stringify(keyV))
          once = true; //message has already been displayed..
-        }else{//key not present, lets display the message only once and write to localStorage..
-            localStorage.setItem('IPAddressTracker',date); 
-            once = false; //display msg!
-          }
+        }
+        //else{//key not present, lets display the message only once and write to localStorage..
+        //   localStorage.setItem('IPAddressTracker',date); 
+        //   once = false; //display msg!
+        // }
         }
 
+        
+        if (once===false){
+          localStorage.setItem('IPAddressTracker',date); 
+          setTimeout(()=>{
+            alert(alertmsgIntro);
+            },2000); 
+          }
+
+
     }
-    if (once===false){
-      setTimeout(()=>{
-        alert(alertmsgIntro);
-        },2000); 
-      }
+    
     
 }; 
 dispOnce();
