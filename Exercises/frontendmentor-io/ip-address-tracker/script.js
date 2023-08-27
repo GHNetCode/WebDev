@@ -102,33 +102,33 @@ Thank you for trying out this Web App and Have a Great Day."+"\n"+"\
 
 
  //lets display the message alertmsgIntro, only once..
-let once = false;//false = it has not yet been displayed..
-let dispOnce = () =>{
-  let date = new Date().toJSON().replace(/[-:]/g, '');// 20230827T114220.103Z
-  console.log('date :'+date);
-  if (localStorage.length===0){
-    localStorage.setItem('IPAddressTracker',date); 
-    setTimeout(()=>{
-        once = true; //message has already been displayed..
-        alert(alertmsgIntro); },2000); } 
-  for (i = 0; i < localStorage.length; i++){//find if key is present in localStorage.
-        let key = localStorage.key(i);
-        console.log('key ---------:'+key);
-        if(key==='IPAddressTracker'){
-         let keyV = localStorage.getItem('IPAddressTracker');
-         console.log('key and keyV -:'+'IPAddressTracker'+', '+JSON.stringify(keyV))
-         once = true; //message has already been displayed..
-         }
-        if (i===localStorage.length -1 ){//End of the last row..
-          if (once===false){
-            localStorage.setItem('IPAddressTracker',date); 
-            setTimeout(()=>{
-              once = true; //message has already been displayed..
-              alert(alertmsgIntro);
-              },2000) } }
-  } }; 
-dispOnce();
+  let once = false;//false = it has not yet been displayed..
+  function findKey(){ //key IPAddressTracker
+    for (i = 0; i < localStorage.length; i++){//find if key is present in localStorage.
+      let key = localStorage.key(i);
+      console.log('key ---------:'+key);
+      if(key==='IPAddressTracker'){
+       let keyV = localStorage.getItem('IPAddressTracker');
+       console.log('key and keyV -:'+'IPAddressTracker'+', '+JSON.stringify(keyV))
+       once = true; //message has already been displayed..
+       }}
+      }; 
 
+  let dispOnce = () =>{
+   findKey();//lets update the once flag now
+
+    let date = new Date().toJSON().replace(/[-:]/g, '');// 20230827T114220.103Z
+    console.log('date :'+date);
+          if (once===false){
+              console.log('setTimeout displayed!! i:'+i +' '+(localStorage.length -1))
+              localStorage.setItem('IPAddressTracker',date); 
+              setTimeout(()=>{
+                once = true; //message has already been displayed..
+                alert(alertmsgIntro);
+                },2000)
+            } 
+    }; 
+   dispOnce();
 
   //reset the button style..
   function btnArrHvrStyle(){
@@ -137,7 +137,7 @@ dispOnce();
       btnArrHvrMASK.style.zIndex = "unset";
       btnArrHvrMASK.style.background = "unset";
       btnArrHvr.style.display = "unset";
-    }
+    };
 
 // The Arrow button function to run when pressed..
 btnArrHvr.addEventListener("pointerdown",e =>{
