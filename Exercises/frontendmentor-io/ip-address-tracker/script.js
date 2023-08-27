@@ -109,7 +109,7 @@ let dispOnce = () =>{
   console.log('typeof date:'+typeof date +localStorage.length);
   if (localStorage.length===0){//if there is nothing in storage..
     localStorage.setItem('IPAddressTracker',date); 
-    once = false; //display msg!
+    once = true; //display msg!
     setTimeout(()=>{
       alert(alertmsgIntro);
       },2000); 
@@ -127,7 +127,7 @@ let dispOnce = () =>{
             once = false; //display msg!
           }
         }
-        
+
         if (once===false){
           setTimeout(()=>{
             alert(alertmsgIntro);
