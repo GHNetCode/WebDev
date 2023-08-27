@@ -9,7 +9,7 @@ Steps    Overview--:
 0. On pressing the button find the current ip address.
 1. If there is nothing entered in the search field, find IP address of current connection.
 2. If there is something entered, validate if it`s a Domain if not then IP Address.
-3. If it`s a domain name convert it to ip via API www.whoisxmlapi.com ( if more than one ip use the first ip address..)
+3. If it`s a domain name convert it to ip via Dns.resolve ( if more than one ip used for DNS, use first ip address..)
 4. If it`s an IP address get Geolocation Details.. 
 */
 
@@ -30,27 +30,25 @@ let sBRCiSP=document.getElementById('sBRCiSP');// ISP ...
 let HereApiMap=document.getElementById('HereApiMap');// ISP ...
 
 
-let wisxApiUrl = 'https://njsar.glitch.me/wxmlApi/'
+let dnsResUrl = 'https://njsar.glitch.me/dnsRes/'
 
-let wisxApiUrlget='';
-const getJsonWisx = async wisxApiUrl => {
-const response = await fetch(wisxApiUrl);
-  if(!response.status >= 200 && !response.status <= 299){ // check if response worked (no http errors etc...)
-    // For this Api, possible Invalid 'error' which includes "CORS", is actually an invalid API key for example..
-       throw new Error(response); //response.statusText
+let dnsResUrlget=''; // dnsResUrlget
+let getJsndnsRes = async dnsResUrl => { 
+let response = await fetch(dnsResUrl); 
+  if(!response.status >= 200 && !response.status <= 299){ 
+       //throw new Error(response); //
+       return Error(response);
    }else{
-   const data = response.json(); // get JSON from the response
-   return data; // This async function returns a promise which resolves to this data value..
+   let dnsResdata = await response.json(); // get JSON from the response
+   return dnsResdata; // This async function returns a promise which resolves to this data value..
    }
-
 };
-
 
 //Setup Animations for the spinning arrow.:
 const effect = new KeyframeEffect(//for Button
 iconArrowBtn, // Element to animate.. background-color(lightblue)
-[{transform: 'rotate(0deg) scalex(2)'},{transform: 'rotate(1000000deg) scalex(4)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
-{duration: 30000} // Keyframe settings   30sec..  
+[{transform: 'rotate(0deg) scalex(0)'},{transform: 'rotate(40000deg) scalex(3)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
+{duration: 7000} // Keyframe settings   7sec..  
 );
 const rotateArrow = new Animation(effect, document.timeline);
 //rotateArrow.play();
@@ -68,6 +66,7 @@ function htmlEreset(){
   sBRCtimeZ.innerHTML=("UTC - 00:00 (Local Time)");// --TIMEZONE--<<
   sBRCiSP.innerHTML=("Internet Service Provider");
 };
+
 
 // For the Button event
 let btnArrHvr = document.getElementById('btnArrHvr');//srchInpTxt
@@ -87,43 +86,81 @@ window.addEventListener("keypress", function(event) {
     };
 });
 
+
 //On initial load of the page, let`s dispatch a pointerdown event to press the button ..:
 //on behalf of the user.. Re-enable before go live if needed!!
 //window.onload=()=>{ btnArrHvr.dispatchEvent(pntrDowEntEvnt);};
+// Above commented out so we can display a nice message..
+
+let alertmsgIntro = (""+"\n"+"\
+Welcome to the 'IP Address Tracker' WebApp!  "+"\n"+"\
+"+"\n"+"\
+To search for your public ip address please leave the search field blank and press the search Button or enter a known Domain or Ip address. For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags. Lastly, due to this app being hosted on a free service the app will be slower the first time to retrieve the your results."+"\n"+"\
+"+"\n"+"\
+Thank you for trying out this Web App and Have a Great Day."+"\n"+"\
+"+"\n"+"\
+🌴🔭");
 
 
-let alertmsgIntro = ("Welcome to the 'IP Address Tracker' WebApp!"+"\n"+"\
-   "+"\n"+"\
-   As this App is based on free web services it might need waking up (by pressing the search button). For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags."+"\n"+"\
-   "+"\n"+"\
-   If you continuously get this message, please do check your internet connection and try again."+"\n"+"\
-   "+"\n"+"\
-   🔭");
+ //lets display the message alertmsgIntro, only once..
+let once = false
+let dispOnce = () =>{
+  let date = new Date().toJSON().replace(/[-:]/g, '');// 20230827T114220.103Z
+  console.log('date :'+date);
+  console.log('typeof date:'+typeof date +localStorage.length);
+  if (localStorage.length===0){//if there is nothing in storage..
+    localStorage.setItem('IPAddressTracker',date); 
+    once = false; //display msg!
+    }else{
+      for (i = 0; i < localStorage.length; i++){//find if key is present in localStorage.
+        let key = localStorage.key(i);
+        console.log('key ---------:'+key);
+       if(key==='IPAddressTracker'){
+         let keyV = localStorage.getItem('IPAddressTracker');
+         console.log('key and keyV -:'+'IPAddressTracker'+', '+JSON.stringify(keyV))
+         once = true; //message has already been displayed..
+        }else{//key not present, lets display the message only once and write to localStorage..
+            localStorage.setItem('IPAddressTracker',date); 
+            once = false; //display msg!
+          }
+        }
+    }
 
-     setTimeout(()=>{
-      alert(alertmsgIntro);
-      },3000);
+    if (once===false){
+      setTimeout(()=>{
+        alert(alertmsgIntro);
+        },2000); 
+      }
+}; 
+dispOnce();
 
 
-
+  //reset the button style..
+  function btnArrHvrStyle(){
+    //  btnArrHvrMASK.style.zIndex = "2";//Bring Mask Forwards with z-index 2, to protect button for x amount of time..
+    //  btnArrHvrMASK.style.background="linear-gradient(#0000008b,#33016480)";
+      btnArrHvrMASK.style.zIndex = "unset";
+      btnArrHvrMASK.style.background = "unset";
+      btnArrHvr.style.display = "unset";
+    }
 
 // The Arrow button function to run when pressed..
 btnArrHvr.addEventListener("pointerdown",e =>{
 
   btnArrHvrMASK.style.zIndex = "2";//Bring Mask Forwards with z-index 2, to protect button for x amount of time..
   btnArrHvrMASK.style.background="linear-gradient(#0000008b,#33016480)";
-  setTimeout(()=>{//reset button..
-  btnArrHvrMASK.style.zIndex = "unset";
-  btnArrHvrMASK.style.background = "unset";
-  btnArrHvr.style.display = "unset";
-  },30000);// 10 seconds wait....
+
+  rotateArrow.play();
+
+  
+  
+// setTimeout(()=>{//reset button..
+//   btnArrHvrStyle();
+// },5000);// 5 seconds wait, which can be cancelled when data is returned..
 
    console.log("button pushed..");
    htmlEreset();//clear previous results..
-
-
-   rotateArrow.play();
-
+ 
    //reset url..
    url = '';
    let srchInpTxtcleaned='';
@@ -136,15 +173,14 @@ btnArrHvr.addEventListener("pointerdown",e =>{
    //
    if (srchInpTxt.value===""){//Return default ip info if nothing in the search field..
 console.log("Tracker 1");
-      console.log("value has No data-- :"+srchInpTxt.value);
+      console.log("value has No data-- :.."+srchInpTxt.value);
        // url = 'https://api.ipgeolocation.io/ipgeo?apiKey='+ipgeoKey;
           url = 'https://njsar.glitch.me/ipgeoApi/'
        console.log(url);
        errMsgSite = url;
-    }else{//If something is in the search field, analyze search string if domain or ip... 
+    }else{//Something in search field, analyze search string if domain or ip... 
 console.log("Tracker 2");
-      // Checkif domain or an IP address.
-      //1. Checking domain..
+      //1. Checking domain----:
         // Clean up the string.. If we have 'https://' or 'http' or 'www.' in front lets remove them..
         // for regex check https://stackoverflow.com/questions/41942690/removing-http-or-http-and-www/41942787
          srchInpTxtcleaned = srchInpTxt.value.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0];
@@ -153,14 +189,16 @@ console.log("Tracker 2");
             console.log("srchInpTxt.value cleaned..: '"+srchInpTxtcleaned+"'");
             //String now cleaned, check number of octets\dots..
             let chkDomIpvalid = srchInpTxtcleaned.split("."); 
-            url = 'https://njsar.glitch.me/ipgeoApi/'+srchInpTxtcleaned;
-            console.log("url:"+url);
-            errMsgSite = url;
+              url = 'https://njsar.glitch.me/ipgeoApi/'+srchInpTxtcleaned;
+              console.log("IP or domain query--:"+url);
+           // errMsgSite = url;
           //Check if a domain name has been entered. more than 0, less than 4 Octets is a domain..
             if (chkDomIpvalid.length > 0 && chkDomIpvalid.length < 4 ){ 
                 console.log("Validate domain name further..");
+
                 //For regex check https://stackoverflow.com/questions/10306690/what-is-a-regular-expression-which-will-match-a-valid-domain-name-without-a-subd
                 function is_domain(srchInpTxtcleaned){
+                  errMsgSite = 'https://njsar.glitch.me/dnsRes';
                   regexp = /^(([a-zA-Z]{1})|([a-zA-Z]{1}[a-zA-Z]{1})|([a-zA-Z]{1}[0-9]{1})|([0-9]{1}[a-zA-Z]{1})|([a-zA-Z0-9][a-zA-Z0-9-_]{1,61}[a-zA-Z0-9]))\.([a-zA-Z]{2,6}|[a-zA-Z0-9-]{2,30}\.[a-zA-Z]{2,3})$/g;
                           if (regexp.test(srchInpTxtcleaned)){
                                 return true;
@@ -172,18 +210,18 @@ console.log("Tracker 2");
                     }
                       if (is_domain(srchInpTxtcleaned)){// Domain validated, now lookup the ip address..
 
-                        console.log("Domain Valid, lookup ip address..:"+srchInpTxtcleaned);
+                        console.log("Domain Valid, lookup domain..:"+srchInpTxtcleaned);
 
-                        //calling whoisxmlapi API to convert Domain name to Ip...
-                          wisxApiUrlget = wisxApiUrl + srchInpTxtcleaned;//Note wisxApiUrlget is also a flag to allow function getJsonWisx(wisxApiUrlget) to run.
-                          console.log("wisxApiUrl -----:"+wisxApiUrl);
+                        //set flag 'dnsResUrlget' to call dnsRes to convert Domain name to Ip...
+                         dnsResUrlget = dnsResUrl + srchInpTxtcleaned;//Note dnsResUrlget is also a flag to allow function getJsndnsRes(dnsResUrlget) to run.
+                          console.log("dnsResUrl -----:"+dnsResUrl + srchInpTxtcleaned);
                         inpTxtHasDom = true;
                       }else{
                         console.log("Invalid domain name entered..:"+srchInpTxtcleaned);
                         inpTxtHasDom = false;
                         alert('Invalid domain name entered..:'+ srchInpTxtcleaned);
+                        btnArrHvrStyle()//reset spinning arrow..
                         rotateArrow.cancel();
-                        btnArrHvr.style.display = "unset";//reset spinning arrow..
                       }
            }else{ //Here onwards checking if input str is a valid ip...
               if (chkDomIpvalid.length === 4){
@@ -192,68 +230,68 @@ console.log("Tracker 2");
                inpTxtHasIp = true;
                }else{
                 rotateArrow.cancel();
-                btnArrHvr.style.display = "unset";//reset spinning arrow..
+                btnArrHvrStyle();//reset spinning arrow..
                 console.log('We have a INVALID ip..'+srchInpTxtcleaned);// srchInpTxt.value
                 alert(srchInpTxtcleaned+" IP address attempt detected, please enter correct Ip Address.");
               }}
-            };
-    }
+          };
+  }
 
-if (srchInpTxt.value!==""&&wisxApiUrlget!==""&&inpTxtHasDom!==false){
+if (srchInpTxt.value!==""&&dnsResUrlget!==""&&inpTxtHasDom!==false){
     rotateArrow.play();
-    getJsonWisx(wisxApiUrlget).then(data =>{
-      if (data){//We have some Data!!
-        //console.log("Data1: "+JSON.stringify(data));
+    
+    getJsndnsRes(dnsResUrlget).then(dnsdata =>{
+      if (dnsdata){//We have some dnsdata!!
+        console.log("We have some dnsdata! -: dnsdata:"+dnsdata);
         //console.log(data.DNSData.dnsRecords[0].address);
 
-
-          if (data.ErrorMessage){//If data.ErrorMessage property exists then site reached but 
-                            //invalid page 404 or data\key returned messages..
+          if (dnsdata.errno){//If data.ErrorMessage property exists then site reached but 
+            //invalid page 404 or data\key returned messages..
+            btnArrHvrStyle();//reset spinning arrow..
             rotateArrow.cancel();
-            btnArrHvr.style.display = "unset";//reset spinning arrow..
-            console.log("Data error message:"+JSON.stringify(data));
-            console.log("Please validate URL is correct");
-            alert("Data error message:"+JSON.stringify(data));
-            alert("Please validate URL is correct");
+           
+            console.log("dnsdata error message:"+dnsdata.errno+': ' +dnsdata.hostname);
+            console.log("Please validate domain is correct");
+            alert("Data error message:"+dnsdata.errno+': ' +dnsdata.hostname+" Please validate domain is correct");
+            
+          //  alert("Please validate URL is correct");
           }else{
-           console.log("We have data, ip converted..");
+           console.log("We have dnsdata, ip converted..");
            console.log("Check if ip exists or not for given domain..");
-           console.log("Data: "+JSON.stringify(data));
+           console.log("Data: "+JSON.stringify(dnsdata));
            
            //Notification with list of multiple ip address`s and just looking up the 1st one..
-           //console.log("typeof data.DNSData.dnsRecords: "+typeof data.DNSData.dnsRecords);
-           //console.log("typeof data.DNSData.dnsRecords.address: "+typeof data.DNSData.dnsRecords[0].address);
-            console.log(data.DNSData.dnsRecords.length);     
-            if(data.DNSData.dnsRecords.length !==0){
-              if(data.DNSData.dnsRecords[0].address){//Check if ip exists or not for given domain..
-
+            console.log('dnsdata.length :'+dnsdata.length);
+            if(dnsdata.length!==0){
+              if(dnsdata[0]){//Check if ip exists or not for given domain..
                 // IP exists, use the first one in the list by default..
                 let ipLstArr =[];
-                for (i=0; i < data.DNSData.dnsRecords.length; i++){
-                  ipLstArr.push(data.DNSData.dnsRecords[i].address);
+                for (i=0; i < dnsdata.length; i++){
+                  ipLstArr.push(dnsdata[i]);
                     console.log(i+1+" - "+ipLstArr[i]);
-                    console.log(data.DNSData.dnsRecords.length);
-                     if (i > 1 && i+1===data.DNSData.dnsRecords.length){//Let`s ensure we at the last element... 
+                    console.log(dnsdata.length);
+                     if (i > 1 && i+1===dnsdata.length){//Let`s ensure we at the last element... 
                       //if more than one ip, advise 1st one is being used...
                       //and provide the list of ip`s..
                       ipLstArr= ipLstArr.join('\n');
                       console.log(ipLstArr); 
-                      let alertmsg = ("A list of ip address`s have been found for domain the '"+srchInpTxtcleaned+"', using the first IP as the location..:"+"\n"+ipLstArr+"\n"+"List can be copied to clipboard using Ctrl+C ...:")
+                      let alertmsg = ("A list of ip address`s have been found for the domain '"+srchInpTxtcleaned+"', using the first IP as the location..:"+"\n"+ipLstArr+"\n"+"List can be copied to clipboard using Ctrl+C ...:")
                       prompt(alertmsg, ipLstArr);//Using prompt to allow copying to clipboard..
                     }
-
                 }
 console.log("Tracker 6");
                 inpTxtHasIp = true;
                 //url ='https://api.ipgeolocation.io/ipgeo?apiKey='+ipgeoKey+'&ip='+data.DNSData.dnsRecords[0].address;
-                  url = 'https://njsar.glitch.me/ipgeoApi/'+data.DNSData.dnsRecords[0].address;
+                  url = 'https://njsar.glitch.me/ipgeoApi/'+dnsdata[0];
                 console.log(url);
-                setTimeout(getJSONurlFwrapr,2000);//Let`s give a bit of time for previous API(wisxApi) to run and initialize data.
-                wisxApiUrlget="";//Reset this for next time round as it`s a check flag..
+                setTimeout(getJSONurlFwrapr,1500);//Let`s give a bit of time for previous API(dnsRes) to run and initialize data.
+                dnsResUrlget="";//Reset this for next time round as it`s a check flag..
+              //  rotateArrow.cancel();
+              //  btnArrHvrStyle();//reset spinning arrow..
                }
             }else{// Ip does not exist..
                   rotateArrow.cancel();
-                  btnArrHvr.style.display = "unset";//reset spinning arrow..
+                  btnArrHvrStyle();//reset spinning arrow..
                   alert("No ip address exists for domain:"+srchInpTxtcleaned);
                 }
                 
@@ -261,15 +299,16 @@ console.log("Tracker 6");
 
         }
 console.log("Tracker 7");
-        console.log("Data2: "+JSON.stringify(data));
+        console.log("Data2: "+JSON.stringify(dnsdata));
         
-      }).catch(Error =>{ // "fetch failed. (site,page,url error..)"
-        rotateArrow.cancel();
-        btnArrHvr.style.display = "unset";//reset spinning arrow..
-        console.error("Error fetching data, please check the internet."+errMsgSite+". If error is 'CORS related' please validate the API key..")
-        alert("Error fetching data from '"+errMsgSite+"', please check the internet connection. ")
-        console.error(Error);
-    })
+      })
+  //    .catch(error =>{ // "fetch failed. (site,page,url error..)"
+  //      rotateArrow.cancel();
+  //      btnArrHvrStyle();//reset spinning arrow..
+  //      console.error("Error fetching data, please check the internet. "+errMsgSite+". If error is 'CORS related' please validate the API key..")
+  //      alert("Error fetching data from '"+errMsgSite+"', please check the internet connection.")
+  //      console.error(Error);
+  //  })
 
   }
 
@@ -277,7 +316,7 @@ console.log("Tracker 7");
 
 
 
-getJSONurlFwrapr();//This same function is implemented twice-:
+getJSONurlFwrapr();//This same function is used twice-:
                  //1st time is here for when it is instantly available for when an ip address is queried.
                  //2nd time used in conjunction with setTimeout function (line:~268)
                  //for when waiting for getJsonWisx function to initialize data...
@@ -339,7 +378,7 @@ console.log("Tracker 8")
                   .catch((error) => {
                     setTimeout(rotateArrow.cancel(),500);// stop spin in background when prompt is displayed..
                     console.log('the error we got..'+error)
-                    btnArrHvr.style.display = "unset";//reset spinning arrow..
+                    btnArrHvrStyle();//reset spinning arrow..
                     prompt(alertmsgIntro, trkradsUrl)
                   });
             };
@@ -364,7 +403,7 @@ console.log("Tracker 8")
              if (data.message){//If message property exists then site reached but 
                                //invalid page 404 or data\key returned messages..
              rotateArrow.cancel();
-             btnArrHvr.style.display = "unset";//reset spinning arrow..
+             btnArrHvrStyle();//reset spinning arrow..
              console.log("Data error message:"+JSON.stringify(data));
              alert("Data error message:"+JSON.stringify(data));
              }else{
@@ -398,16 +437,16 @@ console.log("Tracker 8")
 
             //setTimeout(()=>{ getmap(data.latitude,data.longitude,width,height);},2000);
             getmap(data.latitude,data.longitude,width,height);
+
         }
           }else{//Site reachable but data returned is invalid\"null"...
              console.log("Error: Invalid data returned. - data:" +JSON.stringify(data));
              alert("Error: Invalid data returned. - data:" +JSON.stringify(data));
              rotateArrow.cancel();
-             btnArrHvr.style.display = "unset";
+             btnArrHvrStyle();
           }
      }).catch(Error => { 
          rotateArrow.cancel();
-         btnArrHvr.style.display = "unset";
          alert("Unable to reach the site--:"+errMsgSite+" 1. Please check internet connection and try again. If you get 'Failed to load resource: net::ERR_BLOCKED_BY_CLIENT' in devtools(F12) check browser Adblockers/shields have been disabled to view returned site message(s).");
          console.error("Unable to reach the site--:"+errMsgSite+" 1. Please check internet connection and try again. If you get 'Failed to load resource: net::ERR_BLOCKED_BY_CLIENT' in devtools(F12) check browser Adblockers/shields have been disabled to view returned site message(s).");
          console.error(Error);
@@ -416,7 +455,6 @@ console.log("Tracker 8")
          // found in "Sources" Tab in DevTools, then check if Adblockers\Shields is disabled in Chrome and try again.
      }
     )
-
 
    }
 
@@ -430,14 +468,12 @@ console.log("Tracker 8")
       //filler join with %2C
       //lng = data.longitude;//13.3777
       //z zoom to 13  //h 800  //w 1440  //f file format 0:PNG 1:JPEG 2:GIF etc..
-      
       //https://njsar.glitch.me/hereMApi/&c=-17.925537,25.8492134&z=13&ppi=72&f=0&h=800&w=1024
       errMsgSite = "https://njsar.glitch.me/hereMApi";
       
       
       let mapurl = 'https://njsar.glitch.me/hereMApi/&c='+lat+','+lng+'&u=250&z=14&ppi=72&f=0&h='+height+'&w='+width;
       console.log('fetching hereMApi..: '+mapurl);
-    
        await fetch(mapurl,{ signal: AbortSignal.timeout(5000)})
       .then(response=>{
              if (response.ok){
@@ -452,9 +488,7 @@ console.log("Tracker 8")
 
                      console.log('resetting button...')
                      rotateArrow.cancel();
-                     btnArrHvr.style.display = "unset";
-                     btnArrHvrMASK.style.zIndex = "unset";
-                     btnArrHvrMASK.style.background = "unset";
+                     btnArrHvrStyle();
                 },2000)//give some time for imgMap to download to https://njsar.glitch.me...
                }else{
                  throw new Error('Something went wrong accessing the url...');
@@ -463,7 +497,7 @@ console.log("Tracker 8")
        .catch((error) => {
          setTimeout(rotateArrow.cancel(),500);// stop spin in background when prompt is displayed..
          console.log('Error fetching '+errMsgSite+'...: '+error)
-         btnArrHvr.style.display = "unset";//reset spinning arrow..
+         btnArrHvrStyle();//reset spinning arrow..
          prompt(alertmsgIntro, trkradsUrl)
        });    
         }
