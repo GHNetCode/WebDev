@@ -102,7 +102,7 @@ Thank you for trying out this Web App and Have a Great Day."+"\n"+"\
 
 
  //lets display the message alertmsgIntro, only once..
-let once = false
+let once = true;
 let dispOnce = () =>{
   let date = new Date().toJSON().replace(/[-:]/g, '');// 20230827T114220.103Z
   console.log('date :'+date);
