@@ -113,7 +113,6 @@ let dispOnce = () =>{
     setTimeout(()=>{
       alert(alertmsgIntro);
       },2000); 
-
     }else{
       for (i = 0; i < localStorage.length; i++){//find if key is present in localStorage.
         let key = localStorage.key(i);
@@ -128,14 +127,12 @@ let dispOnce = () =>{
           }
         }
 
-        if (once===false){
-          setTimeout(()=>{
-            alert(alertmsgIntro);
-            },2000); 
-          }
-        
     }
-
+    if (once===false){
+      setTimeout(()=>{
+        alert(alertmsgIntro);
+        },2000); 
+      }
     
 }; 
 dispOnce();
