@@ -46,7 +46,7 @@ let getJsndnsRes = async dnsResUrl => {
 //Setup Animations for the spinning arrow.:
 const effect = new KeyframeEffect(//for Button
 iconArrowBtn, // Element to animate.. background-color(lightblue)
-[{transform: 'rotate(0deg) scalex(0)'},{transform: 'rotate(40000deg) scalex(3)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
+[{transform: 'rotate(0deg) scalex(0.5)'},{transform: 'rotate(40000deg) scalex(3)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
 {duration: 7000} // Keyframe settings   7sec..  
 );
 const rotateArrow = new Animation(effect, document.timeline);
@@ -94,7 +94,7 @@ window.addEventListener("keypress", function(event) {
 let alertmsgIntro = (""+"\n"+"\
 Welcome to the 'IP Address Tracker' WebApp!  "+"\n"+"\
 "+"\n"+"\
-To search for your public ip address please leave the search field blank and press the search Button or enter a known Domain or Ip address. For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags. Lastly, due to this app being hosted on a free service the app will be slower the first time to retrieve the your results."+"\n"+"\
+To search for your public ip address please leave the search field blank and press the search Button or enter a known Domain or Ip address. For best user experience you can unblock trackers for 'ipgeolocation.io' to see the flags. Lastly, due to this app being hosted on a free service the app can be slower the first time to retrieve the your results."+"\n"+"\
 "+"\n"+"\
 Thank you for trying out this Web App and Have a Great Day."+"\n"+"\
 "+"\n"+"\
