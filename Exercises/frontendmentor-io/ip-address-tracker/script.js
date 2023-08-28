@@ -6,8 +6,8 @@ window.onresize=()=>{
 
 /*
 Steps    Overview--:
-0. On pressing the button find the current ip address.
-1. If there is nothing entered in the search field, find IP address of current connection.
+0. On pressing the button..
+1. If there is nothing entered in the search field, find IP address of current connection via Api..
 2. If there is something entered, validate if it`s a Domain if not then IP Address.
 3. If it`s a domain name convert it to ip via Dns.resolve ( if more than one ip used for DNS, use first ip address..)
 4. If it`s an IP address get Geolocation Details.. 
@@ -30,9 +30,9 @@ let sBRCiSP=document.getElementById('sBRCiSP');// ISP ...
 let HereApiMap=document.getElementById('HereApiMap');// ISP ...
 
 
-let dnsResUrl = 'https://njsar.glitch.me/dnsRes/'
+let dnsResUrl = 'https://njsar.glitch.me/dnsRes/' // used for finding ip address for Domain names entered..
+let dnsResUrlget=''; //set flag 'dnsResUrlget' to call dnsRes to convert Domain name to Ip...
 
-let dnsResUrlget=''; // dnsResUrlget
 let getJsndnsRes = async dnsResUrl => { 
   try {
     let response = await fetch(dnsResUrl);
@@ -46,7 +46,7 @@ let getJsndnsRes = async dnsResUrl => {
 //Setup Animations for the spinning arrow.:
 const effect = new KeyframeEffect(//for Button
 iconArrowBtn, // Element to animate.. background-color(lightblue)
-[{transform: 'rotate(0deg) scalex(0.5)'},{transform: 'rotate(40000deg) scalex(3)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
+[{transform: 'rotate(0deg) scalex(0.5)'},{transform: 'rotate(50000deg) scalex(3)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
 {duration: 7000} // Keyframe settings   7sec..  
 );
 const rotateArrow = new Animation(effect, document.timeline);
@@ -101,7 +101,7 @@ Thank you for trying out this Web App and Have a Great Day."+"\n"+"\
 🌴🔭");
 
 
- //lets display the message alertmsgIntro, only once..
+ //lets display the message alertmsgIntro, only once about how it works etc..
   let once = false;//false = it has not yet been displayed..
   function findKey(){ //key IPAddressTracker
     for (i = 0; i < localStorage.length; i++){//find if key is present in localStorage.
@@ -163,17 +163,15 @@ btnArrHvr.addEventListener("pointerdown",e =>{
    inpTxtHasDom = false; //reset flags
 
    //Check if srchInpTxt.value(search field) is null
-   // if null, return by default current ip but only (after checking if site is reachable..)
+   // if null, return by default current ip
    // console.log(srchInpTxt.value);
-   //
-   if (srchInpTxt.value===""){//Return default ip info if nothing in the search field..
-console.log("Tracker 1");
-      console.log("value has No data-- :.."+srchInpTxt.value);
-       // url = 'https://api.ipgeolocation.io/ipgeo?apiKey='+ipgeoKey;
+   if (srchInpTxt.value===""){//Return default ip info, nothing is in the search field..
+    //console.log("Tracker 1");
+    //  console.log("value has No data-- :.."+srchInpTxt.value);
           url = 'https://njsar.glitch.me/ipgeoApi/'
        console.log(url);
        errMsgSite = url;
-    }else{//Something in search field, analyze search string if domain or ip... 
+    }else{//Something in search field, check if domain or ip... 
 console.log("Tracker 2");
       //1. Checking domain----:
         // Clean up the string.. If we have 'https://' or 'http' or 'www.' in front lets remove them..
@@ -186,7 +184,7 @@ console.log("Tracker 2");
             let chkDomIpvalid = srchInpTxtcleaned.split("."); 
               url = 'https://njsar.glitch.me/ipgeoApi/'+srchInpTxtcleaned;
               console.log("IP or domain query--:"+url);
-           // errMsgSite = url;
+
           //Check if a domain name has been entered. more than 0, less than 4 Octets is a domain..
             if (chkDomIpvalid.length > 0 && chkDomIpvalid.length < 4 ){ 
                 console.log("Validate domain name further..");
@@ -208,7 +206,7 @@ console.log("Tracker 2");
                         console.log("Domain Valid, lookup domain..:"+srchInpTxtcleaned);
 
                         //set flag 'dnsResUrlget' to call dnsRes to convert Domain name to Ip...
-                         dnsResUrlget = dnsResUrl + srchInpTxtcleaned;//Note dnsResUrlget is also a flag to allow function getJsndnsRes(dnsResUrlget) to run.
+                         dnsResUrlget = dnsResUrl + srchInpTxtcleaned;//flag 'dnsResUrlget' to allow function getJsndnsRes(dnsResUrlget) to run.
                           console.log("dnsResUrl -----:"+dnsResUrl + srchInpTxtcleaned);
                         inpTxtHasDom = true;
                       }else{
@@ -237,7 +235,7 @@ if (srchInpTxt.value!==""&&dnsResUrlget!==""&&inpTxtHasDom!==false){
     
     getJsndnsRes(dnsResUrlget).then(dnsdata =>{
       if (dnsdata){//We have some dnsdata!!
-        console.log("We have some dnsdata! -: dnsdata:"+dnsdata);
+        //console.log("We have some dnsdata! -: dnsdata:"+dnsdata);
         //console.log(data.DNSData.dnsRecords[0].address);
 
           if (dnsdata.errno){//If data.ErrorMessage property exists then site reached but 
@@ -274,10 +272,9 @@ if (srchInpTxt.value!==""&&dnsResUrlget!==""&&inpTxtHasDom!==false){
                       prompt(alertmsg, ipLstArr);//Using prompt to allow copying to clipboard..
                     }
                 }
-console.log("Tracker 6");
+          //console.log("Tracker 6");
                 inpTxtHasIp = true;
-                //url ='https://api.ipgeolocation.io/ipgeo?apiKey='+ipgeoKey+'&ip='+data.DNSData.dnsRecords[0].address;
-                  url = 'https://njsar.glitch.me/ipgeoApi/'+dnsdata[0];
+                url = 'https://njsar.glitch.me/ipgeoApi/'+dnsdata[0];
                 console.log(url);
                 setTimeout(getJSONurlFwrapr,1500);//Let`s give a bit of time for previous API(dnsRes) to run and initialize data.
                 dnsResUrlget="";//Reset this for next time round as it`s a check flag..
@@ -297,24 +294,24 @@ console.log("Tracker 7");
         console.log("Data2: "+JSON.stringify(dnsdata));
         
       })
-  //    .catch(error =>{ // "fetch failed. (site,page,url error..)"
-  //      rotateArrow.cancel();
-  //      btnArrHvrStyle();//reset spinning arrow..
-  //      console.error("Error fetching data, please check the internet. "+errMsgSite+". If error is 'CORS related' please validate the API key..")
-  //      alert("Error fetching data from '"+errMsgSite+"', please check the internet connection.")
-  //      console.error(Error);
-  //  })
+      .catch(error =>{ // "fetch failed. (site,page,url error..)"
+        rotateArrow.cancel();
+        btnArrHvrStyle();//reset spinning arrow..
+        console.error("Error fetching data, please check the internet. "+errMsgSite+". If error is 'CORS related' please validate the API key..")
+        alert("Error fetching data from '"+errMsgSite+"', please check the internet connection.")
+        console.error(error);
+    })
 
   }
 
-  //console.log("before getJSON: ...")
+   
 
 
 
 getJSONurlFwrapr();//This same function is used twice-:
-                 //1st time is here for when it is instantly available for when an ip address is queried.
+                 //1st time is here for when it is instantly available when an ip address is queried.
                  //2nd time used in conjunction with setTimeout function (line:~268)
-                 //for when waiting for getJsonWisx function to initialize data...
+                 //for when waiting for getJsndnsRes function to initialize data...
 
 })//----------End Button function btnArrHvr----------//
 
@@ -391,8 +388,8 @@ console.log("Tracker 8")
                                          // or inpTxtHasIp set to true when an ip address has been entered.
 
         await getJSON(url).then(data => {
-          console.log('url -:'+ url);
-          console.log('data -:'+ data); //for all of it..
+         // console.log('url -:'+ url);
+         // console.log('data -:'+ data); //for all of it..
           if (data){//We have some Data!!
           //  rotateArrow.play();
              if (data.message){//If message property exists then site reached but 
@@ -404,22 +401,10 @@ console.log("Tracker 8")
              }else{
             console.log(data.ip);
             sBRCiPaDD.innerHTML=data.ip; //IP ADDRESS
-            //sBRCLoc.innerText=(data.city+","+data.country_code3+" "+data.zipcode); // LOCATION
             sBRCLoc.innerText=(data.city+","+data.country_code3+" "+data.zipcode+" "); // LOCATION
-            
-            //img.src ='https://media.geeksforgeeks.org/wp-content/uploads/20190529122828/bs21.png';
-           
             document.getElementById('sBRCLoc').appendChild(sBRCLocFlag);// previous line 'sBRCLoc.innerText=..' overwrites the inner img tag, so it needs adding again..
             sBRCLocFlag.src=(data.country_flag); // LOCATION FLAG
-            //const div = document.createElement('div');
-            //div.style.background = 'url(img.png)';
-
-            //console.log(data.country_flag);
             let HHMM = String(data.time_zone.current_time).slice(11,16);
-              console.log('HHMM-:'+HHMM);
-
-            //console.log("utcDateHHMM.getUTCHours:"+utcDateHHMM.getUTCHours() +data.time_zone.offset);
-            //sBRCtimeZ.innerHTML=("UTC - "+utcDateHH.getUTCHours()+":"+localDate.getUTCMinutes()+" (Local Time)");// --TIMEZONE--<<
             sBRCtimeZ.innerHTML=( HHMM+" (Local Time)");// --TIMEZONE--<<
             sBRCiSP.innerHTML=data.isp//ISP
 
