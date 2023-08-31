@@ -47,7 +47,7 @@ let getJsndnsRes = async dnsResUrl => {
 const effect = new KeyframeEffect(//for Button
 iconArrowBtn, // Element to animate.. background-color(lightblue)
 [{transform: 'rotate(0deg) scalex(0.5)'},{transform: 'rotate(50000deg) scalex(3)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
-{duration: 7000} // Keyframe settings   7sec..  
+{duration: 15000} // Keyframe settings   15sec..  
 );
 const rotateArrow = new Animation(effect, document.timeline);
 //rotateArrow.play();
