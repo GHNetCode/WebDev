@@ -176,7 +176,7 @@ window.onresize=()=>{
       async function getShortUrl(ct1DlongUrl) {
           try {
             //const response = await fetch('https://api.shrtco.de/v2/shorten?url='+ct1DlongUrl,{ signal: AbortSignal.timeout(2000)});// timeout in 2 seconds..
-            const response = await fetch('https://shortyurls.glitch.me/surl/shorten?url='+ct1DlongUrl,{ signal: AbortSignal.timeout(2000)});// timeout in 2 seconds..
+            const response = await fetch('https://shortyurls.glitch.me/surl/shorten?url='+ct1DlongUrl,{ signal: AbortSignal.timeout(2000),mode: 'no-cors'});// timeout in 2 seconds..
             const data = await response.json();
           return (data.result.short_link)//data.result.short_link3
           } catch (err) {
