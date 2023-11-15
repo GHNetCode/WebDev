@@ -184,7 +184,7 @@ window.onresize=()=>{
                                           })
             
             const data = await response.json();
-          return (data.result.short_link)//data.result.short_link3
+          return (data)//data.result.short_link3
           } catch (err) {
               error = err;
             console.error('Error fetching url:'+err );
