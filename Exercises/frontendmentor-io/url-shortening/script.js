@@ -559,7 +559,7 @@ window.onresize=()=>{
 //as soon as page loads, wake up the page...
   async function wakeupAPIsite() {
     try { 
-const response = await fetch('http://shortyurls.glitch.me', {
+const response = await fetch('https://shortyurls.glitch.me', {
 signal: AbortSignal.timeout(20000),
 mode:  'cors',
 methods: "GET, PUT",
