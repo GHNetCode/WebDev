@@ -31,8 +31,8 @@ window.onresize=()=>{
   // Setup Animations for the spinning arrow.:
   const effect = new KeyframeEffect(//for Button
   ct1D1Btn, // Element to animate.. 
-  [{transform: 'rotate(0deg) scalex(0.3)'},{transform: 'rotate(-7200deg) scalex(0.0)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
-  {duration: 1000} // Keyframe settings   1sec..  
+  [{transform: 'rotate(0deg) scalex(0.3)'},{transform: 'rotate(100000deg) scalex(0.0)'}], //,{transform: 'scalex(1)'},{transform: 'scalex(2)'}],// Keyframes
+  {duration: 15000} // Keyframe settings   15sec..  
   );
   const rotatect1D1Btn = new Animation(effect, document.timeline);
   //rotatect1D1Btn.play();
@@ -75,6 +75,7 @@ window.onresize=()=>{
               //console.log('ct1DshortUrl-:'+ct1DshortUrl);
   
               if(ct1DshortUrl){//Api returned short url ok, let`s call UrlLinkDiv to create and display it.
+                  rotatect1D1Btn.cancel();//stop button spinning..
                   OnLoadLclStrgFlag=false
                   UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl);
               }else{
@@ -175,15 +176,20 @@ window.onresize=()=>{
       //"short_link":shrtco.de","short_link2":9qr.de","short_link3":shiny.link
       async function getShortUrl(ct1DlongUrl) {
           try {
-            //const response = await fetch('https://api.shrtco.de/v2/shorten?url='+ct1DlongUrl,{ signal: AbortSignal.timeout(2000)});// timeout in 2 seconds..
-            const response = await fetch('https://shortyurls.glitch.me/surl/shorten?url='+ct1DlongUrl, {
-                                          signal: AbortSignal.timeout(2000),
-                                          mode:  'cors',
-                                          methods: "GET, PUT",
-                                          headers: {'Content-Type': 'application/json'} 
-                                          })
-            
-            const data = await response.json();
+           // const response = await fetch('https://api.shrtco.de/v2/shorten?url='+ct1DlongUrl,{ signal: AbortSignal.timeout(2000)});// timeout in 2 seconds..
+             // const response = await fetch('https://shortyurls.glitch.me/surl/shorten?url='+ct1DlongUrl,{ signal: AbortSignal.timeout(2000)});// timeout in 2 seconds..
+
+  const response = await fetch('http://shortyurls.glitch.me/surl/shorten?url='+ct1DlongUrl, {
+  signal: AbortSignal.timeout(15000),
+  mode:  'cors',
+  methods: "GET, PUT",
+  headers: {'Content-Type': 'application/json'} }, 
+  timeout = 15000
+  )
+
+//const response = await fetch('https://shortyurls.glitch.me/surl/test')  
+                                          //  https://shortyurls.glitch.me/surl/shorten?url=https:/blog.javascripttoday.com/blog/creating-a-url-shortener-with-node
+              const data = await response.json();
           return (data)//data.result.short_link3
           } catch (err) {
               error = err;
@@ -239,7 +245,7 @@ window.onresize=()=>{
   //1.Function OnLoadLclStrg() is called on the initial startup, clones and updates the UI.
   //2.Pressing the "Shorten It!" Button, updates the template then clones it with new link, updates the UI and then writes to storage..
    function UrlLinkDiv(ct1D1CpyLnkBtnId,ct1D1ShrtLnkPId,ct1DlongUrl,ct1DshortUrl){//show shorten validated Url and write to local storage..
-    
+
       // Get the parent element 
        let parentElemct1D = document.getElementById("ct1D");// ct1D2 insertBefore ct1C 
       // Get parent's child where we want to insert the new div next too..
@@ -257,11 +263,10 @@ window.onresize=()=>{
              //NOTE iKey has Already been incremented.
             if (iKey===maxRows){
                 if (document.getElementById("ct1D1ShrtLnkP")){// The first child id there is no num appended..
-                    
                     //prompt..:
                     let p=null;
                     let oldShortUrl=("https://"+document.getElementById("ct1D1ShrtLnkP").innerText);
-                     p = prompt(maxnumLnksMsg,"Old link -: "+oldShortUrl);
+                //     p = prompt(maxnumLnksMsg,"Old link -: "+oldShortUrl,rotatect1D1Btn.cancel());
                      //if (p){//usr clicked on the ok button, lets copy old link to clipboard..
                      //    navigator.clipboard.writeText(oldShortUrl);
                      // }
@@ -272,13 +277,12 @@ window.onresize=()=>{
                       ct1D1CpyLnkBtnArr.splice(0,2);//Lets remove the first 2 elements from our array..
                     }
                 }else if(iKey > maxRows ){
-  
                     // Here we have a number that are appended to id ct1D1ShrtLnkP..
   
                     //prompt..:
                     let p=null;
                     let oldShortUrl=("https://"+document.getElementById("ct1D1ShrtLnkP"+((iKey  - maxRows)-1)).innerText);
-                     p = prompt(maxnumLnksMsg,"Old link -: "+oldShortUrl);
+                    // p = prompt(maxnumLnksMsg,"Old link -: "+oldShortUrl);
                      //if (p){//usr clicked on the ok button, lets copy old link to clipboard..
                      //   navigator.clipboard.writeText(oldShortUrl);
                      // }
@@ -551,6 +555,31 @@ window.onresize=()=>{
   }
   
   
+
+//as soon as page loads, wake up the page...
+  async function wakeupAPIsite() {
+    try { 
+const response = await fetch('http://shortyurls.glitch.me', {
+signal: AbortSignal.timeout(20000),
+mode:  'cors',
+methods: "GET, PUT",
+headers: {'Content-Type': 'application/json'} }, 
+timeout = 20000
+)
+//const response = await fetch('https://shortyurls.glitch.me/surl/test')  
+                                    //  https://shortyurls.glitch.me/surl/shorten?url=https:/blog.javascripttoday.com/blog/creating-a-url-shortener-with-node
+   // const data = await response.json();
+   // return (data)//data.result.short_link3
+    } catch (err) {
+        error = err;
+      console.error('Error fetching url:'+err );
+      alert('Please Check internet connection, error fetching url:'+err);
+    }
+  }
+  
+
+  
+
   //Get number of items stored for This Webapp and serve it back to the UI..
   //Update numStored, incremented by onWriteLclStrg & OnLoadLclStrg
   function OnLoadLclStrg(){//On first initial load of the page check local storage, validate key and render to UI..
@@ -640,6 +669,8 @@ window.onresize=()=>{
       
   //      console.log('OnLoadLclStrg iKey (Below rowMax) incremented on Initial load, for next loop.:'+ iKey)
       }
+
+      wakeupAPIsite();
   }
   
   
