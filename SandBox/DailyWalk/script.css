@@ -100,7 +100,7 @@
     position: relative;
     align-content: center;
     /* max-width: 700px; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
     .slideshow-container {
@@ -111,7 +111,7 @@
         /* Keep pics centered */
           margin-left: auto;
           margin-right: auto;
-        max-width: 1000px;
+        max-width: 500px;
 
     }
 
