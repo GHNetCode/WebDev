@@ -19,6 +19,7 @@
     position: relative;
     height: 100vh;
     width: 100vw;
+    background: #c8cbd3;
   }
 
   .ctr0{
@@ -71,7 +72,7 @@
       top:30%;
       height: 16px;
       width: 16px; 
-      background-color: #acc;
+      background-color: rgb(86, 116, 116);
       border-radius: 50%;
       
       transition: background-color 0.5s ease;
@@ -79,7 +80,7 @@
     }
     
     .enable, .dots:hover {
-      background-color: #717161;
+      background-color: #7e9eba;
     }
     
     /* Faint animation */
@@ -111,12 +112,17 @@
         /* Keep pics centered */
           margin-left: auto;
           margin-right: auto;
-        max-width: 500px;
-
+        /* max-width: 700px; */
+        width: auto;
+          max-width: 80vw;
+          max-height: 108vh;
+          border: green solid;
     }
 
     /* dayBox  day 1,day2 etc.. */
     .dayBox {
+        display: flex;
+        position: relative;
         color: #89abe8;
         font-size: 14px;
         padding: 10px ;
@@ -124,12 +130,14 @@
         border-radius: 10px;
         top:1%;
         background: rgb(14, 20, 20, 0.5);
+        z-index: 1;
       }
 
     /* Make the images invisible by default */
     .Containers {
       display: none;
     }
+    
     /* Caption Info */
     .Info {
         color: #000000;
@@ -141,16 +149,32 @@
         text-align: center;
       }
 
-      .mediaC{
+      .mediaC1{
         display: flex;
         /* flex-direction: column; */
         position:relative;
-        top:55px;
         /* Keep pics centered */
+        top: 0%;
           margin-left: auto;
           margin-right: auto;
-        max-width: 1000px;
+          width: auto;
+          max-width: 80vw;
+          max-height: 80vh;
+          border: red solid;
+        /* z-index: -1; */
+      }
 
+        .mediaC2{
+        display: flex;
+        /* flex-direction: column; */
+        position:relative;
+        /* Keep pics centered */
+        top: 55px;
+          margin-left: auto;
+          margin-right: auto;
+          width: auto;
+        z-index: 2;
+        border: greenyellow solid;
       }
 
 
