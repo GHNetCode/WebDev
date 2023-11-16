@@ -1,0 +1,165 @@
+/* * {box-sizing:border-box} */
+
+
+
+#resizeInnerW{/*disable before release...*/
+    display:flex; /* none\flex */
+    position:relative;
+    justify-content:center;
+    top:0px; 
+    z-index:100;
+    color:rgb(63, 43, 148);
+  }
+
+
+
+  body{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .ctr0{
+    display: flex; 
+    position: relative;
+    /* align-content: center; */
+    max-width: 700px;
+    border: solid green 2px;
+    max-width: 700vw;
+}
+    /* forward & Back buttons */
+    .Back, .forward {
+      display: flex; 
+      position:relative;
+      /* top:-40px ; */
+      /* width: 0; */
+      /* left:auto; */
+      /* margin-left: 30px; */
+      /* margin-top: -23px; */ 
+      padding: 8px;
+      color: rgb(20, 93, 145);
+      font-weight: bold;
+      font-size: 19px;
+      transition: 0.4s ease;
+      border-radius: 5px 5px 5px 5px;
+      user-select: auto;
+      cursor: pointer;
+    }
+
+    /* Place the "forward button" to the right */
+    .forward {
+      right: 0;
+    
+    }
+
+    /*when the user hovers,add a black background with some little opacity */
+    .Back:hover, .forward:hover {
+      background-color: rgba(134, 133, 133, 0.9);
+    }
+
+    /* The circles or bullets and indicators */
+    .dots {
+     display: inline-block;
+     flex-direction: row; 
+     position: relative;
+      /* margin-left: -60px; */
+      /* margin: auto; */
+      left:20px;
+      cursor: pointer;
+      top:30%;
+      height: 16px;
+      width: 16px; 
+      background-color: #acc;
+      border-radius: 50%;
+      
+      transition: background-color 0.5s ease;
+      
+    }
+    
+    .enable, .dots:hover {
+      background-color: #717161;
+    }
+    
+    /* Faint animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 0.8s;
+      animation-name: fade;
+      animation-duration: 0.8s;
+    }
+
+ 
+
+
+/* Slideshow container */
+.ctr1{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-content: center;
+    /* max-width: 700px; */
+    border: 1px solid red;
+}
+
+    .slideshow-container {
+        display: flex;
+        /* flex-direction: column; */
+        position:relative;
+        top:55px;
+        /* Keep pics centered */
+          margin-left: auto;
+          margin-right: auto;
+        max-width: 1000px;
+
+    }
+
+    /* dayBox  day 1,day2 etc.. */
+    .dayBox {
+        color: #89abe8;
+        font-size: 14px;
+        padding: 10px ;
+        position: absolute;
+        border-radius: 10px;
+        top:1%;
+        background: rgb(14, 20, 20, 0.5);
+      }
+
+    /* Make the images invisible by default */
+    .Containers {
+      display: none;
+    }
+    /* Caption Info */
+    .Info {
+        color: #000000;
+        font-size: 16px;
+        /* padding: 10px 14px; */
+        position: absolute;
+        top: -30px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .mediaC{
+        display: flex;
+        /* flex-direction: column; */
+        position:relative;
+        top:55px;
+        /* Keep pics centered */
+          margin-left: auto;
+          margin-right: auto;
+        max-width: 1000px;
+
+      }
+
+
+@-webkit-keyframes fade {
+  from {opacity: 0.1}
+  to {opacity: 2}
+}
+
+@keyframes fade {
+  from {opacity: 0.1}
+  to {opacity: 2}
+}
