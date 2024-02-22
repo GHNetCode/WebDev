@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <!-- <meta http-equiv="Permissions-Policy" content="interest-cohort()"> -->
+ 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | IP Address Tracker</title>
+
+   <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <p id="resizeInnerW"><span>&nbsp;</span>-</p>
+  <main id="mainPage">
+      <div id="backGrndPic"></div>
+        <div id="cntr1">
+            <!-- <H4 id="H4a">IP Address Tracker</H4> -->
+            <p id="ipAdrTitle">IP Address Tracker</p>
+            <div id="srchBarCnt1">
+                <div id="srchBarFld">
+                  <button id="srchBarFldBtn" title="Btn"></button>
+                  <img id="iconArrowBtn" src="./images/icon-arrow.svg" alt="icon-arrow.svg">
+                    <input id="srchInpTxt" type="text" placeholder="Search for any IP address or domain">
+                    <span id="btnArrHvr"></span>
+                    <span id="btnArrHvrMASK"></span>
+                </div>
+            </div>
+            <div id="srchBarResCnt1">
+                <div id="ipBox1" class="cnt1Boxes"> 
+                  <p id="sBRCiPaDDLbl" class="cntBxLbls">IP ADDRESS</p>
+                  <p id="sBRCiPaDD">127.0.0.1</p>
+                </div>
+                <div id="locBox2" class="cnt1Boxes">
+                  <p id="sBRCLocLbl" class="cntBxLbls">LOCATION</p>
+                  <p id="sBRCLoc">City,Country <img id="sBRCLocFlag" src="./images/WhiteFlag.png" alt="flags"></p>
+                </div>
+                <div id="timezBox3" class="cnt1Boxes">
+                  <p id="sBRCtimeZLbl" class="cntBxLbls">TIMEZONE</p><!-- add offset value dynamically using the API -->
+                  <p id="sBRCtimeZ">UTC -00:00 (Local Time)</p>
+                </div>
+                <div id="ispBox4" class="cnt1Boxes">
+                  <p id="sBRCiSPLbl" class="cntBxLbls">ISP</p>
+                  <p id="sBRCiSP">Internet Service Provider</p>
+                </div>
+              </div>
+      </div>
+      <div id="cntr2">
+        <img id="HereApiMapMble" src="./images/earthMoon3a.jpg" alt="earthMoon3a.png">
+        <img id="HereApiMapDskt" src="./images/earthMlkyWDesktopv2.jpg" alt="earthMlkyWDesktopv2.jpg">
+      </div>
+  </main>
+  <footer id="attribution">
+    Challenge by &nbsp;<a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>
+    &nbsp;&nbsp;Coded by&nbsp;&nbsp<a href="#">Mark</a>
+  </footer> 
+  <script src="./script.js"></script>
+</body>
+</html>
